@@ -21,7 +21,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="176dp"
         android:gravity="center"
-        android:text="Co-Star"
+        android:text="COCO - STAR"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
