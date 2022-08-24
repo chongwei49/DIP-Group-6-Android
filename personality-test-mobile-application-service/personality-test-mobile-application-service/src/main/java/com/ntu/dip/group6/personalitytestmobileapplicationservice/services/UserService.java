@@ -5,8 +5,11 @@ import com.ntu.dip.group6.personalitytestmobileapplicationservice.repositories.U
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -19,11 +22,13 @@ public class UserService {
     }
 
     public void addNewUser(User user) {
-        User newUser = new User(user.getName(), user.getEmail(), user.getPassword(), user.getPhone_number(), user.getDate_of_birth());
+        UUID uuid = UUID.randomUUID();
+        String userID = uuid.toString();
+        User newUser = new User(userID, user.getName(), user.getEmail(), user.getPassword(), user.getPhone_number(), user.getDate_of_birth());
         userRepository.save(newUser);
     }
 
-    public void editUser(Integer userID, User updatedUser) {
+    public void editUser(String userID, User updatedUser) {
         User user = userRepository.findById(userID).get();
         user.setName(updatedUser.getName());
         user.setEmail(updatedUser.getEmail());
@@ -33,7 +38,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void deleteUser(Integer userID) {
+    public void deleteUser(String userID) {
         userRepository.deleteById(userID);
     }
 }

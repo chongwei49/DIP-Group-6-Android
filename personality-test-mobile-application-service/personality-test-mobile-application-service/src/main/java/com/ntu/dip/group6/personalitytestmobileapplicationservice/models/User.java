@@ -12,9 +12,9 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="userID")
-    private int userID;
+    private String userID;
+
     private String name;
     private String email;
     private String password;
@@ -24,7 +24,8 @@ public class User {
     public User() {
 
     }
-    public User(String name, String email, String password, String phoneNumber, String DOB) {
+    public User(String userID, String name, String email, String password, String phoneNumber, String DOB) {
+        this.userID = userID;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -32,11 +33,11 @@ public class User {
         this.date_of_birth = DOB;
     }
 
-    public Integer getUserID() {
+    public String getUserID() {
         return this.userID;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
