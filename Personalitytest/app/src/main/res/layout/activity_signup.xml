@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Signup">
 
     <TextView
         android:id="@+id/topbackground"
@@ -20,7 +21,7 @@
         android:layout_marginTop="60dp"
         android:text="Sign Up"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="#90ffffff"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +39,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:id="@+id/backicon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="58dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
 
     <TextView
         android:id="@+id/btmbackground"
@@ -48,15 +59,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/backicon"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="58dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backicon2" />
 
     <TextView
         android:id="@+id/textView"
@@ -78,6 +80,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textSize="17sp"
+        android:textColor="#60000000"
         android:text="Birth Date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -109,6 +112,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textSize="17sp"
+        android:textColor="#60000000"
         android:text="Birth Time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"  />
@@ -132,5 +136,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="445dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="17sp"
+        android:textColor="#60000000"
+        android:text="Birth Place"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="475dp"
+        app:boxBackgroundMode="none"
+        android:background="#70ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/birthplace"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="475dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
