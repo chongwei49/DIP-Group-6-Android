@@ -21,17 +21,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = findViewById(R.id.nextbtn);
-        button.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 emailactivity();
             }
 
         });
 
-        public void emailacitivty() {
-
-        }
 
         videoView = findViewById(R.id.seaVid);
         Uri uri=Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.costar);
@@ -44,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.setLooping(true);
             }
         });
+    }
+
+    public void emailactivity() {
+        Intent intent = new Intent(this, Email.class);
+        startActivity(intent);
     }
 
     @Override
