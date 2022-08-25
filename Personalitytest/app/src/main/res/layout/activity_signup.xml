@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/signuptitle"
+        android:id="@+id/signUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/nextbtn"
+        android:id="@+id/signupBtn"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
-        android:id="@+id/backicon"
+        android:id="@+id/signUpBck"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="13dp"
@@ -61,7 +61,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/signUpText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/birthDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="215dp"
@@ -97,7 +97,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/birthdate"
+        android:id="@+id/birthDateInput"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="245dp"
@@ -105,7 +105,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/birthTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="325dp"
@@ -129,7 +129,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/birthtime"
+        android:id="@+id/birthTimeInput"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="355dp"
@@ -137,7 +137,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/birthPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="445dp"
@@ -161,7 +161,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/birthplace"
+        android:id="@+id/birthPlaceInput"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="475dp"

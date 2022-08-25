@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/costar"
         android:layout_width="246dp"
         android:layout_height="61dp"
         android:layout_marginTop="140dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Subtitle"
+        android:id="@+id/subtitle"
         android:layout_width="246dp"
         android:layout_height="22dp"
         android:layout_marginTop="200dp"
