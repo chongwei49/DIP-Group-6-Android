@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalityTest">
         <activity
+            android:name=".Friends_Page"
+            android:exported="false" />
+        <activity
             android:name=".Username"
             android:exported="false" />
         <activity

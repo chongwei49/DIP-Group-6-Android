@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Personality test</string>
 
-    <string-array name="countries_array"/>
+    <string-array name="countries_array" />
     <item>Afghanistan</item>
     <item>Albania</item>
     <item>Algeria</item>
