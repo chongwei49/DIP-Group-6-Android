@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Username">
+    tools:context=".Name">
 
     <TextView
         android:id="@+id/topbackground"
@@ -56,7 +56,7 @@
         android:layout_marginTop="125dp"
         android:layout_marginLeft="30dp"
         android:textSize="20sp"
-        android:text="Choose a username"
+        android:text="Enter your name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -79,17 +79,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/usernameText2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="10dp"
-        android:textSize="17sp"
-        android:text="Letters, numbers and underscore only"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/usernameBck"
