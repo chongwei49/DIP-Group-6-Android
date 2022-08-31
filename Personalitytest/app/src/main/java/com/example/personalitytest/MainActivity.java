@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                emailactivity();
+                birthplaceactivity();
             }
         });
 
@@ -44,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void emailactivity() {
         Intent intent = new Intent(this, Email.class);
+        startActivity(intent);
+    }
+
+    public void birthplaceactivity() {
+        Intent intent = new Intent(this, BirthPlace.class);
         startActivity(intent);
     }
 
