@@ -1,0 +1,51 @@
+﻿priId,qnId,qnCategory,qns,answer,traits
+1,1,16Personalities,"I dislike small talk, but I enjoy talking in-depth about topics that matter to me.",1,Introvert
+2,1,16Personalities,"I dislike small talk, but I enjoy talking in-depth about topics that matter to me.",0,Extrovert
+3,2,16Personalities,You regularly make new friends.,1,Extrovert
+4,2,16Personalities,You regularly make new friends.,0,Introvert
+5,3,16Personalities,"At social events, you rarely try to introduce yourself to new people and mostly talk to the ones you already know.",1,Introvert
+6,3,16Personalities,"At social events, you rarely try to introduce yourself to new people and mostly talk to the ones you already know.",0,Extrovert
+7,4,16Personalities,I prefer to celebrate my birthday with a big party and invite lots of friends,1,Extrovert
+8,4,16Personalities,I prefer to celebrate my birthday with a big party and invite lots of friends,0,Introvert
+9,5,16Personalities,I prefer one-on-one conversations to group activities.,1,Introvert
+10,5,16Personalities,I prefer one-on-one conversations to group activities.,0,Extrovert
+11,6,16Personalities,Are you more spontaneous than certain?,1,Prospecting
+12,6,16Personalities,Are you more spontaneous than certain?,0,Judging
+13,7,16Personalities,Are you the type to always keep their options open?,1,Prospecting
+14,7,16Personalities,Are you the type to always keep their options open?,0,Judging
+15,8,16Personalities,Are you comfortable facing unexpected challenges?,1,Prospecting
+16,8,16Personalities,Are you comfortable facing unexpected challenges?,0,Judging
+17,9,16Personalities,"When having a conversation, do you prefer multiple topics to just a few?",1,Prospecting
+18,9,16Personalities,"When having a conversation, do you prefer multiple topics to just a few?",0,Judging
+19,10,16Personalities,"Are you more of a ""stick with the plan"" person than ""go with the flow"" person?",1,Prospecting
+20,10,16Personalities,"Are you more of a ""stick with the plan"" person than ""go with the flow"" person?",0,Judging
+21,11,16Personalities,Are you a traditional person?,1,Observant
+22,11,16Personalities,Are you a traditional person?,0,Intuitive
+23,12,16Personalities,"In your head, are you MOSTLY living in the moment or in the future?",1,Observant
+24,12,16Personalities,"In your head, are you MOSTLY living in the moment or in the future?",0,Intuitive
+25,13,16Personalities,"When you think of a solution to any complex problem, would you rather be practical or creative?",1,Observant
+26,13,16Personalities,"When you think of a solution to any complex problem, would you rather be practical or creative?",0,Intuitive
+27,14,16Personalities,Are you a literal person or do you consider yourself “metaphorical”?,1,Observant
+28,14,16Personalities,Are you a literal person or do you consider yourself “metaphorical”?,0,Intuitive
+29,15,16Personalities,"You store the most random, non-essential facts among your friends?",1,Observant
+30,15,16Personalities,"You store the most random, non-essential facts among your friends?",0,Intuitive
+31,16,16Personalities,"I deem myself as vulnerable(eg. easily anxious, impulsive)?",1,Turbulent
+32,16,16Personalities,"I deem myself as vulnerable(eg. easily anxious, impulsive)?",0,Assertive
+33,17,16Personalities,I am resistant to stress and even-tempered?,1,Assertive
+34,17,16Personalities,I am resistant to stress and even-tempered?,0,Turbulent
+35,18,16Personalities,I am decisive.,1,Assertive
+36,18,16Personalities,I am decisive.,0,Turbulent
+37,19,16Personalities,I do not care what other people think of me.,1,Assertive
+38,19,16Personalities,I do not care what other people think of me.,0,Turbulent
+39,20,16Personalities,I find myself needing to withdraw during busy days.,1,Turbulent
+40,20,16Personalities,I find myself needing to withdraw during busy days.,0,Assertive
+41,21,16Personalities,Seeing other people cry can easily make you feel like you want to cry too.,1,Feeling
+42,21,16Personalities,Seeing other people cry can easily make you feel like you want to cry too.,0,Thinking
+43,22,16Personalities,You are very sentimental,1,Feeling
+44,22,16Personalities,You are very sentimental,0,Thinking
+45,23,16Personalities,You will try to find solutions when your friends tell you their story about relationship,1,Thinking
+46,23,16Personalities,You will try to find solutions when your friends tell you their story about relationship,0,Feeling
+47,24,16Personalities,You are more inclined to follow your head than your heart.,1,Thinking
+48,24,16Personalities,You are more inclined to follow your head than your heart.,0,Feeling
+49,25,16Personalities,Your mood can change very quickly.,1,Feeling
+50,25,16Personalities,Your mood can change very quickly.,0,Thinking
