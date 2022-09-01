@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Password">
 
+
     <TextView
         android:id="@+id/topbackground"
         android:layout_width="match_parent"
@@ -14,35 +15,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/passwordBtn"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_marginHorizontal="325dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#0096A6B6"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#274151"
         android:text="ADD"
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/btmbackground"
         android:layout_width="match_parent"
         android:layout_height="793dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="92dp"
         android:background="#96A6B6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/passwordBck"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
@@ -51,10 +53,700 @@
         android:id="@+id/button"
         android:layout_width="267dp"
         android:layout_height="53dp"
-        android:background="@drawable/search_bar"
+        android:backgroundTint="#8144677C"
         android:text="SEARCH"
         android:textAlignment="viewStart"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/btmbackground"
+        app:layout_constraintEnd_toStartOf="@+id/passwordBtn"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toEndOf="@+id/passwordBck"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.769" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="83dp"
+        android:layout_height="76dp"
+        android:layout_marginEnd="-50dp"
+        android:fontFamily="@font/alata"
+        android:rotation="-90"
+        android:text="Quick Add"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toStartOf="@+id/horizontalScrollView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbackground">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="368dp"
+        android:layout_height="291dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.086"
+        app:srcCompat="@drawable/rectangle_2" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
+        android:layout_width="362dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@android:color/transparent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="70dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="0dp"
+                        app:srcCompat="@drawable/profile_pic_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="Amelia"
+                        android:textSize="10sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/alata"
+                        android:text="@ahmeliah"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="italic"
+                        />
+
+                    <Button
+                        android:id="@+id/AddBtnFriend"
+                        android:layout_width="31dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="6dp"
+                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/alata"
+                        android:padding="0dp"
+                        android:text="ADD"
+                        android:textSize="5sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/alata"
+            android:letterSpacing="0.03"
+            android:text="Friends"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="367dp"
+        android:layout_height="419dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/alata"
+                android:text="A"
+                android:textSize="16sp"
+                />
+
+            <ImageView
+                android:id="@+id/corner"
+                :layout_margin="0dp"
+                android:layout_width="367dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                app:srcCompat="@drawable/path_1" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="403dp"
+        android:layout_height="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rectangle_4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

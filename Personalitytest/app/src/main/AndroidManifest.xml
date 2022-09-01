@@ -17,7 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".Friends_Page"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Signup"
             android:exported="false" />
