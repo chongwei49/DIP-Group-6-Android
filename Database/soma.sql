@@ -10,9 +10,9 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- database creation with name `Co-Star`
-create database if not exists costar;
-use costar;
+-- database creation with name `Soma`
+create database if not exists soma;
+use soma;
 
 --
 -- Table structure for table `user`
