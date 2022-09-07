@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/topbackground"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#274151"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btmbackground"
+        android:layout_width="match_parent"
+        android:layout_height="793dp"
+        android:layout_marginTop="84dp"
+        android:background="#96A6B6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="53dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:text="b"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alata"
+        android:text="User"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/alata"
+        android:text="username (you)"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/alata"
+        android:text="Capricorn"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/alata"
+        android:text="Taurus"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/alata"
+        android:text="Taurus"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Updates"
+        android:backgroundTint="#274151"
+        android:fontFamily="@font/alata"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="109dp" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chart"
+        android:fontFamily="@font/alata"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="109dp" />
+
+    <Button
+        android:id="@+id/button4"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:fontFamily="@font/alata"
+        tools:layout_editor_absoluteX="294dp"
+        tools:layout_editor_absoluteY="109dp" />
+
+
+    <Button
+        android:id="@+id/button7"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="16"
+        android:textSize="20sp"
+        android:fontFamily="@font/alata"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <Button
+        android:id="@+id/button9"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:text="18"
+        android:textSize="20sp"
+        android:fontFamily="@font/alata"
+        tools:layout_editor_absoluteX="342dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <Button
+        android:id="@+id/button6"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="59dp"
+        android:layout_height="48dp"
+        android:text="15"
+        android:textSize="20sp"
+        android:fontFamily="@font/alata"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <Button
+        android:id="@+id/button5"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="57dp"
+        android:layout_height="47dp"
+        android:text="14"
+        android:textSize="20sp"
+        android:fontFamily="@font/alata"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <Button
+        android:id="@+id/button8"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:text="17"
+        android:textSize="20sp"
+        android:fontFamily="@font/alata"
+        tools:layout_editor_absoluteX="266dp"
+        tools:layout_editor_absoluteY="207dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
+        android:text="Sun"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mon"
+        android:fontFamily="@font/alata"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tue"
+        android:fontFamily="@font/alata"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wed"
+        android:fontFamily="@font/alata"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="276dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thurs"
+        android:fontFamily="@font/alata"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="349dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Good evening, User! \n\n Today"
+        android:textSize="20sp"
+        android:fontFamily="@font/alata"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="81dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground"
+        app:srcCompat="@drawable/user" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="16dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground"
+        app:srcCompat="@drawable/circle_outline_with_a_central_dot" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="16dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground"
+        app:srcCompat="@drawable/moon" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground"
+        app:srcCompat="@drawable/up_arrow" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="26dp"
+        android:layout_height="25dp"
+        app:srcCompat="@drawable/plant"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="27dp"
+        android:layout_height="29dp"
+        app:srcCompat="@drawable/light_bulb"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="396dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/no_entry"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="490dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
+        android:text="You can be broken with healthy heart \n aspirations"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="389dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Power in thinking and creativity, \n spirituality and social life"
+        android:textSize="15sp"
+        android:fontFamily="@font/alata"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trouble with routine, love and self"
+        android:textSize="15sp"
+        android:fontFamily="@font/alata"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="501dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
+        android:text="You feel scared. Instead of being an impenetrable shield, \n try blazing a new trail.
+        \n Acting grumpy only reveals the loops that keep you from \n moving forward."
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="554dp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
+        android:text="WAS THIS USEFUL?"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="672dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        app:srcCompat="@drawable/thumbs_up"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="674dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="21dp"
+        android:layout_height="22dp"
+        app:srcCompat="@drawable/negative_vote"
+        tools:layout_editor_absoluteX="195dp"
+        tools:layout_editor_absoluteY="674dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
