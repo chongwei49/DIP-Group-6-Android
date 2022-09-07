@@ -3,7 +3,7 @@ import csv
 with open('QuizQns.csv') as f:
     reader = csv.reader(f, delimiter=',')
     line_count = 0
-    a = "INSERT INTO questions (priId, qnId, qnCategory, qns, answer, traits) VALUES\n"
+    a = "INSERT INTO questions (`priId`, `qnId`, `qnCategory`, `qns`, `answer`, `traits`) VALUES\n"
     for row in reader:
         if line_count == 0:
             print("columns")
