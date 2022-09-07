@@ -728,7 +728,7 @@
 
             <ImageView
                 android:id="@+id/corner"
-                :layout_margin="0dp"
+                android:layout_margin="0dp"
                 android:layout_width="367dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="3dp"
