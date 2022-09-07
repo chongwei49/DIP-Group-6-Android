@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     VideoView videoView;
     private Button button;
+    private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 emailactivity();
+            }
+        });
+
+        button2 = (Button) findViewById(R.id.loginBtn);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginactivity();
             }
         });
 
@@ -47,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void birthplaceactivity() {
-        Intent intent = new Intent(this, BirthPlace.class);
+    public void loginactivity() {
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 
