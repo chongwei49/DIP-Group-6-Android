@@ -14,18 +14,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/emailBtn"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="325dp"
-        android:backgroundTint="#96A6B6"
-        android:background="@drawable/back"
-        android:textColor="@color/white"
-        android:textSize="12sp"
+    <ImageView
+        android:id="@+id/loginBck"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="58dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
 
 
     <TextView

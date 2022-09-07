@@ -11,6 +11,7 @@ import android.widget.ImageView;
 public class Email extends AppCompatActivity {
 
     private ImageView backimage;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,23 @@ public class Email extends AppCompatActivity {
                 backmainactivity();
             }
         });
+
+        button = (Button) findViewById(R.id.emailBtn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameactivity();
+            }
+        });
     }
 
     public void backmainactivity() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void nameactivity() {
+        Intent intent = new Intent(this, Name.class);
         startActivity(intent);
     }
 }

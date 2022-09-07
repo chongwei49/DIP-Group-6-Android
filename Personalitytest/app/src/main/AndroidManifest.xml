@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalityTest">
         <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
             android:name=".userupdates"
             android:exported="false" />
         <activity

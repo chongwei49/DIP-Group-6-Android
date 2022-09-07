@@ -43,7 +43,7 @@
     <TextView
         android:id="@+id/btmbackground"
         android:layout_width="match_parent"
-        android:layout_height="793dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="100dp"
         android:background="#96A6B6"
         app:layout_constraintStart_toStartOf="parent"
