@@ -7,7 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/v2/questions")
+@RestController
+@RequestMapping("/api/v2/questions")
 public class QuestionController {
 
     @Autowired
@@ -25,13 +26,13 @@ public class QuestionController {
     }
 
     @PutMapping("/{questionID}")
-    public ResponseEntity<String> editQuestion(@PathVariable String questionID, @RequestBody Question updatedQuestion) {
+    public ResponseEntity<String> editQuestion(@PathVariable Integer questionID, @RequestBody Question updatedQuestion) {
         questionService.editQuestion(questionID, updatedQuestion);
         return new ResponseEntity<>("Question has been successfully updated.", HttpStatus.OK);
     }
 
     @DeleteMapping("/{questionID}")
-    public ResponseEntity<String> deleteQuestion(@PathVariable String questionID) {
+    public ResponseEntity<String> deleteQuestion(@PathVariable Integer questionID) {
         questionService.deleteQuestion(questionID);
         return new ResponseEntity<>("Question has been successfully deleted.", HttpStatus.OK);
     }

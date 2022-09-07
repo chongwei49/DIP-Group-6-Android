@@ -10,5 +10,6 @@
         <module name="com.ntu.dip.group-6.personality-test-mobile-application-service.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>

@@ -18,23 +18,21 @@ public class QuestionService {
     }
 
     public void addNewQuestion(Question question) {
-        UUID uuid = UUID.randomUUID();
-        String questionID = uuid.toString();
-        Question newQuestion = new Question(questionID, question.getQuestionCategory(), question.getQuestion(), question.getAnswer(), question.getTraits());
+        Question newQuestion = new Question(question.getQnId(), question.getQnCategory(), question.getQns(), question.getAnswer(), question.getTraits());
         questionRepository.save(newQuestion);
     }
 
-    public void editQuestion(String questionID, Question updatedQuestion) {
+    public void editQuestion(Integer questionID, Question updatedQuestion) {
         Question question = questionRepository.findById(questionID).get();
-        question.setQuestionCategory(updatedQuestion.getQuestionCategory());
-        question.setQuestion(updatedQuestion.getQuestion());
+        question.setQnCategory(updatedQuestion.getQnCategory());
+        question.setQns(updatedQuestion.getQns());
         question.setAnswer(updatedQuestion.getAnswer());
         question.setTraits(updatedQuestion.getTraits());
 
         questionRepository.save(question);
     }
 
-    public void deleteQuestion(String questionID) {
+    public void deleteQuestion(Integer questionID) {
         questionRepository.deleteById(questionID);
     }
 }

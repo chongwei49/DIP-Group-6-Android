@@ -3,8 +3,10 @@ package com.ntu.dip.group6.personalitytestmobileapplicationservice.models;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
+import java.security.AuthProvider;
 
 @Entity
 @Data
@@ -12,33 +14,33 @@ import javax.persistence.*;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="userID")
-    private String userID;
-
+    private Integer userId;
     private String name;
     private String email;
+    private String username;
     private String password;
-    private String phone_number;
-    private String date_of_birth;
+    private String dob;
+
 
     public User() {
-
     }
-    public User(String userID, String name, String email, String password, String phoneNumber, String DOB) {
-        this.userID = userID;
+
+    public User( String name, String email, String username, String password, String DOB) {
         this.name = name;
         this.email = email;
+        this.username = username;
         this.password = password;
-        this.phone_number = phoneNumber;
-        this.date_of_birth = DOB;
+        this.dob = DOB;
     }
 
-    public String getUserID() {
-        return this.userID;
+    public Integer getUserId() {
+        return this.userId;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUserId(Integer userID) {
+        this.userId = userID;
     }
 
     public String getName() {
@@ -57,6 +59,10 @@ public class User {
         this.email = email;
     }
 
+    public String getUsername() { return this.username; }
+
+    public void setUsername(String username) { this.username = username; }
+
     public String getPassword() {
         return this.password;
     }
@@ -65,19 +71,11 @@ public class User {
         this.password = password;
     }
 
-    public String getPhone_number() {
-        return this.phone_number;
+    public String getDob() {
+        return this.dob;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
-    }
-
-    public String getDate_of_birth() {
-        return this.date_of_birth;
-    }
-
-    public void setDate_of_birth(String date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 }

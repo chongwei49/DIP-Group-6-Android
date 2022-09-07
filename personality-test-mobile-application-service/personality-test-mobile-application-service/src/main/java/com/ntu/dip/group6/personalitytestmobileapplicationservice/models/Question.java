@@ -8,57 +8,56 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name = "question")
 public class Question {
 
     @Id
-    private String questionID;
-
-    private String questionCategory;
-    private String question;
-    private String answer;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer priId;
+    private Integer qnId;
+    private String qnCategory;
+    private String qns;
+    private boolean answer;
     private String traits;
 
     public Question() {
 
     }
-
-    public Question (String questionID, String questionCategory, String question, String answer, String traits) {
-        this.questionID = questionID;
-        this.questionCategory = questionCategory;
-        this.question = question;
+    public Question (Integer qnId, String qnCategory, String qns, boolean answer, String traits) {
+        this.qnId = qnId;
+        this.qnCategory = qnCategory;
+        this.qns = qns;
         this.answer = answer;
         this.traits = traits;
     }
 
-    public String getQuestionID() {
-        return this.questionID;
+    public Integer getQnId() {
+        return this.qnId;
     }
 
-    public void setQuestionID(String questionID) {
-        this.questionID = questionID;
+    public void setQnId(Integer qnId) {
+        this.qnId = qnId;
     }
 
-    public String getQuestionCategory() {
-        return this.questionCategory;
+    public String getQnCategory() {
+        return this.qnCategory;
     }
 
-    public void setQuestionCategory(String questionCategory) {
-        this.questionCategory = questionCategory;
+    public void setQnCategory(String questionCategory) {
+        this.qnCategory = qnCategory;
     }
 
-    public String getQuestion() {
-        return this.question;
+    public String getQns() {
+        return this.qns;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQns(String question) {
+        this.qns = qns;
     }
 
-    public String getAnswer() {
-        return this.answer;
-    }
+    public boolean getAnswer() { return this.answer; }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(boolean answer) {
         this.answer = answer;
     }
 

@@ -24,21 +24,21 @@ public class UserService {
     public void addNewUser(User user) {
         UUID uuid = UUID.randomUUID();
         String userID = uuid.toString();
-        User newUser = new User(userID, user.getName(), user.getEmail(), user.getPassword(), user.getPhone_number(), user.getDate_of_birth());
+        User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), user.getPassword(), user.getDob());
         userRepository.save(newUser);
     }
 
-    public void editUser(String userID, User updatedUser) {
+    public void editUser(Integer userID, User updatedUser) {
         User user = userRepository.findById(userID).get();
         user.setName(updatedUser.getName());
         user.setEmail(updatedUser.getEmail());
+        user.setUsername(updatedUser.getUsername());
         user.setPassword(updatedUser.getPassword());
-        user.setDate_of_birth(updatedUser.getDate_of_birth());
-        user.setPhone_number(updatedUser.getPhone_number());
+        user.setDob(updatedUser.getDob());
         userRepository.save(user);
     }
 
-    public void deleteUser(String userID) {
+    public void deleteUser(Integer userID) {
         userRepository.deleteById(userID);
     }
 }
