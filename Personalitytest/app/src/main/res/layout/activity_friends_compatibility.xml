@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/topbackground"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#274151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btmbackground"
+        android:layout_width="match_parent"
+        android:layout_height="793dp"
+        android:layout_marginTop="92dp"
+        android:background="#96A6B6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/alata"
+        android:text="Amelia"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/alata"
+        android:text=" @ahmeliah"
+        android:textColor="#9FA0A2"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="58dp"
+        android:fontFamily="@font/alata"
+        android:text="Virgo"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="58dp"
+        android:fontFamily="@font/alata"
+        android:text="Leo"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="58dp"
+        android:fontFamily="@font/alata"
+        android:text="Taurus"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+
+
+    <Button
+        android:id="@+id/chartstoupdates"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/alata"
+        android:text="Updates"
+        app:layout_constraintEnd_toStartOf="@+id/chartstosettings"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#274151"
+        android:fontFamily="@font/alata"
+        android:text="Compatibilty"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toStartOf="@+id/chartstoupdates"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/chartstosettings"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/alata"
+        android:text="Settings"
+        app:layout_constraintEnd_toEndOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="81dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground"
+        app:srcCompat="@drawable/user" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="16dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground"
+        app:srcCompat="@drawable/circle_dot_white" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="16dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="62dp"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/topbackground"
+        app:srcCompat="@drawable/moon_white" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="62dp"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/topbackground"
+        app:srcCompat="@drawable/up_arrow_white" />
+
+    <ImageView
+        android:id="@+id/chartsback"
+        android:layout_width="20dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_width="397dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentTop="true"
+        android:background="#274151"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chartstoupdates"
+        app:layout_constraintVertical_bias="0.562" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
+        android:layout_height="526dp"
+        app:layout_constraintTop_toBottomOf="@+id/divider">
+
+        <RelativeLayout
+            android:id="@+id/compatibility"
+            android:layout_width="match_parent"
+            android:layout_height="526dp"
+
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btmbackground"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chartstoupdates"
+            app:layout_constraintVertical_bias="0.422">
+
+            <TextView
+                android:id="@+id/Today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="17dp"
+                android:layout_marginLeft="3dp"
+
+                android:fontFamily="@font/alata"
+                android:letterSpacing="0.03"
+                android:text="Today"
+                android:textAllCaps="false"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/compatibilityHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider2"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="17dp"
+
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/alata"
+                android:letterSpacing="0.03"
+                android:text="Compatability"
+                android:textAllCaps="false"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Date"
+                android:layout_width="86dp"
+                android:layout_height="24dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="top"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="224dp"
+                android:layout_toEndOf="@+id/Today"
+                android:textColor="#E0E4E8"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/ForTheDay"
+                android:layout_width="376dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="51dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="2dp"
+                android:text="User, you have the remarkable ability to play the game,
+and Amelia can withstand imperfection. You two can
+think of possibilities beyond mundane reality. Specific
+questions or requests for clarification is not aggressive,
+but a sign that they do not feel sure about your point of
+view. Come up with a strategy together."
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/Useful"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="134dp"
+                android:fontFamily="@font/alata"
+                android:letterSpacing="0.03"
+                android:text="WAS THIS USEFUL?"
+                android:textAllCaps="false"
+                android:textColor="#676767"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/Good"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="137dp"
+                android:layout_toEndOf="@+id/Useful"
+                android:rotation="180"
+                app:srcCompat="@drawable/negative_vote" />
+
+            <ImageView
+                android:id="@+id/bad"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="137dp"
+                android:layout_marginEnd="235dp"
+                android:layout_toEndOf="@+id/Good"
+                app:srcCompat="@drawable/negative_vote" />
+
+            <TextView
+                android:id="@+id/divider2"
+                android:layout_width="397dp"
+                android:layout_height="3dp"
+                android:layout_below="@+id/bad"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="7dp"
+                android:background="#274151" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
