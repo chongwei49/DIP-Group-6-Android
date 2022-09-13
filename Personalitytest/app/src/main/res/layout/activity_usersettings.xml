@@ -28,6 +28,8 @@
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="381dp"
         android:layout_height="46dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="91dp"
         android:ems="10"
         android:fontFamily="@font/alata"
         android:gravity="right"
@@ -35,44 +37,52 @@
         android:text="Username"
         android:textAlignment="gravity"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="191dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="105dp"
         android:fontFamily="@font/alata"
+        android:text="Username"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="205dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/alata"
         android:text="Settings"
         android:textColor="@color/white"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="28dp" />
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/settingsdone"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
         android:text="DONE"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="28dp" />
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="381dp"
         android:layout_height="46dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:fontFamily="@font/alata"
         android:gravity="right"
@@ -80,146 +90,174 @@
         android:text="Name"
         android:textAlignment="gravity"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="136dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="378dp"
         android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
         android:ems="10"
         android:inputType="phone"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="250dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone Number"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="164dp"
         android:fontFamily="@font/alata"
+        android:text="Phone Number"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="264dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile Photo"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="216dp"
         android:fontFamily="@font/alata"
+        android:text="Profile Photo"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="316dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="YOU"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="365dp"
         android:fontFamily="@font/alata"
+        android:text="YOU"
         android:textColor="@color/white"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="109dp" />
+        app:layout_constraintEnd_toEndOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="264dp"
         android:fontFamily="@font/alata"
         android:text="CHART"
         android:textColor="@color/white"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="364dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="47dp"
         android:fontFamily="@font/alata"
+        android:text="Name"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="147dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="407dp"
+        android:layout_marginEnd="318dp"
         android:fontFamily="@font/alata"
         android:text="Birth Date"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="407dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="DuplicateIds" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="458dp"
+        android:layout_marginEnd="318dp"
         android:fontFamily="@font/alata"
         android:text="Birth Time"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="458dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="299dp"
         android:fontFamily="@font/alata"
         android:text="Birth Place"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="515dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPostalAddress"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPostalAddress"
         tools:ignore="DuplicateIds" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="43dp"
         android:layout_height="40dp"
-        app:srcCompat="@drawable/user"
-        tools:layout_editor_absoluteX="352dp"
-        tools:layout_editor_absoluteY="306dp" />
+        android:layout_marginStart="352dp"
+        android:layout_marginTop="206dp"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground"
+        app:srcCompat="@drawable/user" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="375dp"
         android:layout_height="38dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="300dp"
         android:ems="10"
         android:inputType="date"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="400dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <EditText
         android:id="@+id/editTextTime"
         android:layout_width="374dp"
         android:layout_height="30dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="358dp"
         android:ems="10"
         android:inputType="time"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="458dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <EditText
         android:id="@+id/editTextTextPostalAddress"
         android:layout_width="371dp"
         android:layout_height="37dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="407dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="507dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOG OUT"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="469dp"
         android:backgroundTint="#274151"
         android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="569dp" />
+        android:text="LOG OUT"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

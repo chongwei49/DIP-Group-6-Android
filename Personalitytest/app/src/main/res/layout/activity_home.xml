@@ -12,19 +12,7 @@
         android:layout_height="70dp"
         android:background="#274151"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/chartBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="20dp"
-        android:text="Chart"
-        android:textSize="17dp"
-        android:textColor="#80ffffff"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/hometitle"
@@ -58,7 +46,7 @@
         android:layout_marginTop="70dp"
         android:background="#96A6B6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/welcome"
@@ -72,5 +60,21 @@
         android:textColor="#80ffffff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/chartBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="311dp"
+        android:layout_marginBottom="793dp"
+        android:text="Chart"
+        android:textColor="#80ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/btmbackground"
+        app:layout_constraintEnd_toEndOf="@+id/topbackground"
+        app:layout_constraintStart_toStartOf="@+id/topbackground"
+        app:layout_constraintTop_toTopOf="@+id/topbackground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

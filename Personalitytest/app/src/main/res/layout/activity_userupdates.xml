@@ -12,6 +12,7 @@
         android:layout_height="100dp"
         android:background="#274151"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,17 +24,6 @@
         android:background="#96A6B6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="53dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="16dp"
-        android:text="b"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topbackground" />
 
     <TextView
         android:id="@+id/textView"
@@ -100,31 +90,37 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Updates"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="#274151"
         android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="109dp" />
+        android:text="Updates"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/updatestochart"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/alata"
         android:text="Chart"
-        android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="165dp"
-        tools:layout_editor_absoluteY="109dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/updatestosettings"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="109dp" />
+        android:text="Settings"
+        app:layout_constraintEnd_toEndOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
 
     <Button
@@ -132,116 +128,138 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="122dp"
+        android:fontFamily="@font/alata"
         android:text="16"
         android:textSize="20sp"
-        android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="206dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <Button
         android:id="@+id/button9"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="54dp"
         android:layout_height="47dp"
+        android:layout_marginStart="342dp"
+        android:layout_marginTop="122dp"
+        android:fontFamily="@font/alata"
         android:text="18"
         android:textSize="20sp"
-        android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="206dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <Button
         android:id="@+id/button6"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="59dp"
         android:layout_height="48dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="122dp"
+        android:fontFamily="@font/alata"
         android:text="15"
         android:textSize="20sp"
-        android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="206dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <Button
         android:id="@+id/button5"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="57dp"
         android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/alata"
         android:text="14"
         android:textSize="20sp"
-        android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="206dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <Button
         android:id="@+id/button8"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="54dp"
         android:layout_height="47dp"
+        android:layout_marginStart="266dp"
+        android:layout_marginTop="123dp"
+        android:fontFamily="@font/alata"
         android:text="17"
         android:textSize="20sp"
-        android:fontFamily="@font/alata"
-        tools:layout_editor_absoluteX="266dp"
-        tools:layout_editor_absoluteY="207dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="110dp"
         android:fontFamily="@font/alata"
         android:text="Sun"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mon"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="110dp"
         android:fontFamily="@font/alata"
+        android:text="Mon"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tue"
+        android:layout_marginStart="193dp"
+        android:layout_marginTop="110dp"
         android:fontFamily="@font/alata"
+        android:text="Tue"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="193dp"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wed"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="110dp"
         android:fontFamily="@font/alata"
+        android:text="Wed"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="276dp"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thurs"
+        android:layout_marginStart="349dp"
+        android:layout_marginTop="110dp"
         android:fontFamily="@font/alata"
+        android:text="Thurs"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="349dp"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Good evening, User! \n\n Today"
-        android:textSize="20sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="199dp"
         android:fontFamily="@font/alata"
+        android:text="Good evening, User! \n\n Today"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="283dp" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -287,96 +305,126 @@
         android:id="@+id/imageView9"
         android:layout_width="26dp"
         android:layout_height="25dp"
-        app:srcCompat="@drawable/plant"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="441dp" />
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="357dp"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground"
+        app:srcCompat="@drawable/plant" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="27dp"
         android:layout_height="29dp"
-        app:srcCompat="@drawable/light_bulb"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="396dp" />
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="312dp"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground"
+        app:srcCompat="@drawable/light_bulb" />
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="25dp"
         android:layout_height="30dp"
-        app:srcCompat="@drawable/no_entry"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="490dp" />
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="406dp"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground"
+        app:srcCompat="@drawable/no_entry" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="305dp"
         android:fontFamily="@font/alata"
         android:text="You can be broken with healthy heart \n aspirations"
         android:textColor="@color/white"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="389dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Power in thinking and creativity, \n spirituality and social life"
-        android:textSize="15sp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="357dp"
         android:fontFamily="@font/alata"
+        android:text=" Power in thinking and creativity, \n spirituality and social life"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="441dp" />
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Trouble with routine, love and self"
-        android:textSize="15sp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="417dp"
         android:fontFamily="@font/alata"
+        android:text="Trouble with routine, love and self"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="501dp" />
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="470dp"
         android:fontFamily="@font/alata"
         android:text="You feel scared. Instead of being an impenetrable shield, \n try blazing a new trail.
         \n Acting grumpy only reveals the loops that keep you from \n moving forward."
         android:textColor="@color/white"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="554dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="588dp"
         android:fontFamily="@font/alata"
         android:text="WAS THIS USEFUL?"
         android:textColor="@color/white"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="672dp" />
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="21dp"
         android:layout_height="21dp"
-        app:srcCompat="@drawable/thumbs_up"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="674dp" />
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="590dp"
+        app:layout_constraintStart_toStartOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground"
+        app:srcCompat="@drawable/thumbs_up" />
 
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="21dp"
         android:layout_height="22dp"
-        app:srcCompat="@drawable/negative_vote"
-        tools:layout_editor_absoluteX="195dp"
-        tools:layout_editor_absoluteY="674dp" />
+        android:layout_marginTop="590dp"
+        android:layout_marginEnd="195dp"
+        app:layout_constraintEnd_toEndOf="@+id/btmbackground"
+        app:layout_constraintTop_toTopOf="@+id/btmbackground"
+        app:srcCompat="@drawable/negative_vote" />
+
+    <ImageView
+        android:id="@+id/updatesback"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
