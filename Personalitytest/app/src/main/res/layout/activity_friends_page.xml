@@ -40,7 +40,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/passwordBck"
+        android:id="@+id/friendsBck"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="12dp"
@@ -60,7 +60,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btmbackground"
         app:layout_constraintEnd_toStartOf="@+id/passwordBtn"
         app:layout_constraintHorizontal_bias="0.55"
-        app:layout_constraintStart_toEndOf="@+id/passwordBck"
+        app:layout_constraintStart_toEndOf="@+id/friendsBck"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.769" />
 
