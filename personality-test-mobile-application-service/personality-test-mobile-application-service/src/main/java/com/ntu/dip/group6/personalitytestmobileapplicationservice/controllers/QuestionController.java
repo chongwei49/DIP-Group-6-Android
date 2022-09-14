@@ -14,12 +14,12 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<Object> getAllQuestions() {
         return new ResponseEntity<>(questionService.getAllQuestions(), HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<String> addNewQuestion(@RequestBody Question question) {
         questionService.addNewQuestion(question);
         return new ResponseEntity<>("Question has been successfully added.", HttpStatus.OK);

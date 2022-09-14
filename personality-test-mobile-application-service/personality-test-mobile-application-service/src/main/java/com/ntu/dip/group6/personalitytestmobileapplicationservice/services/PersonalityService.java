@@ -16,7 +16,7 @@ public class PersonalityService {
     }
 
     public void addNewPersonality(Personality personality) {
-        Personality newPersonality = new Personality(personality.getUserId(), personality.getQnCategory(), personality.getPersonalityType(), personality.getDatatime());
+        Personality newPersonality = new Personality(personality.getUserId(), personality.getQnCategory(), personality.getPersonalityType());
         personalityRepository.save(newPersonality);
     }
 
@@ -25,7 +25,6 @@ public class PersonalityService {
         personality.setUserId(updatedPersonality.getUserId());
         personality.setQnCategory(updatedPersonality.getQnCategory());
         personality.setPersonalityType(updatedPersonality.getPersonalityType());
-        personality.setDatatime(updatedPersonality.getPersonalityType());
 
         personalityRepository.save(personality);
     }

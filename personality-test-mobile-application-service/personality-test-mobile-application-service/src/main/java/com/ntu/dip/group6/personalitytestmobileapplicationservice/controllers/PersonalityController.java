@@ -14,12 +14,12 @@ public class PersonalityController {
     @Autowired
     PersonalityService personalityService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<Object> getAllPersonalities() {
         return new ResponseEntity<>(personalityService.getAllPersonalities(), HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<String> addNewPersonality(@RequestBody Personality personality) {
         personalityService.addNewPersonality(personality);
         return new ResponseEntity<>("Personality has been successfully added.", HttpStatus.OK);

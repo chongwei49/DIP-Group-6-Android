@@ -18,12 +18,12 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<Object> getAllUsers() {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<String> addNewUser(@RequestBody User user) {
         userService.addNewUser(user);
         return new ResponseEntity<>("User has been successfully added.", HttpStatus.OK);

@@ -10,7 +10,7 @@ import java.security.AuthProvider;
 
 @Entity
 @Data
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id

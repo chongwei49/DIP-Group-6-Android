@@ -1,11 +1,9 @@
 package com.ntu.dip.group6.personalitytestmobileapplicationservice.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "personality")
 public class Personality {
 
     @Id
@@ -14,15 +12,13 @@ public class Personality {
     private Integer userId;
     private String qnCategory;
     private String personalityType;
-    private String datatime;
 
     public Personality() {}
 
-    public Personality(Integer userId, String qnCategory, String personalityType, String datetime) {
+    public Personality(Integer userId, String qnCategory, String personalityType) {
         this.userId = userId;
         this.qnCategory = qnCategory;
         this.personalityType = personalityType;
-        this.datatime = datetime;
     }
 
 
@@ -42,9 +38,6 @@ public class Personality {
         return personalityType;
     }
 
-    public String getDatatime() {
-        return datatime;
-    }
 
     public void setPriId(Integer priId) {
         this.priId = priId;
@@ -62,7 +55,4 @@ public class Personality {
         this.personalityType = personalityType;
     }
 
-    public void setDatatime(String datatime) {
-        this.datatime = datatime;
-    }
 }

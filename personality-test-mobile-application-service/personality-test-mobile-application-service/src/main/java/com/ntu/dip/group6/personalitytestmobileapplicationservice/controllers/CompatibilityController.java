@@ -14,12 +14,12 @@ public class CompatibilityController {
     @Autowired
     CompatibilityService compatibilityService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<Object> getAllCompatibilities() {
         return new ResponseEntity<>(compatibilityService.getAllCompatibilities(), HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<String> addCompatibility(@RequestBody Compatibility compatibility) {
         compatibilityService.addNewCompatibility(compatibility);
         return new ResponseEntity<>("Compatibility has been successfully added.", HttpStatus.OK);
