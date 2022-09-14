@@ -208,6 +208,7 @@ CREATE TABLE `personality` (
   `userId` int(11) NOT NULL,
   `qnCategory` varchar(128) NOT NULL,
   `personalityType` varchar(128) NOT NULL,
+  `dateTime` DATETIME NOT NULL,
   PRIMARY KEY (`priId`),
   KEY `UserId_` (`userId`),
   CONSTRAINT `UserIdpersonaility` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -220,8 +221,8 @@ CREATE TABLE `personality` (
 
 LOCK TABLES `personality` WRITE;
 /*!40000 ALTER TABLE `personality` DISABLE KEYS */;
-INSERT INTO `personality` (`userId`, `qnCategory`, `personalityType`) 
-					VALUES (1,'16Personality','INFJ'),
-                           (2,'16Personality','ENTP');
+INSERT INTO `personality` (`userId`, `qnCategory`, `personalityType`, `dateTime`) 
+					VALUES (1,'16Personality','INFJ', NOW()),
+                           (2,'16Personality','ENTP', NOW());
 /*!40000 ALTER TABLE `personality` ENABLE KEYS */;
 UNLOCK TABLES;
