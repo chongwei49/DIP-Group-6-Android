@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity {
 
     private Button button;
+    private TextView button_friends;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,22 @@ public class Home extends AppCompatActivity {
                 tochartactivity();
             }
         });
+
+        button_friends = (TextView) findViewById(R.id.friendsBtn);
+        button_friends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tofriendsactivity();
+            }
+        });
     }
     public void tochartactivity() {
         Intent intent = new Intent(this, userupdates.class);
         startActivity(intent);
     }
+
+        public void tofriendsactivity() {
+            Intent intent = new Intent(this, Friends_Page.class);
+            startActivity(intent);
+        }
 }

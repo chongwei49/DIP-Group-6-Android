@@ -893,8 +893,8 @@
             <RelativeLayout
                 android:id="@+id/friends_deep"
                 android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
                 android:background="@null"
                 android:clickable="true"
                 android:orientation="horizontal">

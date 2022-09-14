@@ -10,8 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalityTest">
         <activity
+            android:name=".Friends_Chart"
+            android:exported="false" />
+        <activity
+            android:name=".Friends_Update"
+            android:exported="false" />
+        <activity
             android:name=".Friends_Compatibility"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Home"
             android:exported="false" />
