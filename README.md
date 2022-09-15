@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/chongwei49/DIP-Group-6-Android">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/SOMA_LOGO_PRINT.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
