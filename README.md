@@ -11,7 +11,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/chongwei49/DIP-Group-6-Android">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
