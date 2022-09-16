@@ -71,14 +71,10 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![Android][Android.com]][Android-url]
+* [![MySQL][MySQL.com]][MySQL-url]
+* [![SpringBoot][Spring.io]][Spring-url]
+* [![Figma][Figma.com]][Figma-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -233,3 +229,15 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com
+[Spring.io]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Spring-url]: https://spring.io
+[Android.com]: https://img.shields.io/badge/Android%20Studio-brightgreen?style=for-the-badge&logo=android&logoColor=white
+[Android-url]: https://developer.android.com/
+[MySQL.com]: https://img.shields.io/badge/MySQL-orange?style=for-the-badge&logo=mysql&logoColor=blue
+[MySQL-url]: https://mysql.com
+[Figma.com]: https://img.shields.io/badge/FIGMA-black?style=for-the-badge&logo=figma&logoColor=white
+[Figma-url]: https://figma.com
