@@ -233,7 +233,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [JQuery-url]: https://jquery.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
-[Spring.io]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Spring.io]: https://img.shields.io/badge/Springboot-green?style=for-the-badge&logo=spring&logoColor=white
 [Spring-url]: https://spring.io
 [Android.com]: https://img.shields.io/badge/Android%20Studio-brightgreen?style=for-the-badge&logo=android&logoColor=white
 [Android-url]: https://developer.android.com/
