@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Personality test</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="username">username</string>
+    <string name="real_name">real name</string>
+    <string name="forget_password"><u>Forget password?</u></string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="login">LOGIN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="emailcaps">email</string>
 
 </resources>

@@ -23,7 +23,7 @@ public class Signup extends AppCompatActivity {
         backimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                passwordactivity();
+                mainactivity();
             }
         });
 
@@ -31,18 +31,18 @@ public class Signup extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                birthplaceactivity();
+                homeactivity();
             }
         });
     }
 
-    public void passwordactivity() {
-        Intent intent = new Intent(this, Password.class);
+    public void mainactivity() {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void birthplaceactivity() {
-        Intent intent = new Intent(this, BirthPlace.class);
+    public void homeactivity() {
+        Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
 }

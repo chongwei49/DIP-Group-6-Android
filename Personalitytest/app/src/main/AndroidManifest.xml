@@ -34,25 +34,10 @@
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".BirthPlace"
-            android:exported="false" />
-        <activity
-            android:name=".Name"
-            android:exported="false" />
-        <activity
             android:name=".Friends_Page"
             android:exported="false" />
         <activity
             android:name=".Signup"
-            android:exported="false" />
-        <activity
-            android:name=".Password"
-            android:exported="false" />
-        <activity
-            android:name=".Displayname"
-            android:exported="false" />
-        <activity
-            android:name=".Email"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
