@@ -7,10 +7,9 @@
     tools:context=".Login">
 
     <TextView
-        android:id="@+id/topbackground"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#274151"
+        android:layout_height="match_parent"
+        android:background="@drawable/login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -18,84 +17,84 @@
         android:id="@+id/loginBck"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="170dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:fontFamily="@font/stix"
+        android:text="Welcome Back!"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="35sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/LogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/log_in"
+        android:layout_marginTop="164dp"
         android:fontFamily="@font/stix"
+        android:text="@string/log_in"
         android:textAlignment="center"
-        android:textColor="#90ffffff"
-        android:textSize="19sp"
+        android:textColor="#000000"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <TextView
-        android:id="@+id/btmbackground"
-        android:layout_width="match_parent"
-        android:layout_height="793dp"
-        android:layout_marginTop="100dp"
-        android:background="#96A6B6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <EditText
         android:id="@+id/loginEmail"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="@string/email"
-        android:textAlignment="center"
-        android:inputType="text"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="230dp"
         android:background="@drawable/custom_input_2"
         android:drawablePadding="5dp"
-        android:textColorHint="#70000000"
-        android:textColor="@color/black"
         android:fontFamily="@font/stix"
+        android:hint="@string/email"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="#70000000"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/loginPass"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="170dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="@string/password"
-        android:textAlignment="center"
-        android:inputType="text"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="290dp"
         android:background="@drawable/custom_input_2"
         android:drawablePadding="5dp"
-        android:textColorHint="#70000000"
-        android:textColor="@color/black"
         android:fontFamily="@font/stix"
+        android:hint="@string/password"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="#70000000"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/email"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="213dp"
-        android:layout_marginStart="285dp"
-        android:text="@string/forget_password"
-        android:textColor="#90ffffff"
-        android:textSize="14sp"
+        android:layout_marginStart="284dp"
+        android:layout_marginTop="340dp"
         android:fontFamily="@font/stix"
+        android:text="@string/forget_password"
+        android:textColor="#000000"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,14 +102,15 @@
         android:id="@+id/LogInBtn2"
         android:layout_width="80dp"
         android:layout_height="35dp"
-        android:layout_marginTop="240dp"
         android:layout_marginHorizontal="170dp"
-        android:background="@drawable/custom_input_3"
-        android:text="@string/login"
-        android:textSize="12sp"
-        android:textAlignment="center"
-        android:textColor="#90ffffff"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="370dp"
+        android:background="@drawable/signup_button"
         android:fontFamily="@font/stix"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

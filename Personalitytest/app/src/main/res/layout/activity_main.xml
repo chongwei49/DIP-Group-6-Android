@@ -8,50 +8,30 @@
     tools:context=".MainActivity">
 
 
-    <VideoView
-        android:id="@+id/seaVid"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/costar"
-        android:layout_width="246dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="140dp"
-        android:gravity="center"
-        android:text="CO - STAR"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:background="@drawable/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/subtitle"
-        android:layout_width="246dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="200dp"
-        android:gravity="center"
-        android:text="HYPER-PERSONALIZED ASTROLOGY"
-        android:textColor="#F4F4F4"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="520dp"
-        android:layout_marginHorizontal="30dp"
-        android:backgroundTint="#40ffffff"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="485dp"
+        android:layout_marginHorizontal="55dp"
+        android:background="@drawable/custom_input_3"
         android:text="LOG IN"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:fontFamily="@font/alata"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,27 +39,33 @@
         android:id="@+id/or"
         android:layout_width="246dp"
         android:layout_height="22dp"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="540dp"
         android:gravity="center"
         android:text="OR"
         android:textColor="#F4F4F4"
         android:textSize="14sp"
+        android:fontFamily="@font/stix"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/googleBtn"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginHorizontal="30dp"
-        android:backgroundTint="#40ffffff"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="570dp"
+        android:layout_marginHorizontal="55dp"
+        android:background="@drawable/custom_input_3"
         android:text="SIGN UP WITH GOOGLE"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:fontFamily="@font/alata"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

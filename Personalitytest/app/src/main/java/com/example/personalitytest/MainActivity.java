@@ -16,10 +16,20 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private Button button2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        View decorView = getWindow().getDecorView();
+        // Hide both the navigation bar and the status bar.
+        // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+        // a general rule, you should design your app to hide the status bar whenever you
+        // hide the navigation bar.
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
 
         button = (Button) findViewById(R.id.googleBtn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -38,17 +48,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        videoView = findViewById(R.id.seaVid);
-        Uri uri=Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.costar);
-        videoView.setVideoURI(uri);
-        videoView.start();
 
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mediaPlayer.setLooping(true);
-            }
-        });
     }
 
     public void signupactivity() {
@@ -61,20 +61,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    protected void onPostResume(){
-        videoView.resume();
-        super.onPostResume();
-    }
-    @Override
-    protected void onRestart() {
-        videoView.start();
-        super.onRestart();
-    }
 
-    @Override
-    protected void onPause(){
-        videoView.suspend();
-        super.onPause();
-    }
 }
