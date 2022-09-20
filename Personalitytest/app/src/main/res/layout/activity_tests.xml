@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgtest"
+    tools:context=".Tests">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+
+    </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/personalities"
+        android:layout_width="793dp"
+        android:layout_height="348dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="995dp"
+        app:cardCornerRadius="50dp">
+
+        <RelativeLayout
+            android:layout_width="736dp"
+            android:layout_height="322dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="291dp"
+                android:fontFamily="@font/alata"
+                android:text="16 Personalities Test"
+                android:textColor="#4E4848"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="436dp"
+                android:layout_height="285dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="-72dp"
+                android:layout_marginBottom="6dp"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="418dp"
+                android:layout_height="81dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="307dp"
+                android:layout_marginBottom="123dp"
+                android:fontFamily="@font/alata"
+                android:text="discover who you are and why you do things the way you do."
+                android:textColor="#757171"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="151dp"
+                android:layout_height="65dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="570dp"
+                android:layout_marginBottom="28dp"
+                android:fontFamily="@font/alata"
+                android:text="Start"
+                android:textColor="#DF7878"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="87dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="578dp"
+                android:layout_marginBottom="41dp"
+                app:srcCompat="@drawable/rightarrow" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/love"
+        android:layout_width="793dp"
+        android:layout_height="348dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="576dp"
+        app:cardCornerRadius="50dp" >
+
+        <RelativeLayout
+            android:layout_width="736dp"
+            android:layout_height="322dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="88dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="300dp"
+                android:fontFamily="@font/alata"
+                android:text="Love Language Test"
+                android:textColor="#4E4848"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="436dp"
+                android:layout_height="285dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="-72dp"
+                android:layout_marginBottom="6dp"
+                app:srcCompat="@drawable/lovetestlogo" />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="421dp"
+                android:layout_height="112dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="304dp"
+                android:layout_marginBottom="92dp"
+                android:fontFamily="@font/alata"
+                android:text="discover your primary love language, what it means, and how you can connect with your loved ones."
+                android:textColor="#757171"
+                android:textSize="23sp" />
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="151dp"
+                android:layout_height="65dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="570dp"
+                android:layout_marginBottom="28dp"
+                android:fontFamily="@font/alata"
+                android:text="Start"
+                android:textColor="#DF7878"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="87dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="578dp"
+                android:layout_marginBottom="41dp"
+                app:srcCompat="@drawable/rightarrow" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/career"
+        android:layout_width="793dp"
+        android:layout_height="348dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="160dp"
+        app:cardCornerRadius="50dp" >
+
+        <RelativeLayout
+            android:layout_width="736dp"
+            android:layout_height="322dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="396dp"
+                android:layout_height="88dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="329dp"
+                android:fontFamily="@font/alata"
+                android:text="Career Test"
+                android:textColor="#4E4848"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="436dp"
+                android:layout_height="285dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="-72dp"
+                android:layout_marginBottom="6dp"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="421dp"
+                android:layout_height="112dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="304dp"
+                android:layout_marginBottom="92dp"
+                android:fontFamily="@font/alata"
+                android:text="discover your work personality strengths and best careers."
+                android:textColor="#757171"
+                android:textSize="23sp" />
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="151dp"
+                android:layout_height="65dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="570dp"
+                android:layout_marginBottom="28dp"
+                android:fontFamily="@font/alata"
+                android:text="Start"
+                android:textColor="#DF7878"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="87dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="578dp"
+                android:layout_marginBottom="41dp"
+                app:srcCompat="@drawable/rightarrow" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="410dp"
+        android:layout_marginBottom="1390dp"
+        android:fontFamily="@font/stix"
+        android:text="Soma Tests"
+        android:textColor="#FDFBFB"
+        android:textSize="100sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="819dp"
+        android:layout_marginBottom="1572dp"
+        app:srcCompat="@drawable/arrow" />
+
+
+</RelativeLayout>

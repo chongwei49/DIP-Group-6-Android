@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/colorbg"
+    tools:context=".QuizPage">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="799dp"
+        android:layout_height="152dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="1394dp"
+        android:fontFamily="@font/stix"
+        android:text="16 Personalities Test"
+        android:textColor="#FDFBFB"
+        android:textSize="90sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="811dp"
+        android:layout_height="537dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="770dp"
+        app:cardCornerRadius="50dp">
+
+        <RelativeLayout
+            android:layout_width="748dp"
+            android:layout_height="454dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="692dp"
+                android:layout_height="239dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="107dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="107dp"
+                android:fontFamily="@font/alata"
+                android:text="Lorem ipsum dolor sit amet. Ex eaque ipsa non quisquam ipsum ut autem reiciendis nihil dolorum est impedit iure qui temporibus voluptate."
+                android:textAlignment="center"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="303dp"
+        android:layout_height="139dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="128dp"
+        android:layout_marginEnd="548dp"
+        android:layout_marginBottom="514dp"
+        android:background="@drawable/custom_input_button"
+        android:fontFamily="@font/alata"
+        android:text="YES"
+        android:textColor="#D8D6D6"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="303dp"
+        android:layout_height="139dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="514dp"
+        android:background="@drawable/custom_input_button2"
+        android:fontFamily="@font/alata"
+        android:text="NO"
+        android:textColor="#D8D6D6"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="121dp"
+        android:layout_marginBottom="151dp"
+        app:srcCompat="@drawable/nextbutton" />
+
+
+</RelativeLayout>
