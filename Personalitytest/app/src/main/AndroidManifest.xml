@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.personalitytest">
 
     <application
@@ -39,6 +40,13 @@
         <activity
             android:name=".Signup"
             android:exported="false" />
+        <activity
+            android:name=".Tests"
+            android:exported="false" />
+        <activity
+            android:name=".QuizPage"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
