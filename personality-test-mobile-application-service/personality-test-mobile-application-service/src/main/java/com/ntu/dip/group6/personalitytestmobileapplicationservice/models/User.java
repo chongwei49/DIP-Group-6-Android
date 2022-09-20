@@ -1,5 +1,6 @@
 package com.ntu.dip.group6.personalitytestmobileapplicationservice.models;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +8,8 @@ import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 import java.security.AuthProvider;
+import java.sql.Blob;
+import java.util.Base64;
 
 @Entity
 @Data
@@ -22,17 +25,19 @@ public class User {
     private String username;
     private String password;
     private String dob;
+    private byte[] profilePic;
 
 
     public User() {
     }
 
-    public User( String name, String email, String username, String password, String DOB) {
+    public User( String name, String email, String username, String password, String DOB, byte[] profilePic) {
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
         this.dob = DOB;
+        this.profilePic = profilePic;
     }
 
     public Integer getUserId() {
@@ -78,4 +83,13 @@ public class User {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
+    public byte[] getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(byte[] profilePic) {
+        this.profilePic = profilePic;
+    }
+
 }
