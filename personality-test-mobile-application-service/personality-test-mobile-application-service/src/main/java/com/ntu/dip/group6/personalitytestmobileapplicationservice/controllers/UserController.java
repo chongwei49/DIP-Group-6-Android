@@ -23,16 +23,6 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<String> addNewUser(@RequestBody User user) {
-        if (userService.addNewUser(user)) {
-            return new ResponseEntity<>("User has been successfully added.", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Username already exists.", HttpStatus.BAD_REQUEST);
-        }
-
-    }
-
     @PutMapping("/{userID}")
     public ResponseEntity<String> updateUser(@PathVariable Integer userID, @RequestBody User updatedUser) {
         userService.editUser(userID, updatedUser);

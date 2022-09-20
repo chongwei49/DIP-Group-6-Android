@@ -23,16 +23,21 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public boolean addNewUser(User user) {
+    public String addNewUser(User user) {
         UUID uuid = UUID.randomUUID();
 
-        if (userRepository.findByUsername(user.getUsername()) != null) {
-            return false;
-        } else {
+        if (userRepository.findByUsername(user.getUsername()) != null && userRepository.findByEmail(user.getEmail()) != null) {
+            return "Email and username duplicate";
+        } else if (userRepository.findByEmail(user.getEmail()) != null) {
+            return "Email duplicates";
+        } else if (userRepository.findByUsername(user.getUsername()) != null) {
+            return "Username duplicates";
+        }
+        else {
             String userID = uuid.toString();
             User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), user.getPassword(), user.getDob(), user.getProfilePic());
             userRepository.save(newUser);
-            return true;
+            return "Success";
 
         }
     }
