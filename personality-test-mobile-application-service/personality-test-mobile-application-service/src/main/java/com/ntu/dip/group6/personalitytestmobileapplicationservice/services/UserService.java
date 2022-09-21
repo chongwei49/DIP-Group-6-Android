@@ -50,7 +50,9 @@ public class UserService {
         user.setName(updatedUser.getName());
         user.setEmail(updatedUser.getEmail());
         user.setUsername(updatedUser.getUsername());
-        user.setPassword(updatedUser.getPassword());
+        String salt = Base64.getEncoder().encodeToString((updatedUser.getUsername() + ":" + updatedUser.getPassword()).getBytes());
+        String hashedPassword = PasswordHasher.getSecurePasssword(updatedUser.getPassword(), salt.getBytes());
+        user.setPassword(hashedPassword);
         user.setDob(updatedUser.getDob());
         user.setProfilePic(updatedUser.getProfilePic());
         userRepository.save(user);
@@ -70,7 +72,6 @@ public class UserService {
             String[] values = credentials.split(":", 2);
 
             String hashedPassword = PasswordHasher.getSecurePasssword(values[1], base64Credentials.getBytes());
-
 
             if (userRepository.findByUsername(values[0]).getPassword().equals(hashedPassword)) {
                 return true;

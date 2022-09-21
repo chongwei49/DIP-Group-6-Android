@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v2/compatibilities")
+@CrossOrigin(origins = "*")
 public class CompatibilityController {
 
     @Autowired

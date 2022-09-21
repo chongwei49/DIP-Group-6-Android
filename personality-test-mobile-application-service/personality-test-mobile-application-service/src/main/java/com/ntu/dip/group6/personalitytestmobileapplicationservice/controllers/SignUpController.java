@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v2/signup")
+@CrossOrigin(origins = "*")
 public class SignUpController {
 
     @Autowired
