@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -jar build/libs/personality-test-mobile-application-service-0.0.1-SNAPSHOT.jar -Dserver.port=9090 $JAR_OPTS

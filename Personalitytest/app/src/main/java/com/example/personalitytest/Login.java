@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
         String code = "Basic " +Base64.getEncoder().encodeToString((email + ":" + password).getBytes());
         Log.i("Code", code);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.0.100:8080/api/v2/login";
+        String url = "https://soma-app-service.herokuapp.com/api/v2/login";
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
                 {
