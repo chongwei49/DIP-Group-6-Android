@@ -36,7 +36,7 @@ public class UserService {
         }
         else {
             String userID = uuid.toString();
-            String salt = Base64.getEncoder().encodeToString((user.getUsername() + ":" + user.getPassword()).getBytes());
+            String salt = Base64.getEncoder().encodeToString((user.getEmail() + ":" + user.getPassword()).getBytes());
             String hashedPassword = PasswordHasher.getSecurePasssword(user.getPassword(), salt.getBytes());
             User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), hashedPassword, user.getDob(), user.getProfilePic());
             userRepository.save(newUser);
@@ -50,7 +50,7 @@ public class UserService {
         user.setName(updatedUser.getName());
         user.setEmail(updatedUser.getEmail());
         user.setUsername(updatedUser.getUsername());
-        String salt = Base64.getEncoder().encodeToString((updatedUser.getUsername() + ":" + updatedUser.getPassword()).getBytes());
+        String salt = Base64.getEncoder().encodeToString((updatedUser.getEmail() + ":" + updatedUser.getPassword()).getBytes());
         String hashedPassword = PasswordHasher.getSecurePasssword(updatedUser.getPassword(), salt.getBytes());
         user.setPassword(hashedPassword);
         user.setDob(updatedUser.getDob());
@@ -73,7 +73,7 @@ public class UserService {
 
             String hashedPassword = PasswordHasher.getSecurePasssword(values[1], base64Credentials.getBytes());
 
-            if (userRepository.findByUsername(values[0]).getPassword().equals(hashedPassword)) {
+            if (userRepository.findByEmail(values[0]).getPassword().equals(hashedPassword)) {
                 return true;
             }
         }
