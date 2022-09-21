@@ -2,6 +2,7 @@ package com.ntu.dip.group6.personalitytestmobileapplicationservice.services;
 
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.models.User;
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.repositories.UserRepository;
+import com.ntu.dip.group6.personalitytestmobileapplicationservice.security.PasswordHasher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,9 @@ public class UserService {
         }
         else {
             String userID = uuid.toString();
-            User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), user.getPassword(), user.getDob(), user.getProfilePic());
+            String salt = Base64.getEncoder().encodeToString((user.getUsername() + ":" + user.getPassword()).getBytes());
+            String hashedPassword = PasswordHasher.getSecurePasssword(user.getPassword(), salt.getBytes());
+            User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), hashedPassword, user.getDob(), user.getProfilePic());
             userRepository.save(newUser);
             return "Success";
 
@@ -66,7 +69,10 @@ public class UserService {
             // credentials = username:password
             String[] values = credentials.split(":", 2);
 
-            if (userRepository.findByUsername(values[0]).getPassword().equals(values[1])) {
+            String hashedPassword = PasswordHasher.getSecurePasssword(values[1], base64Credentials.getBytes());
+
+
+            if (userRepository.findByUsername(values[0]).getPassword().equals(hashedPassword)) {
                 return true;
             }
         }
