@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
         String code = "Basic " +Base64.getEncoder().encodeToString((email + ":" + password).getBytes());
         Log.i("Code", code);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://10.27.181.91:8080/api/v2/login";
+        String url = "http://192.168.0.100:8080/api/v2/login";
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
                 {
@@ -84,6 +84,9 @@ public class Login extends AppCompatActivity {
                     public void onResponse(String response) {
                         // response
                         Log.i("Response", response);
+                        if (response.equals("Login Successful")) {
+                            homeactivity();
+                        }
                     }
                 },
                 new Response.ErrorListener()

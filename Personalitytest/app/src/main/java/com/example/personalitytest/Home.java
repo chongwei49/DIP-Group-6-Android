@@ -39,8 +39,8 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
-        public void tofriendsactivity() {
-            Intent intent = new Intent(this, Friends_Page.class);
-            startActivity(intent);
-        }
+    public void tofriendsactivity() {
+        Intent intent = new Intent(this, Friends_Page.class);
+        startActivity(intent);
+    }
 }

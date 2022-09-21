@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/topbackground"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:background="#274151"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -19,22 +19,21 @@
     <TextView
         android:id="@+id/btmbackground"
         android:layout_width="match_parent"
-        android:layout_height="793dp"
-        android:layout_marginTop="84dp"
+        android:layout_height="773dp"
         android:background="#96A6B6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/topbackground" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/alata"
         android:text="User"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,8 +41,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/alata"
         android:text="username (you)"
         android:textColor="@color/white"
@@ -54,8 +53,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/alata"
         android:text="Capricorn"
         android:textColor="@color/white"
@@ -66,8 +65,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/alata"
         android:text="Taurus"
         android:textColor="@color/white"
@@ -79,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/alata"
         android:text="Taurus"
         android:textColor="@color/white"
@@ -265,7 +264,7 @@
         android:id="@+id/imageView"
         android:layout_width="81dp"
         android:layout_height="75dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="@+id/topbackground"
         app:layout_constraintTop_toTopOf="@+id/topbackground"
@@ -276,7 +275,7 @@
         android:layout_width="16dp"
         android:layout_height="14dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="@+id/topbackground"
         app:layout_constraintTop_toTopOf="@+id/topbackground"
         app:srcCompat="@drawable/circle_outline_with_a_central_dot" />
@@ -286,7 +285,7 @@
         android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="132dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="@+id/topbackground"
         app:layout_constraintTop_toTopOf="@+id/topbackground"
         app:srcCompat="@drawable/moon" />
@@ -296,7 +295,7 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginStart="216dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="@+id/topbackground"
         app:layout_constraintTop_toTopOf="@+id/topbackground"
         app:srcCompat="@drawable/up_arrow" />
@@ -425,6 +424,6 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/backicon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
