@@ -3,25 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/back.xml" value="0.2545" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/backwhite.xml" value="0.2545" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/custom_input_3.xml" value="0.226" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/custom_input_button.xml" value="0.226" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/custom_input_button2.xml" value="0.226" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_birth_place.xml" value="0.136" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_chart.xml" value="0.24864130434782608" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_compatibility.xml" value="0.24864130434782608" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_page.xml" value="0.24864130434782608" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_update.xml" value="0.24864130434782608" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_home.xml" value="0.264" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_login.xml" value="0.24864130434782608" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_quiz.xml" value="0.2" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_test.xml" value="0.2105978260869565" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_tests.xml" value="0.264" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usercharts.xml" value="0.24864130434782608" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usersettings.xml" value="0.24864130434782608" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_userupdates.xml" value="0.24864130434782608" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/back.xml" value="0.112" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/custom_input.xml" value="0.164" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/friendsicon.xml" value="0.112" />
