@@ -24,6 +24,13 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getUserById(Integer userId) {
+        if (userRepository.findById(userId).get() != null)
+            return userRepository.findById(userId).get();
+        else
+            return null;
+    }
+
     public String addNewUser(User user) {
         UUID uuid = UUID.randomUUID();
 
@@ -62,7 +69,7 @@ public class UserService {
         userRepository.deleteById(userID);
     }
 
-    public boolean loginValidator(String authHeader) {
+    public String loginValidator(String authHeader) {
         if (authHeader != null && authHeader.startsWith("Basic")) {
             // Authorization: Basic base64credentials
             String base64Credentials = authHeader.substring("Basic".length()).trim();
@@ -73,11 +80,16 @@ public class UserService {
 
             String hashedPassword = PasswordHasher.getSecurePasssword(values[1], base64Credentials.getBytes());
 
-            if (userRepository.findByEmail(values[0]).getPassword().equals(hashedPassword)) {
-                return true;
+            if (userRepository.findByEmail(values[0]) != null) {
+                if (userRepository.findByEmail(values[0]).getPassword().equals(hashedPassword)) {
+                    return "Authorized";
+                }
+            } else {
+                return "User not found";
             }
+
         }
-        return false;
+        return "Authentication error";
 
     }
 }

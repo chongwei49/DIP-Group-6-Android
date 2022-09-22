@@ -20,12 +20,13 @@ public class LoginController {
     @GetMapping
     public ResponseEntity<Object> login(@RequestHeader("Authorization") String authHeader) {
 
-        Boolean validated = userService.loginValidator(authHeader);
-        if (validated)
+        String validated = userService.loginValidator(authHeader);
+        if (validated == "Authorized")
             return new ResponseEntity<>("Login Successful", HttpStatus.OK);
+        else if (validated == "User not found")
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         else
-            return new ResponseEntity<>("Unauthorized", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Authentication error", HttpStatus.BAD_REQUEST);
     }
-
 
 }

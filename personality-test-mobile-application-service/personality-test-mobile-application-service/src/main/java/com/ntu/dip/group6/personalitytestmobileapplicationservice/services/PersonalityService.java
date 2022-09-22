@@ -5,6 +5,8 @@ import com.ntu.dip.group6.personalitytestmobileapplicationservice.repositories.P
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonalityService {
 
@@ -13,6 +15,14 @@ public class PersonalityService {
 
     public Iterable<Personality> getAllPersonalities() {
         return personalityRepository.findAll();
+    }
+
+    public Personality getPersonalityById(Integer priId) {
+        return personalityRepository.findById(priId).get();
+    }
+
+    public List<Personality> getPersonalityByUserId(Integer userId) {
+        return personalityRepository.findByUserId(userId);
     }
 
     public void addNewPersonality(Personality personality) {
@@ -32,5 +42,4 @@ public class PersonalityService {
     public void deletePersonality(Integer priId) {
         personalityRepository.deleteById(priId);
     }
-
 }
