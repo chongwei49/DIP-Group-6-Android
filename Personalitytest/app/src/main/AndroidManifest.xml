@@ -46,7 +46,7 @@
             android:name=".Tests"
             android:exported="false" />
         <activity
-            android:name=".QuizPage"
+            android:name=".QuizLove"
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity

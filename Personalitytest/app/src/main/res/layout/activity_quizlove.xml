@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lovebg"
+    tools:context=".QuizLove">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="83dp"
+
+            android:layout_marginBottom="338dp"
+            android:fontFamily="@font/stix"
+            android:text="LOVE TEST"
+            android:textColor="#040404"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="337dp"
+            android:layout_height="265dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="152dp"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="331dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView49"
+                    android:layout_width="262dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="57dp"
+                    android:layout_marginEnd="41dp"
+                    android:layout_marginBottom="237dp"
+                    android:fontFamily="@font/alata"
+                    android:text="Question 1:"
+                    android:textAlignment="viewStart"
+                    android:textColor="#504F4F"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView41"
+                    android:layout_width="293dp"
+                    android:layout_height="136dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="103dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="92dp"
+                    android:fontFamily="@font/alata"
+                    android:text="At social events, you rarely try to introduce yourself to new people and mostly talk to the ones you already know."
+                    android:textAlignment="viewStart"
+                    android:textColor="#504F4F"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView52"
+                    android:layout_width="40dp"
+                    android:layout_height="33dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="127dp"
+                    android:layout_marginTop="251dp"
+                    android:layout_marginEnd="138dp"
+                    android:layout_marginBottom="47dp"
+                    android:fontFamily="@font/alata"
+                    android:text="1/15"
+                    android:textAlignment="viewStart"
+                    android:textColor="#504F4F"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/buttonyes"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="455dp"
+            android:background="@drawable/custom_input_button"
+            android:fontFamily="@font/alata"
+            android:text="YES"
+            android:textColor="#0B0B0B"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonno"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="231dp"
+            android:layout_marginTop="455dp"
+            android:background="@drawable/custom_input_button"
+            android:fontFamily="@font/alata"
+            android:text="NO"
+            android:textColor="#0B0B0B"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="130dp"
+            android:layout_height="57dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="140dp"
+            app:srcCompat="@drawable/lovetestlogo" />
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="190dp"
+            android:layout_marginBottom="23dp"
+            app:srcCompat="@drawable/homeicon" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

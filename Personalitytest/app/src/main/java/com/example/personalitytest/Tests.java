@@ -3,7 +3,6 @@ package com.example.personalitytest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +29,7 @@ public class Tests extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void openNewActivity() {
-        Intent intent = new Intent(this, QuizPage.class);
+        Intent intent = new Intent(this, QuizLove.class);
         startActivity(intent);
     }
 
@@ -39,17 +38,17 @@ public class Tests extends AppCompatActivity implements View.OnClickListener {
         Intent i;
         switch(view.getId()){
             case R.id.personalities:
-                i =new Intent(this,QuizPage.class);
+                i =new Intent(this, QuizLove.class);
                 startActivity(i);
                 break;
 
             case R.id.love:
-                i =new Intent(this,QuizPage.class);
+                i =new Intent(this, QuizLove.class);
                 startActivity(i);
                 break;
 
             case R.id.career:
-                i =new Intent(this,QuizPage.class);
+                i =new Intent(this, QuizLove.class);
                 startActivity(i);
                 break;
 
