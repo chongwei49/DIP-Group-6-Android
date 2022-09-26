@@ -24,6 +24,14 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
+    @GetMapping("/{userID}")
+    public ResponseEntity<Object> getUserById(@PathVariable Integer userID) {
+        if (userService.getAllUsers() != null)
+            return new ResponseEntity<>(userService.getUserById(userID), HttpStatus.OK);
+        else
+            return new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
+    }
+
     @PutMapping("/{userID}")
     public ResponseEntity<String> updateUser(@PathVariable Integer userID, @RequestBody User updatedUser) {
         userService.editUser(userID, updatedUser);
