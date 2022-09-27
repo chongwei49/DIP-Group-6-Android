@@ -18,7 +18,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        button = (Button) findViewById(R.id.chartBtn);
+        button = (TextView) findViewById(R.id.profileBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
