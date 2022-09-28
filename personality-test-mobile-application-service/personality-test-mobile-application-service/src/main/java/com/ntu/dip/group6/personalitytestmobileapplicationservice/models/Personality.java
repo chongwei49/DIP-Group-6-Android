@@ -1,6 +1,7 @@
 package com.ntu.dip.group6.personalitytestmobileapplicationservice.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "personality")
@@ -12,13 +13,15 @@ public class Personality {
     private Integer userId;
     private String qnCategory;
     private String personalityType;
+    private Date dateTime;
 
     public Personality() {}
 
-    public Personality(Integer userId, String qnCategory, String personalityType) {
+    public Personality(Integer userId, String qnCategory, String personalityType, Date dateTime) {
         this.userId = userId;
         this.qnCategory = qnCategory;
         this.personalityType = personalityType;
+        this.dateTime = dateTime;
     }
 
 
@@ -55,4 +58,11 @@ public class Personality {
         this.personalityType = personalityType;
     }
 
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
+    }
 }

@@ -45,7 +45,7 @@ public class UserService {
             String userID = uuid.toString();
             String salt = Base64.getEncoder().encodeToString((user.getEmail() + ":" + user.getPassword()).getBytes());
             String hashedPassword = PasswordHasher.getSecurePasssword(user.getPassword(), salt.getBytes());
-            User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), hashedPassword, user.getDob(), user.getProfilePic());
+            User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), hashedPassword, user.getDob(), user.getGender(), user.getProfilePic());
             userRepository.save(newUser);
             return "Success";
 
@@ -61,6 +61,7 @@ public class UserService {
         String hashedPassword = PasswordHasher.getSecurePasssword(updatedUser.getPassword(), salt.getBytes());
         user.setPassword(hashedPassword);
         user.setDob(updatedUser.getDob());
+        user.setGender(updatedUser.getGender());
         user.setProfilePic(updatedUser.getProfilePic());
         userRepository.save(user);
     }

@@ -23,10 +23,8 @@ public class LoginController {
         String validated = userService.loginValidator(authHeader);
         if (validated == "Authorized")
             return new ResponseEntity<>("Login Successful", HttpStatus.OK);
-        else if (validated == "User not found")
-            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         else
-            return new ResponseEntity<>("Authentication error", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(validated, HttpStatus.BAD_REQUEST);
     }
 
 }

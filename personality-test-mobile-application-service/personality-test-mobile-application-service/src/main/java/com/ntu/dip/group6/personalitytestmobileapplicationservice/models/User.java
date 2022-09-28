@@ -25,18 +25,20 @@ public class User {
     private String username;
     private String password;
     private String dob;
+    private String gender;
     private byte[] profilePic;
 
 
     public User() {
     }
 
-    public User( String name, String email, String username, String password, String DOB, byte[] profilePic) {
+    public User( String name, String email, String username, String password, String DOB, String gender, byte[] profilePic) {
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
         this.dob = DOB;
+        this.gender = gender;
         this.profilePic = profilePic;
     }
 
@@ -92,4 +94,11 @@ public class User {
         this.profilePic = profilePic;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 }
