@@ -15,7 +15,6 @@ import java.security.Principal;
 import java.util.List;
 
 @SpringBootApplication(exclude={SecurityAutoConfiguration.class})
-//@RestController
 public class Application  {
 
 	@Autowired
