@@ -12,5 +12,6 @@
     <string name="dd_mm_yyyy">dd/mm/yyyy</string>
     <string name="date_of_birth">Date Of Birth</string>
     <string name="emailcaps">xxxx@gmail.com</string>
+    <string name="view_history"><u>View History</u></string>
 
 </resources>

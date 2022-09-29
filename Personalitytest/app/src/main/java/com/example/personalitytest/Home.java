@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
 
-    private Button button;
+    private TextView button;
     private TextView button_friends;
 
     @Override

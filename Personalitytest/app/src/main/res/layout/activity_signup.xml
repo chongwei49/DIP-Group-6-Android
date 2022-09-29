@@ -1,200 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Signup">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/signupbackground"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="220dp"
-        android:fontFamily="@font/stix"
-        android:text="@string/email"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+        android:layout_alignParentEnd="true"
 
-    <EditText
-        android:id="@+id/emailInput"
-        android:layout_width="365dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="250dp"
-        android:background="@drawable/custom_input_2"
-        android:fontFamily="@font/stix"
-        android:gravity="center"
-        android:hint="@string/emailcaps"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="#90000000"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/signupbg" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="300dp"
-        android:fontFamily="@font/stix"
-        android:text="@string/name"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="-5dp"
+            app:srcCompat="@drawable/somablack" />
 
-    <EditText
-        android:id="@+id/nameInput"
-        android:layout_width="365dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="330dp"
-        android:background="@drawable/custom_input_2"
-        android:fontFamily="@font/stix"
-        android:gravity="center"
-        android:hint="@string/real_name"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="#90000000"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:fontFamily="@font/stix"
+            android:text="@string/sign_up"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="380dp"
-        android:fontFamily="@font/stix"
-        android:text="@string/username"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/signUpBck"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="125dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/backicon" />
 
-    <EditText
-        android:id="@+id/usernameInput"
-        android:layout_width="365dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="410dp"
-        android:background="@drawable/custom_input_2"
-        android:fontFamily="@font/stix"
-        android:gravity="center"
-        android:hint="@string/username"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="#90000000"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="175dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/email"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="460dp"
-        android:fontFamily="@font/stix"
-        android:text="@string/date_of_birth"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="365dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="205dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="@string/emailcaps"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
 
-    <EditText
-        android:id="@+id/dobInput"
-        android:layout_width="365dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="490dp"
-        android:background="@drawable/custom_input_2"
-        android:fontFamily="@font/stix"
-        android:gravity="center"
-        android:hint="@string/dd_mm_yyyy"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="#90000000"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="250dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/name"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="540dp"
-        android:fontFamily="@font/stix"
-        android:text="@string/password"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="365dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="280dp"
+            android:background="@drawable/custom_input_2"
+            android:gravity="center"
+            android:hint="@string/real_name"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp"
+            android:fontFamily="@font/segeodisplay"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            />
 
-    <EditText
-        android:id="@+id/passwordInput"
-        android:layout_width="365dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="570dp"
-        android:background="@drawable/custom_input_2"
-        android:fontFamily="@font/stix"
-        android:gravity="center"
-        android:hint="@string/password"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="#90000000"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="325dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Username"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            />
 
-    <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="90dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="640dp"
-        android:background="@drawable/signup_button"
-        android:fontFamily="@font/stix"
-        android:text="@string/sign_up"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="215dp"
+            android:layout_marginTop="325dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Instagram"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/usernameInput"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="355dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="Username"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/igInput"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="215dp"
+            android:layout_marginTop="355dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="IG handle"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="400dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/password"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="365dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/custom_input_2"
+            android:gravity="center"
+            android:hint="@string/password"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp"
+            android:fontFamily="@font/segeodisplay"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="475dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/date_of_birth"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="215dp"
+            android:layout_marginTop="475dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Gender"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/dobInput"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="505dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="@string/dd_mm_yyyy"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/genderInput"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="215dp"
+            android:layout_marginTop="505dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="F/M"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
 
 
-    <TextView
-        android:id="@+id/signUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:fontFamily="@font/stix"
-        android:text="@string/sign_up"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/signUpBck"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="170dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backicon" />
+        <Button
+            android:id="@+id/signupBtn"
+            android:layout_width="90dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="580dp"
+            android:background="@drawable/signup_button"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/sign_up"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

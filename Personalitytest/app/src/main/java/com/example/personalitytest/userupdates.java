@@ -18,7 +18,7 @@ public class userupdates extends AppCompatActivity {
 
 
     private ImageView backimage;
-    private Button button;
+    private TextView button;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     TextView name, email;
@@ -42,23 +42,17 @@ public class userupdates extends AppCompatActivity {
             email.setText(personEmail);
         }
 
-        backimage = (ImageView) findViewById(R.id.updatesback);
+        backimage = (ImageView) findViewById(R.id.homeBtn);
         backimage.setClickable(true);
         backimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updatesbackactivity();
+                homeactivity();
             }
         });
 
-        button = (Button) findViewById(R.id.updatestochart);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tochartactivity();
-            }
-        });
-        button = (Button) findViewById(R.id.updatestosettings);
+
+        button = (TextView) findViewById(R.id.settingsBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,14 +64,11 @@ public class userupdates extends AppCompatActivity {
 
     }
 
-    public void updatesbackactivity() {
+    public void homeactivity() {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
-    public void tochartactivity() {
-        Intent intent = new Intent(this, usercharts.class);
-        startActivity(intent);
-    }
+
     public void tosettingsactivity() {
         Intent intent = new Intent(this, usersettings.class);
         startActivity(intent);

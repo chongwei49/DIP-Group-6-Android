@@ -89,12 +89,13 @@
             android:textSize="22sp" />
 
         <ImageView
+            android:id="@+id/homeBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
             android:layout_marginTop="615dp"
+            android:layout_marginStart="190dp"
             app:srcCompat="@drawable/homeicon" />
 
         <ImageView
@@ -136,9 +137,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="615dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="25dp"
             android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Proile"
+            android:text="Profile"
             android:textSize="20dp" />
 
 
