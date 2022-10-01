@@ -11,7 +11,7 @@ public class BasicController {
 
     @GetMapping("/")
     public String index(){
-        return "index";
+        return "soma app service";
     }
 
     @GetMapping("/restricted")

@@ -20,6 +20,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
+
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -76,17 +78,27 @@ public class Login extends AppCompatActivity {
         String code = "Basic " +Base64.getEncoder().encodeToString((email + ":" + password).getBytes());
         Log.i("Code", code);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://soma-app-service.herokuapp.com/api/v2/login";
+        String url = "https://soma-app-be.herokuapp.com/api/v2/login";
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
                 {
                     @Override
                     public void onResponse(String response) {
                         // response
-                        Log.i("Response", response);
-                        if (response.equals("Login Successful")) {
-                            homeactivity();
+                        try {
+                            // convert response to JSON object
+                            JSONObject userObject = new JSONObject(response);
+
+                            Log.i("Response", response);
+                            if (response.startsWith("{")) {
+                                homeactivity();
+                            }
+
+                            Log.d("user name", userObject.getString("name"));
+                        } catch (Throwable tx) {
+                            Log.e("Error:", "Error parsing JSON");
                         }
+
                     }
                 },
                 new Response.ErrorListener()

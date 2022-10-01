@@ -28,8 +28,8 @@ public class userupdates extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userupdates);
 
-        name = findViewById(R.id.textView);
-        email = findViewById(R.id.textView3);
+        name = findViewById(R.id.username);
+        email = findViewById(R.id.email);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);

@@ -70,7 +70,7 @@ public class UserService {
         userRepository.deleteById(userID);
     }
 
-    public String loginValidator(String authHeader) {
+    public Object loginValidator(String authHeader) {
         if (authHeader != null && authHeader.startsWith("Basic")) {
             // Authorization: Basic base64credentials
             String base64Credentials = authHeader.substring("Basic".length()).trim();
@@ -83,7 +83,7 @@ public class UserService {
 
             if (userRepository.findByEmail(values[0]) != null) {
                 if (userRepository.findByEmail(values[0]).getPassword().equals(hashedPassword)) {
-                    return "Authorized";
+                    return userRepository.findByEmail(values[0]);
                 }
             } else {
                 return "User not found";
