@@ -13,15 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6940c3c9-e2c8-4266-b880-db720cf07ba0" name="Default Changelist" comment="tests and quiz page">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalitytest/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalitytest/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalitytest/userupdates.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalitytest/userupdates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../personality-test-mobile-application-service/personality-test-mobile-application-service/src/main/java/com/ntu/dip/group6/personalitytestmobileapplicationservice/controllers/BasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../personality-test-mobile-application-service/personality-test-mobile-application-service/src/main/java/com/ntu/dip/group6/personalitytestmobileapplicationservice/controllers/BasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../personality-test-mobile-application-service/personality-test-mobile-application-service/src/main/java/com/ntu/dip/group6/personalitytestmobileapplicationservice/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../personality-test-mobile-application-service/personality-test-mobile-application-service/src/main/java/com/ntu/dip/group6/personalitytestmobileapplicationservice/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../personality-test-mobile-application-service/personality-test-mobile-application-service/src/main/java/com/ntu/dip/group6/personalitytestmobileapplicationservice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../personality-test-mobile-application-service/personality-test-mobile-application-service/src/main/java/com/ntu/dip/group6/personalitytestmobileapplicationservice/services/UserService.java" afterDir="false" />
-    </list>
+    <list default="true" id="6940c3c9-e2c8-4266-b880-db720cf07ba0" name="Default Changelist" comment="tests and quiz page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

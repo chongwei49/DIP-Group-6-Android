@@ -17,18 +17,23 @@ public class TraitsService {
     }
 
     public Traits getTraitByName(String traitName) {
-        return traitsRepository.findByTrait(traitName);
+        return traitsRepository.findByTraitName(traitName);
+    }
+
+    public Traits getTraitByPersonalityType(String personalityType) {
+        return traitsRepository.findByPersonalityType(personalityType);
     }
 
     public void addNewTrait(Traits traits) {
-        Traits newTrait = new Traits(traits.getPriId(), traits.getQuizCategory(), traits.getTrait(), traits.getDescription());
+        Traits newTrait = new Traits(traits.getPriId(), traits.getQuizCategory(), traits.getPersonalityType(), traits.getTraitName(), traits.getDescription());
         traitsRepository.save(newTrait);
     }
 
     public void editTrait(Integer priId, Traits updatedTrait) {
         Traits trait = traitsRepository.findById(priId).get();
         trait.setQuizCategory(updatedTrait.getQuizCategory());
-        trait.setTrait(updatedTrait.getTrait());
+        trait.setPersonalityType(updatedTrait.getPersonalityType());
+        trait.setTraitName(updatedTrait.getTraitName());
         trait.setDescription(updatedTrait.getDescription());
         traitsRepository.save(trait);
     }
