@@ -8,9 +8,6 @@ import java.util.List;
 public interface UserRepository extends CrudRepository<User, Integer> {
 
     public User findByName(String name);
-
-    public User findByUsername(String username);
-
     public User findByEmail(String email);
 
 }
