@@ -34,18 +34,14 @@ public class UserService {
     public String addNewUser(User user) {
         UUID uuid = UUID.randomUUID();
 
-        if (userRepository.findByUsername(user.getUsername()) != null && userRepository.findByEmail(user.getEmail()) != null) {
-            return "Email and username duplicate";
-        } else if (userRepository.findByEmail(user.getEmail()) != null) {
+        if (userRepository.findByEmail(user.getEmail()) != null) {
             return "Email duplicates";
-        } else if (userRepository.findByUsername(user.getUsername()) != null) {
-            return "Username duplicates";
         }
         else {
             String userID = uuid.toString();
             String salt = Base64.getEncoder().encodeToString((user.getEmail() + ":" + user.getPassword()).getBytes());
             String hashedPassword = PasswordHasher.getSecurePasssword(user.getPassword(), salt.getBytes());
-            User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), hashedPassword, user.getDob(), user.getGender(), user.getProfilePic());
+            User newUser = new User(user.getName(), user.getEmail(), hashedPassword, user.getDob(), user.getGender(), user.getProfilePic());
             userRepository.save(newUser);
             return "Success";
 
@@ -56,7 +52,6 @@ public class UserService {
         User user = userRepository.findById(userID).get();
         user.setName(updatedUser.getName());
         user.setEmail(updatedUser.getEmail());
-        user.setUsername(updatedUser.getUsername());
         String salt = Base64.getEncoder().encodeToString((updatedUser.getEmail() + ":" + updatedUser.getPassword()).getBytes());
         String hashedPassword = PasswordHasher.getSecurePasssword(updatedUser.getPassword(), salt.getBytes());
         user.setPassword(hashedPassword);
