@@ -13,15 +13,16 @@ public class Traits {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer priId;
     private String quizCategory;
-    private String trait;
+    private String personalityType;
+    private String traitName;
     private String description;
 
     public Traits() {}
 
-    public Traits(Integer priId, String quizCategory, String trait, String description) {
+    public Traits(Integer priId, String quizCategory, String personalityType, String trait, String description) {
         this.priId = priId;
         this.quizCategory = quizCategory;
-        this.trait = trait;
+        this.traitName = trait;
         this.description = description;
     }
 
@@ -41,12 +42,12 @@ public class Traits {
         this.quizCategory = quizCategory;
     }
 
-    public String getTrait() {
-        return trait;
+    public String getTraitName() {
+        return traitName;
     }
 
-    public void setTrait(String trait) {
-        this.trait = trait;
+    public void setTraitName(String trait) {
+        this.traitName = trait;
     }
 
     public String getDescription() {
@@ -55,5 +56,13 @@ public class Traits {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPersonalityType() {
+        return personalityType;
+    }
+
+    public void setPersonalityType(String personalityType) {
+        this.personalityType = personalityType;
     }
 }

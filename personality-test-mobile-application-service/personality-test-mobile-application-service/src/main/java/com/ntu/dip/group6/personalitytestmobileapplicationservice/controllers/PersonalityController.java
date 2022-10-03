@@ -31,15 +31,13 @@ public class PersonalityController {
     }
 
     @PostMapping
-    public ResponseEntity<String> addNewPersonality(@RequestBody Personality personality) {
-        personalityService.addNewPersonality(personality);
-        return new ResponseEntity<>("Personality has been successfully added.", HttpStatus.OK);
+    public ResponseEntity<Object> addNewPersonality(@RequestBody Personality personality) {
+        return new ResponseEntity<>(personalityService.addNewPersonality(personality), HttpStatus.OK);
     }
 
     @PutMapping("/{priId}")
-    public ResponseEntity<String> editPersonality(@PathVariable Integer priId, @RequestBody Personality personality) {
-        personalityService.editPersonality(priId, personality);
-        return new ResponseEntity<>("Personality has been succesfully edited.", HttpStatus.OK);
+    public ResponseEntity<Object> editPersonality(@PathVariable Integer priId, @RequestBody Personality personality) {
+        return new ResponseEntity<>(personalityService.addNewPersonality(personality), HttpStatus.OK);
     }
 
     @DeleteMapping("/{priId}")

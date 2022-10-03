@@ -8,5 +8,6 @@ import java.util.List;
 public interface TraitsRepository extends CrudRepository<Traits, Integer> {
 
     public List<Traits> findByQuizCategory(String quizCategory);
-    public Traits findByTrait(String trait);
+    public Traits findByTraitName(String traitName);
+    public Traits findByPersonalityType(String personalityType);
 }
