@@ -204,7 +204,8 @@ DROP TABLE IF EXISTS `traits`;
 CREATE TABLE `traits` (
   `priId` int(11) NOT NULL AUTO_INCREMENT,
   `quizCategory` varchar(128) NOT NULL,
-  `trait` varchar(128) NOT NULL,
+  `personalityType` varchar(128) NOT NULL,
+  `traitName` varchar(128) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`priId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -216,30 +217,30 @@ CREATE TABLE `traits` (
 
 LOCK TABLES `traits` WRITE;
 /*!40000 ALTER TABLE `traits` DISABLE KEYS */;
-INSERT INTO `traits` (`quizCategory`, `trait`, `description`) 
-					VALUES ('16Personalitties', 'Entertainer', 'You never fail to make people around you happy. Being fun is so natural for you.'),
-						('16Personalitties', 'Leader', 'You always set high standards for yourself and people tend to look up to you.'),
-						('16Personalitties', 'Diva', 'Glamorous is your middle name. You like it whenever all the eyes in the room are on you.'),
-						('16Personalitties', 'Councillor', 'You abide by the rules. Playing it safe is the way.'),
-						('16Personalitties', 'Hustler', 'You are the \"If there\'s a will, there\'s a way\" type of person. Street smart.'),
-						('16Personalitties', 'Main Character', 'You do what you want no matter what it is. You like to meddle in a lot of things.'),
-						('16Personalitties', 'Crusader', 'You are an advocate of the law and a righteous person.'),
-						('16Personalitties', 'Perfectionist', 'You are meticulous. You get disappointed when the little things are not going your wat.'),
-						('16Personalitties', 'Architect', 'You like everything planned out. You would rather not improvise.'),
-						('16Personalitties', 'Scholar', 'Knowledge is power for you. You like learning new skills, hobbies and etc.'),
-						('16Personalitties', 'Maestro', 'You want to be the best in the things you do. You are proud of your skills and may get too competitive sometimes.'),
-						('16Personalitties', 'Artist', 'You tend to appreciate everything around you. You are also very creative and will use creativity in your daily life.'),
-						('16Personalitties', 'Boss', 'You like having authority in all situations. Losing authority might lead to losing confidence.'),
-						('16Personalitties', 'Administrator', 'You like managing things. Your thinking is very mature and tend to be the \"parents\" of the group'),
-						('16Personalitties', 'Champion', 'You are very competitive. Losing is never an option.'),
-						('16Personalitties', 'Arbitrator', 'You are very independent. You are the mediator among your peers.'),
-						('Love', 'Quality Time', 'You prefer spending time with your partner regardless of the activity. Making memories with your partner is your priority.'),
-						('Love', 'Act of Service', 'You show your affection by helping out your partner with their daily lives even your efforts are unnoticed. Seeing your partner living comfortably gives you satisfaction.'),
-						('Love', 'Physical Touch', 'You like hugging, cuddling and holding hands with your partner. You want to see them every second of every day and you get irritated when you don\'t.'),
-						('Love', 'Words of Affirmation', 'You show your affection by texting or talking to your partner - encouraging them when they are having problems. You like to check up on your partner too.'),
-						('Job', 'Outgoing', 'You prefer working with groups and mingling with your peers. Working with a team brings out the best in you.'),
-						('Job', 'Asocial', 'You prefer working alone. You feel focused and determined to finish the work given to you. Working with other peers drain your energy.'),
-						('Job', 'Idealistic', 'You set almost-perfect goals for you/your team. You always aim for ideal results despite all odds.'),
-						('Job', 'Realistic', 'You set goals that are attainable for you/your team. You always aim for the best results given the current situation.');
+INSERT INTO `traits` (`quizCategory`, `personalityType`, `traitName`, `description`) VALUES 
+		('16Personalitties', 'Entertainer', 'Entertainer', 'You never fail to make people around you happy. Being fun is so natural for you.'),
+		('16Personalitties', 'Leader', 'Leader', 'You always set high standards for yourself and people tend to look up to you.'),
+		('16Personalitties', 'Diva', 'Diva', 'Glamorous is your middle name. You like it whenever all the eyes in the room are on you.'),
+		('16Personalitties', 'Councillor', 'Councillor', 'You abide by the rules. Playing it safe is the way.'),
+		('16Personalitties', 'Hustler', 'Hustler', 'You are the \"If there\'s a will, there\'s a way\" type of person. Street smart.'),
+		('16Personalitties', 'Main Character', 'Main Character', 'You do what you want no matter what it is. You like to meddle in a lot of things.'),
+		('16Personalitties', 'Crusader', 'Crusader', 'You are an advocate of the law and a righteous person.'),
+		('16Personalitties', 'Perfectionist', 'Perfectionist', 'You are meticulous. You get disappointed when the little things are not going your wat.'),
+		('16Personalitties', 'Architect', 'Architect', 'You like everything planned out. You would rather not improvise.'),
+		('16Personalitties', 'Scholar', 'Scholar', 'Knowledge is power for you. You like learning new skills, hobbies and etc.'),
+		('16Personalitties', 'Maestro', 'Maestro', 'You want to be the best in the things you do. You are proud of your skills and may get too competitive sometimes.'),
+		('16Personalitties', 'Artist', 'Artist', 'You tend to appreciate everything around you. You are also very creative and will use creativity in your daily life.'),
+		('16Personalitties', 'Boss', 'Boss', 'You like having authority in all situations. Losing authority might lead to losing confidence.'),
+		('16Personalitties', 'Administrator', 'Administrator', 'You like managing things. Your thinking is very mature and tend to be the \"parents\" of the group'),
+		('16Personalitties', 'Champion', 'Champion', 'You are very competitive. Losing is never an option.'),
+		('16Personalitties', 'Arbitrator', 'Arbitrator', 'You are very independent. You are the mediator among your peers.'),
+		('Love', 'Quality Time', 'Quality Time', 'You prefer spending time with your partner regardless of the activity. Making memories with your partner is your priority.'),
+		('Love', 'Act of Service', 'Act of Service', 'You show your affection by helping out your partner with their daily lives even your efforts are unnoticed. Seeing your partner living comfortably gives you satisfaction.'),
+		('Love', 'Physical Touch', 'Physical Touch', 'You like hugging, cuddling and holding hands with your partner. You want to see them every second of every day and you get irritated when you don\'t.'),
+		('Love', 'Words of Affirmation', 'Words of Affirmation', 'You show your affection by texting or talking to your partner - encouraging them when they are having problems. You like to check up on your partner too.'),
+		('Job', 'Outgoing', 'Outgoing', 'You prefer working with groups and mingling with your peers. Working with a team brings out the best in you.'),
+		('Job', 'Asocial', 'Asocial', 'You prefer working alone. You feel focused and determined to finish the work given to you. Working with other peers drain your energy.'),
+		('Job', 'Idealistic', 'Idealistic', 'You set almost-perfect goals for you/your team. You always aim for ideal results despite all odds.'),
+		('Job', 'Realistic', 'Realistic', 'You set goals that are attainable for you/your team. You always aim for the best results given the current situation.');
 /*!40000 ALTER TABLE `traits` ENABLE KEYS */;
 UNLOCK TABLES;
