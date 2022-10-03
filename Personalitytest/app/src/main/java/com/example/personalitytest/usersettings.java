@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -18,6 +20,9 @@ import com.google.android.gms.tasks.Task;
 public class usersettings extends AppCompatActivity {
 
     private Button button;
+    private TextView button2;
+    private ImageView DPbtn;
+
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
@@ -27,20 +32,31 @@ public class usersettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usersettings);
 
-        button = (Button) findViewById(R.id.logout);
+        button = (Button) findViewById(R.id.logoutBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 settingslogoutactivity();
             }
         });
-        button = (Button) findViewById(R.id.settingsdone);
-        button.setOnClickListener(new View.OnClickListener() {
+
+        button2 = (TextView) findViewById(R.id.resultsBtn);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                savesettingsactivity();
+                toresultssactivity();
             }
         });
+
+        DPbtn = (ImageView) findViewById(R.id.changeDPbtn);
+        DPbtn.setClickable(true);
+        DPbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeactivity();
+            }
+        });
+
 
     }
 
@@ -66,8 +82,13 @@ public class usersettings extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    public void savesettingsactivity() {
-        Intent intent = new Intent(this, Home.class);
+    public void toresultssactivity() {
+        Intent intent = new Intent(this, userupdates.class);
+        startActivity(intent);
+    }
+
+    public void changeactivity() {
+        Intent intent = new Intent(this, changeDP.class);
         startActivity(intent);
     }
 

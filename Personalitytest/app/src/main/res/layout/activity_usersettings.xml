@@ -1,263 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_resultsbg"
+    tools:context=".Tests">
 
-    <TextView
-        android:id="@+id/topbackground"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#274151"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/btmbackground"
-        android:layout_width="match_parent"
-        android:layout_height="793dp"
-        android:layout_marginTop="100dp"
-        android:background="#96A6B6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="381dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="91dp"
-        android:ems="10"
-        android:fontFamily="@font/alata"
-        android:gravity="right"
-        android:inputType="textPersonName"
-        android:text="Username"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <TextView
-        android:id="@+id/textView21"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="105dp"
-        android:fontFamily="@font/alata"
-        android:text="Username"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+        android:layout_alignParentEnd="true"
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/alata"
-        android:text="Settings"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/topbackground"
-        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+        <RelativeLayout
+            android:id="@+id/userDp"
+            android:layout_width="90dp"
+            android:layout_height="75dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp">
 
-    <Button
-        android:id="@+id/settingsdone"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:text="DONE"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/topbackground"
-        app:layout_constraintTop_toTopOf="@+id/topbackground" />
+            <ImageView
+                android:layout_width="81dp"
+                android:layout_height="75dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                app:srcCompat="@drawable/user" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="381dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:fontFamily="@font/alata"
-        android:gravity="right"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="378dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="164dp"
-        android:fontFamily="@font/alata"
-        android:text="Phone Number"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="216dp"
-        android:fontFamily="@font/alata"
-        android:text="Profile Photo"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="365dp"
-        android:fontFamily="@font/alata"
-        android:text="YOU"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="264dp"
-        android:fontFamily="@font/alata"
-        android:text="CHART"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="47dp"
-        android:fontFamily="@font/alata"
-        android:text="Name"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="407dp"
-        android:layout_marginEnd="318dp"
-        android:fontFamily="@font/alata"
-        android:text="Birth Date"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="DuplicateIds" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="458dp"
-        android:layout_marginEnd="318dp"
-        android:fontFamily="@font/alata"
-        android:text="Birth Time"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="299dp"
-        android:fontFamily="@font/alata"
-        android:text="Birth Place"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPostalAddress"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPostalAddress"
-        tools:ignore="DuplicateIds" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="43dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:layout_marginTop="206dp"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground"
-        app:srcCompat="@drawable/user" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="375dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="300dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <EditText
-        android:id="@+id/editTextTime"
-        android:layout_width="374dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="358dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <EditText
-        android:id="@+id/editTextTextPostalAddress"
-        android:layout_width="371dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="407dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="469dp"
-        android:backgroundTint="#274151"
-        android:fontFamily="@font/alata"
-        android:text="LOG OUT"
-        app:layout_constraintStart_toStartOf="@+id/btmbackground"
-        app:layout_constraintTop_toTopOf="@+id/btmbackground" />
+            <ImageView
+                android:id="@+id/changeDPbtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="3dp"
+                app:srcCompat="@drawable/editprofileicon" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="User Name"
+            android:textSize="35dp" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="75dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="User_Name@domain.com"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/resultsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="148dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="RESULTS"
+            android:textSize="25dp" />
+
+
+        <TextView
+            android:id="@+id/settingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="148dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="SETTINGS"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="210dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/name"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/changenameInput"
+            android:layout_width="365dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="240dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="New Name"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="290dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/email"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/changeemailInput"
+            android:layout_width="365dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="320dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="New Email"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="370dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Username"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/changeusernameInput"
+            android:layout_width="365dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="400dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="New Username"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="450dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/date_of_birth"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="530dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Gender"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/changedobInput"
+            android:layout_width="365dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="480dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="New DOB"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/changegenderInput"
+            android:layout_width="365dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="560dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="New Gender"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="90dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="610dp"
+            android:background="@drawable/signup_button"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Log Out"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
