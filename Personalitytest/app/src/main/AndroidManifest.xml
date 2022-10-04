@@ -27,8 +27,8 @@
             android:name=".hist_personality"
             android:exported="false" />
         <activity
-            android:name=".connect_main"
-            android:exported="false" />
+            android:name=".MainActivity"
+            android:exported="true" />
         <activity
             android:name=".Friends_Chart"
             android:exported="false" />
@@ -67,7 +67,7 @@
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".MainActivity"
+            android:name=".connect_main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

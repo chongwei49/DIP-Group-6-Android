@@ -105,6 +105,7 @@
             android:textSize="20dp" />
 
         <androidx.cardview.widget.CardView
+            app:cardElevation="0dp"
             android:id="@+id/personality"
             android:layout_width="400dp"
             android:layout_height="130dp"
@@ -116,12 +117,23 @@
             android:layout_marginEnd="19dp"
             app:cardBackgroundColor="@android:color/transparent">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/personalityRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="8dp"/>
+
             <ImageView
                 android:id="@+id/personalitymatch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:src="@drawable/rectangle_24" />
+
+
 
         </androidx.cardview.widget.CardView>
 
@@ -150,7 +162,17 @@
             android:layout_marginStart="19dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="20dp"
-            app:cardBackgroundColor="@android:color/transparent">
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/loveRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="8dp"/>
 
             <ImageView
                 android:id="@+id/lovematch"
@@ -186,14 +208,25 @@
             android:layout_marginStart="19dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="20dp"
-            app:cardBackgroundColor="@android:color/transparent">
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/workRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="8dp"/>
 
             <ImageView
-                android:id="@+id/lovematch"
+                android:id="@+id/workmatch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@drawable/rectangle_26" />
+                android:src="@drawable/rectangle_26"
+                />
 
         </androidx.cardview.widget.CardView>
 
