@@ -32,11 +32,13 @@
                 app:srcCompat="@drawable/user" />
 
             <ImageView
+                android:id="@+id/changeDPbtn"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="3dp"
+                android:layout_marginBottom="-2dp"
                 app:srcCompat="@drawable/editprofileicon" />
 
 

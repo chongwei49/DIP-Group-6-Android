@@ -15,6 +15,18 @@
         android:theme="@style/Theme.PersonalityTest"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".changeDP"
+            android:exported="false" />
+        <activity
+            android:name=".hist_career"
+            android:exported="false" />
+        <activity
+            android:name=".hist_love"
+            android:exported="false" />
+        <activity
+            android:name=".hist_personality"
+            android:exported="false" />
+        <activity
             android:name=".connect_main"
             android:exported="false" />
         <activity

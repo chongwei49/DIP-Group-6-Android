@@ -81,12 +81,18 @@
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usercharts.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usersettings.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_userupdates.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/activity_change_dp.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/activity_displayname.xml" value="0.19972826086956522" />
+        <entry key="app/src/main/res/layout/activity_hist_career.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_hist_love.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_hist_personality.xml" value="0.3318408350366618" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.17407407407407408" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19701086956521738" />
+        <entry key="app/src/main/res/layout/activity_personality_history.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/activity_usercharts.xml" value="0.1854043392504931" />
         <entry key="app/src/main/res/layout/activity_usersettings.xml" value="0.27675840978593275" />
-        <entry key="app/src/main/res/layout/activity_userupdates.xml" value="0.3889586075492527" />
+        <entry key="app/src/main/res/layout/activity_userupdates.xml" value="0.1923828125" />
       </map>
     </option>
   </component>

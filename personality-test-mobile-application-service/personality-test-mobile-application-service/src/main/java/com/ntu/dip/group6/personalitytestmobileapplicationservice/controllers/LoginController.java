@@ -21,11 +21,9 @@ public class LoginController {
     public ResponseEntity<Object> login(@RequestHeader("Authorization") String authHeader) {
 
         Object validated = userService.loginValidator(authHeader);
-        if (validated == "User not found" || validated == "Authentication error")
-            return new ResponseEntity<>(validated, HttpStatus.BAD_REQUEST);
-        else
+        if (validated != "User not found")
             return new ResponseEntity<>(validated, HttpStatus.OK);
-
+        else
+            return new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
-
 }

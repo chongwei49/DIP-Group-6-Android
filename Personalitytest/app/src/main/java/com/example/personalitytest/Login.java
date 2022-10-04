@@ -67,8 +67,9 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void homeactivity() {
+    public void homeactivity(Bundle bundle) {
         Intent intent = new Intent(this, Home.class);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
@@ -88,10 +89,18 @@ public class Login extends AppCompatActivity {
                         try {
                             // convert response to JSON object
                             JSONObject userObject = new JSONObject(response);
+                            String name = userObject.getString("name");
+                            String email = userObject.getString("email");
+                            String dob = userObject.getString("dob");
+
+                            Bundle userInformation = new Bundle();
+                            userInformation.putString("name", name);
+                            userInformation.putString("email", email);
+                            userInformation.putString("dob", dob);
 
                             Log.i("Response", response);
                             if (response.startsWith("{")) {
-                                homeactivity();
+                                homeactivity(userInformation);
                             }
 
                             Log.d("user name", userObject.getString("name"));

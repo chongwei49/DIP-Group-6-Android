@@ -66,7 +66,6 @@ public class UserService {
     }
 
     public Object loginValidator(String authHeader) {
-        if (authHeader != null && authHeader.startsWith("Basic")) {
             // Authorization: Basic base64credentials
             String base64Credentials = authHeader.substring("Basic".length()).trim();
             byte[] credDecoded = Base64.getDecoder().decode(base64Credentials);
@@ -80,12 +79,10 @@ public class UserService {
                 if (userRepository.findByEmail(values[0]).getPassword().equals(hashedPassword)) {
                     return userRepository.findByEmail(values[0]);
                 }
-            } else {
-                return "User not found";
             }
 
-        }
-        return "Authentication error";
+            return "User not found";
+
 
     }
 }
