@@ -74,6 +74,8 @@
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/accountprofile.xml" value="0.5035460992907801" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_birth_place.xml" value="0.3491847826086957" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_connect_main.xml" value="0.25" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_connect_person.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_connect_personal.xml" value="0.4351515151515152" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_displayname.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_chart.xml" value="0.67" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_compatibility.xml" value="0.32420494699646646" />
@@ -84,9 +86,10 @@
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_name.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_password.xml" value="0.22" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_quizcareer.xml" value="0.1675925925925926" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usercharts.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usersettings.xml" value="0.19114583333333332" />
-        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_userupdates.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_userupdates.xml" value="0.5517241379310345" />
         <entry key="app/src/main/res/layout/activity_change_dp.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/activity_displayname.xml" value="0.19972826086956522" />
         <entry key="app/src/main/res/layout/activity_hist_career.xml" value="0.35885416666666664" />

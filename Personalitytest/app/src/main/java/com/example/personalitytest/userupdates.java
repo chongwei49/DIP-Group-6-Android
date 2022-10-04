@@ -23,6 +23,7 @@ public class userupdates extends AppCompatActivity {
     private TextView button2;
     private TextView button3;
     private TextView button4;
+    private TextView connect, profile, settingsBtn;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     TextView name, email;
@@ -55,6 +56,22 @@ public class userupdates extends AppCompatActivity {
             }
         });
 
+        connect = (TextView) findViewById(R.id.friendsBtn);
+        connect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toconnectactivity();
+            }
+        });
+
+        profile = (TextView) findViewById(R.id.profileBtn);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toprofileactivity();
+            }
+        });
+
         DPbtn = (ImageView) findViewById(R.id.changeDPbtn);
         DPbtn.setClickable(true);
         DPbtn.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +80,6 @@ public class userupdates extends AppCompatActivity {
                 changeactivity();
             }
         });
-
 
         button = (TextView) findViewById(R.id.settingsBtn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +110,15 @@ public class userupdates extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 tocareerhistoryactivity();
+            }
+        });
+
+        settingsBtn = (TextView) findViewById(R.id.settingsBtn);
+        settingsBtn.setClickable(true);
+        settingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tosettingsactivity();
             }
         });
 
@@ -130,5 +155,14 @@ public class userupdates extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void toconnectactivity() {
+        Intent intent = new Intent(this, connect_main.class);
+        startActivity(intent);
+    }
+
+    public void toprofileactivity() {
+        Intent intent = new Intent(this, userupdates.class);
+        startActivity(intent);
+    }
 
 }

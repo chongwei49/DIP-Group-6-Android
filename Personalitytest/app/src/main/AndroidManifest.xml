@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.personalitytest">
+    package="com.example.personalitytest" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalityTest"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".connect_person"
+            android:exported="false" />
         <activity
             android:name=".changeDP"
             android:exported="false" />
@@ -27,8 +30,8 @@
             android:name=".hist_personality"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true" />
+            android:name=".connect_main"
+            android:exported="false" />
         <activity
             android:name=".Friends_Chart"
             android:exported="false" />
@@ -48,9 +51,6 @@
             android:name=".usersettings"
             android:exported="false" />
         <activity
-            android:name=".usercharts"
-            android:exported="false" />
-        <activity
             android:name=".Login"
             android:exported="false" />
         <activity
@@ -67,8 +67,8 @@
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".connect_main"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

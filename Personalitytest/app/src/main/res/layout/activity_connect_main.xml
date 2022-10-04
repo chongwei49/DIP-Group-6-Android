@@ -133,6 +133,12 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/rectangle_24" />
 
+            <Button
+                android:id="@+id/personalitynext"
+                android:layout_width="345dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"/>
 
 
         </androidx.cardview.widget.CardView>
@@ -165,6 +171,13 @@
             app:cardBackgroundColor="@android:color/transparent"
             app:cardElevation="0dp">
 
+            <Button
+                android:id="@+id/lovenext"
+                android:layout_width="345dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/loveRecyclerView"
                 android:layout_width="match_parent"
@@ -180,6 +193,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:src="@drawable/rectangle_25" />
+
 
         </androidx.cardview.widget.CardView>
 
@@ -210,6 +224,13 @@
             android:layout_marginEnd="20dp"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardElevation="0dp">
+
+            <Button
+                android:id="@+id/worknext"
+                android:layout_width="345dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/workRecyclerView"
