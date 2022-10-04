@@ -38,6 +38,7 @@ public class PersonalityService {
         personalityRepository.save(newPersonality);
         Traits traits = traitsService.getTraitByPersonalityType(personality.getPersonalityType());
         Map<String, String> result = new HashMap<>();
+        result.put("personalityType", personality.getPersonalityType());
         result.put("trait", traits.getTraitName());
         result.put("description", traits.getDescription());
 
@@ -56,6 +57,7 @@ public class PersonalityService {
 
         Traits traits = traitsService.getTraitByPersonalityType(personality.getPersonalityType());
         Map<String, String> result = new HashMap<>();
+        result.put("personalityType", personality.getPersonalityType());
         result.put("trait", traits.getTraitName());
         result.put("description", traits.getDescription());
 
