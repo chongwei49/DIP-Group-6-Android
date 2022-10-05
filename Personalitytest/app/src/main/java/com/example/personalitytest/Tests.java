@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 public class Tests extends AppCompatActivity implements View.OnClickListener {
-    public CardView personalities, love, career;
-    public ImageView back;
+    private CardView personalities, love, career;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
