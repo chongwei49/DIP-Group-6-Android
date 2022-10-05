@@ -95,10 +95,7 @@ public class usersettings extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void tosettingssactivity() {
-        Intent intent = new Intent(this, usersettings.class);
-        startActivity(intent);
-    }
+
 
     public void changeactivity() {
         Intent intent = new Intent(this, changeDP.class);
