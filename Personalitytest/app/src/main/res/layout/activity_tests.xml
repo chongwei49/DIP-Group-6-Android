@@ -28,8 +28,7 @@
             android:fontFamily="@font/segeodisplaysemibold"
             android:text="Soma Tests"
             android:textColor="#FDFBFB"
-            android:textSize="35sp"
-            />
+            android:textSize="35sp" />
 
         <ImageView
             android:id="@+id/back"
@@ -135,7 +134,7 @@
                         android:layout_height="23dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="0dp"
+                        android:layout_marginEnd="-5dp"
                         android:layout_marginBottom="9dp"
                         app:srcCompat="@drawable/rightarrow" />
                 </RelativeLayout>
@@ -235,7 +234,7 @@
                         android:layout_height="23dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="0dp"
+                        android:layout_marginEnd="-5dp"
                         android:layout_marginBottom="9dp"
                         app:srcCompat="@drawable/rightarrow" />
                 </RelativeLayout>
@@ -335,7 +334,7 @@
                         android:layout_height="23dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="0dp"
+                        android:layout_marginEnd="-5dp"
                         android:layout_marginBottom="9dp"
                         app:srcCompat="@drawable/rightarrow" />
                 </RelativeLayout>

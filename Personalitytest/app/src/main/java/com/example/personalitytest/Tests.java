@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-public class Tests extends AppCompatActivity implements View.OnClickListener {
+public class Tests extends AppCompatActivity{
     private CardView personalities, love, career;
     private ImageView back;
 
@@ -17,45 +17,51 @@ public class Tests extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tests);
         personalities = (CardView) findViewById(R.id.personalities);
+        personalities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toquizpersonalityactivity();
+            }
+        });
         love = (CardView) findViewById(R.id.love);
+        love.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toquizloveactivity();
+            }
+        });
         career = (CardView) findViewById(R.id.career);
+        personalities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toquizcareeractivity();
+            }
+        });
         back = (ImageView) findViewById(R.id.back);
-
-        personalities.setOnClickListener(this);
-        love.setOnClickListener(this);
-        career.setOnClickListener(this);
-        back.setOnClickListener(this);
+        personalities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tohomeactivity();
+            }
+        });
 
     }
 
-    public void openNewActivity() {
+    public void toquizpersonalityactivity() {
+        Intent intent = new Intent(this, QuizPersonality.class);
+        startActivity(intent);
+    }
+    public void toquizloveactivity() {
         Intent intent = new Intent(this, QuizLove.class);
         startActivity(intent);
     }
-
-    @Override
-    public void onClick(View view) {
-        Intent i;
-        switch(view.getId()){
-            case R.id.personalities:
-                i =new Intent(this, QuizPersonality.class);
-                startActivity(i);
-                break;
-
-            case R.id.love:
-                i =new Intent(this, QuizLove.class);
-                startActivity(i);
-                break;
-
-            case R.id.career:
-                i =new Intent(this, QuizCareer.class);
-                startActivity(i);
-                break;
-
-            case R.id.back:
-                i = new Intent(this,Home.class);
-                startActivity(i);
-                break;
-        }
+    public void toquizcareeractivity() {
+        Intent intent = new Intent(this, QuizCareer.class);
+        startActivity(intent);
     }
+    public void tohomeactivity() {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
 }
