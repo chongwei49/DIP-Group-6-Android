@@ -112,15 +112,7 @@ public class userupdates extends AppCompatActivity {
                 tocareerhistoryactivity();
             }
         });
-
-        settingsBtn = (TextView) findViewById(R.id.settingsBtn);
-        settingsBtn.setClickable(true);
-        settingsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tosettingsactivity();
-            }
-        });
+        
 
 
 
