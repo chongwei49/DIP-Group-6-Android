@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 public class Tests extends AppCompatActivity{
-    private CardView personalities, love, career;
+    private CardView personalities;
+    private CardView love;
+    private CardView career;
     private ImageView back;
 
     @Override

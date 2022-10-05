@@ -9,7 +9,8 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class QuizCareer extends AppCompatActivity{
-    private Button buttonyes, buttonno;
+    private Button buttonyes;
+    private Button buttonno;
     private ImageView homebutton;
 
     @Override
