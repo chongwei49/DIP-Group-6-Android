@@ -38,7 +38,7 @@ public class Tests extends AppCompatActivity implements View.OnClickListener {
         Intent i;
         switch(view.getId()){
             case R.id.personalities:
-                i =new Intent(this, QuizLove.class);
+                i =new Intent(this, QuizPersonality.class);
                 startActivity(i);
                 break;
 
@@ -48,7 +48,7 @@ public class Tests extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.career:
-                i =new Intent(this, QuizLove.class);
+                i =new Intent(this, QuizCareer.class);
                 startActivity(i);
                 break;
 
