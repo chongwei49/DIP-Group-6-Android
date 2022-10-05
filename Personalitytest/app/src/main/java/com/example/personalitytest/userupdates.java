@@ -24,6 +24,7 @@ public class userupdates extends AppCompatActivity {
     private TextView button3;
     private TextView button4;
     private TextView connect, profile, settingsBtn;
+    private Button random;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     TextView name, email;
@@ -112,10 +113,23 @@ public class userupdates extends AppCompatActivity {
                 tocareerhistoryactivity();
             }
         });
+
+        random = (Button) findViewById(R.id.random);
+        random.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                totestsactivity();
+            }
+        });
         
 
 
 
+    }
+
+    public void totestsactivity() {
+        Intent intent = new Intent(this, Tests.class);
+        startActivity(intent);
     }
 
     public void homeactivity() {

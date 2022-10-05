@@ -96,7 +96,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="190dp"
-            android:layout_marginTop="615dp"
+            android:layout_marginTop="625dp"
             app:srcCompat="@drawable/homeicon" />
 
         <ImageView
@@ -105,7 +105,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="615dp"
+            android:layout_marginTop="625dp"
             app:srcCompat="@drawable/friendsicon" />
 
         <TextView
@@ -115,7 +115,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="55dp"
-            android:layout_marginTop="615dp"
+            android:layout_marginTop="625dp"
             android:fontFamily="@font/segeodisplaysemibold"
             android:text="Friends"
             android:textSize="20dp" />
@@ -123,12 +123,11 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="615dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="625dp"
             android:layout_marginEnd="85dp"
-            app:srcCompat="@drawable/profileicon"
-            />
+            app:srcCompat="@drawable/profileicon" />
 
         <TextView
             android:id="@+id/profileBtn"
@@ -136,13 +135,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="615dp"
+            android:layout_marginTop="625dp"
             android:layout_marginEnd="25dp"
             android:fontFamily="@font/segeodisplaysemibold"
             android:text="Profile"
             android:textSize="20dp" />
 
 
+
     </RelativeLayout>
+
+
 
 </RelativeLayout>
