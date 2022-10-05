@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
-        android:layout_alignParentEnd="true"
 
         <TextView
             android:layout_width="match_parent"
@@ -35,15 +34,15 @@
             android:id="@+id/signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="120dp"
-            android:fontFamily="@font/stix"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="@string/sign_up"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="25sp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true" />
+            android:textSize="25sp" />
 
         <ImageView
             android:id="@+id/signUpBck"
@@ -125,21 +124,9 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <TextView
-            android:layout_width="211dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="215dp"
-            android:layout_marginTop="325dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="Instagram"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
         <EditText
             android:id="@+id/usernameInput"
-            android:layout_width="170dp"
+            android:layout_width="365dp"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -149,23 +136,6 @@
             android:fontFamily="@font/segeodisplay"
             android:gravity="center"
             android:hint="Username"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
-
-        <EditText
-            android:id="@+id/igInput"
-            android:layout_width="170dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="215dp"
-            android:layout_marginTop="355dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="IG handle"
             android:inputType="text"
             android:textColor="@color/black"
             android:textColorHint="#90000000"

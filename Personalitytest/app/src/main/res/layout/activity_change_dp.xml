@@ -1,9 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".changeDP">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#50000000"/>
+
+        <ImageView
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="300dp"
+            android:src="@drawable/popup_1" />
+
+        <ImageView
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="560dp"
+            android:src="@drawable/popup_2" />
+
+        <RelativeLayout
+            android:layout_width="370dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="400dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/remove_dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Remove Current Photo"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="60dp"
+                android:fontFamily="@font/segeodisplaysemibold"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="370dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="455dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/library_dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Choose From library"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="70dp"
+                android:fontFamily="@font/segeodisplaysemibold"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="370dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="510dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/takephoto_dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Take photo"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="120dp"
+                android:fontFamily="@font/segeodisplaysemibold"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="370dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="585dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/cancel_dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Cancel"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="150dp"
+                android:fontFamily="@font/segeodisplaysemibold"
+                />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

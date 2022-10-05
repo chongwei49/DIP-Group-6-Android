@@ -46,6 +46,14 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        profile = (TextView) findViewById(R.id.startQuizBtn);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                totestsctivity();
+            }
+        });
+
         profile = (TextView) findViewById(R.id.profileBtn);
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +75,11 @@ public class Home extends AppCompatActivity {
 
     public void homeactivity() {
         Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+    public void totestsctivity() {
+        Intent intent = new Intent(this, Tests.class);
         startActivity(intent);
     }
 }

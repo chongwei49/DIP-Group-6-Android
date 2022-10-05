@@ -10,74 +10,77 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-        android:layout_alignParentEnd="true"
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <ImageView
-        android:id="@+id/loginBck"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="170dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
 
-        app:srcCompat="@drawable/backicon" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:fontFamily="@font/segeodisplaysemibold"
-        android:text="Welcome Back!"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="35sp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        <ImageView
+            android:id="@+id/loginBck"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="170dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+
+            app:srcCompat="@drawable/backicon" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="Welcome Back!"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="35sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
 
 
-    <TextView
-        android:id="@+id/LogIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:fontFamily="@font/segeodisplay"
-        android:text="@string/log_in"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"/>
 
-    <EditText
-        android:id="@+id/loginEmail"
-        android:layout_width="350dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginEnd="28dp"
-        android:background="@drawable/custom_input_2"
-        android:drawablePadding="5dp"
-        android:hint="@string/email"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="#70000000"
-        android:textSize="17sp"
-        android:fontFamily="@font/segeodisplay"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"/>
+        <TextView
+            android:id="@+id/LogIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="164dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/log_in"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/loginEmail"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="230dp"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/custom_input_2"
+            android:drawablePadding="5dp"
+            android:hint="@string/email"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#70000000"
+            android:textSize="17sp"
+            android:fontFamily="@font/segeodisplay"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"/>
+
+
 
         <EditText
             android:id="@+id/loginPass"
@@ -125,11 +128,34 @@
             android:layout_marginTop="367dp"
             android:layout_marginEnd="81dp"
             android:background="@drawable/signup_button"
+            android:fontFamily="@font/segeodisplay"
             android:text="@string/login"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="12sp"
-            android:fontFamily="@font/segeodisplay"/>
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="600dp">
+
+            <TextView
+                android:id="@+id/wrong_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/segeodisplay"
+                android:text="Wrong Password!"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="17sp" />
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 
