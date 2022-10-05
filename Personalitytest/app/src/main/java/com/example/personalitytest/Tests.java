@@ -33,14 +33,14 @@ public class Tests extends AppCompatActivity{
             }
         });
         career = (CardView) findViewById(R.id.career);
-        personalities.setOnClickListener(new View.OnClickListener() {
+        career.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 toquizcareeractivity();
             }
         });
         back = (ImageView) findViewById(R.id.back);
-        personalities.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tohomeactivity();
