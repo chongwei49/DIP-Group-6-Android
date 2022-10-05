@@ -95,8 +95,8 @@
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="615dp"
             android:layout_marginStart="190dp"
+            android:layout_marginTop="615dp"
             app:srcCompat="@drawable/homeicon" />
 
         <ImageView
@@ -104,10 +104,9 @@
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="615dp"
             android:layout_marginStart="20dp"
-            app:srcCompat="@drawable/friendsicon"
-            />
+            android:layout_marginTop="615dp"
+            app:srcCompat="@drawable/friendsicon" />
 
         <TextView
             android:id="@+id/friendsBtn"

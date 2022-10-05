@@ -41,7 +41,7 @@ public class QuizLove extends AppCompatActivity {
     }
 
     public void toresultloveactivity() {
-        Intent intent = new Intent(this, ResultCareer.class);
+        Intent intent = new Intent(this, ResultLove.class);
         startActivity(intent);
     }
     public void tohomeactivity() {

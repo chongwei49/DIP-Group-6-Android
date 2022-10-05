@@ -39,10 +39,12 @@
             android:layout_marginTop="33dp"
             android:layout_marginEnd="342dp"
             android:layout_marginBottom="224dp"
-            app:srcCompat="@drawable/back" />
+            app:srcCompat="@drawable/back"
+            android:clickable ="true"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/personalities"
+            android:clickable ="true"
             android:layout_width="320dp"
             android:layout_height="160dp"
             android:layout_alignParentStart="true"
@@ -145,6 +147,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/love"
+            android:clickable ="true"
             android:layout_width="320dp"
             android:layout_height="160dp"
             android:layout_alignParentStart="true"
@@ -245,6 +248,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/career"
+            android:clickable ="true"
             android:layout_width="320dp"
             android:layout_height="160dp"
             android:layout_alignParentStart="true"
