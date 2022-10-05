@@ -20,7 +20,7 @@ import com.google.android.gms.tasks.Task;
 public class usersettings extends AppCompatActivity {
 
     private Button button;
-    private TextView button2;
+    private TextView button2, connect;
     private ImageView DPbtn;
 
 
@@ -57,6 +57,14 @@ public class usersettings extends AppCompatActivity {
             }
         });
 
+        connect = (TextView) findViewById(R.id.friendsBtn);
+        connect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toconnectactivity();
+            }
+        });
+
 
     }
 
@@ -87,9 +95,18 @@ public class usersettings extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void tosettingssactivity() {
+        Intent intent = new Intent(this, usersettings.class);
+        startActivity(intent);
+    }
+
     public void changeactivity() {
         Intent intent = new Intent(this, changeDP.class);
         startActivity(intent);
     }
 
+    public void toconnectactivity() {
+        Intent intent = new Intent(this, connect_main.class);
+        startActivity(intent);
+    }
 }
