@@ -57,13 +57,13 @@ public class usersettings extends AppCompatActivity {
             }
         });
 
-        connect = (TextView) findViewById(R.id.friendsBtn);
+        /*onnect = (TextView) findViewById(R.id.friendsBtn);
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 toconnectactivity();
             }
-        });
+        });*/
 
 
     }

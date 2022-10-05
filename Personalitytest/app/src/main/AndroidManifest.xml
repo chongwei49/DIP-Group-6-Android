@@ -67,6 +67,14 @@
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
+            android:name=".QuizPersonality"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".QuizCareer"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
