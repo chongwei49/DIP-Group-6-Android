@@ -13,5 +13,7 @@
     <string name="date_of_birth">Date Of Birth</string>
     <string name="emailcaps">xxxx@gmail.com</string>
     <string name="view_history"><u>View History</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

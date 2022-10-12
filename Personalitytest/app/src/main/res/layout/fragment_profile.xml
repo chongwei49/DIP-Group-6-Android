@@ -1,17 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profilesettings"
-    tools:context=".connect_person">
+    android:background="@drawable/profile_resultsbg"
+    tools:context=".profileFragment">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
 
         <RelativeLayout
             android:id="@+id/userDp"
@@ -30,6 +31,16 @@
                 android:layout_marginEnd="5dp"
                 app:srcCompat="@drawable/user" />
 
+            <ImageView
+                android:id="@+id/changeDPbtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="-2dp"
+                app:srcCompat="@drawable/editprofileicon" />
+
 
         </RelativeLayout>
 
@@ -40,40 +51,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="29dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/segeodisplaysemibold"
             android:text="User Name"
             android:textSize="35dp" />
 
         <TextView
-            android:id="@+id/age"
-            android:layout_width="42dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="152dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="Age"
-            android:textColor="@color/black"
-            android:textSize="17dp" />
-
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="42dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="294dp"
-            android:layout_marginTop="149dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="M/F"
-            android:textColor="@color/black"
-            android:textSize="17dp" />
-
-        <TextView
-            android:id="@+id/email2"
+            android:id="@+id/email"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -83,6 +68,30 @@
             android:fontFamily="@font/segeodisplay"
             android:text="User_Name@domain.com"
             android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/resultsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="148dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="RESULTS"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/settingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="148dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="SETTINGS"
+            android:textSize="25dp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/personality"
@@ -94,7 +103,8 @@
             android:layout_marginTop="205dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="232dp"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:visibility="visible">
 
             <RelativeLayout
                 android:layout_width="400dp"
@@ -129,7 +139,7 @@
                     android:layout_height="78dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="171dp"
                     app:srcCompat="@drawable/logo" />
 
@@ -138,8 +148,8 @@
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="-6dp"
-                    android:layout_marginTop="59dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="95dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
                     android:text="DIRECTOR"
@@ -147,20 +157,55 @@
                     android:textSize="25sp" />
 
                 <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="220dp"
-                    android:layout_marginTop="60dp"
-                    android:fontFamily="@font/segeodisplaysemibold"
-                    android:gravity="center"
-                    android:text="DIRECTOR"
-                    android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:id="@+id/personalityHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/segeodisplay"
+                    android:text="@string/view_history"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
 
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_personality"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="205dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="232dp"
+            app:cardCornerRadius="20dp"
+            android:visibility="invisible">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#50000000"
+                android:orientation="vertical"
+                >
+
+                <Button
+                    android:id="@+id/random"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="START QUIZ"
+                    />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -207,8 +252,8 @@
                     android:layout_height="78dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="46dp"
-                    android:layout_marginEnd="172dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="171dp"
                     app:srcCompat="@drawable/lovetestlogo" />
 
                 <TextView
@@ -217,8 +262,8 @@
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="209dp"
-                    android:layout_marginTop="65dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="95dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
                     android:text="GIVER"
@@ -226,18 +271,17 @@
                     android:textSize="25sp" />
 
                 <TextView
-                    android:id="@+id/loveResult2"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="-18dp"
-                    android:layout_marginTop="63dp"
-                    android:fontFamily="@font/segeodisplaysemibold"
-                    android:gravity="center"
-                    android:text="GIVER"
-                    android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:id="@+id/loveHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/segeodisplay"
+                    android:text="@string/view_history"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
 
             </RelativeLayout>
@@ -286,8 +330,8 @@
                     android:layout_height="78dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="46dp"
-                    android:layout_marginEnd="172dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="171dp"
                     app:srcCompat="@drawable/joblogo" />
 
                 <TextView
@@ -296,8 +340,8 @@
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="213dp"
-                    android:layout_marginTop="67dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="95dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
                     android:text="LEADER"
@@ -305,18 +349,17 @@
                     android:textSize="25sp" />
 
                 <TextView
-                    android:id="@+id/personalityResult2"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="-9dp"
-                    android:layout_marginTop="66dp"
-                    android:fontFamily="@font/segeodisplaysemibold"
-                    android:gravity="center"
-                    android:text="LEADER"
-                    android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:id="@+id/careerHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/segeodisplay"
+                    android:text="@string/view_history"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
 
             </RelativeLayout>

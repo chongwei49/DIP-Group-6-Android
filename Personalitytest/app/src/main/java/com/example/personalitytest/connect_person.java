@@ -18,30 +18,6 @@ public class connect_person extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_person);
 
-        backimage = (ImageView) findViewById(R.id.homeBtn);
-        backimage.setClickable(true);
-        backimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                homeactivity();
-            }
-        });
-
-        connect = (TextView) findViewById(R.id.friendsBtn);
-        connect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toconnectactivity();
-            }
-        });
-
-        profile = (TextView) findViewById(R.id.profileBtn);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toprofileactivity();
-            }
-        });
 
     }
 
