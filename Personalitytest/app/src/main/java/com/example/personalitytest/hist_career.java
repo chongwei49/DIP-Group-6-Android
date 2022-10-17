@@ -28,7 +28,7 @@ public class hist_career extends AppCompatActivity {
     }
 
     public void backtoresultsactivity() {
-        Intent intent = new Intent(this, userupdates.class);
+        Intent intent = new Intent(this, profileFragment.class);
         startActivity(intent);
     }
 }

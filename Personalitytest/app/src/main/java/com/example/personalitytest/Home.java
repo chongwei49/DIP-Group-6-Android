@@ -56,15 +56,9 @@ public class Home extends AppCompatActivity {
 
 
     }
-    public void toconnectactivity() {
-        Intent intent = new Intent(this, connect_main.class);
-        startActivity(intent);
-    }
 
-    public void toprofileactivity() {
-        Intent intent = new Intent(this, userupdates.class);
-        startActivity(intent);
-    }
+
+
 
     public void homeactivity() {
         Intent intent = new Intent(this, Home.class);
