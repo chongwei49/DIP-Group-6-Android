@@ -72,8 +72,7 @@ public class Login extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
-
-
+    
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void login(String email, String password){
         String code = "Basic " +Base64.getEncoder().encodeToString((email + ":" + password).getBytes());
