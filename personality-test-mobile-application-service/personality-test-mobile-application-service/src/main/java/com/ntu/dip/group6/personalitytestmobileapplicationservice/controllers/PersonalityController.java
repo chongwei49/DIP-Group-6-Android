@@ -30,6 +30,11 @@ public class PersonalityController {
         return new ResponseEntity<>(personalityService.getPersonalityByUserId(userId), HttpStatus.OK);
     }
 
+    @GetMapping("/check/{userId}")
+    public ResponseEntity<Object> checkTestDone(@PathVariable Integer userId) {
+        return new ResponseEntity<>(personalityService.checkTestDone(userId), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Object> addNewPersonality(@RequestBody Personality personality) {
         return new ResponseEntity<>(personalityService.addNewPersonality(personality), HttpStatus.OK);
@@ -37,7 +42,7 @@ public class PersonalityController {
 
     @PutMapping("/{priId}")
     public ResponseEntity<Object> editPersonality(@PathVariable Integer priId, @RequestBody Personality personality) {
-        return new ResponseEntity<>(personalityService.addNewPersonality(personality), HttpStatus.OK);
+        return new ResponseEntity<>(personalityService.editPersonality(priId, personality), HttpStatus.OK);
     }
 
     @DeleteMapping("/{priId}")
