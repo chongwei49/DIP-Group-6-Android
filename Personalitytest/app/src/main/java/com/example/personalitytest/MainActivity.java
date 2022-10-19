@@ -44,10 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
 
-        if (acct != null) {
-            homeactivity();
-        }
-
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
@@ -97,15 +93,26 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 task.getResult(ApiException.class);
-                homeactivity();
+
+                GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+                if (acct != null) {
+                    String personName = acct.getDisplayName();
+                    String personEmail = acct.getEmail();
+                    Bundle userInformation = new Bundle();
+                    userInformation.putString("name", personName);
+                    userInformation.putString("email", personEmail);
+                    userInformation.putString("dob", "");
+                    homeactivity(userInformation);
+                }
             } catch (ApiException e) {
                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    public void homeactivity() {
+    public void homeactivity(Bundle bundle) {
         Intent intent = new Intent(this, Home.class);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 

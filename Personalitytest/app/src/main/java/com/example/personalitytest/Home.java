@@ -20,6 +20,8 @@ public class Home extends AppCompatActivity {
     private TextView name;
     BottomNavigationView bottomnavigation;
 
+
+
     homeFragment homeFragment = new homeFragment();
     connectFragment connectFragment = new connectFragment();
     profileFragment profileFragment = new profileFragment();
@@ -32,6 +34,13 @@ public class Home extends AppCompatActivity {
             bottomnavigation = findViewById(R.id.navigation);
 
             getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+            Bundle userInformation = getIntent().getExtras();
+            String userId = userInformation.getString("userId");
+            String  userName = userInformation.getString("name");
+            String  userEmail = userInformation.getString("email");
+            String userGender = userInformation.getString("gender");
+            String userDOB = userInformation.getString("DOB");
+            homeFragment.setArguments(userInformation);
 
             bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
                 @Override
@@ -51,8 +60,6 @@ public class Home extends AppCompatActivity {
                     return false;
                 }
             });
-
-
 
 
     }

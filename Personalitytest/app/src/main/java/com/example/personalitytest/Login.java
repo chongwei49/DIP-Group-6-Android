@@ -2,6 +2,7 @@ package com.example.personalitytest;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Build;
@@ -67,7 +68,7 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void homeactivity(Bundle bundle) {
+    public void homeActivity(Bundle bundle) {
         Intent intent = new Intent(this, Home.class);
         intent.putExtras(bundle);
         startActivity(intent);
@@ -88,18 +89,23 @@ public class Login extends AppCompatActivity {
                         try {
                             // convert response to JSON object
                             JSONObject userObject = new JSONObject(response);
+                            String userId = userObject.getString("userId");
                             String name = userObject.getString("name");
                             String email = userObject.getString("email");
+                            String gender = userObject.getString("gender");
                             String dob = userObject.getString("dob");
 
+
                             Bundle userInformation = new Bundle();
+                            userInformation.putString("userId", userId);
                             userInformation.putString("name", name);
                             userInformation.putString("email", email);
+                            userInformation.putString("gender", gender);
                             userInformation.putString("dob", dob);
 
                             Log.i("Response", response);
                             if (response.startsWith("{")) {
-                                homeactivity(userInformation);
+                                homeActivity(userInformation);
                             }
 
                             Log.d("user name", userObject.getString("name"));
