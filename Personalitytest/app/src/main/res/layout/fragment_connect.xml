@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".connectFragment">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -12,15 +12,16 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/friendsbg" />
+            android:background="@drawable/friendsbg1" />
 
-        <ImageView
+<!--        <ImageView-->
             android:id="@+id/homeBtn2"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -30,7 +31,7 @@
             android:layout_marginTop="615dp"
             app:srcCompat="@drawable/homeicon" />
 
-        <ImageView
+<!--        <ImageView-->
             android:id="@+id/imageView8"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -40,7 +41,7 @@
             android:layout_marginTop="615dp"
             app:srcCompat="@drawable/friendsicon" />
 
-        <TextView
+<!--        <TextView-->
             android:id="@+id/friendsBtn2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +53,7 @@
             android:text="Friends"
             android:textSize="20dp" />
 
-        <ImageView
+<!--        <ImageView-->
             android:id="@+id/imageView9"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -62,7 +63,7 @@
             android:layout_marginEnd="85dp"
             app:srcCompat="@drawable/profileicon" />
 
-        <TextView
+<!--        <TextView-->
             android:id="@+id/profileBtn2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,6 +106,65 @@
             android:textSize="20dp" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_personality"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/BasedOnPersonalities"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="232dp"
+            android:visibility="invisible"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#cccdc6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Personality Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/notdone_personaltystart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             app:cardElevation="0dp"
             android:id="@+id/personality"
             android:layout_width="400dp"
@@ -115,7 +175,8 @@
             android:layout_marginStart="19dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="19dp"
-            app:cardBackgroundColor="@android:color/transparent">
+            app:cardBackgroundColor="@android:color/transparent"
+            android:visibility="visible">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/personalityRecyclerView"
@@ -160,6 +221,64 @@
             android:textSize="20dp" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_love"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/BasedonLove"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="invisible"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#cccdc6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Love Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/notdone_lovestart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/love"
             android:layout_width="400dp"
             android:layout_height="130dp"
@@ -169,7 +288,8 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="20dp"
             app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="0dp">
+            app:cardElevation="0dp"
+            android:visibility="visible">
 
             <Button
                 android:id="@+id/lovenext"
@@ -193,6 +313,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:src="@drawable/rectangle_25" />
+
 
 
         </androidx.cardview.widget.CardView>
@@ -223,7 +344,8 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="20dp"
             app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="0dp">
+            app:cardElevation="0dp"
+            android:visibility="invisible">
 
             <Button
                 android:id="@+id/worknext"
@@ -249,6 +371,64 @@
                 android:src="@drawable/rectangle_26"
                 />
 
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_career"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/BasedonWork"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="visible"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#cccdc6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Career Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/notdone_careerstart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
 

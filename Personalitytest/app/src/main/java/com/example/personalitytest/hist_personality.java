@@ -27,7 +27,7 @@ public class hist_personality extends AppCompatActivity {
     }
 
     public void backtoresultsactivity() {
-        Intent intent = new Intent(this, userupdates.class);
+        Intent intent = new Intent(this, profileFragment.class);
         startActivity(intent);
     }
 

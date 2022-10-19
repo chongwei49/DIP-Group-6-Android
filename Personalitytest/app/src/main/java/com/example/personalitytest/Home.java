@@ -4,74 +4,61 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
 public class Home extends AppCompatActivity {
 
     private ImageView backimage;
-    private TextView connect, profile;
+    private TextView connect, tests;
     private TextView name;
+    BottomNavigationView bottomnavigation;
+
+    homeFragment homeFragment = new homeFragment();
+    connectFragment connectFragment = new connectFragment();
+    profileFragment profileFragment = new profileFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Bundle userInformation = getIntent().getExtras();
+            bottomnavigation = findViewById(R.id.navigation);
 
-        String userName = userInformation.getString("name");
-        String userEmail = userInformation.getString("email");
-        String userDOB = userInformation.getString("dob");
+            getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
-        name = findViewById(R.id.name);
-        name.setText(userName);
+            bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected( MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.home:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+                            return true;
+                        case R.id.friends:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.container,connectFragment).commit();
+                            return true;
+                        case R.id.profile:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
+                            return true;
+                    }
 
-        backimage = (ImageView) findViewById(R.id.homeBtn);
-        backimage.setClickable(true);
-        backimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                homeactivity();
-            }
-        });
+                    return false;
+                }
+            });
 
-        connect = (TextView) findViewById(R.id.friendsBtn);
-        connect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toconnectactivity();
-            }
-        });
 
-        profile = (TextView) findViewById(R.id.startQuizBtn);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                totestsctivity();
-            }
-        });
 
-        profile = (TextView) findViewById(R.id.profileBtn);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toprofileactivity();
-            }
-        });
 
     }
-    public void toconnectactivity() {
-        Intent intent = new Intent(this, connect_main.class);
-        startActivity(intent);
-    }
 
-    public void toprofileactivity() {
-        Intent intent = new Intent(this, userupdates.class);
-        startActivity(intent);
-    }
+
+
 
     public void homeactivity() {
         Intent intent = new Intent(this, Home.class);

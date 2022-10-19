@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile_resultsbg"
+    android:background="@drawable/personality_historybg"
     tools:context=".Tests">
 
     <RelativeLayout
+        android:id="@+id/history_personality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:visibility="visible">
 
         <RelativeLayout
-            android:id="@+id/userDp"
             android:layout_width="90dp"
             android:layout_height="75dp"
             android:layout_alignParentTop="true"
@@ -36,7 +37,6 @@
 
 
         <TextView
-            android:id="@+id/username"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -73,14 +73,13 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="224dp"
+                    android:layout_width="350dp"
                     android:layout_height="60dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="23dp"
+                    android:layout_marginStart="25dp"
                     android:layout_marginTop="48dp"
-                    android:layout_marginEnd="-23dp"
+                    android:layout_marginEnd="-25dp"
                     android:fontFamily="@font/segeodisplay"
                     android:gravity="left"
                     android:text="You like having authority in all situations. Losing \nauthority might lead to losing confidence. "
@@ -172,17 +171,16 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="155dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="150dp"
             android:layout_marginBottom="160dp"
             android:fontFamily="@font/segeodisplaysemibold"
             android:gravity="center"
-            android:text="Your Results"
+            android:text="You are..."
             android:textColor="#4E4848"
-            android:textSize="23sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
@@ -272,6 +270,77 @@
             android:textColor="#4E4848"
             android:textSize="23sp"
             android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nohistory_personality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="75dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@drawable/logo" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="Personality Test"
+            android:textSize="35dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="300dp"
+            android:text="To view your Personality results, start your test here"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:fontFamily="@font/segeodisplaysemibold"
+            />
+
+        <Button
+            android:id="@+id/nohistory_personalitystart"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="170dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="380dp"
+            android:layout_marginEnd="100dp"
+            android:background="@drawable/signup_button"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="START NOW"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
 
     </RelativeLayout>
 

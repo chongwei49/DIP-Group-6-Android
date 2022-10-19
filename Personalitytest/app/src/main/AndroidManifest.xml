@@ -30,31 +30,13 @@
             android:name=".hist_personality"
             android:exported="false" />
         <activity
-            android:name=".connect_main"
-            android:exported="false" />
-        <activity
-            android:name=".Friends_Chart"
-            android:exported="false" />
-        <activity
-            android:name=".Friends_Update"
-            android:exported="false" />
-        <activity
-            android:name=".Friends_Compatibility"
-            android:exported="false" />
-        <activity
             android:name=".Home"
-            android:exported="false" />
-        <activity
-            android:name=".userupdates"
             android:exported="false" />
         <activity
             android:name=".usersettings"
             android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="false" />
-        <activity
-            android:name=".Friends_Page"
             android:exported="false" />
         <activity
             android:name=".Signup"

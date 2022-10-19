@@ -3,6 +3,7 @@ package com.ntu.dip.group6.personalitytestmobileapplicationservice.services;
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.models.Personality;
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.models.Traits;
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.repositories.PersonalityRepository;
+import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,25 @@ public class PersonalityService {
 
     public List<Personality> getPersonalityByUserId(Integer userId) {
         return personalityRepository.findByUserId(userId);
+    }
+
+    public Map<String, Boolean> checkTestDone(Integer userId) {
+        List<Personality> list = personalityRepository.findByUserId(userId);
+        Map<String, Boolean> response = new HashMap<>();
+        for (int i=0; i<list.size(); i++) {
+            Personality personality = list.get(i);
+            if (personality.getQnCategory().equals("16Personalities")) {
+                response.put("16Personalities", true);
+            }
+            if (personality.getQnCategory().equals("Love")) {
+                response.put("Love", true);
+            }
+            if (personality.getQnCategory().equals("Job")) {
+                response.put("Job", true);
+            }
+
+        }
+        return response;
     }
 
     public Map<String, String> addNewPersonality(Personality personality) {

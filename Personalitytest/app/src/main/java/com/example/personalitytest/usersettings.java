@@ -91,7 +91,7 @@ public class usersettings extends AppCompatActivity {
         startActivity(intent);
     }
     public void toresultssactivity() {
-        Intent intent = new Intent(this, userupdates.class);
+        Intent intent = new Intent(this, profileFragment.class);
         startActivity(intent);
     }
 
@@ -103,7 +103,7 @@ public class usersettings extends AppCompatActivity {
     }
 
     public void toconnectactivity() {
-        Intent intent = new Intent(this, connect_main.class);
+        Intent intent = new Intent(this, connectFragment.class);
         startActivity(intent);
     }
 }

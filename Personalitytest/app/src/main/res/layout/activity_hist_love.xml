@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile_resultsbg"
+    android:background="@drawable/love_historybg"
     tools:context=".Tests">
 
     <RelativeLayout
+        android:id="@+id/history_love"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:visibility="visible">
 
         <RelativeLayout
             android:layout_width="90dp"
@@ -38,8 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/segeodisplaysemibold"
             android:text="Love Test"
             android:textSize="35dp" />
@@ -170,14 +172,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="155dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="150dp"
             android:layout_marginBottom="160dp"
             android:fontFamily="@font/segeodisplaysemibold"
             android:gravity="center"
-            android:text="Your Results"
+            android:text="You are..."
             android:textColor="#4E4848"
-            android:textSize="23sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
@@ -261,6 +263,77 @@
             android:textColor="#4E4848"
             android:textSize="23sp"
             android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nohistory_love"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="75dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@drawable/lovetestlogo" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="Love Test"
+            android:textSize="35dp" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="300dp"
+            android:layout_marginStart="55dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:gravity="center"
+            android:text="To view your Love results, start your test here"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/nohistory_lovestart"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="170dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="380dp"
+            android:layout_marginEnd="100dp"
+            android:background="@drawable/signup_button"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="START NOW"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
 
     </RelativeLayout>
 
