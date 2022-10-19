@@ -42,6 +42,7 @@ public class connectFragment extends Fragment {
     private TextView connect, profile;
     private ImageView backimage;
     private Button personalitynext, lovenext, worknext;
+    private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
 
     public connectFragment() {
         // Required empty public constructor
@@ -72,6 +73,32 @@ public class connectFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        notdone_personaltystart = (Button) findViewById(R.id.notdone_personaltystart);
+        notdone_personaltystart.setClickable(true);
+        notdone_personaltystart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                personalityactivity();
+            }
+        });
+        notdone_lovestart = (Button) findViewById(R.id.notdone_lovestart);
+        notdone_lovestart.setClickable(true);
+        notdone_lovestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loveactivity();
+            }
+        });
+
+        notdone_careerstart = (Button) findViewById(R.id.notdone_careerstart);
+        notdone_careerstart.setClickable(true);
+        notdone_careerstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                careeractivity();
+            }
+        });
     }
 
     @Override
@@ -238,5 +265,20 @@ public class connectFragment extends Fragment {
             }
         }
 
+    }
+
+    public void personalityactivity() {
+        Intent intent = new Intent(this, QuizPersonality.class);
+        startActivity(intent);
+    }
+
+    public void loveactivity() {
+        Intent intent = new Intent(this, QuizLove.class);
+        startActivity(intent);
+    }
+
+    public void careeractivity() {
+        Intent intent = new Intent(this, QuizCareer.class);
+        startActivity(intent);
     }
 }
