@@ -68,8 +68,6 @@ public class Login extends AppCompatActivity {
                     userInformation.putString("dob", dob);
                     homeactivity();
                 }*/
-
-                //homeactivity();
             }
         });
 
@@ -84,6 +82,7 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         intent.putExtras(bundle);
         startActivity(intent);
+        this.finish();
 
     }
     
