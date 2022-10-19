@@ -20,9 +20,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.personalitytest.models.User;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +57,17 @@ public class Login extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                login(emailText.getText().toString(), passText.getText().toString());
+                //login(emailText.getText().toString(), passText.getText().toString());
+                User user = Services.login(emailText.getText().toString(), passText.getText().toString(), Login.this);
+                Log.d("userList", user.getName());
+                /*if(userLogin != null) {
+                    Bundle userInformation = new Bundle();
+                    userInformation.putInt("userId", (userLogin.indexOf(0)).getUserId());
+                    userInformation.putString("name", name);
+                    userInformation.putString("email", email);
+                    userInformation.putString("dob", dob);
+                    homeactivity();
+                }*/
 
                 //homeactivity();
             }
@@ -75,7 +87,7 @@ public class Login extends AppCompatActivity {
 
     }
     
-    @RequiresApi(api = Build.VERSION_CODES.O)
+    /*@RequiresApi(api = Build.VERSION_CODES.O)
     public void login(String email, String password){
         String code = "Basic " +Base64.getEncoder().encodeToString((email + ":" + password).getBytes());
         Log.i("Code", code);
@@ -135,7 +147,7 @@ public class Login extends AppCompatActivity {
             }
         };
         queue.add(getRequest);
-    }
+    }*/
 
 
 }
