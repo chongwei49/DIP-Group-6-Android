@@ -34,7 +34,10 @@ public class Home extends AppCompatActivity {
             bottomnavigation = findViewById(R.id.navigation);
 
             getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+
+
             Bundle userInformation = getIntent().getExtras();
+
             String userId = userInformation.getString("userId");
             String  userName = userInformation.getString("name");
             String  userEmail = userInformation.getString("email");

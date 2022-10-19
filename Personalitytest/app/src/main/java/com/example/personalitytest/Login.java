@@ -72,6 +72,7 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         intent.putExtras(bundle);
         startActivity(intent);
+
     }
     
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -82,6 +83,7 @@ public class Login extends AppCompatActivity {
         String url = "https://soma-app-be.herokuapp.com/api/v2/login";
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
+
                 {
                     @Override
                     public void onResponse(String response) {
