@@ -42,6 +42,7 @@ public class connectFragment extends Fragment {
     private TextView connect, profile;
     private ImageView backimage;
     private Button personalitynext, lovenext, worknext;
+    private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
 
     public connectFragment() {
         // Required empty public constructor
@@ -72,6 +73,8 @@ public class connectFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -112,6 +115,35 @@ public class connectFragment extends Fragment {
                 startActivity(in);
             }
 
+        });
+
+        notdone_personaltystart = (Button) view.findViewById(R.id.notdone_personaltystart);
+        notdone_personaltystart.setClickable(true);
+        notdone_personaltystart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getActivity(), QuizPersonality.class);
+                startActivity(in);
+            }
+        });
+        notdone_lovestart = (Button) view.findViewById(R.id.notdone_lovestart);
+        notdone_lovestart.setClickable(true);
+        notdone_lovestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getActivity(), QuizLove.class);
+                startActivity(in);
+            }
+        });
+
+        notdone_careerstart = (Button) view.findViewById(R.id.notdone_careerstart);
+        notdone_careerstart.setClickable(true);
+        notdone_careerstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getActivity(), QuizCareer.class);
+                startActivity(in);
+            }
         });
 
         lovenext = (Button) view.findViewById(R.id.lovenext);
@@ -239,4 +271,5 @@ public class connectFragment extends Fragment {
         }
 
     }
+
 }

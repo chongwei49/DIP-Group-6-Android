@@ -196,16 +196,40 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="#50000000"
+                android:background="#cccdc6"
                 android:orientation="vertical"
                 >
 
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Personality Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
                 <Button
-                    android:id="@+id/random"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="START QUIZ"
-                    />
+                    android:id="@+id/notdone_personaltystart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -288,6 +312,65 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_love"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="345dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="20dp"
+            android:visibility="invisible">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#cccdc6"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Love Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/notdone_lovestart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/career"
             android:layout_width="400dp"
             android:layout_height="130dp"
@@ -362,6 +445,65 @@
                     android:textSize="15sp" />
 
 
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_career"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="485dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="20dp"
+            android:visibility="invisible">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#cccdc6"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Career Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/notdone_careerstart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
