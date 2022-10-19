@@ -26,7 +26,7 @@
             app:srcCompat="@drawable/logo" />
 
         <ImageView
-            android:id="@+id/imageView15"
+            android:id="@+id/homebutton"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_alignParentEnd="true"

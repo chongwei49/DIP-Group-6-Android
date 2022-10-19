@@ -75,6 +75,18 @@
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
+            android:name=".ResultPersonality"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".ResultLove"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".ResultCareer"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
