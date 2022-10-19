@@ -62,15 +62,14 @@ public class homeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            Bundle userInformation = this.getArguments();
+            userId = userInformation.getString("userId");
+            userName = userInformation.getString("name");
+            userEmail = userInformation.getString("email");
+            userGender = userInformation.getString("gender");
+            userDOB = userInformation.getString("DOB");
         }
-
-        Bundle userInformation = this.getArguments();
-        userId = userInformation.getString("userId");
-        userName = userInformation.getString("name");
-        userEmail = userInformation.getString("email");
-        userGender = userInformation.getString("gender");
-        userDOB = userInformation.getString("DOB");
-
     }
 
     @Override

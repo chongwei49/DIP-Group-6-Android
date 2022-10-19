@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                signupactivity();
                 //loginWithGoogle();
-
             }
         });
 
@@ -75,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     public void loginactivity() {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
+        this.finish();
     }
 
     public void loginWithGoogle() {
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         intent.putExtras(bundle);
         startActivity(intent);
+        this.finish();
     }
 
 }

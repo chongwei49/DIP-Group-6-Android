@@ -56,7 +56,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 login(emailText.getText().toString(), passText.getText().toString());
-
                 //homeactivity();
             }
         });
@@ -72,6 +71,7 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         intent.putExtras(bundle);
         startActivity(intent);
+        this.finish();
 
     }
     

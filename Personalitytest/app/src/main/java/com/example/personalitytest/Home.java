@@ -1,9 +1,11 @@
 package com.example.personalitytest;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +22,11 @@ public class Home extends AppCompatActivity {
     private TextView name;
     BottomNavigationView bottomnavigation;
 
-
+    private String userId;
+    private String userName;
+    private String userEmail;
+    private String userGender;
+    private String userDOB;
 
     homeFragment homeFragment = new homeFragment();
     connectFragment connectFragment = new connectFragment();
@@ -35,15 +41,32 @@ public class Home extends AppCompatActivity {
 
             getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
+            if (getIntent().getExtras() != null) {
+                Bundle userInformation = getIntent().getExtras();
+                userId = userInformation.getString("userId");
+                userName = userInformation.getString("name");
+                userEmail = userInformation.getString("email");
+                userGender = userInformation.getString("gender");
+                userDOB = userInformation.getString("DOB");
 
-            Bundle userInformation = getIntent().getExtras();
+                homeFragment.setArguments(userInformation);
 
-            String userId = userInformation.getString("userId");
-            String  userName = userInformation.getString("name");
-            String  userEmail = userInformation.getString("email");
-            String userGender = userInformation.getString("gender");
-            String userDOB = userInformation.getString("DOB");
-            homeFragment.setArguments(userInformation);
+            } else {
+                Log.e("Error", "Bundle empty");
+                Log.d("User name", "User Name, " +  userName);
+
+                Bundle userInformation = new Bundle();
+                userInformation.putString("userId", userId);
+                userInformation.putString("name", userName);
+                userInformation.putString("email", userEmail);
+                userInformation.putString("gender", userGender);
+                userInformation.putString("dob", userDOB);
+
+                homeFragment.setArguments(userInformation);
+            }
+
+
+
 
             bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
                 @Override
@@ -79,4 +102,30 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(this, Tests.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle userInformation) {
+
+        super.onSaveInstanceState(userInformation);
+
+        userInformation.putString("userId", userId);
+        userInformation.putString("name", userName);
+        userInformation.putString("email", userEmail);
+        userInformation.putString("gender", userGender);
+        userInformation.putString("dob", userDOB);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle userInformation) {
+
+        userId = userInformation.getString("userId");
+        userName = userInformation.getString("name");
+        userEmail = userInformation.getString("email");
+        userGender = userInformation.getString("gender");
+        userDOB = userInformation.getString("DOB");
+
+        super.onRestoreInstanceState(userInformation);
+    }
+
 }
