@@ -3,15 +3,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profilesettings"
+    android:background="@drawable/friendsbg"
     tools:context=".connect_person">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="26dp"
+            android:layout_height="23dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="375dp"
+            android:layout_marginBottom="224dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/back" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/segeodisplaysemibold"
+            android:text="User Name"
+            android:textSize="35dp" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_below="@+id/email2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="102dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Gender"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Age"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
+
+        <ImageView
+            android:id="@+id/separate"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_below="@+id/email2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="319dp"
+            android:layout_toEndOf="@+id/age"
+            app:srcCompat="@drawable/rectangle_34" />
+
+        <TextView
+            android:id="@+id/email2"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="User_Name@domain.com"
+            android:textSize="17dp" />
 
         <RelativeLayout
             android:id="@+id/userDp"
@@ -19,7 +93,7 @@
             android:layout_height="75dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp">
 
             <ImageView
@@ -33,56 +107,63 @@
 
         </RelativeLayout>
 
-
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_personality"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="29dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="User Name"
-            android:textSize="35dp" />
-
-        <TextView
-            android:id="@+id/age"
-            android:layout_width="42dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="152dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="Age"
-            android:textColor="@color/black"
-            android:textSize="17dp" />
-
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="42dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="294dp"
-            android:layout_marginTop="149dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="M/F"
-            android:textColor="@color/black"
-            android:textSize="17dp" />
-
-        <TextView
-            android:id="@+id/email2"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="75dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="User_Name@domain.com"
-            android:textSize="17dp" />
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="232dp"
+            android:visibility="visible"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#cccdc6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Personality Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/notdone_personaltystart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/personality"
@@ -91,9 +172,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="205dp"
+            android:layout_marginTop="170dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="232dp"
+            android:visibility="invisible"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
@@ -165,14 +247,73 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_love"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="visible"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#cccdc6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Love Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/notdone_lovestart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/love"
             android:layout_width="400dp"
             android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="345dp"
+            android:layout_marginTop="320dp"
             android:layout_marginEnd="20dp"
+            android:visibility="invisible"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
@@ -250,8 +391,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="485dp"
+            android:layout_marginTop="470dp"
             android:layout_marginEnd="20dp"
+            android:visibility="visible"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
@@ -322,57 +464,114 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-<!--        <ImageView-->
-            android:id="@+id/homeBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/notdone_career"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="190dp"
-            android:layout_marginTop="625dp"
-            app:srcCompat="@drawable/homeicon" />
-
-<!--        <ImageView-->
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="625dp"
-            app:srcCompat="@drawable/friendsicon" />
+            android:layout_marginTop="470dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="visible"
+            app:cardCornerRadius="20dp">
 
-<!--        <TextView-->
-            android:id="@+id/friendsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="625dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Friends"
-            android:textSize="20dp" />
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#cccdc6"
+                android:orientation="vertical">
 
-<!--        <ImageView-->
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="625dp"
-            android:layout_marginEnd="85dp"
-            app:srcCompat="@drawable/profileicon" />
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Career Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
 
-<!--        <TextView-->
-            android:id="@+id/profileBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="625dp"
-            android:layout_marginEnd="25dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Profile"
-            android:textSize="20dp" />
+                <Button
+                    android:id="@+id/notdone_careerstart"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="170dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/signup_button"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:text="START NOW"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        <ImageView-->
+        android:id="@+id/homeBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="625dp"
+        app:srcCompat="@drawable/homeicon" />
+
+        <!--        <ImageView-->
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="625dp"
+        app:srcCompat="@drawable/friendsicon" />
+
+        <!--        <TextView-->
+        android:id="@+id/friendsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="625dp"
+        android:fontFamily="@font/segeodisplaysemibold"
+        android:text="Friends"
+        android:textSize="20dp" />
+
+        <!--        <ImageView-->
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="625dp"
+        android:layout_marginEnd="85dp"
+        app:srcCompat="@drawable/profileicon" />
+
+        <!--        <TextView-->
+        android:id="@+id/profileBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="625dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/segeodisplaysemibold"
+        android:text="Profile"
+        android:textSize="20dp" />
 
 
     </RelativeLayout>
