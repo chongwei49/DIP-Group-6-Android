@@ -65,9 +65,6 @@ public class Home extends AppCompatActivity {
                 homeFragment.setArguments(userInformation);
             }
 
-
-
-
             bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected( MenuItem item) {
@@ -90,9 +87,6 @@ public class Home extends AppCompatActivity {
 
     }
 
-
-
-
     public void homeactivity() {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
@@ -101,6 +95,7 @@ public class Home extends AppCompatActivity {
     public void totestsctivity() {
         Intent intent = new Intent(this, Tests.class);
         startActivity(intent);
+        this.finish();
     }
 
     @Override
@@ -118,14 +113,14 @@ public class Home extends AppCompatActivity {
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle userInformation) {
-
+        super.onRestoreInstanceState(userInformation);
         userId = userInformation.getString("userId");
         userName = userInformation.getString("name");
         userEmail = userInformation.getString("email");
         userGender = userInformation.getString("gender");
         userDOB = userInformation.getString("DOB");
 
-        super.onRestoreInstanceState(userInformation);
+
     }
 
 }

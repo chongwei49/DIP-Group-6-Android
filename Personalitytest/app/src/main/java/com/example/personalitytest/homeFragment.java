@@ -87,6 +87,7 @@ public class homeFragment extends Fragment {
             public void onClick(View v){
                 Intent in = new Intent(getActivity(), Tests.class);
                 startActivity(in);
+                getActivity().getFragmentManager().popBackStack();
             }
 
         });
