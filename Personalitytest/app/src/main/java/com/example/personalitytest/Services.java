@@ -262,7 +262,7 @@ public class Services {
                         try {
                             // convert response to JSON object
                             JSONArray array = new JSONArray(response);
-
+                            Log.d("TRAITS", response);
                             ArrayList<Trait> traitsList = new ArrayList<>();
 
                             for(int i=0; i < array.length(); i++){
