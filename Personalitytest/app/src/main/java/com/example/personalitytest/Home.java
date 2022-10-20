@@ -100,7 +100,6 @@ public class Home extends AppCompatActivity {
                 }
             });
 
-
     }
 
     @Override
