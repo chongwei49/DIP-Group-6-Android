@@ -16,18 +16,15 @@ public class hist_love extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hist_love);
 
-        backimage = (ImageView) findViewById(R.id.backtoresults);
+        backimage = (ImageView) findViewById(R.id.lovebacktoresults);
         backimage.setClickable(true);
         backimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                backtoresultsactivity();
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.loveHistoryPage,new profileFragment()).commit();
             }
         });
 
-    }
-    public void backtoresultsactivity() {
-        Intent intent = new Intent(this, profileFragment.class);
-        startActivity(intent);
     }
 }

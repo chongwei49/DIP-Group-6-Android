@@ -5,7 +5,212 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/love_historybg"
-    tools:context=".Tests">
+    tools:context=".Tests"
+    android:id="@+id/loveHistoryPage">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="50dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="QUALITY TIME"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/segeodisplay"
+                    android:gravity="center"
+                    android:text="Date: 2/11/20"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="60dp"
+                    android:layout_height="78dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="20dp"
+                    app:srcCompat="@drawable/lovetestlogo" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-52dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="50dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="ACT OF SERVICE"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/segeodisplay"
+                    android:gravity="center"
+                    android:text="Date: 2/11/20"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="60dp"
+                    android:layout_height="78dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="20dp"
+                    app:srcCompat="@drawable/lovetestlogo" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-52dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="50dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="QUALITY TIME"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/segeodisplay"
+                    android:gravity="center"
+                    android:text="Date: 2/11/20"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="60dp"
+                    android:layout_height="78dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="20dp"
+                    app:srcCompat="@drawable/lovetestlogo" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-52dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="50dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="ACT OF SERVICE"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/segeodisplay"
+                    android:gravity="center"
+                    android:text="Date: 2/11/20"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="60dp"
+                    android:layout_height="78dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="20dp"
+                    app:srcCompat="@drawable/lovetestlogo" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <RelativeLayout
         android:id="@+id/history_love"
@@ -34,17 +239,6 @@
                 app:srcCompat="@drawable/lovetestlogo" />
         </RelativeLayout>
 
-
-        <TextView
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Love Test"
-            android:textSize="35dp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/personality"
@@ -112,62 +306,49 @@
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
+                <RelativeLayout
+                    android:id="@+id/nohistory_love"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="1dp"
+                    android:visibility="invisible">
+
+                    <RelativeLayout
+                        android:layout_width="90dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginEnd="30dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            app:srcCompat="@drawable/lovetestlogo" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/homeBtn"
+            android:id="@+id/lovebacktoresults"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="190dp"
-            android:layout_marginTop="625dp"
-            app:srcCompat="@drawable/homeicon" />
-
-        <ImageView
-            android:id="@+id/backtoresults"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="625dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="51dp"
             app:srcCompat="@drawable/backicon2" />
-
-        <TextView
-            android:id="@+id/friendsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="625dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Back"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="625dp"
-            android:layout_marginEnd="85dp"
-            app:srcCompat="@drawable/profileicon" />
-
-        <TextView
-            android:id="@+id/profileBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="625dp"
-            android:layout_marginEnd="25dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Profile"
-            android:textSize="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -195,145 +376,17 @@
             android:textSize="23sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="415dp"
-            android:layout_marginBottom="160dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:gravity="center"
-            android:text="ACTS OF SERVICE"
-            android:textColor="#4E4848"
-            android:textSize="23sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="450dp"
-            android:layout_marginBottom="160dp"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:text="Date: 4/1/21"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="560dp"
-            android:layout_marginBottom="160dp"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:text="Date: 2/11/20"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="78dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="400dp"
-            app:srcCompat="@drawable/lovetestlogo" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="78dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="500dp"
-            app:srcCompat="@drawable/lovetestlogo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="520dp"
-            android:layout_marginBottom="160dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:gravity="center"
-            android:text="QUALITY TIME"
-            android:textColor="#4E4848"
-            android:textSize="23sp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/nohistory_love"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:visibility="invisible">
-
-        <RelativeLayout
-            android:layout_width="90dp"
-            android:layout_height="75dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="30dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                app:srcCompat="@drawable/lovetestlogo" />
-        </RelativeLayout>
-
 
         <TextView
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="42dp"
             android:fontFamily="@font/segeodisplaysemibold"
             android:text="Love Test"
             android:textSize="35dp" />
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="300dp"
-            android:layout_marginStart="55dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:gravity="center"
-            android:text="To view your Love results, start your test here"
-            android:textSize="25dp" />
-
-        <Button
-            android:id="@+id/nohistory_lovestart"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginHorizontal="170dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="380dp"
-            android:layout_marginEnd="100dp"
-            android:background="@drawable/signup_button"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="START NOW"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="22sp" />
 
     </RelativeLayout>
 

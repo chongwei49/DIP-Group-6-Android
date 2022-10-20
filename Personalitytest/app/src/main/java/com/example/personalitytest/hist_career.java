@@ -16,19 +16,16 @@ public class hist_career extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hist_career);
 
-        backimage = (ImageView) findViewById(R.id.backtoresults);
+        backimage = (ImageView) findViewById(R.id.careerbacktoresults);
         backimage.setClickable(true);
         backimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                backtoresultsactivity();
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.careerHistoryPage,new profileFragment()).commit();
             }
         });
 
     }
 
-    public void backtoresultsactivity() {
-        Intent intent = new Intent(this, profileFragment.class);
-        startActivity(intent);
-    }
 }
