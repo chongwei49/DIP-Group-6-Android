@@ -18,6 +18,54 @@ public class Question {
         this.answer = answer;
         this.traits = traits;
     }
+
+    public Integer getPriId() {
+        return this.priId;
+    }
+
+    public void setPriId(Integer priId) {
+        this.priId = priId;
+    }
+
+    public Integer getQnId() {
+        return this.qnId;
+    }
+
+    public void setQnId(Integer qnId) {
+        this.qnId = qnId;
+    }
+
+    public String getQnCategory() {
+        return this.qnCategory;
+    }
+
+    public void setQnCategory(String qnCategory) {
+        this.qnCategory = qnCategory;
+    }
+
+    public String getQns() {
+        return this.qns;
+    }
+
+    public void setQns(String qns) {
+        this.qns = qns;
+    }
+
+    public Boolean getAnswer() {
+        return this.answer;
+    }
+
+    public void setAnswer(Boolean answer) {
+        this.answer = answer;
+    }
+
+    public String getTraits() {
+        return this.traits;
+    }
+
+    public void setTraits(String traits) {
+        this.traits = traits;
+    }
 }
 
 

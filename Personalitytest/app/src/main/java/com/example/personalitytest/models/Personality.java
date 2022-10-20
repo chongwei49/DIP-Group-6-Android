@@ -17,4 +17,44 @@ public class Personality {
         this.personalityType = personalityType;
         this.dateTime = dateTime;
     }
+
+    public Integer getPriId() {
+        return this.priId;
+    }
+
+    public void setPriId(Integer priId) {
+        this.priId = priId;
+    }
+
+    public Integer getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getQnCategory() {
+        return this.qnCategory;
+    }
+
+    public void setQnCategory(String qnCategory) {
+        this.qnCategory = qnCategory;
+    }
+
+    public String getPersonalityType() {
+        return this.personalityType;
+    }
+
+    public void setPersonalityType(String personalityType) {
+        this.personalityType = personalityType;
+    }
+
+    public String getDateTime() {
+        return this.dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
 }
