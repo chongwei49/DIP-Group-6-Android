@@ -87,16 +87,7 @@ public class Home extends AppCompatActivity {
 
     }
 
-    public void homeactivity() {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
-    }
 
-    public void totestsctivity() {
-        Intent intent = new Intent(this, Tests.class);
-        startActivity(intent);
-        this.finish();
-    }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle userInformation) {

@@ -16,19 +16,17 @@ public class hist_personality extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hist_personality);
 
-        backimage = (ImageView) findViewById(R.id.backtoresults);
+        backimage = (ImageView) findViewById(R.id.personalitybacktoresults);
         backimage.setClickable(true);
         backimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                backtoresultsactivity();
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.personalityHistoryPage,new profileFragment()).commit();
+
             }
         });
     }
 
-    public void backtoresultsactivity() {
-        Intent intent = new Intent(this, profileFragment.class);
-        startActivity(intent);
-    }
 
 }
