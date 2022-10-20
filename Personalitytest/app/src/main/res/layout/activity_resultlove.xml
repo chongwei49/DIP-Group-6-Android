@@ -51,12 +51,12 @@
 
         <ImageView
             android:id="@+id/loveavatar"
-            android:layout_width="372dp"
-            android:layout_height="175dp"
+            android:layout_width="331dp"
+            android:layout_height="148dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="95dp"
-            android:layout_marginEnd="23dp"
+            android:layout_marginTop="108dp"
+            android:layout_marginEnd="46dp"
             app:srcCompat="@drawable/physicaltouch" />
 
         <androidx.cardview.widget.CardView
