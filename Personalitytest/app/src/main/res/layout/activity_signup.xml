@@ -163,13 +163,13 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="430dp"
             android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
             android:gravity="center"
             android:hint="@string/password"
             android:inputType="text"
             android:textColor="@color/black"
             android:textColorHint="#90000000"
-            android:textSize="17sp"
-            android:fontFamily="@font/segeodisplay"/>
+            android:textSize="17sp" />
 
         <TextView
             android:layout_width="match_parent"
