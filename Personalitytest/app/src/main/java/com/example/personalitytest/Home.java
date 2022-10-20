@@ -79,6 +79,7 @@ public class Home extends AppCompatActivity {
             userInformation.putString("dob", userDOB);
 
             homeFragment.setArguments(userInformation);
+            profileFragment.setArguments(userInformation);
         }
 
             bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
