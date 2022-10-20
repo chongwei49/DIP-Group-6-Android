@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.personalitytest.models.Question;
 import com.example.personalitytest.models.Trait;
 
 import java.util.ArrayList;

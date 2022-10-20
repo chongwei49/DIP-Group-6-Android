@@ -1,11 +1,9 @@
 package com.example.personalitytest;
 
 import android.app.ProgressDialog;
-import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.personalitytest.models.Question;
-import com.example.personalitytest.models.Trait;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -47,7 +42,6 @@ public class QuizCareer extends AppCompatActivity{
                 for(int z=0; z<careerQuizVar.size(); z++){
                     if(careerQuizVar.get(z).getQnId() == qCounter && careerQuizVar.get(z).getAnswer()){
                         careerQuizAns.add(careerQuizVar.get(z));
-
                     }
                 }
                 qCounter=qCounter+1;
@@ -66,7 +60,6 @@ public class QuizCareer extends AppCompatActivity{
                 for(int z=0; z<careerQuizVar.size(); z++){
                     if(careerQuizVar.get(z).getQnId() == qCounter && !careerQuizVar.get(z).getAnswer()){
                         careerQuizAns.add(careerQuizVar.get(z));
-
                     }
                 }
                 qCounter=qCounter+1;
@@ -107,7 +100,6 @@ public class QuizCareer extends AppCompatActivity{
             careerQuizAns= intent.getParcelableArrayListExtra("Ans_list");
             qCounter = intent.getIntExtra("Question_Counter", 1);
             quizSize = intent.getIntExtra("Quiz_size", 1);
-            Log.d("Quiz Size", String.valueOf(quizSize));
             setUpPage();
         }else{
             Services.getAllQuestions(QuizCareer.this, new Services.QuestionCallback() {
@@ -120,7 +112,6 @@ public class QuizCareer extends AppCompatActivity{
                         }
                     }
                     quizSize = careerQuizVar.size() / 2;
-                    Log.d("Quiz Size", String.valueOf(quizSize));
                     setUpPage();
                 }
             });
