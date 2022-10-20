@@ -47,7 +47,7 @@ public class Home extends AppCompatActivity {
                 userName = userInformation.getString("name");
                 userEmail = userInformation.getString("email");
                 userGender = userInformation.getString("gender");
-                userDOB = userInformation.getString("DOB");
+                userDOB = userInformation.getString("dob");
 
                 homeFragment.setArguments(userInformation);
 
