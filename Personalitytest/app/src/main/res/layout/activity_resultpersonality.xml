@@ -45,7 +45,7 @@
             android:layout_marginTop="88dp"
             android:fontFamily="@font/stix"
             android:text="You are..."
-            android:textColor="#454444"
+            android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -55,15 +55,25 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="124dp"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="123dp"
             android:fontFamily="@font/stix"
             android:text="INPJ"
             android:textColor="#000000"
             android:textSize="80sp"
             android:textStyle="bold" />
 
-            <androidx.cardview.widget.CardView
+        <ImageView
+            android:id="@+id/personalityavatar"
+            android:layout_width="254dp"
+            android:layout_height="149dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="-7dp"
+            app:srcCompat="@drawable/physicaltouch" />
+
+        <androidx.cardview.widget.CardView
                 android:layout_width="318dp"
                 android:layout_height="303dp"
                 android:layout_alignParentStart="true"
@@ -88,7 +98,7 @@
                         android:fontFamily="@font/alata"
                         android:text="Main Character"
                         android:textAlignment="center"
-                        android:textColor="#454444"
+                        android:textColor="#000000"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 

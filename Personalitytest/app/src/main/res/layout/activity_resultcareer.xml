@@ -45,32 +45,27 @@
             android:layout_marginTop="88dp"
             android:fontFamily="@font/stix"
             android:text="You are..."
-            android:textColor="#454444"
+            android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="351dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
+        <ImageView
+            android:id="@+id/careeravatar"
+            android:layout_width="372dp"
+            android:layout_height="175dp"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="31dp"
-            android:layout_marginTop="131dp"
-            android:fontFamily="@font/stix"
-            android:text="Realistic"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="75sp"
-            android:textStyle="bold" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="95dp"
+            android:layout_marginEnd="23dp"
+            app:srcCompat="@drawable/physicaltouch" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="318dp"
-            android:layout_height="243dp"
+            android:layout_height="303dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="248dp"
             android:layout_marginBottom="163dp"
             app:cardCornerRadius="10dp">
 
@@ -79,18 +74,33 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="286dp"
-                    android:layout_height="180dp"
+                    android:id="@+id/textView9"
+                    android:layout_width="233dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="38dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/alata"
+                    android:text="Realistic"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="270dp"
+                    android:layout_height="155dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="72dp"
                     android:fontFamily="@font/alata"
                     android:text="You show your affection by helping out your partner with their daily lives even your efforts are unnoticed. Seeing your partner living comfortably gives you satisfaction. "
                     android:textAlignment="center"
                     android:textColor="#454444"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
             </RelativeLayout>
 
