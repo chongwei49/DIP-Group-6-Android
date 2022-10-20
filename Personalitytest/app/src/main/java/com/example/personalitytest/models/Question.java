@@ -1,6 +1,9 @@
 package com.example.personalitytest.models;
 
-public class Question {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Question implements Parcelable {
     public int priId;
     public int qnId;
     public String qnCategory;
@@ -66,6 +69,42 @@ public class Question {
     public void setTraits(String traits) {
         this.traits = traits;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(priId);
+        parcel.writeInt(qnId);
+        parcel.writeString(qns);
+        parcel.writeString(qnCategory);
+        parcel.writeBoolean(answer);
+        parcel.writeString(traits);
+    }
+
+    protected Question(Parcel in) {
+        priId = in.readInt();
+        qnId = in.readInt();
+        qns = in.readString();
+        qnCategory = in.readString();
+        answer = in.readBoolean();
+        traits = in.readString();
+    }
+
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
 }
 
 
