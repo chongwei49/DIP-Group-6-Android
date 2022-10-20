@@ -7,17 +7,19 @@ public class User {
     public String email;
     public String password;
     public String dob;
+    public String gender;
     public byte[] profilePic;
 
 
     public User() {}
 
-    public User(Integer userId, String name, String email, String password, String DOB, byte[] profilePic) {
+    public User(Integer userId, String name, String email, String password, String DOB, String gender, byte[] profilePic) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;
         this.dob = DOB;
+        this.gender = gender;
         this.profilePic = profilePic;
     }
 
@@ -59,6 +61,14 @@ public class User {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public String getGender() {
+        return this.gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public byte[] getProfilePic() {
