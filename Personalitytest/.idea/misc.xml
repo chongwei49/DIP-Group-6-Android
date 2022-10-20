@@ -32,10 +32,14 @@
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultlove.xml" value="0.2" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultpersonality.xml" value="0.2" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_test.xml" value="0.2105978260869565" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_tests.xml" value="0.2" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_tests.xml" value="0.536" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usercharts.xml" value="0.24864130434782608" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usersettings.xml" value="0.24864130434782608" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_userupdates.xml" value="0.24864130434782608" />
+        <entry key="..\:/Users/Asus/Downloads/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Asus/Downloads/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultlove.xml" value="0.1" />
+        <entry key="..\:/Users/Asus/Downloads/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_signup.xml" value="0.16354166666666667" />
+        <entry key="..\:/Users/Asus/Downloads/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/back.xml" value="0.112" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/custom_input.xml" value="0.164" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/friendsicon.xml" value="0.112" />
@@ -44,8 +48,13 @@
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_displayname.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_email.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_page.xml" value="0.16666666666666666" />
+<<<<<<< HEAD
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_home.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_login.xml" value="0.17552083333333332" />
+=======
+        <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_home.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_login.xml" value="0.22" />
+>>>>>>> 90f996f76c455a315840ccac396cdc6f5db26972
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_name.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_password.xml" value="0.16666666666666666" />
@@ -74,6 +83,10 @@
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/search.xml" value="0.146" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/search_bar.xml" value="0.146" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_birth_place.xml" value="0.3491847826086957" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_connect_person.xml" value="0.18034447821681865" />
+>>>>>>> 90f996f76c455a315840ccac396cdc6f5db26972
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_displayname.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_chart.xml" value="0.67" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_compatibility.xml" value="0.32420494699646646" />
@@ -84,21 +97,38 @@
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_name.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_password.xml" value="0.22" />
+<<<<<<< HEAD
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usercharts.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usersettings.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_userupdates.xml" value="0.37083333333333335" />
+=======
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_quizcareer.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_tests.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usercharts.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usersettings.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_userupdates.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_connect.xml" value="0.3567708333333333" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_friends.xml" value="0.3567708333333333" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/menu/navigation.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/accountprofile.xml" value="0.18854166666666666" />
+>>>>>>> 90f996f76c455a315840ccac396cdc6f5db26972
         <entry key="app/src/main/res/layout/activity_change_dp.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/activity_displayname.xml" value="0.19972826086956522" />
-        <entry key="app/src/main/res/layout/activity_hist_career.xml" value="0.35885416666666664" />
-        <entry key="app/src/main/res/layout/activity_hist_love.xml" value="0.35885416666666664" />
-        <entry key="app/src/main/res/layout/activity_hist_personality.xml" value="0.3318408350366618" />
+        <entry key="app/src/main/res/layout/activity_hist_career.xml" value="0.31571957036710013" />
+        <entry key="app/src/main/res/layout/activity_hist_love.xml" value="0.3982011447260834" />
+        <entry key="app/src/main/res/layout/activity_hist_personality.xml" value="0.24511445564213052" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.17407407407407408" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19701086956521738" />
         <entry key="app/src/main/res/layout/activity_personality_history.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_quizcareer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/activity_usercharts.xml" value="0.1854043392504931" />
         <entry key="app/src/main/res/layout/activity_usersettings.xml" value="0.27675840978593275" />
         <entry key="app/src/main/res/layout/activity_userupdates.xml" value="0.1923828125" />
+        <entry key="app/src/main/res/layout/fragment_connect.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.17624215388643572" />
       </map>
     </option>
   </component>

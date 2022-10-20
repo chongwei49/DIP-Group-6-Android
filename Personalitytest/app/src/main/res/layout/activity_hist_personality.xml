@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/personality_historybg"
-    tools:context=".Tests">
+    tools:context=".Tests"
+    android:id="@+id/personalityHistoryPage">
 
     <RelativeLayout
         android:id="@+id/history_personality"
@@ -30,22 +31,11 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="2dp"
                 app:srcCompat="@drawable/logo" />
         </RelativeLayout>
 
-
-        <TextView
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="35dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Personality Test"
-            android:textSize="35dp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/personality"
@@ -113,62 +103,70 @@
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
+                <RelativeLayout
+                    android:id="@+id/nohistory_personality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-2dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="2dp"
+                    android:visibility="invisible">
+
+                    <RelativeLayout
+                        android:layout_width="90dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginEnd="30dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            app:srcCompat="@drawable/logo" />
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="300dp"
+                        android:fontFamily="@font/segeodisplaysemibold"
+                        android:gravity="center"
+                        android:text="To view your Personality results, start your test here"
+                        android:textSize="25dp" />
+
+                    <Button
+                        android:id="@+id/nohistory_personalitystart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginHorizontal="170dp"
+                        android:layout_marginStart="100dp"
+                        android:layout_marginTop="380dp"
+                        android:layout_marginEnd="100dp"
+                        android:background="@drawable/signup_button"
+                        android:fontFamily="@font/segeodisplaysemibold"
+                        android:text="START NOW"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                </RelativeLayout>
+
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/homeBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="190dp"
-            android:layout_marginTop="625dp"
-            app:srcCompat="@drawable/homeicon" />
 
-        <ImageView
-            android:id="@+id/backtoresults"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="625dp"
-            app:srcCompat="@drawable/backicon2" />
-
-        <TextView
-            android:id="@+id/friendsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="625dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Back"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="625dp"
-            android:layout_marginEnd="85dp"
-            app:srcCompat="@drawable/profileicon" />
-
-        <TextView
-            android:id="@+id/profileBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="625dp"
-            android:layout_marginEnd="25dp"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="Profile"
-            android:textSize="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -271,76 +269,27 @@
             android:textSize="23sp"
             android:textStyle="bold" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/nohistory_personality"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:visibility="invisible">
-
-        <RelativeLayout
-            android:layout_width="90dp"
-            android:layout_height="75dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="30dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                app:srcCompat="@drawable/logo" />
-        </RelativeLayout>
-
-
         <TextView
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="41dp"
             android:fontFamily="@font/segeodisplaysemibold"
             android:text="Personality Test"
             android:textSize="35dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/personalitybacktoresults"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="300dp"
-            android:text="To view your Personality results, start your test here"
-            android:textSize="25dp"
-            android:gravity="center"
-            android:fontFamily="@font/segeodisplaysemibold"
-            />
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/backicon2" />
 
-        <Button
-            android:id="@+id/nohistory_personalitystart"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginHorizontal="170dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="380dp"
-            android:layout_marginEnd="100dp"
-            android:background="@drawable/signup_button"
-            android:fontFamily="@font/segeodisplaysemibold"
-            android:text="START NOW"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="22sp" />
 
     </RelativeLayout>
 

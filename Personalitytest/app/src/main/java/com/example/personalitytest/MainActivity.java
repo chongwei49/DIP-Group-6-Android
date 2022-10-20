@@ -39,26 +39,18 @@ public class MainActivity extends AppCompatActivity {
         // a general rule, you should design your app to hide the status bar whenever you
         // hide the navigation bar.
 
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gsc = GoogleSignIn.getClient(this, gso);
+//        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+//        gsc = GoogleSignIn.getClient(this, gso);
+//
+//        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-
-        if (acct != null) {
-            homeactivity();
-        }
-
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
 
         button = (Button) findViewById(R.id.googleBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                signupactivity();
-                loginWithGoogle();
-
+               signupactivity();
+                //loginWithGoogle();
             }
         });
 
@@ -82,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     public void loginactivity() {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
+        this.finish();
     }
 
     public void loginWithGoogle() {
@@ -93,20 +86,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1000) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                task.getResult(ApiException.class);
-                homeactivity();
-            } catch (ApiException e) {
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-            }
-        }
+//        if (requestCode == 1000) {
+//            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+//            try {
+//                task.getResult(ApiException.class);
+//
+//                GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+//                if (acct != null) {
+//                    String personName = acct.getDisplayName();
+//                    String personEmail = acct.getEmail();
+//                    Bundle userInformation = new Bundle();
+//                    userInformation.putString("name", personName);
+//                    userInformation.putString("email", personEmail);
+//                    userInformation.putString("dob", "");
+//                    homeactivity(userInformation);
+//                }
+//            } catch (ApiException e) {
+//                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+//            }
+//        }
     }
 
-    public void homeactivity() {
+    public void homeactivity(Bundle bundle) {
         Intent intent = new Intent(this, Home.class);
+        intent.putExtras(bundle);
         startActivity(intent);
+        this.finish();
     }
 
 }

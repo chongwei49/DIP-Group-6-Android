@@ -46,7 +46,8 @@
             android:fontFamily="@font/segeodisplaysemibold"
             android:text="Arif"
             android:textColor="@color/white"
-            android:textSize="42dp" />
+            android:textSize="42dp"
+            android:freezesText="true"/>
 
         <ImageView
             android:layout_width="wrap_content"

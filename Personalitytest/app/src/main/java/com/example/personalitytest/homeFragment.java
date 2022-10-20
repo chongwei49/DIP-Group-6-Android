@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,13 @@ public class homeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private Integer userId;
+    private String userName;
+    private String userEmail;
+    private String userGender;
+    private String userDOB;
+
+    private TextView nameText;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -28,6 +36,7 @@ public class homeFragment extends Fragment {
 
     public homeFragment() {
         // Required empty public constructor
+
     }
 
     /**
@@ -54,8 +63,18 @@ public class homeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-        }
 
+            Bundle userInformation = this.getArguments();
+
+            userId = userInformation.getInt("userId");
+            userName = userInformation.getString("name");
+            userEmail = userInformation.getString("email");
+            userGender = userInformation.getString("gender");
+            userDOB = userInformation.getString("DOB");
+
+
+
+        }
     }
 
     @Override
@@ -63,6 +82,11 @@ public class homeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        Log.d("From fragment", "user Name: " + userName);
+
+        nameText = view.findViewById(R.id.name);
+        nameText.setText(userName);
 
         TextView tests = (TextView) view.findViewById(R.id.startQuizBtn);
         tests.setOnClickListener(new View.OnClickListener(){
