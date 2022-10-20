@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -17,20 +18,26 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class Home extends AppCompatActivity {
 
+    private String USER_INFORMATION;
     private ImageView backimage;
     private TextView connect, tests;
     private TextView name;
     BottomNavigationView bottomnavigation;
 
-    private String userId;
+    private Integer userId;
     private String userName;
     private String userEmail;
     private String userGender;
     private String userDOB;
+    private Bundle userInformation = new Bundle();
 
     homeFragment homeFragment = new homeFragment();
     connectFragment connectFragment = new connectFragment();
     profileFragment profileFragment = new profileFragment();
+
+    public Home() {
+        super();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,29 +48,38 @@ public class Home extends AppCompatActivity {
 
             getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
-            if (getIntent().getExtras() != null) {
-                Bundle userInformation = getIntent().getExtras();
-                userId = userInformation.getString("userId");
-                userName = userInformation.getString("name");
-                userEmail = userInformation.getString("email");
-                userGender = userInformation.getString("gender");
-                userDOB = userInformation.getString("dob");
+        if (getIntent().getExtras() != null) {
+            Log.d("Bundle log", "Bundle not empty");
 
-                homeFragment.setArguments(userInformation);
+            userInformation = getIntent().getExtras();
 
-            } else {
-                Log.e("Error", "Bundle empty");
-                Log.d("User name", "User Name, " +  userName);
+            userId = userInformation.getInt("userId");
+            userName = userInformation.getString("name");
+            userEmail = userInformation.getString("email");
+            userGender = userInformation.getString("gender");
+            userDOB = userInformation.getString("dob");
 
-                Bundle userInformation = new Bundle();
-                userInformation.putString("userId", userId);
-                userInformation.putString("name", userName);
-                userInformation.putString("email", userEmail);
-                userInformation.putString("gender", userGender);
-                userInformation.putString("dob", userDOB);
+            homeFragment.setArguments(userInformation);
+        } else {
+            Log.d("Error", "Bundle empty");
 
-                homeFragment.setArguments(userInformation);
-            }
+            SharedPreferences prefs = getSharedPreferences(USER_INFORMATION, MODE_PRIVATE);
+            userId = prefs.getInt("userId", 0);
+            userName = prefs.getString("name", "default");
+            userEmail = prefs.getString("email", "default");
+            userGender = prefs.getString("gender", "default");
+            userDOB = prefs.getString("DOB", "default");
+
+            Log.d("User name", "User Name, " + userName);
+
+            userInformation.putInt("userId", userId);
+            userInformation.putString("name", userName);
+            userInformation.putString("email", userEmail);
+            userInformation.putString("gender", userGender);
+            userInformation.putString("dob", userDOB);
+
+            homeFragment.setArguments(userInformation);
+        }
 
             bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
                 @Override
@@ -87,6 +103,25 @@ public class Home extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = getSharedPreferences(
+                USER_INFORMATION, MODE_PRIVATE).edit();
+        editor.putInt("userId", userId);
+        editor.putString("name", userName);
+        editor.putString("email", userEmail);
+        editor.putString("gender", userGender);
+        editor.putString("dob", userDOB);
+        editor.apply();
+    }
+
     public void homeactivity() {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
@@ -98,29 +133,29 @@ public class Home extends AppCompatActivity {
         this.finish();
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle userInformation) {
-
-        super.onSaveInstanceState(userInformation);
-
-        userInformation.putString("userId", userId);
-        userInformation.putString("name", userName);
-        userInformation.putString("email", userEmail);
-        userInformation.putString("gender", userGender);
-        userInformation.putString("dob", userDOB);
-
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle userInformation) {
-        super.onRestoreInstanceState(userInformation);
-        userId = userInformation.getString("userId");
-        userName = userInformation.getString("name");
-        userEmail = userInformation.getString("email");
-        userGender = userInformation.getString("gender");
-        userDOB = userInformation.getString("DOB");
-
-
-    }
+//    @Override
+//    protected void onSaveInstanceState(@NonNull Bundle userInformation) {
+//
+//        super.onSaveInstanceState(userInformation);
+//
+//        userInformation.putInt("userId", userId);
+//        userInformation.putString("name", userName);
+//        userInformation.putString("email", userEmail);
+//        userInformation.putString("gender", userGender);
+//        userInformation.putString("dob", userDOB);
+//
+//    }
+//
+//    @Override
+//    protected void onRestoreInstanceState(@NonNull Bundle userInformation) {
+//        super.onRestoreInstanceState(userInformation);
+//        userId = userInformation.getInt("userId");
+//        userName = userInformation.getString("name");
+//        userEmail = userInformation.getString("email");
+//        userGender = userInformation.getString("gender");
+//        userDOB = userInformation.getString("DOB");
+//
+//
+//    }
 
 }
