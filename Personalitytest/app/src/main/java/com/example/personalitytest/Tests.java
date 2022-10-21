@@ -39,11 +39,14 @@ public class Tests extends AppCompatActivity{
                 toquizcareeractivity();
             }
         });
-        back = (ImageView) findViewById(R.id.back);
+        back = (ImageView) findViewById(R.id.testsbacktohome);
+        back.setClickable(true);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tohomeactivity();
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.testspage,new homeFragment()).commit();
+
             }
         });
 
