@@ -44,6 +44,7 @@ public class Home extends AppCompatActivity {
 
             getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
+
         if (getIntent().getExtras() != null) {
             Log.d("Bundle log", "Bundle not empty");
 
@@ -56,6 +57,8 @@ public class Home extends AppCompatActivity {
             userDOB = userInformation.getString("dob");
 
             homeFragment.setArguments(userInformation);
+            profileFragment.setArguments(userInformation);
+            connectFragment.setArguments(userInformation);
         } else {
             Log.d("Error", "Bundle empty");
 
@@ -74,8 +77,9 @@ public class Home extends AppCompatActivity {
             userInformation.putString("gender", userGender);
             userInformation.putString("dob", userDOB);
 
-            homeFragment.setArguments(userInformation);
             profileFragment.setArguments(userInformation);
+            homeFragment.setArguments(userInformation);
+            connectFragment.setArguments(userInformation);
         }
 
             bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
