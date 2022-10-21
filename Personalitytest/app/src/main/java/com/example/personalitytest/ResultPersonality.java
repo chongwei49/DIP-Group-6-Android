@@ -14,9 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.personalitytest.models.Trait;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ResultPersonality extends AppCompatActivity {
+public class ResultPersonality extends AppCompatActivity implements Serializable {
     private ImageView homebutton;
     private TextView resultView, descView;
     private String quiz_result, description="";
@@ -28,15 +29,10 @@ public class ResultPersonality extends AppCompatActivity {
         setContentView(R.layout.activity_resultpersonality);
 
         Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("BUNDLE");
-        preCalc= (ArrayList<String>) bundle.getSerializable("preCalc_values");
-
+        preCalc= intent.getStringArrayListExtra("questionAnswers");
+        Log.d("arraylist size", String.valueOf(preCalc.size()));
         for(int x=0;x<preCalc.size();x++){
-            if(preCalc.isEmpty()){
-                Log.d("Empty bundle (Results)",preCalc.get(x));
-            }else{
-                Log.d("Not Empty",preCalc.get(x));
-            }
+            Log.d("get array list: ",x+": "+preCalc.get(x));
         }
 
         ProgressDialog dialog = ProgressDialog.show(ResultPersonality.this, "",

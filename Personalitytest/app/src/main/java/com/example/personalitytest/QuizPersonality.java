@@ -15,12 +15,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.personalitytest.models.Question;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class QuizPersonality extends AppCompatActivity {
+public class QuizPersonality extends AppCompatActivity implements Serializable {
     private Button buttonyes;
     private Button buttonno;
     private ImageView homebutton;
@@ -28,7 +29,6 @@ public class QuizPersonality extends AppCompatActivity {
     private int qCounter = 1, quizSize;
     private ArrayList<Question> personalityQuizVar = new ArrayList<Question>();
     private ArrayList<Question> personalityQuizAns = new ArrayList<Question>();
-    private ArrayList<Boolean> preCalc = new ArrayList<Boolean>();
     ProgressDialog dialog;
 
     @Override
@@ -120,20 +120,19 @@ public class QuizPersonality extends AppCompatActivity {
         }
 
         for(int i=0;i<personalityQuizAns.size();i++){
-
-            preCalc.add(Boolean.valueOf(String.valueOf(personalityQuizAns.get(i).getAnswer())));
-            Log.d("CAREER!!!", String.valueOf(preCalc.get(i)));
+            //preCalc.add(String.valueOf(personalityQuizAns.get(i).getAnswer()));
+            //Log.d("ans size", String.valueOf(personalityQuizAns.size()));
+            Log.d("Answer",String.valueOf(personalityQuizAns.get(i).getAnswer()));
+            //Log.d("Answer",preCalc.get(i));
         }
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void toresultpersonalityactivity() {
-        Intent intent = new Intent(this, ResultPersonality.class);
+        Intent intent = new Intent(QuizPersonality.this, ResultPersonality.class);
         //intent.putExtra("Result", calculateResult());
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("preCalc_values",preCalc);
-        intent.putExtra("BUNDLE",bundle);
+        intent.putStringArrayListExtra("questionAnswers",personalityQuizAns); //help! how to fix this?
         startActivity(intent);
     }
     public void tohomeactivity() {
@@ -142,12 +141,14 @@ public class QuizPersonality extends AppCompatActivity {
         startActivity(intent);
     }
     public void toNextQuestion(){
-        Intent intent = new Intent(this, QuizCareer.class);
+        Intent intent = new Intent(this, QuizPersonality.class);
+
         intent.putExtra("Question_list", personalityQuizVar);
         intent.putExtra("Ans_list", personalityQuizAns);
         intent.putExtra("Question_Counter", qCounter);
         intent.putExtra("Quiz_size", quizSize);
         startActivity(intent);
+
         finish();
     }
     public void setUpPage(){
@@ -161,6 +162,9 @@ public class QuizPersonality extends AppCompatActivity {
         indexView.setText(qCounter+"/"+quizSize);
         dialog.cancel();
     }
+
+    // modify this function for personality using sorting hashmaps according to values
+    // https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String calculateResult(){
         HashMap<String, Integer> resultMap = new HashMap<>();
@@ -178,8 +182,6 @@ public class QuizPersonality extends AppCompatActivity {
                 return entry.getKey();
             }
         }
-
         return null;
     }
-
 }
