@@ -20,6 +20,7 @@ public class ResultPersonality extends AppCompatActivity {
     private ImageView homebutton;
     private TextView resultView, descView;
     private String quiz_result, description="";
+    private ArrayList<String> preCalc = new ArrayList<String>();
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,17 @@ public class ResultPersonality extends AppCompatActivity {
         setContentView(R.layout.activity_resultpersonality);
 
         Intent intent = getIntent();
-        quiz_result = intent.getStringExtra("Result");
+        Bundle bundle = intent.getBundleExtra("BUNDLE");
+        preCalc= (ArrayList<String>) bundle.getSerializable("preCalc_values");
+
+        for(int x=0;x<preCalc.size();x++){
+            if(preCalc.isEmpty()){
+                Log.d("Empty bundle (Results)",preCalc.get(x));
+            }else{
+                Log.d("Not Empty",preCalc.get(x));
+            }
+        }
+
         ProgressDialog dialog = ProgressDialog.show(ResultPersonality.this, "",
                 "Loading. Please wait...", true);
         Services.getAllTraits(ResultPersonality.this, new Services.TraitCallback() {
@@ -39,8 +50,8 @@ public class ResultPersonality extends AppCompatActivity {
                         description = result.get(i).getDescription();
                     }
                 }
-                resultView.setText(quiz_result);
-                descView.setText(description);
+                //resultView.setText(quiz_result);
+                //descView.setText(description);
                 dialog.cancel();
             }
         });

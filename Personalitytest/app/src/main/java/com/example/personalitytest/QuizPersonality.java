@@ -28,6 +28,7 @@ public class QuizPersonality extends AppCompatActivity {
     private int qCounter = 1, quizSize;
     private ArrayList<Question> personalityQuizVar = new ArrayList<Question>();
     private ArrayList<Question> personalityQuizAns = new ArrayList<Question>();
+    private ArrayList<Boolean> preCalc = new ArrayList<Boolean>();
     ProgressDialog dialog;
 
     @Override
@@ -119,19 +120,25 @@ public class QuizPersonality extends AppCompatActivity {
         }
 
         for(int i=0;i<personalityQuizAns.size();i++){
-            Log.d("Career_answer", String.valueOf(personalityQuizAns.get(i).getAnswer()));
+
+            preCalc.add(Boolean.valueOf(String.valueOf(personalityQuizAns.get(i).getAnswer())));
+            Log.d("CAREER!!!", String.valueOf(preCalc.get(i)));
         }
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void toresultpersonalityactivity() {
-        Intent intent = new Intent(this, ResultCareer.class);
-        intent.putExtra("Result", calculateResult());
+        Intent intent = new Intent(this, ResultPersonality.class);
+        //intent.putExtra("Result", calculateResult());
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("preCalc_values",preCalc);
+        intent.putExtra("BUNDLE",bundle);
         startActivity(intent);
     }
     public void tohomeactivity() {
         Intent intent = new Intent(this, Home.class);
+
         startActivity(intent);
     }
     public void toNextQuestion(){
