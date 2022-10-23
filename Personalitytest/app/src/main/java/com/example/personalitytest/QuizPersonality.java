@@ -134,12 +134,15 @@ public class QuizPersonality extends AppCompatActivity implements Serializable {
         //intent.putExtra("Result", calculateResult());
         intent.putExtra("questionAnswers",personalityQuizAns); //help! how to fix this?
         startActivity(intent);
+
+        finish();
     }
 
     public void tohomeactivity() {
         Intent intent = new Intent(this, Home.class);
-
         startActivity(intent);
+
+        finish();
     }
     public void toNextQuestion(){
         Intent intent = new Intent(this, QuizPersonality.class);
@@ -164,8 +167,6 @@ public class QuizPersonality extends AppCompatActivity implements Serializable {
         dialog.cancel();
     }
 
-    // modify this function for personality using sorting hashmaps according to values
-    // https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String calculateResult(){
         HashMap<String, Integer> resultMap = new HashMap<>();

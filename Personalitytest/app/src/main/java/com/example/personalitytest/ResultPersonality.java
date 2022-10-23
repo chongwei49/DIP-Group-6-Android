@@ -27,20 +27,31 @@ import java.util.Map;
 
 public class ResultPersonality extends AppCompatActivity implements Serializable {
     private ImageView homebutton;
-    private TextView resultView, descView;
+    private TextView resultView, descView, traitnameView;
     private String quiz_result, description="";
     private ArrayList<Question> preCalc = new ArrayList<Question>();
-    HashMap<String, String> order = new HashMap<>();
+    String[][] orderList = {
+            {"Introvert", "Extrovert"},
+            {"Observant", "Intuitive"},
+            {"Thinking", "Feeling"},
+            {"Judging", "Prospecting"}
+    };
+    String[][] orderName = {
+            {"I", "E"},
+            {"O", "N"},
+            {"T", "F"},
+            {"J", "P"}
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultpersonality);
 
-        order = initOrderHashMap(order);
-
         resultView = findViewById(R.id.textView8);
         descView = findViewById(R.id.textView10);
+        traitnameView = findViewById(R.id.textView9);
 
         homebutton = (ImageView) findViewById(R.id.homebutton);
         homebutton.setOnClickListener(new View.OnClickListener() {
@@ -73,15 +84,23 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
                 }
 
                 Map<String, Integer> hm1 = calculateResult(preCalc);
+                String persoanlity_Type = formulatePType(hm1);
+                String personality_TraitName = "";
+                String persoanlity_Desc = "";
 
+                for(int i=0; i<result.size();i++){
+                    if(result.get(i).getPersonalityType().contains(persoanlity_Type)){
+                        persoanlity_Desc = result.get(i).getDescription();
+                        personality_TraitName = result.get(i).getTraitName();
 
-                for (Map.Entry<String, Integer> en : hm1.entrySet()) {
-                    System.out.println("Key = " + en.getKey() +
-                            ", Value = " + en.getValue());
+                    }
+                    Log.d("Trait_Checking", result.get(i).getPersonalityType());
+                    Log.d("Key_Check", "---------------------------------");
                 }
 
-                resultView.setText(formulatePType(hm1));
-                //descView.setText(description);
+                resultView.setText(persoanlity_Type);
+                descView.setText(persoanlity_Desc);
+                traitnameView.setText(personality_TraitName);
                 dialog.cancel();
             }
         });
@@ -94,16 +113,34 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
 
     public String formulatePType(Map<String, Integer> input){
         String result = "";
+        String[] tmp = new String[4];
+        int counter = 0;
         for (Map.Entry<String, Integer> entry1 : input.entrySet()) {
-            for (Map.Entry<String, String> entry2 : order.entrySet()) {
-                if(entry1.getKey().equals(entry2.getKey()) && result.length()!=4){
-                    Log.d("Trait_Test", entry2.getValue());
-                    result = result + entry2.getValue();
+            if(counter<4){
+                for(int i=0;i<orderList.length;i++){
+//                    Log.d("Key_Check", entry1.getKey());
+//                    Log.d("Key_Check", orderList[i][0]);
+//                    Log.d("Key_Check", orderList[i][1]);
+//                    Log.d("Key_Check", "Index: "+i);
+                    if(entry1.getKey().equals(orderList[i][0])){
+                        tmp[i] = orderName[i][0];
+                        counter++;
+                        break;
+                    }
+                    else if(entry1.getKey().equals(orderList[i][1])){
+                        tmp[i] = orderName[i][1];
+                        counter++;
+                        break;
+                    }
                 }
+//                Log.d("Key_Check", "---------------------------------");
             }
+
         }
 
-
+        for(int i=0; i<tmp.length; i++){
+            result = result + tmp[i];
+        }
 
         return result;
     }
@@ -128,7 +165,7 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
             public int compare(Map.Entry<String, Integer> o1,
                                Map.Entry<String, Integer> o2)
             {
-                return (o1.getValue()).compareTo(o2.getValue());
+                return (o2.getValue()).compareTo(o1.getValue());
             }
         });
 
@@ -141,21 +178,7 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
         return temp;
     }
 
-    public HashMap<String, String> initOrderHashMap(HashMap<String, String> tmp){
-        tmp.put("Introvert", "I");
-        tmp.put("Extrovert", "E");
-
-        tmp.put("Observant", "O");
-        tmp.put("Intuitive", "N");
-
-        tmp.put("Thinking", "T");
-        tmp.put("Feeling", "F");
-
-        tmp.put("Judging", "J");
-        tmp.put("Prospecting", "P");
 
 
-        return tmp;
-    }
 
 }
