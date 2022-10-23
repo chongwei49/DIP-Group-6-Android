@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -27,6 +28,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.Calendar;
+import android.widget.Spinner;
 
 public class usersettings extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class usersettings extends AppCompatActivity {
     private RelativeLayout relativeLayout;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
+    private Spinner spinner;
 
 
 
@@ -52,6 +55,11 @@ public class usersettings extends AppCompatActivity {
         initDatePicker();
         dateButton=findViewById(R.id.settingsdatepicker);
         dateButton.setText(getTodaysDate());
+
+        spinner=findViewById(R.id.settingsgenderpicker);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         button = (Button) findViewById(R.id.logoutBtn);
         button.setOnClickListener(new View.OnClickListener() {

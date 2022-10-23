@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -21,6 +22,8 @@ import com.example.personalitytest.models.User;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import android.widget.Spinner;
+
 public class Signup extends AppCompatActivity {
 
     private ImageView backimage;
@@ -28,6 +31,7 @@ public class Signup extends AppCompatActivity {
     private TextView nameText, emailText, passText, dobText, genderText;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +42,16 @@ public class Signup extends AppCompatActivity {
         dateButton=findViewById(R.id.signupdatepicker);
         dateButton.setText(getTodaysDate());
 
+        spinner=findViewById(R.id.signupgenderpicker);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
         emailText = findViewById(R.id.emailInput);
         passText = findViewById(R.id.passwordInput);
         nameText = findViewById(R.id.nameInput);
         // dobText = findViewById(R.id.dobInput);
-        genderText = findViewById(R.id.genderInput);
+        // genderText = findViewById(R.id.genderInput);
 
         View decorView = getWindow().getDecorView();
         // Hide both the navigation bar and the status bar.
@@ -95,6 +104,7 @@ public class Signup extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
 
     private String getTodaysDate() {
         Calendar cal = Calendar.getInstance();
