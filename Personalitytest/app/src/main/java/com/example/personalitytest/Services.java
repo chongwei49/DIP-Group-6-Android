@@ -143,65 +143,15 @@ public class Services {
 
 
     //---------------------------------------------SignUp Function--------------------------------------------
-    /*@RequiresApi(api = Build.VERSION_CODES.O)
-    public static void signUp(String name, String email, String password, String dob, String gender, Activity activity, final UserCallback callback) {
-        RequestQueue queue = Volley.newRequestQueue(activity);
-        String url = baseURL + "signup";*/
-        /*// Post params to be sent to the server
-        HashMap<String, String> params = new HashMap<String, String>();
-        params.put("name", name);
-        params.put("email", email);
-        params.put("password", password);
-        params.put("dob", dob);
-        params.put("gender", gender);*/
-
-        /*
-        StringRequest request = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        Log.d("LOG_VOLLEY", response.toString());
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO Auto-generated method stub
-                        Log.i("ERROR","error => "+error.toString());
-                    }
-                }
-        ){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError{
-                // below line we are creating a map for
-                // storing our values in key and value pair.
-                Map<String, String> params = new HashMap<String, String>();
-
-                // on below line we are passing our key
-                // and value pair to our parameters.
-                params.put("name", name);
-                params.put("email", email);
-                params.put("password", password);
-                params.put("dob", dob);
-                params.put("gender", gender);
-
-                // at last we are
-                // returning our params.
-                return params;
-            }
-        };
-        queue.add(request);
-    }*/
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void signUp(String name, String email, String password, String dob, String gender, Activity activity, final UserCallback callback) {
         RequestQueue queue = Volley.newRequestQueue(activity);
         String url = baseURL + "signup";
         JSONObject js = new JSONObject();
+        String jsonEmail = "{" + email + "}";
         try {
             js.put("name",name);
-            js.put("email", email);
+            js.put("email", jsonEmail);
             js.put("password", password);
             js.put("dob", dob);
             js.put("gender", gender);
@@ -247,7 +197,7 @@ public class Services {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Content-Type", "application/json; charset=utf-8");
+                //headers.put("Content-Type", "application/json; charset=utf-8");
                 return headers;
             }
         };
