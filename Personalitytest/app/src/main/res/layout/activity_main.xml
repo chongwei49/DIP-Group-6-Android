@@ -4,17 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#59365060"
+    android:background="@drawable/mainbg"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+
 
 
 
@@ -68,6 +62,15 @@
         android:textColor="@color/black"
         android:textSize="15sp" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="315dp"
+        android:layout_height="505dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="136dp"
+        app:srcCompat="@drawable/somalogo" />
 
 
 </RelativeLayout>
