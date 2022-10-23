@@ -164,8 +164,6 @@ public class QuizPersonality extends AppCompatActivity implements Serializable {
         dialog.cancel();
     }
 
-    // modify this function for personality using sorting hashmaps according to values
-    // https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String calculateResult(){
         HashMap<String, Integer> resultMap = new HashMap<>();
