@@ -154,6 +154,7 @@ public class Services {
             js.put("password", password);
             js.put("dob", dob);
             js.put("gender", gender);
+            Log.d("js inputs", js.toString());
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
             e.printStackTrace();
@@ -169,7 +170,6 @@ public class Services {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // As of f605da3 the following should work
                         NetworkResponse response = error.networkResponse;
                         if (error instanceof ServerError && response != null) {
                             try {
