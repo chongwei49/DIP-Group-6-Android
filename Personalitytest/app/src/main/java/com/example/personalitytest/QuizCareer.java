@@ -161,11 +161,17 @@ public class QuizCareer extends AppCompatActivity{
         HashMap<String, Integer> resultMap = new HashMap<>();
         for(int i=0; i<careerQuizAns.size(); i++){
             if(!resultMap.containsKey(careerQuizAns.get(i).getTraits())){
-                resultMap.put(careerQuizAns.get(i).getTraits(), 0);
+                resultMap.put(careerQuizAns.get(i).getTraits(), 1);
             }else{
                 resultMap.merge(careerQuizAns.get(i).getTraits(), 1, Integer::sum);
             }
         }
+
+        int sum = 0;
+        for (int f : resultMap.values()) {
+            sum += f;
+        }
+        Log.d("CareerQuizSize", String.valueOf(sum));
 
         int maxValueInMap=(Collections.max(resultMap.values()));  // This will return max value in the HashMap
         for (Map.Entry<String, Integer> entry : resultMap.entrySet()) {  // Iterate through HashMap

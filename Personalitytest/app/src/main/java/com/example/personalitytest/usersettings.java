@@ -89,10 +89,10 @@ public class usersettings extends AppCompatActivity {
             }
         });*/
 
+    }
 
 
-
-    public void settingslogoutactivity() {
+    public void settingslogoutactivity(){
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
@@ -118,7 +118,6 @@ public class usersettings extends AppCompatActivity {
         Intent intent = new Intent(this, profileFragment.class);
         startActivity(intent);
     }
-
 
 
     public void changeactivity() {

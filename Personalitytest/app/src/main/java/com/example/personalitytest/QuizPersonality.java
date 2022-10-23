@@ -132,9 +132,10 @@ public class QuizPersonality extends AppCompatActivity implements Serializable {
     public void toresultpersonalityactivity() {
         Intent intent = new Intent(QuizPersonality.this, ResultPersonality.class);
         //intent.putExtra("Result", calculateResult());
-        intent.putStringArrayListExtra("questionAnswers",personalityQuizAns); //help! how to fix this?
+        intent.putExtra("questionAnswers",personalityQuizAns); //help! how to fix this?
         startActivity(intent);
     }
+
     public void tohomeactivity() {
         Intent intent = new Intent(this, Home.class);
 
