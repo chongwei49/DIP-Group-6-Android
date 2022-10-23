@@ -5,9 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -22,6 +28,9 @@ public class usersettings extends AppCompatActivity {
     private Button button;
     private TextView button2, connect;
     private ImageView DPbtn;
+    private PopupWindow popupWindow;
+    private LayoutInflater layoutInflater;
+    private RelativeLayout relativeLayout;
 
 
     GoogleSignInOptions gso;
@@ -48,14 +57,29 @@ public class usersettings extends AppCompatActivity {
             }
         });
 
-        DPbtn = (ImageView) findViewById(R.id.changeDPbtn);
-        DPbtn.setClickable(true);
-        DPbtn.setOnClickListener(new View.OnClickListener() {
+        /* DPbtn = (ImageView) findViewById(R.id.changeDPbtn);
+        // relativeLayout = (RelativeLayout) findViewById(R.id.usersettings);
+        // DPbtn.setClickable(true);
+        // DPbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeactivity();
+
+                layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.activity_change_dp, null);
+
+                popupWindow = new PopupWindow(container, 1000, 1000, true);
+                popupWindow.showAtLocation(relativeLayout, Gravity.NO_GRAVITY,15,300);
+
+                container.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch (View view, MotionEvent motionEvent) {
+                        popupWindow.dismiss();
+                        return true;
+                    }
+                });
             }
         });
+        }
 
         /*onnect = (TextView) findViewById(R.id.friendsBtn);
         connect.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +90,7 @@ public class usersettings extends AppCompatActivity {
         });*/
 
 
-    }
+
 
     public void settingslogoutactivity() {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();

@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/friendsbg"
-    tools:context=".connect_person">
+    tools:context=".connect_person"
+    android:id="@+id/connectperson">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -14,7 +15,7 @@
         android:layout_alignParentEnd="true">
 
         <ImageView
-            android:id="@+id/back"
+            android:id="@+id/backtoconnectfrag"
             android:layout_width="26dp"
             android:layout_height="23dp"
             android:layout_alignParentTop="true"

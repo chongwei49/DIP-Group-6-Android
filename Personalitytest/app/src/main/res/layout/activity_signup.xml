@@ -60,7 +60,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="175dp"
+            android:layout_marginTop="182dp"
             android:fontFamily="@font/segeodisplay"
             android:text="@string/email"
             android:textColor="@color/black"
@@ -73,7 +73,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="205dp"
+            android:layout_marginTop="212dp"
             android:background="@drawable/custom_input_2"
             android:fontFamily="@font/segeodisplay"
             android:gravity="center"
@@ -89,7 +89,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="267dp"
             android:fontFamily="@font/segeodisplay"
             android:text="@string/name"
             android:textColor="@color/black"
@@ -102,7 +102,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="297dp"
             android:background="@drawable/custom_input_2"
             android:fontFamily="@font/segeodisplay"
             android:gravity="center"
@@ -112,47 +112,18 @@
             android:textColorHint="#90000000"
             android:textSize="17sp" />
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="325dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="Username"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
-        <EditText
-            android:id="@+id/usernameInput"
-            android:layout_width="365dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="355dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="Username"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="358dp"
             android:fontFamily="@font/segeodisplay"
             android:text="@string/password"
             android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            />
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/passwordInput"
@@ -161,52 +132,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="430dp"
+            android:layout_marginTop="388dp"
             android:background="@drawable/custom_input_2"
             android:fontFamily="@font/segeodisplay"
             android:gravity="center"
             android:hint="@string/password"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="475dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="@string/date_of_birth"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="215dp"
-            android:layout_marginTop="475dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="Gender"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
-        <EditText
-            android:id="@+id/dobInput"
-            android:layout_width="170dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="505dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="@string/dd_mm_yyyy"
             android:inputType="text"
             android:textColor="@color/black"
             android:textColorHint="#90000000"
@@ -219,7 +149,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="215dp"
-            android:layout_marginTop="505dp"
+            android:layout_marginTop="479dp"
             android:background="@drawable/custom_input_2"
             android:fontFamily="@font/segeodisplay"
             android:gravity="center"
@@ -229,6 +159,47 @@
             android:textColorHint="#90000000"
             android:textSize="17sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="449dp"
+            android:layout_marginEnd="1dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="@string/date_of_birth"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/dobInput"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="479dp"
+            android:background="@drawable/custom_input_2"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:hint="@string/dd_mm_yyyy"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="#90000000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="215dp"
+            android:layout_marginTop="449dp"
+            android:fontFamily="@font/segeodisplay"
+            android:text="Gender"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
 
         <Button
             android:id="@+id/signupBtn"
@@ -237,14 +208,12 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="160dp"
-            android:layout_marginTop="580dp"
+            android:layout_marginTop="592dp"
             android:background="@drawable/signup_button"
             android:fontFamily="@font/segeodisplay"
             android:text="@string/sign_up"
             android:textColor="@color/white"
             android:textSize="12sp" />
-
-
 
 
     </RelativeLayout>

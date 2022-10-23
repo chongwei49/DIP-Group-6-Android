@@ -20,12 +20,14 @@ public class connect_person extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_person);
 
-        backimage = (ImageView) findViewById(R.id.signUpBck);
+        backimage = (ImageView) findViewById(R.id.backtoconnectfrag);
         backimage.setClickable(true);
         backimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainactivity();
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.connectperson,new connectFragment()).commit();
+
             }
         });
 
