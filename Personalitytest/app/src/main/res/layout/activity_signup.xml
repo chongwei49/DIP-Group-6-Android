@@ -172,22 +172,19 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
-            android:id="@+id/dobInput"
-            android:layout_width="170dp"
-            android:layout_height="40dp"
+        <Button
+            android:id="@+id/signupdatepicker"
+            style="?android:spinnerStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="479dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="@string/dd_mm_yyyy"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
+            android:layout_marginTop="469dp"
+            android:onClick="openDatePicker"
+            android:textColor="#90000000"
+            android:textSize="17dp" />
+
 
         <TextView
             android:layout_width="match_parent"
