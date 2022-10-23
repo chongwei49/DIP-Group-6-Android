@@ -148,10 +148,9 @@ public class Services {
         RequestQueue queue = Volley.newRequestQueue(activity);
         String url = baseURL + "signup";
         JSONObject js = new JSONObject();
-        String jsonEmail = "{" + email + "}";
         try {
             js.put("name",name);
-            js.put("email", jsonEmail);
+            js.put("email", email);
             js.put("password", password);
             js.put("dob", dob);
             js.put("gender", gender);
@@ -176,15 +175,19 @@ public class Services {
                             try {
                                 String res = new String(response.data,
                                         HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                Log.d("Response res", res);
                                 // Now you can use any deserializer to make sense of data
-                                JSONObject obj = new JSONObject(res);
+                                //JSONObject obj = new JSONObject(res);
+                                //Log.d("Response obj", obj.toString());
                             } catch (UnsupportedEncodingException e1) {
                                 // Couldn't properly decode data to string
                                 e1.printStackTrace();
-                            } catch (JSONException e2) {
+                                Log.e("e1 error", "couldn't properly decode data to string");
+                            } /*catch (JSONException e2) {
                                 // returned data is not JSONObject?
                                 e2.printStackTrace();
-                            }
+                                Log.e("e2 error", "returned data not JSONObject?");
+                            }*/
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
@@ -197,7 +200,7 @@ public class Services {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                //headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Content-Type", "application/json; charset=utf-8");
                 return headers;
             }
         };
