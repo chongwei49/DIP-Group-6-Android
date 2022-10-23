@@ -11,9 +11,11 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.personalitytest.models.Personality;
@@ -22,6 +24,7 @@ import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
@@ -140,61 +143,67 @@ public class Services {
 
 
     //---------------------------------------------SignUp Function--------------------------------------------
-    /*@RequiresApi(api = Build.VERSION_CODES.O)
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void signUp(String name, String email, String password, String dob, String gender, Activity activity, final UserCallback callback) {
         RequestQueue queue = Volley.newRequestQueue(activity);
         String url = baseURL + "signup";
-        JSONObject jsonBody = new JSONObject();
-        jsonBody.put("name", name);
-        jsonBody.put("email", email);
-        jsonBody.put("password", password);
-        jsonBody.put("dob", dob);
-        jsonBody.put("gender", gender);
-        final String requestBody = jsonBody.toString();
-
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
+        JSONObject js = new JSONObject();
+        String jsonEmail = "{" + email + "}";
+        try {
+            js.put("name",name);
+            js.put("email", jsonEmail);
+            js.put("password", password);
+            js.put("dob", dob);
+            js.put("gender", gender);
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+            e.printStackTrace();
+        }
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, js,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(JSONObject response) {
                         // response
-                        Log.d("LOG_VOLLEY", response);
+                        Log.d("LOG_VOLLEY", response.toString());
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        // As of f605da3 the following should work
+                        NetworkResponse response = error.networkResponse;
+                        if (error instanceof ServerError && response != null) {
+                            try {
+                                String res = new String(response.data,
+                                        HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                // Now you can use any deserializer to make sense of data
+                                JSONObject obj = new JSONObject(res);
+                            } catch (UnsupportedEncodingException e1) {
+                                // Couldn't properly decode data to string
+                                e1.printStackTrace();
+                            } catch (JSONException e2) {
+                                // returned data is not JSONObject?
+                                e2.printStackTrace();
+                            }
+                        }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
                     }
                 }
         ) {
+            /**
+             * Passing some request headers
+             */
             @Override
-            public String getBodyContentType() {
-                return "application/json; charset=utf-8";
-            }
-
-            @Override
-            public byte[] getBody() throws AuthFailureError {
-                try {
-                    return requestBody == null ? null : requestBody.getBytes("utf-8");
-                } catch (UnsupportedEncodingException uee) {
-                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
-                    return null;
-                }
-            }
-            @Override
-            protected Response<String> parseNetworkResponse(NetworkResponse response) {
-                String responseString = "";
-                if (response != null) {
-                    responseString = String.valueOf(response.statusCode);
-                    // can get more details such as response.headers
-                }
-                return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                //headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
             }
         };
-        queue.add(postRequest);
-    }*/
-
+        // Adding request to request queue
+        Volley.newRequestQueue(activity).add(postRequest);
+    }
 
 
     //-----------------------------------------EditUser Function---------------------------------------------
