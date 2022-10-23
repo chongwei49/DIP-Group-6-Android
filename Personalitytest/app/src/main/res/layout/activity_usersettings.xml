@@ -176,23 +176,6 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/changedobInput"
-            android:layout_width="365dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="471dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="New DOB"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
-
-        <EditText
             android:id="@+id/changegenderInput"
             android:layout_width="365dp"
             android:layout_height="40dp"
@@ -220,6 +203,21 @@
             android:text="@string/date_of_birth"
             android:textColor="@color/black"
             android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/settingsdatepicker"
+            style="?android:spinnerStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="465dp"
+            android:onClick="openDatePicker"
+            android:textColor="#90000000"
+            android:textSize="17dp" />
+
+
 
         <EditText
             android:id="@+id/changeusernameInput"
