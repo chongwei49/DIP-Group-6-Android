@@ -61,7 +61,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="182dp"
-            android:fontFamily="@font/segeodisplay"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="@string/email"
             android:textColor="@color/black"
             android:textSize="17sp" />
@@ -90,7 +90,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="267dp"
-            android:fontFamily="@font/segeodisplay"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="@string/name"
             android:textColor="@color/black"
             android:textSize="17sp" />
@@ -120,7 +120,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="358dp"
-            android:fontFamily="@font/segeodisplay"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="@string/password"
             android:textColor="@color/black"
             android:textSize="17sp" />
@@ -142,22 +142,16 @@
             android:textColorHint="#90000000"
             android:textSize="17sp" />
 
-        <EditText
-            android:id="@+id/genderInput"
-            android:layout_width="170dp"
-            android:layout_height="40dp"
+        <Spinner
+            android:id="@+id/signupgenderpicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="215dp"
-            android:layout_marginTop="479dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="F/M"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
+            android:layout_marginStart="211dp"
+            android:layout_marginTop="469dp"
+            android:spinnerMode="dropdown"
+            android:textSize="17dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -167,27 +161,24 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="449dp"
             android:layout_marginEnd="1dp"
-            android:fontFamily="@font/segeodisplay"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="@string/date_of_birth"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
-            android:id="@+id/dobInput"
-            android:layout_width="170dp"
-            android:layout_height="40dp"
+        <Button
+            android:id="@+id/signupdatepicker"
+            style="?android:spinnerStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="479dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="@string/dd_mm_yyyy"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="469dp"
+            android:onClick="openDatePicker"
+            android:textSize="17dp"
+            android:textColor="@color/black"/>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -196,7 +187,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="215dp"
             android:layout_marginTop="449dp"
-            android:fontFamily="@font/segeodisplay"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="Gender"
             android:textColor="@color/black"
             android:textSize="17sp" />

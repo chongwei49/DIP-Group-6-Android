@@ -117,7 +117,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="201dp"
-            android:fontFamily="@font/segeodisplay"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="@string/name"
             android:textColor="@color/black"
             android:textSize="17sp" />
@@ -129,7 +129,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="281dp"
-            android:fontFamily="@font/segeodisplay"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="@string/email"
             android:textColor="@color/black"
             android:textSize="17sp" />
@@ -156,87 +156,48 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="361dp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="Username"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="521dp"
-            android:fontFamily="@font/segeodisplay"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="460dp"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="Gender"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
-            android:id="@+id/changedobInput"
-            android:layout_width="365dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="471dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="New DOB"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
-
-        <EditText
-            android:id="@+id/changegenderInput"
-            android:layout_width="365dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="550dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="New Gender"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="441dp"
-            android:fontFamily="@font/segeodisplay"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="367dp"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="@string/date_of_birth"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
-            android:id="@+id/changeusernameInput"
-            android:layout_width="365dp"
-            android:layout_height="40dp"
+        <Button
+            android:id="@+id/settingsdatepicker"
+            style="?android:spinnerStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="391dp"
-            android:background="@drawable/custom_input_2"
-            android:fontFamily="@font/segeodisplay"
-            android:gravity="center"
-            android:hint="New Username"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="#90000000"
-            android:textSize="17sp" />
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="401dp"
+            android:onClick="openDatePicker"
+            android:textSize="17dp" />
+
+
+        <Spinner
+            android:id="@+id/settingsgenderpicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="489dp"
+            android:spinnerMode="dropdown"
+            android:textSize="17dp" />
 
         <Button
             android:id="@+id/logoutBtn"
