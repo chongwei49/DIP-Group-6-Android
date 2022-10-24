@@ -1,15 +1,11 @@
 package com.example.personalitytest;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +44,7 @@ public class Home extends AppCompatActivity {
 
             getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
+
         if (getIntent().getExtras() != null) {
             Log.d("Bundle log", "Bundle not empty");
 
@@ -57,9 +54,11 @@ public class Home extends AppCompatActivity {
             userName = userInformation.getString("name");
             userEmail = userInformation.getString("email");
             userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("DOB");
+            userDOB = userInformation.getString("dob");
 
             homeFragment.setArguments(userInformation);
+            profileFragment.setArguments(userInformation);
+            connectFragment.setArguments(userInformation);
         } else {
             Log.d("Error", "Bundle empty");
 
@@ -78,7 +77,9 @@ public class Home extends AppCompatActivity {
             userInformation.putString("gender", userGender);
             userInformation.putString("dob", userDOB);
 
+            profileFragment.setArguments(userInformation);
             homeFragment.setArguments(userInformation);
+            connectFragment.setArguments(userInformation);
         }
 
             bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -120,16 +121,7 @@ public class Home extends AppCompatActivity {
         editor.apply();
     }
 
-    public void homeactivity() {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
-    }
 
-    public void totestsctivity() {
-        Intent intent = new Intent(this, Tests.class);
-        startActivity(intent);
-        this.finish();
-    }
 
 //    @Override
 //    protected void onSaveInstanceState(@NonNull Bundle userInformation) {

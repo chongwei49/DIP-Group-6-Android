@@ -7,10 +7,15 @@ import android.util.Log;
 import androidx.annotation.RequiresApi;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.personalitytest.models.Personality;
@@ -18,8 +23,11 @@ import com.example.personalitytest.models.Question;
 import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -35,7 +43,7 @@ public class Services {
         String code = "Basic " +Base64.getEncoder().encodeToString((email + ":" + password).getBytes());
         Log.i("Code", code);
         RequestQueue queue = Volley.newRequestQueue(activity);
-        String url = "https://soma-app-be.herokuapp.com/api/v2/login";
+        String url = baseURL + "login";
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
                 {
@@ -45,25 +53,18 @@ public class Services {
                         try {
                             // convert response to JSON object
                             JSONObject userObject = new JSONObject(response);
-                            String userId = userObject.getString("userId");
-                            String name = userObject.getString("name");
-                            String email = userObject.getString("email");
-                            String gender = userObject.getString("gender");
-                            String dob = userObject.getString("dob");
-                            byte[] profilePic = (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8);
                             Log.i("Response", response);
 
                             ArrayList<User> user_list = new ArrayList<User>();
-                            User user = new User();
 
-                            user.setUserId(Integer.valueOf(userId));
-                            user.setName(name);
-                            user.setEmail(email);
-                            user.setPassword(password);
-                            user.setDob(dob);
-                            user.setProfilePic(profilePic);
-
-                            user_list.add(user);
+                            user_list.add(new User(
+                                    userObject.getInt("userId"),
+                                    userObject.getString("name"),
+                                    userObject.getString("email"),
+                                    userObject.getString("password"),
+                                    userObject.getString("dob"),
+                                    userObject.getString("gender"),
+                                    (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
 
                             callback.onSuccess(user_list);
                         } catch (Throwable tx) {
@@ -95,10 +96,9 @@ public class Services {
 
     //-------------------------------------------Get All Users Function----------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static ArrayList<User> getAllUsers(Activity activity) {
+    public static void getAllUsers(Activity activity, final UserCallback callback) {
         RequestQueue queue = Volley.newRequestQueue(activity);
         String url = baseURL + "users";
-        ArrayList<User> userList = new ArrayList<>();
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -106,23 +106,24 @@ public class Services {
                         // response
                         try {
                             // convert response to JSON object
-                            JSONObject userObject = new JSONObject(response);
-                            Integer count = userObject.length();
-                            for(int i=0; i < count; i++){
-                                Integer userId = userObject.getInt("userId");
-                                String name = userObject.getString("name");
-                                String email = userObject.getString("email");
-                                String password = userObject.getString("password");
-                                String dob = userObject.getString("dob");
-                                byte[] profilePic =  (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8);
+                            JSONArray array = new JSONArray(response);
 
-                                User user = new User(userId, name, email, password, dob, profilePic);
-                                userList.add(user);
+                            ArrayList<User> userList = new ArrayList<>();
+
+                            for(int i=0; i < array.length(); i++){
+                                JSONObject userObject = array.getJSONObject(i);
+
+                                userList.add(new User(
+                                        userObject.getInt("userId"),
+                                        userObject.getString("name"),
+                                        userObject.getString("email"),
+                                        userObject.getString("password"),
+                                        userObject.getString("dob"),
+                                        userObject.getString("gender"),
+                                        (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
                             }
+                            callback.onSuccess(userList);
 
-
-                            Log.i("Response", response);
-                            Log.d("user name", userObject.getString("name"));
                         } catch (Throwable tx) {
                             Log.e("Error:", "Error parsing JSON");
                         }
@@ -138,8 +139,221 @@ public class Services {
                 }
         );
         queue.add(getRequest);
-        return userList;
     }
+
+
+    //---------------------------------------------SignUp Function--------------------------------------------
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void signUp(String name, String email, String password, String dob, String gender, Activity activity, final UserCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "signup";
+        JSONObject js = new JSONObject();
+        try {
+            js.put("name",name);
+            js.put("email", email);
+            js.put("password", password);
+            js.put("dob", dob);
+            js.put("gender", gender);
+            Log.d("js inputs", js.toString());
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+            e.printStackTrace();
+        }
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, js,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("LOG_VOLLEY", response.toString());
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        NetworkResponse response = error.networkResponse;
+                        if (error instanceof ServerError && response != null) {
+                            try {
+                                String res = new String(response.data,
+                                        HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                Log.d("Response res", res);
+                                // Now you can use any deserializer to make sense of data
+                                //JSONObject obj = new JSONObject(res);
+                                //Log.d("Response obj", obj.toString());
+                            } catch (UnsupportedEncodingException e1) {
+                                // Couldn't properly decode data to string
+                                e1.printStackTrace();
+                                Log.e("e1 error", "couldn't properly decode data to string");
+                            } /*catch (JSONException e2) {
+                                // returned data is not JSONObject?
+                                e2.printStackTrace();
+                                Log.e("e2 error", "returned data not JSONObject?");
+                            }*/
+                        }
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR","error => "+error.toString());
+                    }
+                }
+        ) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+        // Adding request to request queue
+        Volley.newRequestQueue(activity).add(postRequest);
+    }
+
+
+    //-----------------------------------------EditUser Function---------------------------------------------
+    //To be continued
+
+
+
+    //------------------------------------GetAllPersonalities Function----------------------------------------
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void getAllPersonalities(Activity activity, final PersonalityCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "personalities";
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        try {
+                            // convert response to JSON object
+                            JSONArray array = new JSONArray(response);
+
+                            ArrayList<Personality> personalityList = new ArrayList<>();
+
+                            for(int i=0; i < array.length(); i++){
+                                JSONObject personalityObject = array.getJSONObject(i);
+
+                                personalityList.add(new Personality(
+                                        personalityObject.getInt("priId"),
+                                        personalityObject.getInt("userId"),
+                                        personalityObject.getString("qnCategory"),
+                                        personalityObject.getString("personalityType"),
+                                        personalityObject.getString("dateTime")));
+                            }
+                            callback.onSuccess(personalityList);
+
+                        } catch (Throwable tx) {
+                            Log.e("Error:", "Error parsing JSON");
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR", "error => " + error.toString());
+                    }
+                }
+        );
+        queue.add(getRequest);
+    }
+
+
+
+    //-------------------------------------GetAllTraits Function-------------------------------------------
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void getAllTraits(Activity activity, final TraitCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "traits";
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        try {
+                            // convert response to JSON object
+                            JSONArray array = new JSONArray(response);
+                            Log.d("TRAITS", response);
+                            ArrayList<Trait> traitsList = new ArrayList<>();
+
+                            for(int i=0; i < array.length(); i++){
+                                JSONObject traitsObject = array.getJSONObject(i);
+
+                                traitsList.add(new Trait(
+                                        traitsObject.getInt("priId"),
+                                        traitsObject.getString("quizCategory"),
+                                        traitsObject.getString("personalityType"),
+                                        traitsObject.getString("traitName"),
+                                        traitsObject.getString("description")));
+                            }
+                            callback.onSuccess(traitsList);
+
+                        } catch (Throwable tx) {
+                            Log.e("Error:", "Error parsing JSON");
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR", "error => " + error.toString());
+                    }
+                }
+        );
+        queue.add(getRequest);
+    }
+
+
+
+    //------------------------------------GetAllQuestions Function-----------------------------------------
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void getAllQuestions(Activity activity, final QuestionCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "questions";
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        try {
+                            // convert response to JSON object
+                            JSONArray array = new JSONArray(response);
+
+                            ArrayList<Question> questionsList = new ArrayList<>();
+
+                            for(int i=0; i < array.length(); i++){
+                                JSONObject questionObject = array.getJSONObject(i);
+
+                                questionsList.add(new Question(
+                                        questionObject.getInt("priId"),
+                                        questionObject.getInt("qnId"),
+                                        questionObject.getString("qnCategory"),
+                                        questionObject.getString("qns"),
+                                        questionObject.getBoolean("answer"),
+                                        questionObject.getString("traits")));
+                            }
+                            callback.onSuccess(questionsList);
+
+                        } catch (Throwable tx) {
+                            Log.e("Error:", "Error parsing JSON");
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR", "error => " + error.toString());
+                    }
+                }
+        );
+        queue.add(getRequest);
+    }
+
 
     public interface UserCallback{
         void onSuccess(ArrayList<User> result);

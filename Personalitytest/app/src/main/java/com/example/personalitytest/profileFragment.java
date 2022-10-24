@@ -1,8 +1,10 @@
 package com.example.personalitytest;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,7 +13,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.personalitytest.models.User;
+
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +34,13 @@ public class profileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Integer userId;
+    private String userName;
+    private String userEmail;
+    private String userGender;
+    private String userDOB;
+
+    private TextView usernameText, emailText;
 
     public profileFragment() {
         // Required empty public constructor
@@ -51,12 +64,21 @@ public class profileFragment extends Fragment {
         return fragment;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            Bundle userInformation = this.getArguments();
+
+            userId = userInformation.getInt("userId");
+            userName = userInformation.getString("name");
+            userEmail = userInformation.getString("email");
+            userGender = userInformation.getString("gender");
+            userDOB = userInformation.getString("DOB");
         }
     }
 
@@ -67,6 +89,13 @@ public class profileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile,container, false);
 
        TextView settingsbtn = (TextView) view.findViewById(R.id.settingsBtn);
+
+
+        usernameText = view.findViewById(R.id.username);
+        emailText=view.findViewById(R.id.email);
+
+        usernameText.setText(userName);
+        emailText.setText(userEmail);
         settingsbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

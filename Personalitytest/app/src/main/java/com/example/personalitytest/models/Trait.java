@@ -16,4 +16,44 @@ public class Trait {
         this.traitName = traitName;
         this.description = description;
     }
+
+    public Integer getPriId() {
+        return this.priId;
+    }
+
+    public void setPriId(Integer priId) {
+        this.priId = priId;
+    }
+
+    public String getQuizCategory() {
+        return this.quizCategory;
+    }
+
+    public void setQuizCategory(String quizCategory) {
+        this.quizCategory = quizCategory;
+    }
+
+    public String getPersonalityType() {
+        return this.personalityType;
+    }
+
+    public void setPersonalityType(String personalityType) {
+        this.personalityType = personalityType;
+    }
+
+    public String getTraitName() {
+        return this.traitName;
+    }
+
+    public void setTraitName(String traitName) {
+        this.traitName = traitName;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

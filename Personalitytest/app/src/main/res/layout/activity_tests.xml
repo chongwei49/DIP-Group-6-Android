@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgtest"
-    tools:context=".Tests">
+    tools:context=".Tests"
+    android:id="@+id/testspage">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
             android:textSize="35sp" />
 
         <ImageView
-            android:id="@+id/back"
+            android:id="@+id/testsbacktohome"
             android:layout_width="26dp"
             android:layout_height="23dp"
             android:layout_alignParentTop="true"

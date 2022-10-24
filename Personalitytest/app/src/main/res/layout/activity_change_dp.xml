@@ -38,71 +38,68 @@
             android:src="@drawable/popup_2" />
 
         <RelativeLayout
+            android:id="@+id/remove_dp"
             android:layout_width="370dp"
             android:layout_height="55dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="400dp"
             android:layout_marginStart="20dp"
-            android:id="@+id/remove_dp">
+            android:layout_marginTop="400dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Remove Current Photo"
-                android:textSize="24sp"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="60dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/segeodisplaysemibold"
-                />
+                android:text="Remove Current Photo"
+                android:textSize="24sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/library_dp"
             android:layout_width="370dp"
             android:layout_height="55dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="455dp"
             android:layout_marginStart="20dp"
-            android:id="@+id/library_dp">
+            android:layout_marginTop="455dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Choose From library"
-                android:textSize="24sp"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="70dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/segeodisplaysemibold"
-                />
+                android:text="Choose From library"
+                android:textSize="24sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/takephoto_dp"
             android:layout_width="370dp"
             android:layout_height="55dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="510dp"
             android:layout_marginStart="20dp"
-            android:id="@+id/takephoto_dp">
+            android:layout_marginTop="510dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Take photo"
-                android:textSize="24sp"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="120dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/segeodisplaysemibold"
-                />
+                android:text="Take photo"
+                android:textSize="24sp" />
 
         </RelativeLayout>
 

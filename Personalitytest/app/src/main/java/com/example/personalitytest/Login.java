@@ -74,6 +74,7 @@ public class Login extends AppCompatActivity {
                             userInformation.putInt("userId", result.get(0).getUserId());
                             userInformation.putString("name", result.get(0).getName());
                             userInformation.putString("email", result.get(0).getEmail());
+                            userInformation.putString("gender", result.get(0).getGender());
                             userInformation.putString("dob", result.get(0).getDob());
                             homeActivity(userInformation);
                         }else{
@@ -81,14 +82,6 @@ public class Login extends AppCompatActivity {
                         }
                     }
                 });
-                /*if(userLogin != null) {
-                    Bundle userInformation = new Bundle();
-                    userInformation.putInt("userId", (userLogin.indexOf(0)).getUserId());
-                    userInformation.putString("name", name);
-                    userInformation.putString("email", email);
-                    userInformation.putString("dob", dob);
-                    homeactivity();
-                }*/
             }
         });
 
