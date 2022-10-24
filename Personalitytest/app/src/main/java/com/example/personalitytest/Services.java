@@ -210,7 +210,71 @@ public class Services {
 
 
     //-----------------------------------------EditUser Function---------------------------------------------
-    //To be continued
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void editUser(Integer userId, String name, String email, String password, String dob, String gender, Activity activity, final UserCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "users/" + userId;
+        JSONObject js = new JSONObject();
+        try {
+            js.put("userId", userId);
+            js.put("name",name);
+            js.put("email", email);
+            js.put("password", password);
+            js.put("dob", dob);
+            js.put("gender", gender);
+            Log.d("js inputs", js.toString());
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+            e.printStackTrace();
+        }
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, js,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("LOG_VOLLEY", response.toString());
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        NetworkResponse response = error.networkResponse;
+                        if (error instanceof ServerError && response != null) {
+                            try {
+                                String res = new String(response.data,
+                                        HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                Log.d("Response res", res);
+                                // Now you can use any deserializer to make sense of data
+                                //JSONObject obj = new JSONObject(res);
+                                //Log.d("Response obj", obj.toString());
+                            } catch (UnsupportedEncodingException e1) {
+                                // Couldn't properly decode data to string
+                                e1.printStackTrace();
+                                Log.e("e1 error", "couldn't properly decode data to string");
+                            } /*catch (JSONException e2) {
+                                // returned data is not JSONObject?
+                                e2.printStackTrace();
+                                Log.e("e2 error", "returned data not JSONObject?");
+                            }*/
+                        }
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR","error => "+error.toString());
+                    }
+                }
+        ) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+        // Adding request to request queue
+        Volley.newRequestQueue(activity).add(putRequest);
+    }
 
 
 
