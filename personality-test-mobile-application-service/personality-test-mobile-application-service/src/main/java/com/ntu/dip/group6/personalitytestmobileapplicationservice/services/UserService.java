@@ -32,19 +32,17 @@ public class UserService {
     }
 
     public String addNewUser(User user) {
-        UUID uuid = UUID.randomUUID();
+        User foundUser = userRepository.findByEmail(user.getEmail());
 
-        if (userRepository.findByEmail(user.getEmail()) != null) {
-            return "Email duplicates";
-        }
-        else {
-            String userID = uuid.toString();
+        if (foundUser == null) {
             String salt = Base64.getEncoder().encodeToString((user.getEmail() + ":" + user.getPassword()).getBytes());
             String hashedPassword = PasswordHasher.getSecurePasssword(user.getPassword(), salt.getBytes());
             User newUser = new User(user.getName(), user.getEmail(), hashedPassword, user.getDob(), user.getGender(), user.getProfilePic());
             userRepository.save(newUser);
-            return "Success";
-
+            return userRepository.findByEmail(user.getEmail()).getUserId().toString();
+        }
+        else {
+           return "Email duplicates";
         }
     }
 

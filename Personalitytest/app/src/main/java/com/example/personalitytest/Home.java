@@ -95,7 +95,6 @@ public class Home extends AppCompatActivity {
                             getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
                             return true;
                     }
-
                     return false;
                 }
             });
