@@ -100,7 +100,7 @@
                     android:text="You show your affection by helping out your partner with their daily lives even your efforts are unnoticed. Seeing your partner living comfortably gives you satisfaction. "
                     android:textAlignment="center"
                     android:textColor="#454444"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
             </RelativeLayout>
 
