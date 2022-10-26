@@ -2,6 +2,7 @@ package com.example.personalitytest;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,15 @@ public class ResultCareer extends AppCompatActivity {
     private ImageView homebutton;
     private TextView resultView, descView;
     private String quiz_result, description="";
+
+    private String USER_INFORMATION;
+    private Integer userId;
+    private String userName;
+    private String userEmail;
+    private String userGender;
+    private String userDOB;
+    private Bundle userInformation = new Bundle();
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +65,46 @@ public class ResultCareer extends AppCompatActivity {
                 tohomeactivity();
             }
         });
+
+        getUserInfo();
+        Log.d("USER_ID", String.valueOf(userId));
     }
 
     public void tohomeactivity() {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
+    }
+
+    public void getUserInfo(){
+        if (getIntent().getExtras() != null) {
+            Log.d("Bundle log", "Bundle not empty");
+
+            userInformation = getIntent().getExtras();
+
+            userId = userInformation.getInt("userId");
+            userName = userInformation.getString("name");
+            userEmail = userInformation.getString("email");
+            userGender = userInformation.getString("gender");
+            userDOB = userInformation.getString("dob");
+        } else {
+            Log.d("Error", "Bundle empty");
+
+            SharedPreferences prefs = getSharedPreferences(USER_INFORMATION, MODE_PRIVATE);
+            userId = prefs.getInt("userId", 0);
+            userName = prefs.getString("name", "default");
+            userEmail = prefs.getString("email", "default");
+            userGender = prefs.getString("gender", "default");
+            userDOB = prefs.getString("DOB", "default");
+
+            Log.d("User name", "User Name, " + userName);
+
+            userInformation.putInt("userId", userId);
+            userInformation.putString("name", userName);
+            userInformation.putString("email", userEmail);
+            userInformation.putString("gender", userGender);
+            userInformation.putString("dob", userDOB);
+
+        }
     }
 
 }
