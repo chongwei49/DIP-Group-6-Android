@@ -92,12 +92,23 @@ public class homeFragment extends Fragment {
         tests.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent in = new Intent(getActivity(), Tests.class);
-                startActivity(in);
+                Bundle userInformation = new Bundle();
+                userInformation.putInt("userId", userId);
+                userInformation.putString("name", userName);
+                userInformation.putString("email", userEmail);
+                userInformation.putString("gender", userGender);
+                userInformation.putString("dob", userDOB);
+                testActivity(userInformation);
             }
 
         });
 
         return view;
+    }
+
+    public void testActivity(Bundle bundle) {
+        Intent intent = new Intent(getActivity(), Tests.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

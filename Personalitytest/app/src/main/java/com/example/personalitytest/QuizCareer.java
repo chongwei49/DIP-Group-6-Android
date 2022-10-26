@@ -2,6 +2,7 @@ package com.example.personalitytest;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,13 @@ public class QuizCareer extends AppCompatActivity{
     private ArrayList<Question> careerQuizAns = new ArrayList<Question>();
     ProgressDialog dialog;
 
+    private String USER_INFORMATION;
+    private Integer userId;
+    private String userName;
+    private String userEmail;
+    private String userGender;
+    private String userDOB;
+    private Bundle userInformation = new Bundle();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +93,8 @@ public class QuizCareer extends AppCompatActivity{
         questionIndexView = (TextView) findViewById(R.id.textView49);
 
         indexView = (TextView) findViewById(R.id.textView52);
+
+        getUserInfo();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -95,7 +105,7 @@ public class QuizCareer extends AppCompatActivity{
         Log.d("Intent_check", String.valueOf(intent.getExtras()));
         dialog = ProgressDialog.show(QuizCareer.this, "",
                 "Loading. Please wait...", true);
-        if(intent.getExtras()!=null){
+        if(intent.getExtras().containsKey("Ans_list")){
             careerQuizVar= intent.getParcelableArrayListExtra("Question_list");
             careerQuizAns= intent.getParcelableArrayListExtra("Ans_list");
             qCounter = intent.getIntExtra("Question_Counter", 1);
@@ -127,6 +137,8 @@ public class QuizCareer extends AppCompatActivity{
     public void toresultcareeractivity() {
         Intent intent = new Intent(this, ResultCareer.class);
         intent.putExtra("Result", calculateResult());
+        createBundle();
+        intent.putExtras(userInformation);
         startActivity(intent);
     }
     public void tohomeactivity() {
@@ -140,6 +152,8 @@ public class QuizCareer extends AppCompatActivity{
         intent.putExtra("Ans_list", careerQuizAns);
         intent.putExtra("Question_Counter", qCounter);
         intent.putExtra("Quiz_size", quizSize);
+        createBundle();
+        intent.putExtras(userInformation);
         startActivity(intent);
         finish();
     }
@@ -181,6 +195,46 @@ public class QuizCareer extends AppCompatActivity{
         }
 
         return null;
+    }
+
+    public void createBundle(){
+        userInformation.putInt("userId", userId);
+        userInformation.putString("name", userName);
+        userInformation.putString("email", userEmail);
+        userInformation.putString("gender", userGender);
+        userInformation.putString("dob", userDOB);
+    }
+
+    public void getUserInfo(){
+        if (getIntent().getExtras() != null) {
+            Log.d("Bundle log", "Bundle not empty");
+
+            userInformation = getIntent().getExtras();
+
+            userId = userInformation.getInt("userId");
+            userName = userInformation.getString("name");
+            userEmail = userInformation.getString("email");
+            userGender = userInformation.getString("gender");
+            userDOB = userInformation.getString("dob");
+        } else {
+            Log.d("Error", "Bundle empty");
+
+            SharedPreferences prefs = getSharedPreferences(USER_INFORMATION, MODE_PRIVATE);
+            userId = prefs.getInt("userId", 0);
+            userName = prefs.getString("name", "default");
+            userEmail = prefs.getString("email", "default");
+            userGender = prefs.getString("gender", "default");
+            userDOB = prefs.getString("DOB", "default");
+
+            Log.d("User name", "User Name, " + userName);
+
+            userInformation.putInt("userId", userId);
+            userInformation.putString("name", userName);
+            userInformation.putString("email", userEmail);
+            userInformation.putString("gender", userGender);
+            userInformation.putString("dob", userDOB);
+
+        }
     }
 
 }
