@@ -34,7 +34,8 @@ public class Home extends AppCompatActivity {
     private String userGender;
     private String userDOB;
     private Bundle userInformation = new Bundle();
-    private ArrayList<User> userInf = new ArrayList<User>();
+    private ArrayList<User> usersInf = new ArrayList<User>();
+    private ArrayList<User> userInfo = new ArrayList<User>();
 
     homeFragment homeFragment = new homeFragment();
     connectFragment connectFragment = new connectFragment();
@@ -59,12 +60,13 @@ public class Home extends AppCompatActivity {
             Log.d("Bundle log", "Bundle not empty");
 
             userInformation = getIntent().getExtras();
+            userInformation.getParcelableArrayList("userInfo");
 
-            userId = userInformation.getInt("userId");
-            userName = userInformation.getString("name");
-            userEmail = userInformation.getString("email");
-            userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("dob");
+//            userId = userInformation.getInt("userId");
+//            userName = userInformation.getString("name");
+//            userEmail = userInformation.getString("email");
+//            userGender = userInformation.getString("gender");
+//            userDOB = userInformation.getString("dob");
 
             homeFragment.setArguments(userInformation);
             profileFragment.setArguments(userInformation);
@@ -120,9 +122,9 @@ public class Home extends AppCompatActivity {
                 Log.d("Response result", String.valueOf(result.get(0).getName()));
                 dialog.cancel();
                 if(!result.isEmpty()){
-                    userInf=result;
+                    usersInf=result;
                     Bundle usersInfo = new Bundle();
-                    usersInfo.putParcelableArrayList("user_information",userInf);
+                    usersInfo.putParcelableArrayList("user_information",usersInf);
                     connectFragment.setArguments(usersInfo);
 
                     //test

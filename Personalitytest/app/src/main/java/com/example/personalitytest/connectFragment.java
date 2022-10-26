@@ -104,11 +104,11 @@ public class connectFragment extends Fragment {
         dataSource = new ArrayList<>();
 
 
-//        dataSource.add("Sam");
-//        dataSource.add("Anthony");
-//        dataSource.add("Lucy");
-//        dataSource.add("Max");
-//        dataSource.add("Andy");
+        dataSource.add("Sam");
+        dataSource.add("Anthony");
+        dataSource.add("Lucy");
+        dataSource.add("Max");
+        dataSource.add("Andy");
 
         myPersonalityAdapter = new MyPersonalityAdapter(dataSource);
         personalityRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
