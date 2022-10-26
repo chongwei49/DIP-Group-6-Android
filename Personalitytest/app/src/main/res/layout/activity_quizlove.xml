@@ -23,10 +23,10 @@
             android:layout_alignParentTop="true"
 
             android:layout_marginStart="120dp"
-            android:layout_marginTop="83dp"
+            android:layout_marginTop="86dp"
 
             android:layout_marginBottom="338dp"
-            android:fontFamily="@font/stix"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="LOVE TEST"
             android:textColor="#040404"
             android:textSize="32sp"
@@ -151,7 +151,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="22dp"
-            android:layout_marginEnd="140dp"
+            android:layout_marginEnd="145dp"
             app:srcCompat="@drawable/lovetestlogo" />
 
         <ImageView
