@@ -1,7 +1,9 @@
 package com.ntu.dip.group6.personalitytestmobileapplicationservice.controllers;
 
+import com.nimbusds.oauth2.sdk.util.StringUtils;
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.models.User;
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.services.UserService;
+import io.netty.util.internal.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,15 +18,13 @@ public class SignUpController {
     UserService userService;
 
     @PostMapping
-    public ResponseEntity<String> signup(@RequestBody User user) {
-        if (userService.addNewUser(user) == "Success") {
-            return new ResponseEntity<>("User has been successfully added.", HttpStatus.OK);
-        } else if (userService.addNewUser(user) == "Email and username duplicate") {
-            return new ResponseEntity<>("Email and username already exist.", HttpStatus.BAD_REQUEST);
-        } else if (userService.addNewUser(user) == "Username duplicates") {
-            return new ResponseEntity<>("Username already exists.", HttpStatus.BAD_REQUEST);
-        } else if (userService.addNewUser(user) == "Email duplicates") {
+    public ResponseEntity<Object> signup(@RequestBody User user) {
+        String response = userService.addNewUser(user);
+        if (response == "Email duplicates") {
             return new ResponseEntity<>("Email already exists.", HttpStatus.BAD_REQUEST);
+        } else if (StringUtils.isNumeric(response)) {
+            Integer userId = Integer.parseInt(response);
+            return new ResponseEntity<>(userService.getUserById(userId), HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Error", HttpStatus.INTERNAL_SERVER_ERROR);
         }
