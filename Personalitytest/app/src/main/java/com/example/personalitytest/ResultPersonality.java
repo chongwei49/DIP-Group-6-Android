@@ -89,10 +89,10 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
                 String persoanlity_Desc = "";
 
                 for(int i=0; i<result.size();i++){
+                    Log.d("personType", persoanlity_Type);
                     if(result.get(i).getPersonalityType().contains(persoanlity_Type)){
                         persoanlity_Desc = result.get(i).getDescription();
                         personality_TraitName = result.get(i).getTraitName();
-
                     }
                     Log.d("Trait_Checking", result.get(i).getPersonalityType());
                     Log.d("Key_Check", "---------------------------------");

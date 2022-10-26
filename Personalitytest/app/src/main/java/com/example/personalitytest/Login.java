@@ -39,6 +39,7 @@ public class Login extends AppCompatActivity {
     private ImageView backimage;
     private Button button;
     private TextView emailText, passText;
+    private ArrayList<User> userInfo = new ArrayList<User>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +72,16 @@ public class Login extends AppCompatActivity {
                         dialog.cancel();
                         if(!result.isEmpty()){
                             Bundle userInformation = new Bundle();
-                            userInformation.putInt("userId", result.get(0).getUserId());
-                            userInformation.putString("name", result.get(0).getName());
-                            userInformation.putString("email", result.get(0).getEmail());
-                            userInformation.putString("gender", result.get(0).getGender());
-                            userInformation.putString("dob", result.get(0).getDob());
+                            userInfo=result;
+//                            userInformation.putInt("userId", result.get(0).getUserId());
+//                            userInformation.putString("name", result.get(0).getName());
+//                            userInformation.putString("email", result.get(0).getEmail());
+//                            userInformation.putString("gender", result.get(0).getGender());
+//                            userInformation.putString("dob", result.get(0).getDob());
+
+                            userInformation.putParcelableArrayList("userInfo",userInfo);
                             homeActivity(userInformation);
+                            Log.d("Login","Successful");
                         }else{
                             Log.d("Else Response", "Multiple User Object Detected");
                         }

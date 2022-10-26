@@ -1,16 +1,24 @@
 package com.example.personalitytest;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.personalitytest.models.Question;
+import com.example.personalitytest.models.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
 
@@ -26,6 +34,8 @@ public class Home extends AppCompatActivity {
     private String userGender;
     private String userDOB;
     private Bundle userInformation = new Bundle();
+    private ArrayList<User> usersInf = new ArrayList<User>();
+    private ArrayList<User> userInfo = new ArrayList<User>();
 
     homeFragment homeFragment = new homeFragment();
     connectFragment connectFragment = new connectFragment();
@@ -35,6 +45,7 @@ public class Home extends AppCompatActivity {
         super();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +60,13 @@ public class Home extends AppCompatActivity {
             Log.d("Bundle log", "Bundle not empty");
 
             userInformation = getIntent().getExtras();
+            userInformation.getParcelableArrayList("userInfo");
 
-            userId = userInformation.getInt("userId");
-            userName = userInformation.getString("name");
-            userEmail = userInformation.getString("email");
-            userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("dob");
+//            userId = userInformation.getInt("userId");
+//            userName = userInformation.getString("name");
+//            userEmail = userInformation.getString("email");
+//            userGender = userInformation.getString("gender");
+//            userDOB = userInformation.getString("dob");
 
             homeFragment.setArguments(userInformation);
             profileFragment.setArguments(userInformation);
@@ -99,6 +111,32 @@ public class Home extends AppCompatActivity {
                     return false;
                 }
             });
+
+        //getAllUsers
+
+        ProgressDialog dialog = ProgressDialog.show(Home.this, "",
+                "Loading. Please wait...", true);
+        Services.getAllUsers( Home.this, new Services.UserCallback() {
+            @Override
+            public void onSuccess(ArrayList<User> result) {
+                Log.d("Response result", String.valueOf(result.get(0).getName()));
+                dialog.cancel();
+                if(!result.isEmpty()){
+                    usersInf=result;
+                    Bundle usersInfo = new Bundle();
+                    usersInfo.putParcelableArrayList("user_information",usersInf);
+                    connectFragment.setArguments(usersInfo);
+
+                    //test
+                    for(int i=0;i<result.size();i++){
+                        Log.d("test getAllUsers",result.get(i).getName());
+                    }
+                }else{
+                    Log.d("Else Response", "Multiple User Object Detected");
+                }
+            }
+        });
+
 
     }
 

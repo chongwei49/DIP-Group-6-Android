@@ -23,10 +23,10 @@
             android:layout_alignParentTop="true"
 
             android:layout_marginStart="120dp"
-            android:layout_marginTop="83dp"
+            android:layout_marginTop="86dp"
 
             android:layout_marginBottom="338dp"
-            android:fontFamily="@font/stix"
+            android:fontFamily="@font/segeodisplaysemibold"
             android:text="LOVE TEST"
             android:textColor="#040404"
             android:textSize="32sp"
@@ -95,15 +95,15 @@
 
                 <TextView
                     android:id="@+id/textView52"
-                    android:layout_width="40dp"
-                    android:layout_height="33dp"
+                    android:layout_width="173dp"
+                    android:layout_height="42dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="127dp"
-                    android:layout_marginTop="251dp"
-                    android:layout_marginEnd="138dp"
+                    android:layout_marginTop="242dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginBottom="47dp"
                     android:fontFamily="@font/alata"
                     android:text="1/15"
@@ -151,7 +151,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="22dp"
-            android:layout_marginEnd="140dp"
+            android:layout_marginEnd="145dp"
             app:srcCompat="@drawable/lovetestlogo" />
 
         <ImageView

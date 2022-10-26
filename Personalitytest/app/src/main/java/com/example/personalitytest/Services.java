@@ -233,6 +233,7 @@ public class Services {
     }
 
 
+
     //-----------------------------------------EditUser Function---------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void editUser(Integer userId, String name, String email, String password, String dob, String gender, Activity activity, final UserCallback callback) {
@@ -360,6 +361,87 @@ public class Services {
                 }
         );
         queue.add(getRequest);
+    }
+
+
+
+    //-----------------------------------AddNewPersonalities Function-------------------------------------
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void addNewPersonalities(Integer userId, String qnCategory, String personalityType, Activity activity, final PersonalityCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "personalities";
+        JSONObject js = new JSONObject();
+        try {
+            js.put("userId",userId);
+            js.put("qnCategory", qnCategory);
+            js.put("personalityType", personalityType);
+            Log.d("js inputs", js.toString());
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+            e.printStackTrace();
+        }
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, js,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        if (response.has("{")){
+                            try {
+                                Log.d("LOG_VOLLEY", response.toString());
+
+                                ArrayList<Personality> personalities_list = new ArrayList<Personality>();
+
+                                personalities_list.add(new Personality(
+                                        response.getInt("priId"),
+                                        response.getInt("userId"),
+                                        response.getString("qnCategory"),
+                                        response.getString("personalityType"),
+                                        response.getString("dateTime")));
+
+                                callback.onSuccess(personalities_list);
+                            }catch (Throwable tx) {
+                                Log.e("Error:", "Error parsing JSON");
+                            }
+                        }
+                        else {
+                            Log.d("LOG_VOLLEY", response.toString());
+                            /*ArrayList<String> duplicateRes = new ArrayList<String>(response.toString());
+                            callback.onSuccess(response.toString());*/
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        NetworkResponse response = error.networkResponse;
+                        if (error instanceof ServerError && response != null) {
+                            try {
+                                String res = new String(response.data,
+                                        HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                Log.d("Response res", res);
+                            } catch (UnsupportedEncodingException e1) {
+                                // Couldn't properly decode data to string
+                                e1.printStackTrace();
+                                Log.e("e1 error", "couldn't properly decode data to string");
+                            }
+                        }
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR","error => "+error.toString());
+                    }
+                }
+        ) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+        // Adding request to request queue
+        Volley.newRequestQueue(activity).add(postRequest);
     }
 
 

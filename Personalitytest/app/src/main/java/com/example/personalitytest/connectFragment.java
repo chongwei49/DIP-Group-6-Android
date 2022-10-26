@@ -10,12 +10,15 @@ import java.util.Random;
 import android.content.Intent;
 import android.content.ReceiverCallNotAllowedException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
 
@@ -43,6 +46,7 @@ public class connectFragment extends Fragment {
     private ImageView backimage;
     private Button personalitynext, lovenext, worknext;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
+    private ArrayList<User> userInf = new ArrayList<User>();
 
     public connectFragment() {
         // Required empty public constructor
@@ -72,6 +76,14 @@ public class connectFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            Bundle usersInfo = this.getArguments();
+            userInf=usersInfo.getParcelableArrayList("user_information");
+            for(int i =0;i<userInf.size();i++){
+                Log.d("Connect Fragment Test ",userInf.get(i).getName());
+            }
+
+
         }
 
 
@@ -90,6 +102,8 @@ public class connectFragment extends Fragment {
 
         //Setting the data source
         dataSource = new ArrayList<>();
+
+
         dataSource.add("Sam");
         dataSource.add("Anthony");
         dataSource.add("Lucy");

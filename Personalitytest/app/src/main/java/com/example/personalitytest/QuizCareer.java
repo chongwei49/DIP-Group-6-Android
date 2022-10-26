@@ -2,6 +2,7 @@ package com.example.personalitytest;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,13 @@ public class QuizCareer extends AppCompatActivity{
     private ArrayList<Question> careerQuizAns = new ArrayList<Question>();
     ProgressDialog dialog;
 
+    private String USER_INFORMATION;
+    private Integer userId;
+    private String userName;
+    private String userEmail;
+    private String userGender;
+    private String userDOB;
+    private Bundle userInformation = new Bundle();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +103,7 @@ public class QuizCareer extends AppCompatActivity{
         Log.d("Intent_check", String.valueOf(intent.getExtras()));
         dialog = ProgressDialog.show(QuizCareer.this, "",
                 "Loading. Please wait...", true);
-        if(intent.getExtras()!=null){
+        if(intent.getExtras().containsKey("Ans_list")){
             careerQuizVar= intent.getParcelableArrayListExtra("Question_list");
             careerQuizAns= intent.getParcelableArrayListExtra("Ans_list");
             qCounter = intent.getIntExtra("Question_Counter", 1);
@@ -182,5 +190,9 @@ public class QuizCareer extends AppCompatActivity{
 
         return null;
     }
+
+
+
+
 
 }
