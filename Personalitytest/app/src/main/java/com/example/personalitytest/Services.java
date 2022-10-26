@@ -164,20 +164,31 @@ public class Services {
                     @Override
                     public void onResponse(JSONObject response) {
                         // response
-                        Log.d("LOG_VOLLEY", response.toString());
+                        if (response.has("{")){
+                            try {
+                                Log.d("LOG_VOLLEY", response.toString());
 
-                        /*ArrayList<User> user_list = new ArrayList<User>();
+                                ArrayList<User> user_list = new ArrayList<User>();
 
-                        user_list.add(new User(
-                                response.getInt("userId"),
-                                response.getString("name"),
-                                userObject.getString("email"),
-                                userObject.getString("password"),
-                                userObject.getString("dob"),
-                                userObject.getString("gender"),
-                                (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                                user_list.add(new User(
+                                        response.getInt("userId"),
+                                        response.getString("name"),
+                                        response.getString("email"),
+                                        response.getString("password"),
+                                        response.getString("dob"),
+                                        response.getString("gender"),
+                                        (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
 
-                        callback.onSuccess(userList);*/
+                                        callback.onSuccess(user_list);
+                            }catch (Throwable tx) {
+                                Log.e("Error:", "Error parsing JSON");
+                            }
+                        }
+                        else {
+                            Log.d("LOG_VOLLEY", response.toString());
+                            /*ArrayList<String> duplicateRes = new ArrayList<String>(response.toString());
+                            callback.onSuccess(response.toString());*/
+                        }
                     }
                 },
                 new Response.ErrorListener() {
