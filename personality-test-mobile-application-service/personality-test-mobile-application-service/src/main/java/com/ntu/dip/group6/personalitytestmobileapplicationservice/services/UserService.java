@@ -35,10 +35,14 @@ public class UserService {
         User foundUser = userRepository.findByEmail(user.getEmail());
 
         if (foundUser == null) {
-            String salt = Base64.getEncoder().encodeToString((user.getEmail() + ":" + user.getPassword()).getBytes());
-            String hashedPassword = PasswordHasher.getSecurePasssword(user.getPassword(), salt.getBytes());
-            User newUser = new User(user.getName(), user.getEmail(), hashedPassword, user.getDob(), user.getGender(), user.getProfilePic());
-            userRepository.save(newUser);
+            if (user.getPassword() != null) {
+                String salt = Base64.getEncoder().encodeToString((user.getEmail() + ":" + user.getPassword()).getBytes());
+                String hashedPassword = PasswordHasher.getSecurePasssword(user.getPassword(), salt.getBytes());
+                User newUser = new User(user.getName(), user.getEmail(), hashedPassword, user.getDob(), user.getGender(), user.getProfilePic());
+                userRepository.save(newUser);
+            } else {
+                userRepository.save(user);
+            }
             return userRepository.findByEmail(user.getEmail()).getUserId().toString();
         }
         else {
@@ -48,14 +52,27 @@ public class UserService {
 
     public void editUser(Integer userID, User updatedUser) {
         User user = userRepository.findById(userID).get();
-        user.setName(updatedUser.getName());
-        user.setEmail(updatedUser.getEmail());
-        String salt = Base64.getEncoder().encodeToString((updatedUser.getEmail() + ":" + updatedUser.getPassword()).getBytes());
-        String hashedPassword = PasswordHasher.getSecurePasssword(updatedUser.getPassword(), salt.getBytes());
-        user.setPassword(hashedPassword);
-        user.setDob(updatedUser.getDob());
-        user.setGender(updatedUser.getGender());
-        user.setProfilePic(updatedUser.getProfilePic());
+        if (updatedUser.getName() != null) {
+            user.setName(updatedUser.getName());
+        }
+        if (updatedUser.getEmail() != null) {
+            user.setEmail(updatedUser.getEmail());
+        }
+        if (updatedUser.getPassword() != null) {
+            String salt = Base64.getEncoder().encodeToString((updatedUser.getEmail() + ":" + updatedUser.getPassword()).getBytes());
+            String hashedPassword = PasswordHasher.getSecurePasssword(updatedUser.getPassword(), salt.getBytes());
+            user.setPassword(hashedPassword);
+        }
+        if (updatedUser.getDob() != null) {
+            user.setDob(updatedUser.getDob());
+        }
+        if (updatedUser.getGender() != null) {
+            user.setGender(updatedUser.getGender());
+        }
+        if (updatedUser.getProfilePic() != null) {
+            user.setProfilePic(updatedUser.getProfilePic());
+        }
+
         userRepository.save(user);
     }
 
