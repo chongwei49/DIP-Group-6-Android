@@ -105,17 +105,21 @@
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Users/muhda/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/menu/navigation.xml" value="0.37083333333333335" />
         <entry key="app/src/main/res/layout/activity_change_dp.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_connect_person.xml" value="0.4267241379310345" />
         <entry key="app/src/main/res/layout/activity_displayname.xml" value="0.19972826086956522" />
-        <entry key="app/src/main/res/layout/activity_hist_career.xml" value="0.35885416666666664" />
-        <entry key="app/src/main/res/layout/activity_hist_love.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_friendcareerdesc.xml" value="0.20697463768115942" />
+        <entry key="app/src/main/res/layout/activity_friendlovedesc.xml" value="0.20697463768115942" />
+        <entry key="app/src/main/res/layout/activity_friendpersonalitydesc.xml" value="0.247273221813487" />
+        <entry key="app/src/main/res/layout/activity_hist_career.xml" value="0.34017181396484375" />
+        <entry key="app/src/main/res/layout/activity_hist_love.xml" value="0.21019108280254778" />
         <entry key="app/src/main/res/layout/activity_hist_personality.xml" value="0.3318408350366618" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.17407407407407408" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19701086956521738" />
         <entry key="app/src/main/res/layout/activity_personality_history.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/activity_resultcareer.xml" value="0.1171875" />
-        <entry key="app/src/main/res/layout/activity_resultlove.xml" value="0.1171875" />
+        <entry key="app/src/main/res/layout/activity_resultlove.xml" value="0.47335815429687506" />
         <entry key="app/src/main/res/layout/activity_resultpersonality.xml" value="0.1171875" />
-        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.19041900634765627" />
         <entry key="app/src/main/res/layout/activity_usercharts.xml" value="0.1854043392504931" />
         <entry key="app/src/main/res/layout/activity_usersettings.xml" value="0.27675840978593275" />
         <entry key="app/src/main/res/layout/activity_userupdates.xml" value="0.1923828125" />
