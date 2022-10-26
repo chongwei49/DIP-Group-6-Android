@@ -164,7 +164,31 @@ public class Services {
                     @Override
                     public void onResponse(JSONObject response) {
                         // response
-                        Log.d("LOG_VOLLEY", response.toString());
+                        if (response.has("{")){
+                            try {
+                                Log.d("LOG_VOLLEY", response.toString());
+
+                                ArrayList<User> user_list = new ArrayList<User>();
+
+                                user_list.add(new User(
+                                        response.getInt("userId"),
+                                        response.getString("name"),
+                                        response.getString("email"),
+                                        response.getString("password"),
+                                        response.getString("dob"),
+                                        response.getString("gender"),
+                                        (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+
+                                        callback.onSuccess(user_list);
+                            }catch (Throwable tx) {
+                                Log.e("Error:", "Error parsing JSON");
+                            }
+                        }
+                        else {
+                            Log.d("LOG_VOLLEY", response.toString());
+                            /*ArrayList<String> duplicateRes = new ArrayList<String>(response.toString());
+                            callback.onSuccess(response.toString());*/
+                        }
                     }
                 },
                 new Response.ErrorListener() {
@@ -210,7 +234,86 @@ public class Services {
 
 
     //-----------------------------------------EditUser Function---------------------------------------------
-    //To be continued
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void editUser(Integer userId, String name, String email, String password, String dob, String gender, Activity activity, final UserCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "users/" + userId;
+        JSONObject js = new JSONObject();
+        try {
+            js.put("userId", userId);
+            js.put("name",name);
+            js.put("email", email);
+            js.put("password", password);
+            js.put("dob", dob);
+            js.put("gender", gender);
+            Log.d("js inputs", js.toString());
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+            e.printStackTrace();
+        }
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, js,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // response
+                        Log.d("LOG_VOLLEY", response.toString());
+                        /*JSONObject userObject = new JSONObject(response);
+                        Log.i("Response", response);
+
+                        ArrayList<User> user_list = new ArrayList<User>();
+
+                        user_list.add(new User(
+                                userObject.getInt("userId"),
+                                userObject.getString("name"),
+                                userObject.getString("email"),
+                                userObject.getString("password"),
+                                userObject.getString("dob"),
+                                userObject.getString("gender"),
+                                (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+
+                        callback.onSuccess(user_list);*/
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        NetworkResponse response = error.networkResponse;
+                        if (error instanceof ServerError && response != null) {
+                            try {
+                                String res = new String(response.data,
+                                        HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                Log.d("Response res", res);
+                                // Now you can use any deserializer to make sense of data
+                                //JSONObject obj = new JSONObject(res);
+                                //Log.d("Response obj", obj.toString());
+                            } catch (UnsupportedEncodingException e1) {
+                                // Couldn't properly decode data to string
+                                e1.printStackTrace();
+                                Log.e("e1 error", "couldn't properly decode data to string");
+                            } /*catch (JSONException e2) {
+                                // returned data is not JSONObject?
+                                e2.printStackTrace();
+                                Log.e("e2 error", "returned data not JSONObject?");
+                            }*/
+                        }
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR","error => "+error.toString());
+                    }
+                }
+        ) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+        // Adding request to request queue
+        Volley.newRequestQueue(activity).add(putRequest);
+    }
 
 
 
