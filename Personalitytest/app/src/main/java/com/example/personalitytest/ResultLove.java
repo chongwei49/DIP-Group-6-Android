@@ -20,6 +20,7 @@ public class ResultLove extends AppCompatActivity {
     private ImageView homebutton;
     private TextView resultView, descView;
     private String quiz_result, description="";
+    private ImageView loveAvatar;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -42,12 +43,14 @@ public class ResultLove extends AppCompatActivity {
                 }
                 resultView.setText(quiz_result);
                 descView.setText(description);
+                loveAvatar.setImageResource(getImageName(quiz_result));
                 dialog.cancel();
             }
         });
 
         resultView = findViewById(R.id.textView9);
         descView = findViewById(R.id.textView10);
+        loveAvatar = findViewById(R.id.loveavatar);
 
 
         homebutton = (ImageView) findViewById(R.id.homebutton);
@@ -62,5 +65,21 @@ public class ResultLove extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
+    public int getImageName(String result) {
+
+        switch(result) {
+            case "Quality Time":
+                return R.drawable.qualitytime;
+            case "Act of Service":
+                return R.drawable.actofservice;
+            case "Physical Touch":
+                return R.drawable.physicaltouch;
+            case "Words of Affirmation":
+                return R.drawable.wordsofaffirmation;
+            default:
+                return 0;
+        }
+    }
+
 
 }
