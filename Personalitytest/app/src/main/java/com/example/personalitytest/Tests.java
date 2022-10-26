@@ -44,8 +44,7 @@ public class Tests extends AppCompatActivity{
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSupportFragmentManager().beginTransaction().
-                        replace(R.id.testspage,new homeFragment()).commit();
+                tohomeactivity();
 
             }
         });

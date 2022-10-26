@@ -367,16 +367,14 @@ public class Services {
 
     //-----------------------------------AddNewPersonalities Function-------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void addNewPersonalities(String name, String email, String password, String dob, String gender, Activity activity, final UserCallback callback) {
+    public static void addNewPersonalities(Integer userId, String qnCategory, String personalityType, Activity activity, final PersonalityCallback callback) {
         RequestQueue queue = Volley.newRequestQueue(activity);
-        String url = baseURL + "signup";
+        String url = baseURL + "personalities";
         JSONObject js = new JSONObject();
         try {
-            js.put("name",name);
-            js.put("email", email);
-            js.put("password", password);
-            js.put("dob", dob);
-            js.put("gender", gender);
+            js.put("userId",userId);
+            js.put("qnCategory", qnCategory);
+            js.put("personalityType", personalityType);
             Log.d("js inputs", js.toString());
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
@@ -391,18 +389,16 @@ public class Services {
                             try {
                                 Log.d("LOG_VOLLEY", response.toString());
 
-                                ArrayList<User> user_list = new ArrayList<User>();
+                                ArrayList<Personality> personalities_list = new ArrayList<Personality>();
 
-                                user_list.add(new User(
+                                personalities_list.add(new Personality(
+                                        response.getInt("priId"),
                                         response.getInt("userId"),
-                                        response.getString("name"),
-                                        response.getString("email"),
-                                        response.getString("password"),
-                                        response.getString("dob"),
-                                        response.getString("gender"),
-                                        (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                                        response.getString("qnCategory"),
+                                        response.getString("personalityType"),
+                                        response.getString("dateTime")));
 
-                                callback.onSuccess(user_list);
+                                callback.onSuccess(personalities_list);
                             }catch (Throwable tx) {
                                 Log.e("Error:", "Error parsing JSON");
                             }
@@ -423,18 +419,11 @@ public class Services {
                                 String res = new String(response.data,
                                         HttpHeaderParser.parseCharset(response.headers, "utf-8"));
                                 Log.d("Response res", res);
-                                // Now you can use any deserializer to make sense of data
-                                //JSONObject obj = new JSONObject(res);
-                                //Log.d("Response obj", obj.toString());
                             } catch (UnsupportedEncodingException e1) {
                                 // Couldn't properly decode data to string
                                 e1.printStackTrace();
                                 Log.e("e1 error", "couldn't properly decode data to string");
-                            } /*catch (JSONException e2) {
-                                // returned data is not JSONObject?
-                                e2.printStackTrace();
-                                Log.e("e2 error", "returned data not JSONObject?");
-                            }*/
+                            }
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
