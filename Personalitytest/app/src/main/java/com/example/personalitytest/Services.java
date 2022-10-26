@@ -165,6 +165,19 @@ public class Services {
                     public void onResponse(JSONObject response) {
                         // response
                         Log.d("LOG_VOLLEY", response.toString());
+
+                        /*ArrayList<User> user_list = new ArrayList<User>();
+
+                        user_list.add(new User(
+                                response.getInt("userId"),
+                                response.getString("name"),
+                                userObject.getString("email"),
+                                userObject.getString("password"),
+                                userObject.getString("dob"),
+                                userObject.getString("gender"),
+                                (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+
+                        callback.onSuccess(userList);*/
                     }
                 },
                 new Response.ErrorListener() {
@@ -233,6 +246,21 @@ public class Services {
                     public void onResponse(JSONObject response) {
                         // response
                         Log.d("LOG_VOLLEY", response.toString());
+                        /*JSONObject userObject = new JSONObject(response);
+                        Log.i("Response", response);
+
+                        ArrayList<User> user_list = new ArrayList<User>();
+
+                        user_list.add(new User(
+                                userObject.getInt("userId"),
+                                userObject.getString("name"),
+                                userObject.getString("email"),
+                                userObject.getString("password"),
+                                userObject.getString("dob"),
+                                userObject.getString("gender"),
+                                (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+
+                        callback.onSuccess(user_list);*/
                     }
                 },
                 new Response.ErrorListener() {

@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.personalitytest.models.User;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -28,7 +29,7 @@ public class Signup extends AppCompatActivity {
 
     private ImageView backimage;
     private Button button;
-    private TextView nameText, emailText, passText, dobText, genderText;
+    private TextView nameText, emailText, passText;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private Spinner spinner;
@@ -46,12 +47,11 @@ public class Signup extends AppCompatActivity {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        String gender = spinner.getSelectedItem().toString();
 
         emailText = findViewById(R.id.emailInput);
         passText = findViewById(R.id.passwordInput);
         nameText = findViewById(R.id.nameInput);
-        // dobText = findViewById(R.id.dobInput);
-        // genderText = findViewById(R.id.genderInput);
 
         View decorView = getWindow().getDecorView();
         // Hide both the navigation bar and the status bar.
@@ -75,7 +75,7 @@ public class Signup extends AppCompatActivity {
             public void onClick(View view) {
                 ProgressDialog dialog = ProgressDialog.show(Signup.this, "",
                         "Loading. Please wait...", true);
-                Services.signUp(nameText.getText().toString(), emailText.getText().toString(), passText.getText().toString(), dobText.getText().toString(), genderText.getText().toString(),
+                Services.signUp(nameText.getText().toString(), emailText.getText().toString(), passText.getText().toString(), dateButton.getText().toString(), gender,
                         Signup.this, new Services.UserCallback() {
                     @Override
                     public void onSuccess(ArrayList<User> result) {
@@ -140,7 +140,8 @@ public class Signup extends AppCompatActivity {
     }
 
     private String makeDateString (int day, int month, int year) {
-        return getMonthFormat(month) + " " + day + " " + year;
+        //return getMonthFormat(month) + " " + day + " " + year;
+        return year + "/" + month + "/" + day;
     }
 
     private String getMonthFormat (int month) {
