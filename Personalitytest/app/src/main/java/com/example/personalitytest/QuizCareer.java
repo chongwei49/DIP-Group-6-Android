@@ -110,7 +110,6 @@ public class QuizCareer extends AppCompatActivity{
             careerQuizAns= intent.getParcelableArrayListExtra("Ans_list");
             qCounter = intent.getIntExtra("Question_Counter", 1);
             quizSize = intent.getIntExtra("Quiz_size", 1);
-            userId = intent.getIntExtra("User_ID", 0);
             setUpPage();
         }else{
             Services.getAllQuestions(QuizCareer.this, new Services.QuestionCallback() {
@@ -138,6 +137,7 @@ public class QuizCareer extends AppCompatActivity{
     public void toresultcareeractivity() {
         Intent intent = new Intent(this, ResultCareer.class);
         intent.putExtra("Result", calculateResult());
+        createBundle();
         intent.putExtras(userInformation);
         startActivity(intent);
     }
@@ -152,7 +152,8 @@ public class QuizCareer extends AppCompatActivity{
         intent.putExtra("Ans_list", careerQuizAns);
         intent.putExtra("Question_Counter", qCounter);
         intent.putExtra("Quiz_size", quizSize);
-        intent.putExtra("User_ID", userId);
+        createBundle();
+        intent.putExtras(userInformation);
         startActivity(intent);
         finish();
     }
@@ -194,6 +195,14 @@ public class QuizCareer extends AppCompatActivity{
         }
 
         return null;
+    }
+
+    public void createBundle(){
+        userInformation.putInt("userId", userId);
+        userInformation.putString("name", userName);
+        userInformation.putString("email", userEmail);
+        userInformation.putString("gender", userGender);
+        userInformation.putString("dob", userDOB);
     }
 
     public void getUserInfo(){
