@@ -37,6 +37,7 @@ public class ResultCareer extends AppCompatActivity {
 
         Intent intent = getIntent();
         quiz_result = intent.getStringExtra("Result");
+        userId = intent.getIntExtra("User_ID", 0);
         ProgressDialog dialog = ProgressDialog.show(ResultCareer.this, "",
                 "Loading. Please wait...", true);
         Services.getAllTraits(ResultCareer.this, new Services.TraitCallback() {
@@ -66,7 +67,6 @@ public class ResultCareer extends AppCompatActivity {
             }
         });
 
-        getUserInfo();
         Log.d("USER_ID", String.valueOf(userId));
     }
 
@@ -75,36 +75,6 @@ public class ResultCareer extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void getUserInfo(){
-        if (getIntent().getExtras() != null) {
-            Log.d("Bundle log", "Bundle not empty");
 
-            userInformation = getIntent().getExtras();
-
-            userId = userInformation.getInt("userId");
-            userName = userInformation.getString("name");
-            userEmail = userInformation.getString("email");
-            userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("dob");
-        } else {
-            Log.d("Error", "Bundle empty");
-
-            SharedPreferences prefs = getSharedPreferences(USER_INFORMATION, MODE_PRIVATE);
-            userId = prefs.getInt("userId", 0);
-            userName = prefs.getString("name", "default");
-            userEmail = prefs.getString("email", "default");
-            userGender = prefs.getString("gender", "default");
-            userDOB = prefs.getString("DOB", "default");
-
-            Log.d("User name", "User Name, " + userName);
-
-            userInformation.putInt("userId", userId);
-            userInformation.putString("name", userName);
-            userInformation.putString("email", userEmail);
-            userInformation.putString("gender", userGender);
-            userInformation.putString("dob", userDOB);
-
-        }
-    }
 
 }
