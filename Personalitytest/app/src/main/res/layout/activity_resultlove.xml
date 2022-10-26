@@ -75,18 +75,19 @@
 
                 <TextView
                     android:id="@+id/textView9"
-                    android:layout_width="233dp"
+                    android:layout_width="309dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="43dp"
+                    android:layout_marginStart="4dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/alata"
                     android:text="Words of Affirmation"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center"/>
 
                 <TextView
                     android:id="@+id/textView10"

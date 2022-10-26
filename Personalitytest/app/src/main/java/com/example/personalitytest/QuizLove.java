@@ -122,8 +122,8 @@ public class QuizLove extends AppCompatActivity {
         for(int i=0;i<loveQuizAns.size();i++){
             Log.d("Love_Answer", String.valueOf(loveQuizAns.get(i).getAnswer()));
         }
-
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void toresultloveactivity() {
         Intent intent = new Intent(this, ResultLove.class);
@@ -140,6 +140,7 @@ public class QuizLove extends AppCompatActivity {
         intent.putExtra("Ans_list", loveQuizAns);
         intent.putExtra("Question_Counter", qCounter);
         intent.putExtra("Quiz_size", quizSize);
+        Log.d("Quiz Size", String.valueOf(quizSize));
         startActivity(intent);
         finish();
     }
