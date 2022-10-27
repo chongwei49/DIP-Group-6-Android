@@ -80,14 +80,14 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="3dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="18dp"
                     android:fontFamily="@font/alata"
+                    android:gravity="center_horizontal"
                     android:text="Realistic"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="32sp"
-                    android:textStyle="bold"
-                    android:gravity="center_horizontal"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -96,13 +96,13 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="72dp"
+                    android:layout_marginTop="77dp"
                     android:fontFamily="@font/alata"
                     android:gravity="center_horizontal"
-                    android:text="You show your affection by helping out your partner with their daily lives even your efforts are unnoticed. Seeing your partner living comfortably gives you satisfaction. "
+                    android:text="You prefer working alone. You feel focused and determined to finish the work given to you. Working with other peers drain your energy."
                     android:textAlignment="center"
                     android:textColor="#454444"
-                    android:textSize="17sp"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
             </RelativeLayout>
 

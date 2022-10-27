@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.personalitytest.models.User;
+
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link homeFragment#newInstance} factory method to
@@ -28,6 +32,7 @@ public class homeFragment extends Fragment {
     private String userGender;
     private String userDOB;
 
+    private ArrayList<User> userInfo = new ArrayList<User>();
     private TextView nameText;
 
     // TODO: Rename and change types of parameters
@@ -66,11 +71,13 @@ public class homeFragment extends Fragment {
 
             Bundle userInformation = this.getArguments();
 
-            userId = userInformation.getInt("userId");
-            userName = userInformation.getString("name");
-            userEmail = userInformation.getString("email");
-            userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("DOB");
+            userInfo=userInformation.getParcelableArrayList("userInfo");
+
+//            userId = userInformation.getInt("userId");
+//            userName = userInformation.getString("name");
+//            userEmail = userInformation.getString("email");
+//            userGender = userInformation.getString("gender");
+//            userDOB = userInformation.getString("DOB");
 
 
 
@@ -86,18 +93,19 @@ public class homeFragment extends Fragment {
         Log.d("From fragment", "user Name: " + userName);
 
         nameText = view.findViewById(R.id.name);
-        nameText.setText(userName);
+        nameText.setText(userInfo.get(0).getName());
 
         TextView tests = (TextView) view.findViewById(R.id.startQuizBtn);
         tests.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Bundle userInformation = new Bundle();
-                userInformation.putInt("userId", userId);
-                userInformation.putString("name", userName);
-                userInformation.putString("email", userEmail);
-                userInformation.putString("gender", userGender);
-                userInformation.putString("dob", userDOB);
+//                userInformation.putInt("userId", userId);
+//                userInformation.putString("name", userName);
+//                userInformation.putString("email", userEmail);
+//                userInformation.putString("gender", userGender);
+//                userInformation.putString("dob", userDOB);
+                userInformation.putParcelableArrayList("userInfo",userInfo);
                 testActivity(userInformation);
             }
 
