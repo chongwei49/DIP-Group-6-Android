@@ -91,12 +91,14 @@ public class Tests extends AppCompatActivity{
         startActivity(intent);
     }
 
+
     public void createBundle(){
-        userInformation.putInt("userId", userId);
-        userInformation.putString("name", userName);
-        userInformation.putString("email", userEmail);
-        userInformation.putString("gender", userGender);
-        userInformation.putString("dob", userDOB);
+        userInformation.putParcelableArrayList("userInfo",userInfo);
+//        userInformation.putInt("userId", userId);
+//        userInformation.putString("name", userName);
+//        userInformation.putString("email", userEmail);
+//        userInformation.putString("gender", userGender);
+//        userInformation.putString("dob", userDOB);
     }
 
     public void getUserInfo(){
@@ -104,13 +106,10 @@ public class Tests extends AppCompatActivity{
             Log.d("Bundle log", "Bundle not empty");
 
             userInformation = getIntent().getExtras();
-
             userInfo = userInformation.getParcelableArrayList("userInfo");
-            for(int i=0;i<userInfo.size();i++){
-                Log.d("TestsPage",userInfo.get(i).getName());
-            }
-
-
+//            for(int i=0;i<userInfo.size();i++){
+//                Log.d("TestsPage",userInfo.get(i).getName());
+//            }
 //            userId = userInformation.getInt("userId");
 //            userName = userInformation.getString("name");
 //            userEmail = userInformation.getString("email");
