@@ -97,7 +97,7 @@ public class QuizPersonality extends AppCompatActivity implements Serializable {
         Log.d("Intent_check", String.valueOf(intent.getExtras()));
         dialog = ProgressDialog.show(QuizPersonality.this, "",
                 "Loading. Please wait...", true);
-        if(intent.getExtras()!=null){
+        if(intent.getExtras().containsKey("Ans_list")){//previously = intent.getExtras()!=null
             personalityQuizVar= intent.getParcelableArrayListExtra("Question_list");
             personalityQuizAns= intent.getParcelableArrayListExtra("Ans_list");
             qCounter = intent.getIntExtra("Question_Counter", 1);

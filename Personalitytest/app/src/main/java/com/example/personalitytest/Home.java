@@ -146,18 +146,18 @@ public class Home extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences.Editor editor = getSharedPreferences(
-                USER_INFORMATION, MODE_PRIVATE).edit();
-        editor.putInt("userId", userId);
-        editor.putString("name", userName);
-        editor.putString("email", userEmail);
-        editor.putString("gender", userGender);
-        editor.putString("dob", userDOB);
-        editor.apply();
-    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        SharedPreferences.Editor editor = getSharedPreferences(
+//                USER_INFORMATION, MODE_PRIVATE).edit();
+//        editor.putInt("userId", userId);
+//        editor.putString("name", userName);
+//        editor.putString("email", userEmail);
+//        editor.putString("gender", userGender);
+//        editor.putString("dob", userDOB);
+//        editor.apply();
+//    }
 
 
 
