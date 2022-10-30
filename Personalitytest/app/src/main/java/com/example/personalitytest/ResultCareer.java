@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.personalitytest.models.Trait;
+import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class ResultCareer extends AppCompatActivity {
     private String userGender;
     private String userDOB;
     private Bundle userInformation = new Bundle();
+    private ArrayList<User> userInfo = new ArrayList<User>();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -67,7 +69,12 @@ public class ResultCareer extends AppCompatActivity {
         });
 
         getUserInfo();
-        Log.d("USER_ID", String.valueOf(userId));
+        userId=userInfo.get(0).getUserId();
+        userName=userInfo.get(0).getName();
+        userEmail=userInfo.get(0).getEmail();
+        userGender=userInfo.get(0).getGender();
+        userDOB= userInfo.get(0).getDob();
+        Log.d("User passing info test", String.valueOf(userId)+", "+userName);
     }
 
     public void tohomeactivity() {
@@ -78,14 +85,16 @@ public class ResultCareer extends AppCompatActivity {
     public void getUserInfo(){
         if (getIntent().getExtras() != null) {
             Log.d("Bundle log", "Bundle not empty");
-
             userInformation = getIntent().getExtras();
-
-            userId = userInformation.getInt("userId");
-            userName = userInformation.getString("name");
-            userEmail = userInformation.getString("email");
-            userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("dob");
+            userInfo = userInformation.getParcelableArrayList("userInfo");
+//            for(int i=0;i<userInfo.size();i++){
+//                Log.d("TestsPage",userInfo.get(i).getName());
+//            }
+//            userId = userInformation.getInt("userId");
+//            userName = userInformation.getString("name");
+//            userEmail = userInformation.getString("email");
+//            userGender = userInformation.getString("gender");
+//            userDOB = userInformation.getString("dob");
         } else {
             Log.d("Error", "Bundle empty");
 

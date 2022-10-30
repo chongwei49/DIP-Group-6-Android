@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.personalitytest.models.Question;
+import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,6 +29,7 @@ public class QuizCareer extends AppCompatActivity{
     private int qCounter = 1, quizSize;
     private ArrayList<Question> careerQuizVar = new ArrayList<Question>();
     private ArrayList<Question> careerQuizAns = new ArrayList<Question>();
+    private ArrayList<User> userInfo = new ArrayList<User>();
     ProgressDialog dialog;
 
     private String USER_INFORMATION;
@@ -129,12 +131,18 @@ public class QuizCareer extends AppCompatActivity{
             Log.d("Career_answer", String.valueOf(careerQuizAns.get(i).getAnswer()));
         }
 
+        //getUserInfo
+        getUserInfo();
+        userName=userInfo.get(0).getName();
+        Log.d("userName",userName);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void toresultcareeractivity() {
         Intent intent = new Intent(this, ResultCareer.class);
         intent.putExtra("Result", calculateResult());
+        intent.putParcelableArrayListExtra("userInfo",userInfo);
         startActivity(intent);
     }
     public void tohomeactivity() {
@@ -148,6 +156,7 @@ public class QuizCareer extends AppCompatActivity{
         intent.putExtra("Ans_list", careerQuizAns);
         intent.putExtra("Question_Counter", qCounter);
         intent.putExtra("Quiz_size", quizSize);
+        intent.putParcelableArrayListExtra("userInfo",userInfo);
         startActivity(intent);
         finish();
     }
@@ -191,6 +200,40 @@ public class QuizCareer extends AppCompatActivity{
         return null;
     }
 
+    public void getUserInfo(){
+        if (getIntent().getExtras() != null) {
+            Log.d("Bundle log", "Bundle not empty");
+
+            userInformation = getIntent().getExtras();
+            userInfo = userInformation.getParcelableArrayList("userInfo");
+//            for(int i=0;i<userInfo.size();i++){
+//                Log.d("TestsPage",userInfo.get(i).getName());
+//            }
+//            userId = userInformation.getInt("userId");
+//            userName = userInformation.getString("name");
+//            userEmail = userInformation.getString("email");
+//            userGender = userInformation.getString("gender");
+//            userDOB = userInformation.getString("dob");
+        } else {
+            Log.d("Error", "Bundle empty");
+
+            SharedPreferences prefs = getSharedPreferences(USER_INFORMATION, MODE_PRIVATE);
+            userId = prefs.getInt("userId", 0);
+            userName = prefs.getString("name", "default");
+            userEmail = prefs.getString("email", "default");
+            userGender = prefs.getString("gender", "default");
+            userDOB = prefs.getString("DOB", "default");
+
+            Log.d("User name", "User Name, " + userName);
+
+            userInformation.putInt("userId", userId);
+            userInformation.putString("name", userName);
+            userInformation.putString("email", userEmail);
+            userInformation.putString("gender", userGender);
+            userInformation.putString("dob", userDOB);
+
+        }
+    }
 
 
 
