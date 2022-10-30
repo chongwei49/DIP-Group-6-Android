@@ -39,8 +39,15 @@ public class hist_career extends AppCompatActivity {
             }
         });
 
-        //compare datetimes
-        //get
+        //compare datetimes and sort by most recent
+        for(int i=0;i<personalityAL.size();i++){
+//            Log.d("ALL TYPES","personalityType: "+personalityAL.get(i).getPersonalityType()+"dateTime:"+personalityAL.get(i).getDateTime());
+            if(personalityAL.get(i).getQnCategory()=="Quiz"){
+                Log.d("check","personalityType: "+personalityAL.get(i).getPersonalityType()+"dateTime:"+personalityAL.get(i).getDateTime());
+            }else{
+                Log.d("error","no match or no such category");
+            }
+        }
 
 
         backimage = (ImageView) findViewById(R.id.careerbacktoresults);
