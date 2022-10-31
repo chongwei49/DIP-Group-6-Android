@@ -1,5 +1,6 @@
 package com.example.personalitytest;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,8 +32,10 @@ public class Home extends AppCompatActivity {
     private Integer userId;
     private String userName;
     private String userEmail;
+    private String userPassword;
     private String userGender;
     private String userDOB;
+    private byte[] userProfilePic;
     private Bundle userInformation = new Bundle();
     private ArrayList<User> usersInf = new ArrayList<User>();
     private ArrayList<User> userInfo = new ArrayList<User>();
@@ -62,11 +65,19 @@ public class Home extends AppCompatActivity {
             userInformation = getIntent().getExtras();
             userInformation.getParcelableArrayList("userInfo");
 
-//            userId = userInformation.getInt("userId");
-//            userName = userInformation.getString("name");
-//            userEmail = userInformation.getString("email");
-//            userGender = userInformation.getString("gender");
-//            userDOB = userInformation.getString("dob");
+            ArrayList<User> userInformationArray = new ArrayList<User>();
+            userInformationArray = userInformation.getParcelableArrayList("userInfo");
+
+
+            userId = userInformationArray.get(0).getUserId();
+            userName = userInformationArray.get(0).getName();
+            userEmail = userInformationArray.get(0).getEmail();
+            userPassword = userInformationArray.get(0).getPassword();
+            userGender = userInformationArray.get(0).getGender();
+            userDOB = userInformationArray.get(0).getDob();
+            userProfilePic = userInformationArray.get(0).getProfilePic();
+
+            Log.d("userName log", userName);
 
             homeFragment.setArguments(userInformation);
             profileFragment.setArguments(userInformation);
@@ -78,16 +89,21 @@ public class Home extends AppCompatActivity {
             userId = prefs.getInt("userId", 0);
             userName = prefs.getString("name", "default");
             userEmail = prefs.getString("email", "default");
+            userPassword = prefs.getString("password", "default");
             userGender = prefs.getString("gender", "default");
             userDOB = prefs.getString("DOB", "default");
 
             Log.d("User name", "User Name, " + userName);
 
-            userInformation.putInt("userId", userId);
-            userInformation.putString("name", userName);
-            userInformation.putString("email", userEmail);
-            userInformation.putString("gender", userGender);
-            userInformation.putString("dob", userDOB);
+            userInfo.add(new User(userId, userName, userEmail, userPassword, userGender, userDOB, userProfilePic));
+//
+//            userInformation.putInt("userId", userId);
+//            userInformation.putString("name", userName);
+//            userInformation.putString("email", userEmail);
+//            userInformation.putString("gender", userGender);
+//            userInformation.putString("dob", userDOB);
+
+            userInformation.putParcelableArrayList("userInfo", userInfo);
 
             profileFragment.setArguments(userInformation);
             homeFragment.setArguments(userInformation);
@@ -146,44 +162,44 @@ public class Home extends AppCompatActivity {
 
     }
 
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        SharedPreferences.Editor editor = getSharedPreferences(
-//                USER_INFORMATION, MODE_PRIVATE).edit();
-//        editor.putInt("userId", userId);
-//        editor.putString("name", userName);
-//        editor.putString("email", userEmail);
-//        editor.putString("gender", userGender);
-//        editor.putString("dob", userDOB);
-//        editor.apply();
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = getSharedPreferences(
+                USER_INFORMATION, MODE_PRIVATE).edit();
+        editor.putInt("userId", userId);
+        editor.putString("name", userName);
+        editor.putString("email", userEmail);
+        editor.putString("gender", userGender);
+        editor.putString("dob", userDOB);
+        editor.apply();
+    }
 
 
 
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle userInformation) {
-//
-//        super.onSaveInstanceState(userInformation);
-//
-//        userInformation.putInt("userId", userId);
-//        userInformation.putString("name", userName);
-//        userInformation.putString("email", userEmail);
-//        userInformation.putString("gender", userGender);
-//        userInformation.putString("dob", userDOB);
-//
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle userInformation) {
-//        super.onRestoreInstanceState(userInformation);
-//        userId = userInformation.getInt("userId");
-//        userName = userInformation.getString("name");
-//        userEmail = userInformation.getString("email");
-//        userGender = userInformation.getString("gender");
-//        userDOB = userInformation.getString("DOB");
-//
-//
-//    }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle userInformation) {
+
+        super.onSaveInstanceState(userInformation);
+
+        userInformation.putInt("userId", userId);
+        userInformation.putString("name", userName);
+        userInformation.putString("email", userEmail);
+        userInformation.putString("gender", userGender);
+        userInformation.putString("dob", userDOB);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle userInformation) {
+        super.onRestoreInstanceState(userInformation);
+        userId = userInformation.getInt("userId");
+        userName = userInformation.getString("name");
+        userEmail = userInformation.getString("email");
+        userGender = userInformation.getString("gender");
+        userDOB = userInformation.getString("DOB");
+
+
+    }
 
 }
