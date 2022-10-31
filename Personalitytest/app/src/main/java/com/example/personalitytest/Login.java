@@ -1,5 +1,6 @@
 package com.example.personalitytest;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -25,6 +27,12 @@ import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Question;
 import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONObject;
 
@@ -37,7 +45,9 @@ import java.util.Map;
 public class Login extends AppCompatActivity {
 
     private ImageView backimage;
-    private Button button;
+    private Button button, googleBtn;
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
     private TextView emailText, passText;
     private ArrayList<User> userInfo = new ArrayList<User>();
 
@@ -45,6 +55,12 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this, gso);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+
 
         emailText = findViewById(R.id.loginEmail);
         passText = findViewById(R.id.loginPass);
@@ -90,7 +106,96 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        googleBtn = (Button) findViewById(R.id.googleBtn);
+        googleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginWithGoogle();
+            }
+        });
     }
+
+
+    public void loginWithGoogle() {
+        Intent signInWithGoogleIntent = gsc.getSignInIntent();
+        startActivityForResult(signInWithGoogleIntent, 1000);
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1000) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                task.getResult(ApiException.class);
+
+                GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+                if (acct != null) {
+                    String personName = acct.getDisplayName();
+                    String personEmail = acct.getEmail();
+                    Services.getAllUsers( Login.this, new Services.UserCallback() {
+                        @Override
+                        public void onSuccess(ArrayList<User> result) {
+                            Log.d("Response result", String.valueOf(result.get(0).getName()));
+                            if(!result.isEmpty()){
+
+                                boolean userExist = false;
+
+                                //find if the user is already exist in the user db
+                                for(int i=0;i<result.size();i++){
+                                    Log.d("test getAllUsers",result.get(i).getName());
+                                    if (result.get(i).getEmail().equals(personEmail)) {
+                                        userInfo.add(result.get(i));
+
+                                        Bundle userInformation = new Bundle();
+                                        userInformation.putParcelableArrayList("userInfo",userInfo);
+                                        homeActivity(userInformation);
+                                        userExist = true;
+                                    }
+                                }
+
+                                // post-request if the user not in the db
+                               if (!userExist) {
+                                   Services.signUp(personName, personEmail, null, null, null, Login.this, new Services.UserCallback() {
+                                       @Override
+                                       public void onSuccess(ArrayList<User> result) {
+                                           Log.d("PostReq:", "Post Request Success");
+                                           if(!result.isEmpty()){
+                                               userInfo = result;
+
+                                               Bundle userInformation = new Bundle();
+                                               userInformation.putParcelableArrayList("userInfo",userInfo);
+                                               homeActivity(userInformation);
+                                               Log.d("userId Check", result.get(0).getUserId().toString());
+                                           }else{
+                                               Log.d("Else Response", "Multiple User Object Detected");
+                                           }
+                                       }
+                                   });
+
+                               }
+
+
+                            }else{
+                                Log.d("Else Response", "Multiple User Object Detected");
+                            }
+                        }
+                    });
+
+//                    Bundle userInformation = new Bundle();
+//                    userInformation.putString("name", personName);
+//                    userInformation.putString("email", personEmail);
+//                    userInformation.putString("dob", "");
+//                    homeactivity(userInformation);
+                }
+            } catch (ApiException e) {
+                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 
     public void backmainactivity() {
         Intent intent = new Intent(this, MainActivity.class);

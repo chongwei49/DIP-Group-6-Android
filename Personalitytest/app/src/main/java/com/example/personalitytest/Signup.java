@@ -33,6 +33,7 @@ public class Signup extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private Spinner spinner;
+    private ArrayList<User> userInfo = new ArrayList<User>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,12 +83,10 @@ public class Signup extends AppCompatActivity {
                         Log.d("Response result", String.valueOf(result.get(0).getName()));
                         dialog.cancel();
                         if(!result.isEmpty()){
+                            userInfo = result;
+
                             Bundle userInformation = new Bundle();
-                            userInformation.putInt("userId", result.get(0).getUserId());
-                            userInformation.putString("name", result.get(0).getName());
-                            userInformation.putString("email", result.get(0).getEmail());
-                            userInformation.putString("gender", result.get(0).getGender());
-                            userInformation.putString("dob", result.get(0).getDob());
+                            userInformation.putParcelableArrayList("userInfo",userInfo);
                             homeactivity(userInformation);
                             Log.d("userId Check", result.get(0).getUserId().toString());
                         }else{

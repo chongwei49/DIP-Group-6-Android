@@ -86,7 +86,6 @@ public class Services {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  params = new HashMap<String, String>();
                 params.put("Authorization", code);
-
                 return params;
             }
         };
@@ -164,11 +163,12 @@ public class Services {
                     @Override
                     public void onResponse(JSONObject response) {
                         // response
-                        if (response.has("{")){
+
+                        if (response.toString().startsWith("{")){
                             try {
                                 Log.d("LOG_VOLLEY", response.toString());
-
-                                ArrayList<User> user_list = new ArrayList<User>();
+                                Log.d("Log name", response.getString("name"));
+                                ArrayList<User> user_list = new ArrayList<>();
 
                                 user_list.add(new User(
                                         response.getInt("userId"),
@@ -185,7 +185,7 @@ public class Services {
                             }
                         }
                         else {
-                            Log.d("LOG_VOLLEY", response.toString());
+                            Log.d("LOG_VOLLEY_ELSE", response.toString());
                             /*ArrayList<String> duplicateRes = new ArrayList<String>(response.toString());
                             callback.onSuccess(response.toString());*/
                         }
@@ -229,7 +229,7 @@ public class Services {
             }
         };
         // Adding request to request queue
-        Volley.newRequestQueue(activity).add(postRequest);
+        queue.add(postRequest);
     }
 
 
