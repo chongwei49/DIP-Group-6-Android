@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
  * Use the {@link connectFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class connectFragment extends Fragment {
+public class connectFragment extends Fragment implements personalityrecyclerinterface{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,15 +38,12 @@ public class connectFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private RecyclerView personalityRecyclerView, loveRecyclerView, workRecyclerView;
+    RecyclerView personalityRecyclerView, loveRecyclerView, workRecyclerView;
+    ArrayList<Profile> arrayList =  new ArrayList<>();
     ArrayList<String> dataSource;
-    connectFragment.MyPersonalityAdapter myPersonalityAdapter;
-    connectFragment.MyLoveAdapter myLoveAdapter;
-    connectFragment.MyWorkAdapter myWorkAdapter;
-    private TextView connect, profile;
-    private ImageView backimage;
     private Button personalitynext, lovenext, worknext;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
+
     private ArrayList<User> userInf = new ArrayList<User>();
 
     public connectFragment() {
@@ -89,6 +87,8 @@ public class connectFragment extends Fragment {
 
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -97,8 +97,20 @@ public class connectFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_connect,container, false);
 
         personalityRecyclerView = view.findViewById(R.id.personalityRecyclerView);
-        loveRecyclerView = view.findViewById(R.id.loveRecyclerView);
-        workRecyclerView = view.findViewById(R.id.workRecyclerView);
+
+
+
+        arrayList.add( new Profile(R.drawable.profile_pic_1, "Sam", "18"));
+        arrayList.add( new Profile(R.drawable.profile_pic_2, "Anthony", "17"));
+        arrayList.add( new Profile(R.drawable.profile_pic_1, "David", "21"));
+        arrayList.add( new Profile(R.drawable.profile_pic_2, "Max", "25"));
+        arrayList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
+        arrayList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
+
+        personalityadapter Personalityadapter = new personalityadapter(getContext(),arrayList, this);
+        personalityRecyclerView.setAdapter(Personalityadapter);
+        personalityRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
 
         //Setting the data source
         dataSource = new ArrayList<>();
@@ -110,26 +122,6 @@ public class connectFragment extends Fragment {
         dataSource.add("Max");
         dataSource.add("Andy");
 
-        myPersonalityAdapter = new MyPersonalityAdapter(dataSource);
-        personalityRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        personalityRecyclerView.setAdapter(myPersonalityAdapter);
-        myLoveAdapter = new MyLoveAdapter(dataSource);
-        loveRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        loveRecyclerView.setAdapter(myLoveAdapter);
-
-        myWorkAdapter = new MyWorkAdapter(dataSource);
-        workRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        workRecyclerView.setAdapter(myWorkAdapter);
-
-        personalitynext = (Button) view.findViewById(R.id.personalitynext);
-        personalitynext.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent in = new Intent(getActivity(), connect_person.class);
-                startActivity(in);
-            }
-
-        });
 
         notdone_personaltystart = (Button) view.findViewById(R.id.notdone_personaltystart);
         notdone_personaltystart.setClickable(true);
@@ -160,130 +152,18 @@ public class connectFragment extends Fragment {
             }
         });
 
-        lovenext = (Button) view.findViewById(R.id.lovenext);
-        lovenext.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent in = new Intent(getActivity(), connect_person.class);
-                startActivity(in);
-            }
 
-        });
-
-        worknext = (Button) view.findViewById(R.id.worknext);
-        worknext.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent in = new Intent(getActivity(), connect_person.class);
-                startActivity(in);
-            }
-
-        });
 
         return view;
     }
 
-    class MyPersonalityAdapter extends RecyclerView.Adapter<connectFragment.MyPersonalityAdapter.Personality>{
-        ArrayList<String> data;
-        public MyPersonalityAdapter(ArrayList<String> data) {
-            this.data = data;
-        }
 
-        @NonNull
-        @Override
-        public connectFragment.MyPersonalityAdapter.Personality onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.accountprofile, parent, false);
-            return new connectFragment.MyPersonalityAdapter.Personality(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull connectFragment.MyPersonalityAdapter.Personality holder, int position) {
-            holder.name.setText(data.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return 4;
-        }
-
-        class Personality extends RecyclerView.ViewHolder{
-            TextView name;
-            public Personality(@NonNull View itemView){
-                super(itemView);
-
-                name = itemView.findViewById(R.id.name);
-            }
-        }
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(getContext(),connect_person.class);
+        intent.putExtra("Profile Pic", arrayList.get(position).getImage());
+        intent.putExtra("Name", arrayList.get(position).getName());
+        intent.putExtra("Age", arrayList.get(position).getAge());
+        startActivity(intent);
     }
-    class MyLoveAdapter extends RecyclerView.Adapter<connectFragment.MyLoveAdapter.Love>{
-        ArrayList<String> data;
-        public MyLoveAdapter(ArrayList<String> data) {
-            this.data = data;
-        }
-
-        @NonNull
-        @Override
-        public connectFragment.MyLoveAdapter.Love onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.accountprofile, parent, false);
-            return new connectFragment.MyLoveAdapter.Love(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull connectFragment.MyLoveAdapter.Love holder, int position) {
-            Random random = new Random();
-            int x = random.nextInt(data.size());
-            holder.name.setText(data.get(x));
-        }
-
-        @Override
-        public int getItemCount() {
-            return 4;
-        }
-
-        public class Love extends RecyclerView.ViewHolder{
-            TextView name;
-            public Love(@NonNull View itemView){
-                super(itemView);
-
-                name = itemView.findViewById(R.id.name);
-            }
-        }
-
-    }
-    class MyWorkAdapter extends RecyclerView.Adapter<connectFragment.MyWorkAdapter.Work>{
-        ArrayList<String> data;
-        public MyWorkAdapter(ArrayList<String> data) {
-            this.data = data;
-        }
-
-        @NonNull
-        @Override
-        public Work onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.accountprofile, parent, false);
-            return new connectFragment.MyWorkAdapter.Work(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull connectFragment.MyWorkAdapter.Work holder, int position) {
-            Random random = new Random();
-            int x = random.nextInt(data.size());
-            holder.name.setText(data.get(x));
-        }
-
-        @Override
-        public int getItemCount() {
-            return 4;
-        }
-
-        public class Work extends RecyclerView.ViewHolder{
-            TextView name;
-            public Work(@NonNull View itemView){
-                super(itemView);
-
-                name = itemView.findViewById(R.id.name);
-            }
-        }
-
-    }
-
 }
