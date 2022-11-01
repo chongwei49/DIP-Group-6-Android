@@ -31,7 +31,7 @@ public class personalityadapter extends RecyclerView.Adapter<personalityadapter.
     @Override
     public personalityadapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.accountprofile, parent,false);
+        View view = inflater.inflate(R.layout.personalityprofile, parent,false);
         return new personalityadapter.MyViewHolder(view, personalityRecyclerinterface);
     }
 
