@@ -97,7 +97,7 @@ public class QuizLove extends AppCompatActivity {
         Log.d("Intent_check", String.valueOf(intent.getExtras()));
         dialog = ProgressDialog.show(QuizLove.this, "",
                 "Loading. Please wait...", true);
-        if(intent.getExtras()!=null){
+        if(intent.getExtras().containsKey("Ans_list")){
             loveQuizVar= intent.getParcelableArrayListExtra("Question_list");
             loveQuizAns= intent.getParcelableArrayListExtra("Ans_list");
             qCounter = intent.getIntExtra("Question_Counter", 1);

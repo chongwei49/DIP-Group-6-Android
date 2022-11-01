@@ -10,6 +10,10 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.personalitytest.models.User;
+
+import java.util.ArrayList;
+
 public class Tests extends AppCompatActivity{
     private CardView personalities;
     private CardView love;
@@ -23,6 +27,7 @@ public class Tests extends AppCompatActivity{
     private String userGender;
     private String userDOB;
     private Bundle userInformation = new Bundle();
+    private ArrayList<User> userInfo = new ArrayList<User>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,12 +91,14 @@ public class Tests extends AppCompatActivity{
         startActivity(intent);
     }
 
+
     public void createBundle(){
-        userInformation.putInt("userId", userId);
-        userInformation.putString("name", userName);
-        userInformation.putString("email", userEmail);
-        userInformation.putString("gender", userGender);
-        userInformation.putString("dob", userDOB);
+        userInformation.putParcelableArrayList("userInfo",userInfo);
+//        userInformation.putInt("userId", userId);
+//        userInformation.putString("name", userName);
+//        userInformation.putString("email", userEmail);
+//        userInformation.putString("gender", userGender);
+//        userInformation.putString("dob", userDOB);
     }
 
     public void getUserInfo(){
@@ -99,12 +106,15 @@ public class Tests extends AppCompatActivity{
             Log.d("Bundle log", "Bundle not empty");
 
             userInformation = getIntent().getExtras();
-
-            userId = userInformation.getInt("userId");
-            userName = userInformation.getString("name");
-            userEmail = userInformation.getString("email");
-            userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("dob");
+            userInfo = userInformation.getParcelableArrayList("userInfo");
+//            for(int i=0;i<userInfo.size();i++){
+//                Log.d("TestsPage",userInfo.get(i).getName());
+//            }
+//            userId = userInformation.getInt("userId");
+//            userName = userInformation.getString("name");
+//            userEmail = userInformation.getString("email");
+//            userGender = userInformation.getString("gender");
+//            userDOB = userInformation.getString("dob");
         } else {
             Log.d("Error", "Bundle empty");
 

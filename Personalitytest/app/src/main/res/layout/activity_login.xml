@@ -20,6 +20,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/orContinueWith"
+            android:layout_width="246dp"
+            android:layout_height="22dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="447dp"
+            android:layout_marginEnd="-2dp"
+            android:fontFamily="@font/segeodisplay"
+            android:gravity="center"
+            android:text="OR CONTINUE WITH"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/googleBtn"
+            android:layout_width="55dp"
+            android:layout_height="54dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="55dp"
+            android:layout_marginStart="179dp"
+            android:layout_marginTop="481dp"
+            android:layout_marginEnd="177dp"
+            android:background="@drawable/googlebtn"
+            android:elevation="10dp"
+            android:fontFamily="@font/segeodisplay"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
         <ImageView
             android:id="@+id/loginBck"
             android:layout_width="25dp"
@@ -82,11 +117,10 @@
             android:text="kenneth@yahoo.com"/>
 
 
-
         <EditText
             android:id="@+id/loginPass"
             android:layout_width="350dp"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -95,14 +129,14 @@
             android:layout_marginEnd="28dp"
             android:background="@drawable/custom_input_2"
             android:drawablePadding="5dp"
+            android:fontFamily="@font/segeodisplay"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:text="kennethW"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textColorHint="#70000000"
-            android:textSize="17sp"
-            android:fontFamily="@font/segeodisplay"
-            android:text="kennethW"/>
+            android:textSize="17sp" />
 
         <Button
             android:id="@+id/LogInBtn2"

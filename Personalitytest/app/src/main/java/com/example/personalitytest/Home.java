@@ -1,16 +1,25 @@
 package com.example.personalitytest;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.personalitytest.models.Question;
+import com.example.personalitytest.models.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
 
@@ -23,9 +32,13 @@ public class Home extends AppCompatActivity {
     private Integer userId;
     private String userName;
     private String userEmail;
+    private String userPassword;
     private String userGender;
     private String userDOB;
+    private byte[] userProfilePic;
     private Bundle userInformation = new Bundle();
+    private ArrayList<User> usersInf = new ArrayList<User>();
+    private ArrayList<User> userInfo = new ArrayList<User>();
 
     homeFragment homeFragment = new homeFragment();
     connectFragment connectFragment = new connectFragment();
@@ -35,6 +48,7 @@ public class Home extends AppCompatActivity {
         super();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +63,21 @@ public class Home extends AppCompatActivity {
             Log.d("Bundle log", "Bundle not empty");
 
             userInformation = getIntent().getExtras();
+            userInformation.getParcelableArrayList("userInfo");
 
-            userId = userInformation.getInt("userId");
-            userName = userInformation.getString("name");
-            userEmail = userInformation.getString("email");
-            userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("dob");
+            ArrayList<User> userInformationArray = new ArrayList<User>();
+            userInformationArray = userInformation.getParcelableArrayList("userInfo");
+
+
+            userId = userInformationArray.get(0).getUserId();
+            userName = userInformationArray.get(0).getName();
+            userEmail = userInformationArray.get(0).getEmail();
+            userPassword = userInformationArray.get(0).getPassword();
+            userGender = userInformationArray.get(0).getGender();
+            userDOB = userInformationArray.get(0).getDob();
+            userProfilePic = userInformationArray.get(0).getProfilePic();
+
+            Log.d("userName log", userName);
 
             homeFragment.setArguments(userInformation);
             profileFragment.setArguments(userInformation);
@@ -66,16 +89,21 @@ public class Home extends AppCompatActivity {
             userId = prefs.getInt("userId", 0);
             userName = prefs.getString("name", "default");
             userEmail = prefs.getString("email", "default");
+            userPassword = prefs.getString("password", "default");
             userGender = prefs.getString("gender", "default");
             userDOB = prefs.getString("DOB", "default");
 
             Log.d("User name", "User Name, " + userName);
 
-            userInformation.putInt("userId", userId);
-            userInformation.putString("name", userName);
-            userInformation.putString("email", userEmail);
-            userInformation.putString("gender", userGender);
-            userInformation.putString("dob", userDOB);
+            userInfo.add(new User(userId, userName, userEmail, userPassword, userGender, userDOB, userProfilePic));
+//
+//            userInformation.putInt("userId", userId);
+//            userInformation.putString("name", userName);
+//            userInformation.putString("email", userEmail);
+//            userInformation.putString("gender", userGender);
+//            userInformation.putString("dob", userDOB);
+
+            userInformation.putParcelableArrayList("userInfo", userInfo);
 
             profileFragment.setArguments(userInformation);
             homeFragment.setArguments(userInformation);
@@ -100,6 +128,32 @@ public class Home extends AppCompatActivity {
                 }
             });
 
+        //getAllUsers
+
+        ProgressDialog dialog = ProgressDialog.show(Home.this, "",
+                "Loading. Please wait...", true);
+        Services.getAllUsers( Home.this, new Services.UserCallback() {
+            @Override
+            public void onSuccess(ArrayList<User> result) {
+                Log.d("Response result", String.valueOf(result.get(0).getName()));
+                dialog.cancel();
+                if(!result.isEmpty()){
+                    usersInf=result;
+                    Bundle usersInfo = new Bundle();
+                    usersInfo.putParcelableArrayList("user_information",usersInf);
+                    connectFragment.setArguments(usersInfo);
+
+                    //test
+                    for(int i=0;i<result.size();i++){
+                        Log.d("test getAllUsers",result.get(i).getName());
+                    }
+                }else{
+                    Log.d("Else Response", "Multiple User Object Detected");
+                }
+            }
+        });
+
+
     }
 
     @Override
@@ -123,29 +177,29 @@ public class Home extends AppCompatActivity {
 
 
 
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle userInformation) {
-//
-//        super.onSaveInstanceState(userInformation);
-//
-//        userInformation.putInt("userId", userId);
-//        userInformation.putString("name", userName);
-//        userInformation.putString("email", userEmail);
-//        userInformation.putString("gender", userGender);
-//        userInformation.putString("dob", userDOB);
-//
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle userInformation) {
-//        super.onRestoreInstanceState(userInformation);
-//        userId = userInformation.getInt("userId");
-//        userName = userInformation.getString("name");
-//        userEmail = userInformation.getString("email");
-//        userGender = userInformation.getString("gender");
-//        userDOB = userInformation.getString("DOB");
-//
-//
-//    }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle userInformation) {
+
+        super.onSaveInstanceState(userInformation);
+
+        userInformation.putInt("userId", userId);
+        userInformation.putString("name", userName);
+        userInformation.putString("email", userEmail);
+        userInformation.putString("gender", userGender);
+        userInformation.putString("dob", userDOB);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle userInformation) {
+        super.onRestoreInstanceState(userInformation);
+        userId = userInformation.getInt("userId");
+        userName = userInformation.getString("name");
+        userEmail = userInformation.getString("email");
+        userGender = userInformation.getString("gender");
+        userDOB = userInformation.getString("DOB");
+
+
+    }
 
 }

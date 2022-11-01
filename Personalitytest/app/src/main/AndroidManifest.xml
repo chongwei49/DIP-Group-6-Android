@@ -15,6 +15,15 @@
         android:theme="@style/Theme.PersonalityTest"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".friendlovedesc"
+            android:exported="false" />
+        <activity
+            android:name=".friendcareerdesc"
+            android:exported="false" />
+        <activity
+            android:name=".friendpersonalitydesc"
+            android:exported="false" />
+        <activity
             android:name=".connect_person"
             android:exported="false" />
         <activity

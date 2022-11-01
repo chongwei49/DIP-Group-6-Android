@@ -137,7 +137,7 @@
             android:fontFamily="@font/segeodisplay"
             android:gravity="center"
             android:hint="@string/password"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:textColor="@color/black"
             android:textColorHint="#90000000"
             android:textSize="17sp" />

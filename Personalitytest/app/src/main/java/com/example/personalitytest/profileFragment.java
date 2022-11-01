@@ -40,6 +40,8 @@ public class profileFragment extends Fragment {
     private String userGender;
     private String userDOB;
 
+    private ArrayList<User> userInfo = new ArrayList<User>();
+
     private TextView usernameText, emailText;
 
     public profileFragment() {
@@ -74,11 +76,13 @@ public class profileFragment extends Fragment {
 
             Bundle userInformation = this.getArguments();
 
-            userId = userInformation.getInt("userId");
-            userName = userInformation.getString("name");
-            userEmail = userInformation.getString("email");
-            userGender = userInformation.getString("gender");
-            userDOB = userInformation.getString("DOB");
+            userInfo=userInformation.getParcelableArrayList("userInfo");
+
+//            userId = userInformation.getInt("userId");
+//            userName = userInformation.getString("name");
+//            userEmail = userInformation.getString("email");
+//            userGender = userInformation.getString("gender");
+//            userDOB = userInformation.getString("DOB");
         }
     }
 
@@ -94,8 +98,8 @@ public class profileFragment extends Fragment {
         usernameText = view.findViewById(R.id.username);
         emailText=view.findViewById(R.id.email);
 
-        usernameText.setText(userName);
-        emailText.setText(userEmail);
+        usernameText.setText(userInfo.get(0).getName());
+        emailText.setText(userInfo.get(0).getEmail());
         settingsbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
