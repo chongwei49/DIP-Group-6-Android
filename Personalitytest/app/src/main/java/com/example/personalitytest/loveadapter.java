@@ -16,31 +16,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class personalityadapter extends RecyclerView.Adapter<personalityadapter.MyViewHolder>{
+public class loveadapter extends RecyclerView.Adapter<loveadapter.MyViewHolder>{
     private final personalityrecyclerinterface personalityRecyclerinterface;
     Context context;
-    ArrayList<Profile> arrayList = new ArrayList<>();
+    ArrayList<Profile> profileList = new ArrayList<>();
 
 
-    public personalityadapter(Context context,ArrayList<Profile> arrayList, personalityrecyclerinterface personalityRecyclerinterface){
+    public loveadapter(Context context,ArrayList<Profile> arrayList, personalityrecyclerinterface personalityRecyclerinterface){
         this.context = context;
-        this.arrayList = arrayList;
+        this.profileList = arrayList;
         this.personalityRecyclerinterface = personalityRecyclerinterface;
     }
     @NonNull
     @Override
-    public personalityadapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public loveadapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.accountprofile, parent,false);
-        return new personalityadapter.MyViewHolder(view, personalityRecyclerinterface);
+        View view = inflater.inflate(R.layout.loveprofile, parent,false);
+        return new loveadapter.MyViewHolder(view, personalityRecyclerinterface);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull personalityadapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull loveadapter.MyViewHolder holder, int position) {
 
-        holder.profilepic.setImageResource(arrayList.get(position).getImage());
-        holder.name.setText(arrayList.get(position).getName());
-        holder.age.setText(arrayList.get(position).getAge());
+        holder.profilepic.setImageResource(profileList.get(position).getImage());
+        holder.name.setText(profileList.get(position).getName());
+        holder.age.setText(profileList.get(position).getAge());
 
 
     }

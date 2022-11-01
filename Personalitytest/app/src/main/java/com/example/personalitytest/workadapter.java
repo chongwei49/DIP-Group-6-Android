@@ -15,32 +15,34 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-public class personalityadapter extends RecyclerView.Adapter<personalityadapter.MyViewHolder>{
+public class workadapter extends RecyclerView.Adapter<workadapter.MyViewHolder>{
     private final personalityrecyclerinterface personalityRecyclerinterface;
     Context context;
-    ArrayList<Profile> arrayList = new ArrayList<>();
+    ArrayList<Profile> profileList = new ArrayList<>();
 
 
-    public personalityadapter(Context context,ArrayList<Profile> arrayList, personalityrecyclerinterface personalityRecyclerinterface){
+    public workadapter(Context context,ArrayList<Profile> arrayList, personalityrecyclerinterface personalityRecyclerinterface){
         this.context = context;
-        this.arrayList = arrayList;
+        this.profileList = arrayList;
         this.personalityRecyclerinterface = personalityRecyclerinterface;
     }
     @NonNull
     @Override
-    public personalityadapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public workadapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.accountprofile, parent,false);
-        return new personalityadapter.MyViewHolder(view, personalityRecyclerinterface);
+        View view = inflater.inflate(R.layout.workprofile, parent,false);
+        return new workadapter.MyViewHolder(view, personalityRecyclerinterface);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull personalityadapter.MyViewHolder holder, int position) {
-
-        holder.profilepic.setImageResource(arrayList.get(position).getImage());
-        holder.name.setText(arrayList.get(position).getName());
-        holder.age.setText(arrayList.get(position).getAge());
+    public void onBindViewHolder(@NonNull workadapter.MyViewHolder holder, int position) {
+        Random random = new Random();
+        int x = random.nextInt(profileList.size());
+        holder.name.setText(profileList.get(x).getName());
+        holder.profilepic.setImageResource(profileList.get(x).getImage());
+        holder.age.setText(profileList.get(x).getAge());
 
 
     }

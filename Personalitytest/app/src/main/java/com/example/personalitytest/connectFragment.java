@@ -28,7 +28,7 @@ import java.util.ArrayList;
  * Use the {@link connectFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class connectFragment extends Fragment implements personalityrecyclerinterface{
+public class connectFragment extends Fragment implements personalityrecyclerinterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,6 +40,7 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     private String mParam2;
     RecyclerView personalityRecyclerView, loveRecyclerView, workRecyclerView;
     ArrayList<Profile> arrayList =  new ArrayList<>();
+    ArrayList<Profile> profileList =  new ArrayList<>();
     ArrayList<String> dataSource;
     private Button personalitynext, lovenext, worknext;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
@@ -97,6 +98,8 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         View view = inflater.inflate(R.layout.fragment_connect,container, false);
 
         personalityRecyclerView = view.findViewById(R.id.personalityRecyclerView);
+        loveRecyclerView = view.findViewById(R.id.loveRecyclerView);
+        workRecyclerView = view.findViewById(R.id.workRecyclerView);
 
 
 
@@ -107,10 +110,24 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         arrayList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
         arrayList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
 
+        profileList.add( new Profile(R.drawable.profile_pic_1, "Sam", "18"));
+        profileList.add( new Profile(R.drawable.profile_pic_2, "Anthony", "17"));
+        profileList.add( new Profile(R.drawable.profile_pic_1, "David", "21"));
+        profileList.add( new Profile(R.drawable.profile_pic_2, "Max", "25"));
+        profileList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
+        profileList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
+
         personalityadapter Personalityadapter = new personalityadapter(getContext(),arrayList, this);
         personalityRecyclerView.setAdapter(Personalityadapter);
         personalityRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
+        loveadapter Loveadapter = new loveadapter(getContext(), profileList,  this);
+        loveRecyclerView.setAdapter(Loveadapter);
+        loveRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        workadapter Workadapter = new workadapter(getContext(), profileList,  this);
+        loveRecyclerView.setAdapter(Workadapter);
+        loveRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         //Setting the data source
         dataSource = new ArrayList<>();
@@ -160,7 +177,7 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(getContext(),connect_person.class);
+        Intent intent = new Intent(getActivity(),connect_person.class);
         intent.putExtra("Profile Pic", arrayList.get(position).getImage());
         intent.putExtra("Name", arrayList.get(position).getName());
         intent.putExtra("Age", arrayList.get(position).getAge());

@@ -18,21 +18,18 @@ public class connect_person extends AppCompatActivity {
     private ImageView backimage,profilepic;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_person);
 
+        String name = getIntent().getStringExtra("Name");
+        String ages = getIntent().getStringExtra("Age");
+        int image = getIntent().getIntExtra("Profile Pic",0);
+
         profilepic =  findViewById(R.id.profilepic);
         username = findViewById(R.id.username);
         age = findViewById(R.id.age);
-
-        findViewById(R.id.userDp);
-        Intent intent = getIntent();
-        String name = intent.getExtras().getString("Name");
-        String ages = intent.getExtras().getString("Age");
-        int image = intent.getExtras().getInt("Profile Pic");
 
         username.setText(name);
         age.setText(ages);
