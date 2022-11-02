@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -128,6 +129,8 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     }
 
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -196,8 +199,15 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         notdone_lovestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getActivity(), QuizLove.class);
-                startActivity(in);
+                /*Intent in = new Intent(getActivity(), QuizLove.class);
+                startActivity(in);*/
+                connectFragment fg = new connectFragment();
+                fg.setArguments(getArguments());
+
+                getFragmentManager()  // or getSupportFragmentManager() if your fragment is part of support library
+                        .beginTransaction()
+                        .replace(R.id.container, fg)
+                        .commit();
             }
         });
 
@@ -213,8 +223,6 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
 
 
         setUpCardView();
-
-
 
         return view;
     }
@@ -280,19 +288,19 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
 
     public void setUpCardView(){
         if(personalityList_16.size()>=4){
-            notdone_personalty.setVisibility(View.INVISIBLE);
+            notdone_personalty.setVisibility(View.GONE);
         }else{
             notdone_personalty.setVisibility(View.VISIBLE);
         }
 
         if(personalityList_love.size()>=4){
-            notdone_love.setVisibility(View.INVISIBLE);
+            notdone_love.setVisibility(View.GONE);
         }else{
             notdone_love.setVisibility(View.VISIBLE);
         }
 
         if(personalityList_job.size()>=4){
-            notdone_career.setVisibility(View.INVISIBLE);
+            notdone_career.setVisibility(View.GONE);
         }else{
             notdone_career.setVisibility(View.VISIBLE);
         }
