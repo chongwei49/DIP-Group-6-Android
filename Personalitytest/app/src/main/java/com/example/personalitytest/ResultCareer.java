@@ -74,7 +74,7 @@ public class ResultCareer extends AppCompatActivity {
         userEmail=userInfo.get(0).getEmail();
         userGender=userInfo.get(0).getGender();
         userDOB= userInfo.get(0).getDob();
-        Log.d("User passing info test", String.valueOf(userId)+", "+userName);
+        Log.d("Careerpassing infotest", String.valueOf(userId)+", "+userName);
     }
 
     public void tohomeactivity() {

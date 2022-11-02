@@ -103,8 +103,14 @@ public class profileFragment extends Fragment {
         settingsbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent in = new Intent(getActivity(), usersettings.class);
-                startActivity(in);
+                Bundle userInformation = new Bundle();
+//                userInformation.putInt("userId", userId);
+//                userInformation.putString("name", userName);
+//                userInformation.putString("email", userEmail);
+//                userInformation.putString("gender", userGender);
+//                userInformation.putString("dob", userDOB);
+                userInformation.putParcelableArrayList("userInfo",userInfo);
+                settingsActivity(userInformation);
             }
 
         });
@@ -141,5 +147,11 @@ public class profileFragment extends Fragment {
 
 
         return view;
+    }
+
+    public void settingsActivity(Bundle bundle) {
+        Intent intent = new Intent(getActivity(), usersettings.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

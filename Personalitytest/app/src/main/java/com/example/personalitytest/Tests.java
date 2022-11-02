@@ -63,7 +63,6 @@ public class Tests extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 tohomeactivity();
-
             }
         });
 

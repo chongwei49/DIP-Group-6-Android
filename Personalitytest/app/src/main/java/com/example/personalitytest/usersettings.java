@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -20,6 +22,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.personalitytest.models.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -27,6 +30,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import android.widget.Spinner;
 
@@ -42,6 +46,15 @@ public class usersettings extends AppCompatActivity {
     private Button dateButton;
     private Spinner spinner;
 
+    private String USER_INFORMATION;
+    private Integer userId;
+    private String userName;
+    private String userEmail;
+    private String userGender;
+    private String userDOB;
+    private Bundle userInformation = new Bundle();
+    private ArrayList<User> userInfo = new ArrayList<User>();
+
 
 
     GoogleSignInOptions gso;
@@ -51,6 +64,8 @@ public class usersettings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usersettings);
+
+
 
         initDatePicker();
         dateButton=findViewById(R.id.settingsdatepicker);
@@ -76,7 +91,7 @@ public class usersettings extends AppCompatActivity {
                 toresultssactivity();
             }
         });
-
+        getUserInfo();
         /* DPbtn = (ImageView) findViewById(R.id.changeDPbtn);
         // relativeLayout = (RelativeLayout) findViewById(R.id.usersettings);
         // DPbtn.setClickable(true);
@@ -219,5 +234,40 @@ public class usersettings extends AppCompatActivity {
     public void toconnectactivity() {
         Intent intent = new Intent(this, connectFragment.class);
         startActivity(intent);
+    }
+
+    public void getUserInfo(){
+        if (getIntent().getExtras() != null) {
+            Log.d("Bundle log", "Bundle not empty");
+
+            userInformation = getIntent().getExtras();
+            userInfo = userInformation.getParcelableArrayList("userInfo");
+//            for(int i=0;i<userInfo.size();i++){
+//                Log.d("TestsPage",userInfo.get(i).getName());
+//            }
+//            userId = userInformation.getInt("userId");
+//            userName = userInformation.getString("name");
+//            userEmail = userInformation.getString("email");
+//            userGender = userInformation.getString("gender");
+//            userDOB = userInformation.getString("dob");
+        } else {
+            Log.d("Error", "Bundle empty");
+
+            SharedPreferences prefs = getSharedPreferences(USER_INFORMATION, MODE_PRIVATE);
+            userId = prefs.getInt("userId", 0);
+            userName = prefs.getString("name", "default");
+            userEmail = prefs.getString("email", "default");
+            userGender = prefs.getString("gender", "default");
+            userDOB = prefs.getString("DOB", "default");
+
+            Log.d("User name", "User Name, " + userName);
+
+            userInformation.putInt("userId", userId);
+            userInformation.putString("name", userName);
+            userInformation.putString("email", userEmail);
+            userInformation.putString("gender", userGender);
+            userInformation.putString("dob", userDOB);
+
+        }
     }
 }
