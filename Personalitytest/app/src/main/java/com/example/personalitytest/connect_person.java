@@ -1,5 +1,6 @@
 package com.example.personalitytest;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,16 +10,32 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.nio.charset.StandardCharsets;
+
 public class connect_person extends AppCompatActivity {
 
-    private TextView connect, profile;
-    private ImageView backimage;
+    private TextView connect, username, age;
+    private ImageView backimage,profilepic;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_person);
+
+        String name = getIntent().getStringExtra("Name");
+        String ages = getIntent().getStringExtra("Age");
+        int image = getIntent().getIntExtra("Profile Pic",0);
+
+        profilepic =  findViewById(R.id.profilepic);
+        username = findViewById(R.id.username);
+        age = findViewById(R.id.age);
+
+        username.setText(name);
+        age.setText(ages);
+        profilepic.setImageResource(image);
+
+
 
         backimage = (ImageView) findViewById(R.id.backtoconnectfrag);
         backimage.setClickable(true);

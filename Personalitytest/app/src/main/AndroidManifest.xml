@@ -15,6 +15,9 @@
         android:theme="@style/Theme.PersonalityTest"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".loveadapter"
+            android:exported="false" />
+        <activity
             android:name=".friendlovedesc"
             android:exported="false" />
         <activity
@@ -63,7 +66,7 @@
             tools:ignore="Instantiatable" />
         <activity
             android:name=".QuizCareer"
-            android:exported="false"
+            android:exported="true"
             tools:ignore="Instantiatable" />
         <activity
             android:name=".ResultPersonality"
