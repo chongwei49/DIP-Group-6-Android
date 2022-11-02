@@ -1,12 +1,15 @@
 package com.example.personalitytest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -75,6 +78,10 @@ public class usersettings extends AppCompatActivity {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        String gender = spinner.getSelectedItem().toString();
+
+        email = findViewById(R.id.changeemailInput);
+        name = findViewById(R.id.changenameInput);
 
         button = (Button) findViewById(R.id.logoutBtn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +93,34 @@ public class usersettings extends AppCompatActivity {
 
         button2 = (TextView) findViewById(R.id.resultsBtn);
         button2.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                toresultssactivity();
+                ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
+                        "Loading. Please wait...", true);
+//--------------To test (delete after parsing bundle)----------------------------------------------------
+                Integer userId = 74;
+                String password = "zihui";
+                byte[] profilePic = null;
+//--------------------------------------------------------------------------------------------------------
+                Services.editUser(userId, name.getText().toString(), email.getText().toString(), password, dateButton.getText().toString(), gender, profilePic,
+                        usersettings.this, new Services.UserCallback() {
+                            @Override
+                            public void onSuccess(ArrayList<User> result) {
+                                Log.d("Response result", String.valueOf(result.get(0).getName()));
+                                dialog.cancel();
+                                if(!result.isEmpty()){
+                                    userInfo = result;
+
+                                    Bundle userInformation = new Bundle();
+                                    userInformation.putParcelableArrayList("userInfo",userInfo);
+                                    toresultssactivity(userInformation);
+                                    Log.d("userId Check", result.get(0).getUserId().toString());
+                                }else{
+                                    Log.d("Else Response", "Multiple User Object Detected");
+                                }
+                            }
+                        });
             }
         });
         getUserInfo();
@@ -179,7 +211,8 @@ public class usersettings extends AppCompatActivity {
     }
 
     private String makeDateString (int day, int month, int year) {
-        return getMonthFormat(month) + " " + day + " " + year;
+        //return getMonthFormat(month) + " " + day + " " + year;
+        return year + "/" + month + "/" + day;
     }
 
     private String getMonthFormat (int month) {
@@ -220,9 +253,11 @@ public class usersettings extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    public void toresultssactivity() {
+    public void toresultssactivity(Bundle bundle) {
         Intent intent = new Intent(this, profileFragment.class);
+        intent.putExtras(bundle);
         startActivity(intent);
+        this.finish();
     }
 
 

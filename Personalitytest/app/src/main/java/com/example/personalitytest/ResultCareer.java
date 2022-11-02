@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
@@ -30,6 +32,7 @@ public class ResultCareer extends AppCompatActivity {
     private String userDOB;
     private Bundle userInformation = new Bundle();
     private ArrayList<User> userInfo = new ArrayList<User>();
+    private ArrayList<Trait> traitInfo = new ArrayList<Trait>();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -39,22 +42,35 @@ public class ResultCareer extends AppCompatActivity {
 
         Intent intent = getIntent();
         quiz_result = intent.getStringExtra("Result");
+        getUserInfo();
+        userId=userInfo.get(0).getUserId();
+        userName=userInfo.get(0).getName();
+        userEmail=userInfo.get(0).getEmail();
+        userGender=userInfo.get(0).getGender();
+        userDOB= userInfo.get(0).getDob();
+        Log.d("User passing info test", String.valueOf(userId)+", "+userName);
+
         ProgressDialog dialog = ProgressDialog.show(ResultCareer.this, "",
                 "Loading. Please wait...", true);
-        Services.getAllTraits(ResultCareer.this, new Services.TraitCallback() {
+
+        Services.addNewPersonalities(userId, "Job", quiz_result, ResultCareer.this, new Services.TraitCallback() {
             @Override
             public void onSuccess(ArrayList<Trait> result) {
-                for(int i=0; i<result.size(); i++){
-                    Log.d("Trait Names", result.get(i).getTraitName());
-                    if(result.get(i).getTraitName().contains(quiz_result)){
-                        description = result.get(i).getDescription();
-                    }
+                if(!result.isEmpty()){
+                    Log.d("ResponsePersonalityType", String.valueOf(result.get(0).getPersonalityType()));
+                    traitInfo=result;
+                    //Log.d("Response result", String.valueOf(personalityInfo));
+                    Log.d("Personality Update","Successful");
+
+                    resultView.setText(quiz_result);
+                    descView.setText(result.get(0).getDescription());
+                    dialog.cancel();
+                }else{
+                    Log.d("Else Response", "Multiple User Object Detected");
                 }
-                resultView.setText(quiz_result);
-                descView.setText(description);
-                dialog.cancel();
             }
         });
+
 
         resultView = findViewById(R.id.textView9);
         descView = findViewById(R.id.textView10);
