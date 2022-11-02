@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Question;
 import com.example.personalitytest.models.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -37,6 +38,7 @@ public class Home extends AppCompatActivity {
     private String userDOB;
     private byte[] userProfilePic;
     private Bundle userInformation = new Bundle();
+    private Bundle bundle = new Bundle();
     private ArrayList<User> usersInf = new ArrayList<User>();
     private ArrayList<User> userInfo = new ArrayList<User>();
 
@@ -63,7 +65,7 @@ public class Home extends AppCompatActivity {
             Log.d("Bundle log", "Bundle not empty");
 
             userInformation = getIntent().getExtras();
-            userInformation.getParcelableArrayList("userInfo");
+            //userInformation.getParcelableArrayList("userInfo");
 
             ArrayList<User> userInformationArray = new ArrayList<User>();
             userInformationArray = userInformation.getParcelableArrayList("userInfo");
@@ -136,13 +138,9 @@ public class Home extends AppCompatActivity {
             @Override
             public void onSuccess(ArrayList<User> result) {
                 Log.d("Response result", String.valueOf(result.get(0).getName()));
-                dialog.cancel();
                 if(!result.isEmpty()){
                     usersInf=result;
-                    Bundle usersInfo = new Bundle();
-                    usersInfo.putParcelableArrayList("user_information",usersInf);
-                    connectFragment.setArguments(usersInfo);
-
+                    bundle.putParcelableArrayList("user_information",usersInf);
                     //test
                     for(int i=0;i<result.size();i++){
                         Log.d("test getAllUsers",result.get(i).getName());
@@ -152,6 +150,25 @@ public class Home extends AppCompatActivity {
                 }
             }
         });
+
+        Services.getAllPersonalities(Home.this, new Services.PersonalityCallback(){
+            @Override
+            public void onSuccess(ArrayList<Personality> result) {
+                if(!result.isEmpty()){
+                    bundle.putParcelableArrayList("personality_information",result);
+                    connectFragment.setArguments(bundle);
+                    //test
+                    for(int i=0;i<result.size();i++){
+                        Log.d("test getAllPersonality", String.valueOf(result.get(i).getUserId()));
+                    }
+                    dialog.cancel();
+                }else{
+                    Log.d("Else Response", "Multiple User Object Detected");
+                    dialog.cancel();
+                }
+            }
+        });
+
 
 
     }

@@ -1,14 +1,26 @@
 package com.example.personalitytest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.app.Service;
 import android.content.Intent;
 import android.content.ReceiverCallNotAllowedException;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,9 +31,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.personalitytest.models.Personality;
+import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,10 +56,17 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     ArrayList<Profile> arrayList =  new ArrayList<>();
     ArrayList<Profile> profileList =  new ArrayList<>();
     ArrayList<String> dataSource;
+
     private Button personalitynext, lovenext, worknext;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
+    private CardView notdone_personalty, notdone_love, notdone_career;
 
-    private ArrayList<User> userInf = new ArrayList<User>();
+    private ArrayList<User> userList = new ArrayList<User>();
+    private ArrayList<Personality> personalityList = new ArrayList<Personality>();
+    private ArrayList<Personality> personalityList_16 = new ArrayList<Personality>();
+    private ArrayList<Personality> personalityList_job = new ArrayList<Personality>();
+    private ArrayList<Personality> personalityList_love = new ArrayList<Personality>();
+
 
     public connectFragment() {
         // Required empty public constructor
@@ -69,25 +90,42 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         return fragment;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
 
             Bundle usersInfo = this.getArguments();
-            userInf=usersInfo.getParcelableArrayList("user_information");
-            for(int i =0;i<userInf.size();i++){
-                Log.d("Connect Fragment Test ",userInf.get(i).getName());
+            userList=usersInfo.getParcelableArrayList("user_information");
+            personalityList=usersInfo.getParcelableArrayList("personality_information");
+            for(int i =0;i<userList.size();i++){
+                Log.d("Connect Fragment Test ",userList.get(i).getName());
             }
 
+            for(int i =0;i<personalityList.size();i++){
+                if(personalityList.get(i).getQnCategory().contains("16Personalities")){
+                    personalityList_16.add(personalityList.get(i));
+                }
+                else if(personalityList.get(i).getQnCategory().contains("Love")){
+                    personalityList_love.add(personalityList.get(i));
+                }
+                else if(personalityList.get(i).getQnCategory().contains("Job")){
+                    personalityList_job.add(personalityList.get(i));
+                }
+                Log.d("Connect Fragment Test ",personalityList.get(i).getUserId().toString());
+            }
 
+            setUpUserListCat();
+
+            //LocalDate.parse(indepdate, DateTimeFormatter.ofPattern("M/d/u")
         }
 
 
     }
-
 
 
     @Override
@@ -101,21 +139,19 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         loveRecyclerView = view.findViewById(R.id.loveRecyclerView);
         workRecyclerView = view.findViewById(R.id.workRecyclerView);
 
-
-
         arrayList.add( new Profile(R.drawable.profile_pic_1, "Sam", "18"));
         arrayList.add( new Profile(R.drawable.profile_pic_2, "Anthony", "17"));
         arrayList.add( new Profile(R.drawable.profile_pic_1, "David", "21"));
         arrayList.add( new Profile(R.drawable.profile_pic_2, "Max", "25"));
-        arrayList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
-        arrayList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
+//        arrayList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
+//        arrayList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
 
         profileList.add( new Profile(R.drawable.profile_pic_1, "Sam", "18"));
         profileList.add( new Profile(R.drawable.profile_pic_2, "Anthony", "17"));
         profileList.add( new Profile(R.drawable.profile_pic_1, "David", "21"));
         profileList.add( new Profile(R.drawable.profile_pic_2, "Max", "25"));
-        profileList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
-        profileList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
+//        profileList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
+//        profileList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
 
         personalityadapter Personalityadapter = new personalityadapter(getContext(),arrayList, this);
         personalityRecyclerView.setAdapter(Personalityadapter);
@@ -126,18 +162,24 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         loveRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         workadapter Workadapter = new workadapter(getContext(), profileList,  this);
-        loveRecyclerView.setAdapter(Workadapter);
-        loveRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        workRecyclerView.setAdapter(Workadapter);
+        workRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         //Setting the data source
-        dataSource = new ArrayList<>();
+        //dataSource = new ArrayList<>();
 
 
-        dataSource.add("Sam");
+        /*dataSource.add("Sam");
         dataSource.add("Anthony");
         dataSource.add("Lucy");
         dataSource.add("Max");
-        dataSource.add("Andy");
+        dataSource.add("Andy");*/
+
+
+        notdone_personalty = view.findViewById(R.id.notdone_personality);
+        notdone_love = view.findViewById(R.id.notdone_love);
+        notdone_career = view.findViewById(R.id.notdone_career);
+
 
 
         notdone_personaltystart = (Button) view.findViewById(R.id.notdone_personaltystart);
@@ -170,6 +212,9 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         });
 
 
+        setUpCardView();
+
+
 
         return view;
     }
@@ -183,4 +228,76 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         intent.putExtra("Age", arrayList.get(position).getAge());
         startActivity(intent);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void setUpUserListCat(){
+        Map<Integer, Personality> personalityMap_16 = personalityList_16.stream()
+                .collect(
+                        Collectors.groupingBy(Personality::getUserId,
+                                Collectors.collectingAndThen(
+                                        Collectors.maxBy(Comparator.comparing(Personality::getPriId)),
+                                        Optional::get)));
+
+        for (Map.Entry<Integer, Personality> set :
+                personalityMap_16.entrySet()) {
+
+            // Printing all elements of a Map
+            System.out.println(set.getKey() + " = "
+                    + "ID: " + set.getValue().getUserId() + " Time: " + set.getValue().getDateTime()+ " Cat: " + set.getValue().getQnCategory());
+        }
+
+        Map<Integer, Personality> personalityMap_love = personalityList_love.stream()
+                .collect(
+                        Collectors.groupingBy(Personality::getUserId,
+                                Collectors.collectingAndThen(
+                                        Collectors.maxBy(Comparator.comparing(Personality::getPriId)),
+                                        Optional::get)));
+
+        for (Map.Entry<Integer, Personality> set :
+                personalityMap_love.entrySet()) {
+
+            // Printing all elements of a Map
+            System.out.println(set.getKey() + " = "
+                    + "ID: " + set.getValue().getUserId() + " Time: " + set.getValue().getDateTime()+ " Cat: " + set.getValue().getQnCategory());
+        }
+
+        Map<Integer, Personality> personalityMap_job = personalityList_job.stream()
+                .collect(
+                        Collectors.groupingBy(Personality::getUserId,
+                                Collectors.collectingAndThen(
+                                        Collectors.maxBy(Comparator.comparing(Personality::getPriId)),
+                                        Optional::get)));
+
+        for (Map.Entry<Integer, Personality> set :
+                personalityMap_job.entrySet()) {
+
+            // Printing all elements of a Map
+            System.out.println(set.getKey() + " = "
+                    + "ID: " + set.getValue().getUserId() + " Time: " + set.getValue().getDateTime()+ " Cat: " + set.getValue().getQnCategory());
+        }
+    }
+
+
+    public void setUpCardView(){
+        if(personalityList_16.size()>=4){
+            notdone_personalty.setVisibility(View.INVISIBLE);
+        }else{
+            notdone_personalty.setVisibility(View.VISIBLE);
+        }
+
+        if(personalityList_love.size()>=4){
+            notdone_love.setVisibility(View.INVISIBLE);
+        }else{
+            notdone_love.setVisibility(View.VISIBLE);
+        }
+
+        if(personalityList_job.size()>=4){
+            notdone_career.setVisibility(View.INVISIBLE);
+        }else{
+            notdone_career.setVisibility(View.VISIBLE);
+        }
+
+
+    }
+
 }
