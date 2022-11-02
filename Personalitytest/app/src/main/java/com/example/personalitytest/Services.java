@@ -259,9 +259,9 @@ public class Services {
                     public void onResponse(JSONObject response) {
                         // response
                         if (response.toString().startsWith("{")) {
-                            Log.d("LOG_VOLLEY", response.toString());
+                            Log.d("LOG_EDITUSER", response.toString());
                             try {
-                                Log.d("LOG_VOLLEY", response.toString());
+                                Log.d("LOG_EDITUSER", response.toString());
 
                                 ArrayList<User> user_list = new ArrayList<User>();
 
@@ -332,26 +332,33 @@ public class Services {
                     @Override
                     public void onResponse(String response) {
                         // response
-                        try {
-                            // convert response to JSON object
-                            JSONArray array = new JSONArray(response);
+                        if (response.toString().startsWith("{")) {
+                            try {
+                                // convert response to JSON object
+                                JSONArray array = new JSONArray(response);
 
-                            ArrayList<Personality> personalityList = new ArrayList<>();
+                                ArrayList<Personality> personalityList = new ArrayList<>();
 
-                            for(int i=0; i < array.length(); i++){
-                                JSONObject personalityObject = array.getJSONObject(i);
+                                for (int i = 0; i < array.length(); i++) {
+                                    JSONObject personalityObject = array.getJSONObject(i);
 
-                                personalityList.add(new Personality(
-                                        personalityObject.getInt("priId"),
-                                        personalityObject.getInt("userId"),
-                                        personalityObject.getString("qnCategory"),
-                                        personalityObject.getString("personalityType"),
-                                        personalityObject.getString("dateTime")));
+                                    personalityList.add(new Personality(
+                                            personalityObject.getInt("priId"),
+                                            personalityObject.getInt("userId"),
+                                            personalityObject.getString("qnCategory"),
+                                            personalityObject.getString("personalityType"),
+                                            personalityObject.getString("dateTime")));
+                                }
+                                callback.onSuccess(personalityList);
+
+                            } catch (Throwable tx) {
+                                Log.e("Error:", "Error parsing JSON");
                             }
-                            callback.onSuccess(personalityList);
-
-                        } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                        }
+                        else {
+                            Log.d("LOG_VOLLEY_ELSE", response.toString());
+                            /*ArrayList<String> duplicateRes = new ArrayList<String>(response.toString());
+                            callback.onSuccess(response.toString());*/
                         }
 
                     }
@@ -371,12 +378,12 @@ public class Services {
 
     //-----------------------------------AddNewPersonalities Function-------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void addNewPersonalities(Integer userId, String qnCategory, String personalityType, Activity activity, final PersonalityCallback callback) {
+    public static void addNewPersonalities(Integer userId, String qnCategory, String personalityType, Activity activity, final TraitCallback callback) {
         RequestQueue queue = Volley.newRequestQueue(activity);
         String url = baseURL + "personalities";
         JSONObject js = new JSONObject();
         try {
-            js.put("userId",userId);
+            js.put("userId", userId);
             js.put("qnCategory", qnCategory);
             js.put("personalityType", personalityType);
             Log.d("js inputs", js.toString());
@@ -389,18 +396,18 @@ public class Services {
                     @Override
                     public void onResponse(JSONObject response) {
                         // response
-                        if (response.has("{")){
+                        if (response.toString().startsWith("{")){
                             try {
-                                Log.d("LOG_VOLLEY", response.toString());
+                                Log.d("LOG_ADDPERSONALITY", response.toString());
 
-                                ArrayList<Personality> personalities_list = new ArrayList<Personality>();
+                                ArrayList<Trait> personalities_list = new ArrayList<Trait>();
 
-                                personalities_list.add(new Personality(
-                                        response.getInt("priId"),
-                                        response.getInt("userId"),
-                                        response.getString("qnCategory"),
+                                personalities_list.add(new Trait(
+                                        userId,
+                                        qnCategory,
                                         response.getString("personalityType"),
-                                        response.getString("dateTime")));
+                                        response.getString("trait"),
+                                        response.getString("description")));
 
                                 callback.onSuccess(personalities_list);
                             }catch (Throwable tx) {
@@ -408,7 +415,7 @@ public class Services {
                             }
                         }
                         else {
-                            Log.d("LOG_VOLLEY", response.toString());
+                            Log.d("LOG_ADDPERSONALITY", response.toString());
                             /*ArrayList<String> duplicateRes = new ArrayList<String>(response.toString());
                             callback.onSuccess(response.toString());*/
                         }
