@@ -258,24 +258,31 @@ public class Services {
                     @Override
                     public void onResponse(JSONObject response) {
                         // response
-                        Log.d("LOG_VOLLEY", response.toString());
-                        try {
+                        if (response.toString().startsWith("{")) {
                             Log.d("LOG_VOLLEY", response.toString());
+                            try {
+                                Log.d("LOG_VOLLEY", response.toString());
 
-                            ArrayList<User> user_list = new ArrayList<User>();
+                                ArrayList<User> user_list = new ArrayList<User>();
 
-                            user_list.add(new User(
-                                    response.getInt("userId"),
-                                    response.getString("name"),
-                                    response.getString("email"),
-                                    response.getString("password"),
-                                    response.getString("dob"),
-                                    response.getString("gender"),
-                                    (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                                user_list.add(new User(
+                                        response.getInt("userId"),
+                                        response.getString("name"),
+                                        response.getString("email"),
+                                        response.getString("password"),
+                                        response.getString("dob"),
+                                        response.getString("gender"),
+                                        (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
 
-                            callback.onSuccess(user_list);
-                        }catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                                callback.onSuccess(user_list);
+                            } catch (Throwable tx) {
+                                Log.e("Error:", "Error parsing JSON");
+                            }
+                        }
+                        else{
+                            Log.d("LOG_VOLLEY_ELSE", response.toString());
+                            /*ArrayList<String> duplicateRes = new ArrayList<String>(response.toString());
+                            callback.onSuccess(response.toString());*/
                         }
                     }
                 },

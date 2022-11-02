@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
@@ -53,6 +55,13 @@ public class ResultCareer extends AppCompatActivity {
                 resultView.setText(quiz_result);
                 descView.setText(description);
                 dialog.cancel();
+            }
+        });
+
+        Services.addNewPersonalities(userId, "Job", quiz_result, ResultCareer.this, new Services.PersonalityCallback() {
+            @Override
+            public void onSuccess(ArrayList<Personality> result) {
+
             }
         });
 
