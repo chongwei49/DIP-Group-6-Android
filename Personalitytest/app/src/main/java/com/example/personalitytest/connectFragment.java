@@ -65,8 +65,8 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     private CardView notdone_personalty, notdone_love, notdone_career;
     private Boolean personality_16, personality_love, personality_job = false;
 
-    private ArrayList<User> userList = new ArrayList<User>();
-    private ArrayList<User> userInfo = new ArrayList<>();
+    private ArrayList<User> userInfo = new ArrayList<User>();
+    private ArrayList<User> allUsers = new ArrayList<User>();
     private ArrayList<Personality> personalityList = new ArrayList<Personality>();
     private ArrayList<Personality> personalityList_16 = new ArrayList<Personality>();
     private ArrayList<Personality> personalityList_job = new ArrayList<Personality>();
@@ -104,16 +104,10 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
 
-            Bundle usersInfo = this.getArguments();
-            userList=usersInfo.getParcelableArrayList("user_information");
-            personalityList=usersInfo.getParcelableArrayList("personality_information");
-            userInfo = usersInfo.getParcelableArrayList("userInfo");
-            userId = userInfo.get(0).getUserId();
-
-            for(int i =0;i<userList.size();i++){
-                Log.d("Connect Fragment Test ",userList.get(i).getName());
-            }
-
+            Bundle userInformation = this.getArguments();
+            userInfo=userInformation.getParcelableArrayList("userInfo");
+            personalityList=userInformation.getParcelableArrayList("personality_information");
+            allUsers=userInformation.getParcelableArrayList("all_users");
             for(int i =0;i<personalityList.size();i++){
                 if(personalityList.get(i).getQnCategory().contains("16Personalities")){
                     personalityList_16.add(personalityList.get(i));
@@ -124,7 +118,10 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
                 else if(personalityList.get(i).getQnCategory().contains("Job")){
                     personalityList_job.add(personalityList.get(i));
                 }
-                Log.d("Connect Fragment Test ",personalityList.get(i).getUserId().toString());
+                Log.d("ConFragment Per_List:",personalityList.get(i).getUserId().toString());
+            }
+            for(int i =0;i<allUsers.size();i++){
+                Log.d("ConFragment Per_List:",allUsers.get(i).getName());
             }
 
             setUpUserListCat();
@@ -144,6 +141,8 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_connect,container, false);
+
+        Log.d("From fragment", "Current User: " + userInfo.get(0).getName());
 
         personalityRecyclerView = view.findViewById(R.id.personalityRecyclerView);
         loveRecyclerView = view.findViewById(R.id.loveRecyclerView);
