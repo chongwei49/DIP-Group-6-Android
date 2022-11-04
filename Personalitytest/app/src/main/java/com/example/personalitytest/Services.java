@@ -332,7 +332,7 @@ public class Services {
                     @Override
                     public void onResponse(String response) {
                         // response
-                        if (response.toString().startsWith("{")) {
+                        if (response.toString().startsWith("[")) {
                             try {
                                 // convert response to JSON object
                                 JSONArray array = new JSONArray(response);

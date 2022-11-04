@@ -97,9 +97,11 @@ public class profileFragment extends Fragment {
 
         usernameText = view.findViewById(R.id.username);
         emailText=view.findViewById(R.id.email);
+        userName=userInfo.get(0).getName();
+        userEmail=userInfo.get(0).getEmail();
 
-        usernameText.setText(userInfo.get(0).getName());
-        emailText.setText(userInfo.get(0).getEmail());
+        usernameText.setText(userName);
+        emailText.setText(userEmail);
         settingsbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

@@ -40,7 +40,7 @@ import android.widget.Spinner;
 public class usersettings extends AppCompatActivity {
 
     private Button button;
-    private TextView button2, connect;
+    private TextView button2, connect ,email, name;
     private ImageView DPbtn;
     private PopupWindow popupWindow;
     private LayoutInflater layoutInflater;

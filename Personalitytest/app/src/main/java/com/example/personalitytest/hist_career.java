@@ -31,23 +31,29 @@ public class hist_career extends AppCompatActivity {
 
         ProgressDialog dialog = ProgressDialog.show(hist_career.this, "",
                 "Loading. Please wait...", true);
-        Services.getAllPersonalities(hist_career.this, new Services.PersonalityCallback() {
+        Services.getAllPersonalities(hist_career.this, new Services.PersonalityCallback(){
             @Override
             public void onSuccess(ArrayList<Personality> result) {
                 personalityAL=result;
-                dialog.cancel();
+                if(!result.isEmpty()){
+                    //test
+                    for(int i=0;i<result.size();i++){
+                        Log.d("test getAllPersonality", result.get(i).getUserId() +" "+result.get(i).getDateTime());
+                    }
+                    dialog.cancel();
+                }else{
+                    Log.d("Else Response", "Multiple User Object Detected");
+                    dialog.cancel();
+                }
             }
         });
-
-        //compare datetimes and sort by most recent
+//
+//        String[] parts = personalityAL.get(0).getDateTime().split("T");
+        Log.d("priv AL size", String.valueOf(personalityAL.size()));
         for(int i=0;i<personalityAL.size();i++){
-//            Log.d("ALL TYPES","personalityType: "+personalityAL.get(i).getPersonalityType()+"dateTime:"+personalityAL.get(i).getDateTime());
-            if(personalityAL.get(i).getQnCategory()=="Quiz"){
-                Log.d("check","personalityType: "+personalityAL.get(i).getPersonalityType()+"dateTime:"+personalityAL.get(i).getDateTime());
-            }else{
-                Log.d("error","no match or no such category");
-            }
+            Log.d("splitTest",personalityAL.get(i).getDateTime());
         }
+
 
 
         backimage = (ImageView) findViewById(R.id.careerbacktoresults);
