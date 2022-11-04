@@ -45,6 +45,7 @@ public class usersettings extends AppCompatActivity {
     private Button dateButton;
     private Spinner spinner;
     private TextView newEmail, newName, username, email, nameInput, emailInput;
+    
 
     private String USER_INFORMATION;
     private Integer userId;
