@@ -1,22 +1,18 @@
 package com.example.personalitytest;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -40,7 +36,7 @@ import android.widget.Spinner;
 public class usersettings extends AppCompatActivity {
 
     private Button button;
-    private TextView button2, connect ,email, name;
+    private TextView button2, connect;
     private ImageView DPbtn;
     private PopupWindow popupWindow;
     private LayoutInflater layoutInflater;
@@ -48,7 +44,7 @@ public class usersettings extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private Spinner spinner;
-    private TextView newEmail, newName, username, email;
+    private TextView newEmail, newName, username, email, nameInput, emailInput;
 
     private String USER_INFORMATION;
     private Integer userId;
@@ -76,8 +72,13 @@ public class usersettings extends AppCompatActivity {
 
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
+        nameInput = findViewById(R.id.changenameInput);
+        emailInput = findViewById(R.id.changeemailInput);
         username.setText(userName);
         email.setText(userEmail);
+        nameInput.setText(userName);
+        emailInput.setText(userEmail);
+
 
         initDatePicker();
         dateButton=findViewById(R.id.settingsdatepicker);
@@ -104,7 +105,7 @@ public class usersettings extends AppCompatActivity {
             userName = newName.getText().toString();
         }
 
-        button = (Button) findViewById(R.id.logoutBtn);
+        button = (Button) findViewById(R.id.LogOutBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,32 +113,43 @@ public class usersettings extends AppCompatActivity {
             }
         });
 
-        button2 = (TextView) findViewById(R.id.resultsBtn);
+        button2 = (TextView) findViewById(R.id.saveBtn);
         button2.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
-                        "Loading. Please wait...", true);
+                if(TextUtils.isEmpty(nameInput.getText().toString())) {
+                    nameInput.setError("Name field cannot be empty");
+                    return;
+                }
+                if(TextUtils.isEmpty(emailInput.getText().toString())) {
+                    emailInput.setError("Email field cannot be empty");
+                    return;
+                }
+                if(!TextUtils.isEmpty(nameInput.getText().toString()) && !TextUtils.isEmpty(emailInput.getText().toString())){
+                    /*ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
+                            "Loading. Please wait...", true);
 
-                Services.editUser(userId, userName, userEmail, userPassword, dateButton.getText().toString(), gender, userPP,
-                        usersettings.this, new Services.UserCallback() {
-                            @Override
-                            public void onSuccess(ArrayList<User> result) {
-                                Log.d("Response result", String.valueOf(result.get(0).getName()));
-                                dialog.cancel();
-                                if(!result.isEmpty()){
-                                    userInfo = result;
+                    Services.editUser(userId, userName, userEmail, userPassword, dateButton.getText().toString(), gender, userPP,
+                            usersettings.this, new Services.UserCallback() {
+                                @Override
+                                public void onSuccess(ArrayList<User> result) {
+                                    Log.d("Response result", String.valueOf(result.get(0).getName()));
+                                    dialog.cancel();
+                                    if(!result.isEmpty()){
+                                        userInfo = result;
 
-                                    Bundle userInformation = new Bundle();
-                                    userInformation.putParcelableArrayList("userInfo",userInfo);
-                                    toresultssactivity(userInformation);
-                                    Log.d("userId Check", result.get(0).getUserId().toString());
-                                }else{
-                                    Log.d("Else Response", "Multiple User Object Detected");
+                                        Bundle userInformation = new Bundle();
+                                        userInformation.putParcelableArrayList("userInfo",userInfo);
+                                        toresultssactivity(userInformation);
+                                        Log.d("userId Check", result.get(0).getUserId().toString());
+                                    }else{
+                                        Log.d("Else Response", "Multiple User Object Detected");
+                                    }
                                 }
-                            }
-                        });
+                            });*/
+                }
+
             }
         });
         /* DPbtn = (ImageView) findViewById(R.id.changeDPbtn);
@@ -164,7 +176,7 @@ public class usersettings extends AppCompatActivity {
         });
         }
 
-        /*onnect = (TextView) findViewById(R.id.friendsBtn);
+        /*connect = (TextView) findViewById(R.id.friendsBtn);
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
