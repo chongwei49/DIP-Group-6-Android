@@ -48,17 +48,14 @@ public class usersettings extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private Spinner spinner;
+    private TextView newEmail, newName, username, email;
 
     private String USER_INFORMATION;
     private Integer userId;
-    private String userName;
-    private String userEmail;
-    private String userGender;
-    private String userDOB;
+    private String userName, userEmail, userPassword, userGender, userDOB;
+    private byte[] userPP;
     private Bundle userInformation = new Bundle();
     private ArrayList<User> userInfo = new ArrayList<User>();
-
-
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
@@ -68,11 +65,29 @@ public class usersettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usersettings);
 
+        getUserInfo();
+        userId=userInfo.get(0).getUserId();
+        userName=userInfo.get(0).getName();
+        userEmail=userInfo.get(0).getEmail();
+        userPassword = userInfo.get(0).getPassword();
+        userGender=userInfo.get(0).getGender();
+        userDOB= userInfo.get(0).getDob();
+        userPP = userInfo.get(0).getProfilePic();
 
+        username = findViewById(R.id.username);
+        email = findViewById(R.id.email);
+        username.setText(userName);
+        email.setText(userEmail);
 
         initDatePicker();
         dateButton=findViewById(R.id.settingsdatepicker);
-        dateButton.setText(getTodaysDate());
+        if (userDOB != null){
+            dateButton.setText(getUserDOB(userDOB));
+        }
+        else{
+            dateButton.setText(getTodaysDate());
+        }
+
 
         spinner=findViewById(R.id.settingsgenderpicker);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_dropdown_item);
@@ -80,8 +95,14 @@ public class usersettings extends AppCompatActivity {
         spinner.setAdapter(adapter);
         String gender = spinner.getSelectedItem().toString();
 
-        email = findViewById(R.id.changeemailInput);
-        name = findViewById(R.id.changenameInput);
+        newEmail = findViewById(R.id.changeemailInput);
+        newName = findViewById(R.id.changenameInput);
+        if (newEmail!=null) {
+            userEmail = newEmail.getText().toString();
+        }
+        if (newName!=null) {
+            userName = newName.getText().toString();
+        }
 
         button = (Button) findViewById(R.id.logoutBtn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -98,12 +119,8 @@ public class usersettings extends AppCompatActivity {
             public void onClick(View view) {
                 ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
                         "Loading. Please wait...", true);
-//--------------To test (delete after parsing bundle)----------------------------------------------------
-                Integer userId = 74;
-                String password = "zihui";
-                byte[] profilePic = null;
-//--------------------------------------------------------------------------------------------------------
-                Services.editUser(userId, name.getText().toString(), email.getText().toString(), password, dateButton.getText().toString(), gender, profilePic,
+
+                Services.editUser(userId, userName, userEmail, userPassword, dateButton.getText().toString(), gender, userPP,
                         usersettings.this, new Services.UserCallback() {
                             @Override
                             public void onSuccess(ArrayList<User> result) {
@@ -123,7 +140,6 @@ public class usersettings extends AppCompatActivity {
                         });
             }
         });
-        getUserInfo();
         /* DPbtn = (ImageView) findViewById(R.id.changeDPbtn);
         // relativeLayout = (RelativeLayout) findViewById(R.id.usersettings);
         // DPbtn.setClickable(true);
@@ -158,6 +174,15 @@ public class usersettings extends AppCompatActivity {
 
     }
 
+    //To set date default to user's previously saved DOB
+    private String getUserDOB(String userDOB) {
+        int year = Integer.valueOf(userDOB.substring(0,4));
+        int month = Integer.valueOf(userDOB.substring(5, 7));
+        int day = Integer.valueOf(userDOB.substring(8));
+        return makeDateString(day, month, year);
+    }
+
+    //If user's saved DOB is null
     private String getTodaysDate() {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -165,7 +190,6 @@ public class usersettings extends AppCompatActivity {
         month = month + 1;
         int day = cal.get(Calendar.DAY_OF_MONTH);
         return makeDateString(day, month, year);
-
     }
 
 
