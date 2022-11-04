@@ -70,7 +70,7 @@ public class QuizLove extends AppCompatActivity {
             public void onClick(View view) {
                 {
                     for(int z=0; z<loveQuizVar.size(); z++){
-                        if(loveQuizVar.get(z).getQnId() == qCounter && loveQuizVar.get(z).getAnswer()){
+                        if(loveQuizVar.get(z).getQnId() == qCounter && !loveQuizVar.get(z).getAnswer()){
                             loveQuizAns.add(loveQuizVar.get(z));
                         }
                     }
@@ -144,10 +144,12 @@ public class QuizLove extends AppCompatActivity {
         intent.putExtra("Result", calculateResult());
         intent.putParcelableArrayListExtra("userInfo",userInfo);
         startActivity(intent);
+        finish();
     }
     public void tohomeactivity() {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
+        finish();
     }
     public void toNextQuestion(){
         Intent intent = new Intent(this, QuizLove.class);
