@@ -79,6 +79,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         ) {
@@ -134,6 +135,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -215,6 +217,7 @@ public class Services {
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         ) {
@@ -303,6 +306,7 @@ public class Services {
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         ) {
@@ -553,6 +557,7 @@ public class Services {
 
     public interface UserCallback{
         void onSuccess(ArrayList<User> result);
+        void onFailure(String error);
     }
 
     public interface QuestionCallback{

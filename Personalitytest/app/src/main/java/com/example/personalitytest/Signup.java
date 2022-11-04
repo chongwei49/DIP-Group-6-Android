@@ -93,7 +93,12 @@ public class Signup extends AppCompatActivity {
                             Log.d("Else Response", "Multiple User Object Detected");
                         }
                     }
-                });
+
+                            @Override
+                            public void onFailure(String error) {
+
+                            }
+                        });
                 //homeactivity();
             }
         });

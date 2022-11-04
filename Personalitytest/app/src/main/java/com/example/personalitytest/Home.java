@@ -149,6 +149,11 @@ public class Home extends AppCompatActivity {
                     Log.d("Else Response", "Multiple User Object Detected");
                 }
             }
+
+            @Override
+            public void onFailure(String error) {
+
+            }
         });
 
         Services.getAllPersonalities(Home.this, new Services.PersonalityCallback(){
