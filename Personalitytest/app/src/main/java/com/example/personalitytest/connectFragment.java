@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -53,6 +54,7 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Integer userId;
     RecyclerView personalityRecyclerView, loveRecyclerView, workRecyclerView;
     ArrayList<Profile> arrayList =  new ArrayList<>();
     ArrayList<Profile> profileList =  new ArrayList<>();
@@ -61,8 +63,10 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     private Button personalitynext, lovenext, worknext;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
     private CardView notdone_personalty, notdone_love, notdone_career;
+    private Boolean personality_16, personality_love, personality_job = false;
 
     private ArrayList<User> userList = new ArrayList<User>();
+    private ArrayList<User> userInfo = new ArrayList<>();
     private ArrayList<Personality> personalityList = new ArrayList<Personality>();
     private ArrayList<Personality> personalityList_16 = new ArrayList<Personality>();
     private ArrayList<Personality> personalityList_job = new ArrayList<Personality>();
@@ -103,6 +107,9 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
             Bundle usersInfo = this.getArguments();
             userList=usersInfo.getParcelableArrayList("user_information");
             personalityList=usersInfo.getParcelableArrayList("personality_information");
+            userInfo = usersInfo.getParcelableArrayList("userInfo");
+            userId = userInfo.get(0).getUserId();
+
             for(int i =0;i<userList.size();i++){
                 Log.d("Connect Fragment Test ",userList.get(i).getName());
             }
@@ -287,7 +294,10 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
 
 
     public void setUpCardView(){
-        if(personalityList_16.size()>=4){
+        /*Log.d("Personality 16 Size", Integer.toString(personalityList_16.size()));
+        Log.d("Personality Love Size", Integer.toString(personalityList_love.size()));
+        Log.d("Personality Career Size", Integer.toString(personalityList_job.size()));*/
+        /*if(personalityList_16.size()>=4){
             notdone_personalty.setVisibility(View.GONE);
         }else{
             notdone_personalty.setVisibility(View.VISIBLE);
@@ -303,6 +313,36 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
             notdone_career.setVisibility(View.GONE);
         }else{
             notdone_career.setVisibility(View.VISIBLE);
+        }*/
+
+        for (int i=0; i < personalityList.size(); i++) {
+            if(personalityList_16.get(i).getUserId() == userId){
+                personality_16 = true;
+            }
+            if(personalityList_love.get(i).getUserId() == userId){
+                personality_love = true;
+            }
+            if(personalityList_job.get(i).getUserId() == userId){
+                personality_job = true;
+            }
+        }
+        Log.d("16Personality check: ", personality_16.toString());
+        Log.d("LovePersonality check: ", personality_love.toString());
+        Log.d("JobPersonality check: ", personality_job.toString());
+        if (personality_16) {
+            notdone_personalty.setVisibility(View.VISIBLE);
+        }else{
+            notdone_personalty.setVisibility(View.GONE);
+        }
+        if (personality_love) {
+            notdone_love.setVisibility(View.VISIBLE);
+        }else{
+            notdone_love.setVisibility(View.GONE);
+        }
+        if (personality_job) {
+            notdone_career.setVisibility(View.VISIBLE);
+        }else{
+            notdone_career.setVisibility(View.GONE);
         }
 
 
