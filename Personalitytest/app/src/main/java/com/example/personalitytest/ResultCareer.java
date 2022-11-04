@@ -42,6 +42,7 @@ public class ResultCareer extends AppCompatActivity {
 
         Intent intent = getIntent();
         quiz_result = intent.getStringExtra("Result");
+
         getUserInfo();
         userId=userInfo.get(0).getUserId();
         userName=userInfo.get(0).getName();
@@ -83,14 +84,6 @@ public class ResultCareer extends AppCompatActivity {
                 tohomeactivity();
             }
         });
-
-        getUserInfo();
-        userId=userInfo.get(0).getUserId();
-        userName=userInfo.get(0).getName();
-        userEmail=userInfo.get(0).getEmail();
-        userGender=userInfo.get(0).getGender();
-        userDOB= userInfo.get(0).getDob();
-        Log.d("Careerpassing infotest", String.valueOf(userId)+", "+userName);
     }
 
     public void tohomeactivity() {

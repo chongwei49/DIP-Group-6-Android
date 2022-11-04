@@ -32,6 +32,7 @@ public class ResultLove extends AppCompatActivity {
     private String userGender;
     private String userDOB;
     private Bundle userInformation = new Bundle();
+    private ArrayList<Trait> traitInfo = new ArrayList<Trait>();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -53,19 +54,23 @@ public class ResultLove extends AppCompatActivity {
 
         ProgressDialog dialog = ProgressDialog.show(ResultLove.this, "",
                 "Loading. Please wait...", true);
-        Services.getAllTraits(ResultLove.this, new Services.TraitCallback() {
+
+        Services.addNewPersonalities(userId, "Love", quiz_result, ResultLove.this, new Services.TraitCallback() {
             @Override
             public void onSuccess(ArrayList<Trait> result) {
-                for(int i=0; i<result.size(); i++){
-                    Log.d("Trait Names", result.get(i).getTraitName());
-                    if(result.get(i).getTraitName().contains(quiz_result)){
-                        description = result.get(i).getDescription();
-                    }
+                if(!result.isEmpty()){
+                    Log.d("ResponsePersonalityType", String.valueOf(result.get(0).getPersonalityType()));
+                    traitInfo=result;
+                    //Log.d("Response result", String.valueOf(personalityInfo));
+                    Log.d("Personality Update","Successful");
+
+                    resultView.setText(quiz_result);
+                    descView.setText(result.get(0).getDescription());
+                    loveAvatar.setImageResource(getImageName(quiz_result));
+                    dialog.cancel();
+                }else{
+                    Log.d("Else Response", "Multiple User Object Detected");
                 }
-                resultView.setText(quiz_result);
-                descView.setText(description);
-                loveAvatar.setImageResource(getImageName(quiz_result));
-                dialog.cancel();
             }
         });
 
