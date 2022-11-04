@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvTrait1"
                 android:layout_width="1000dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -33,26 +34,27 @@
                 app:cardUseCompatPadding="true">
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/tvTrait1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="120dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="QUALITY TIME"
+                    android:text=""
                     android:textColor="#4E4848"
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvDate1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="290dp"
                     android:layout_marginTop="50dp"
                     android:fontFamily="@font/segeodisplay"
                     android:gravity="center"
-                    android:text="Date: 2/11/20"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -68,6 +70,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvTrait2"
                 android:layout_width="1000dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -80,26 +83,27 @@
                 app:cardUseCompatPadding="true">
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/tvTrait2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="120dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="ACT OF SERVICE"
+                    android:text=""
                     android:textColor="#4E4848"
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvDate2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="290dp"
                     android:layout_marginTop="50dp"
                     android:fontFamily="@font/segeodisplay"
                     android:gravity="center"
-                    android:text="Date: 2/11/20"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -115,6 +119,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvTrait3"
                 android:layout_width="1000dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -127,26 +132,27 @@
                 app:cardUseCompatPadding="true">
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/tvTrait3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="120dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="QUALITY TIME"
+                    android:text=""
                     android:textColor="#4E4848"
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvDate3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="290dp"
                     android:layout_marginTop="50dp"
                     android:fontFamily="@font/segeodisplay"
                     android:gravity="center"
-                    android:text="Date: 2/11/20"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -162,6 +168,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvTrait4"
                 android:layout_width="1000dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -174,26 +181,27 @@
                 app:cardUseCompatPadding="true">
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/tvTrait4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="120dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="ACT OF SERVICE"
+                    android:text=""
                     android:textColor="#4E4848"
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvDate4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="290dp"
                     android:layout_marginTop="50dp"
                     android:fontFamily="@font/segeodisplay"
                     android:gravity="center"
-                    android:text="Date: 2/11/20"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -215,11 +223,14 @@
 
     <RelativeLayout
         android:id="@+id/history_love"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="6dp"
         android:visibility="visible">
 
         <RelativeLayout
@@ -282,6 +293,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tvTrait0"
                     android:layout_width="224dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
@@ -290,12 +302,13 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="QUALITY TIME"
+                    android:text=""
                     android:textColor="#4E4848"
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvDate0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -303,7 +316,7 @@
                     android:layout_marginEnd="25dp"
                     android:layout_marginBottom="15dp"
                     android:fontFamily="@font/segeodisplay"
-                    android:text="Date: 4/10/22"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 

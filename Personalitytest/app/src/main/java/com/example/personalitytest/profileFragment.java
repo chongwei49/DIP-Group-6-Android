@@ -170,11 +170,6 @@ public class profileFragment extends Fragment {
             @Override
             public void onClick(View v){
                 Bundle userInformation = new Bundle();
-//                userInformation.putInt("userId", userId);
-//                userInformation.putString("name", userName);
-//                userInformation.putString("email", userEmail);
-//                userInformation.putString("gender", userGender);
-//                userInformation.putString("dob", userDOB);
                 userInformation.putParcelableArrayList("userInfo",userInfo);
                 settingsActivity(userInformation);
             }
@@ -185,8 +180,9 @@ public class profileFragment extends Fragment {
         personalityhistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent in = new Intent(getActivity(), hist_personality.class);
-                startActivity(in);
+                Bundle userInformation = new Bundle();
+                userInformation.putParcelableArrayList("userInfo",userInfo);
+                histPersonality(userInformation);
             }
 
         });
@@ -195,8 +191,9 @@ public class profileFragment extends Fragment {
         lovehistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent in = new Intent(getActivity(), hist_love.class);
-                startActivity(in);
+                Bundle userInformation = new Bundle();
+                userInformation.putParcelableArrayList("userInfo",userInfo);
+                histLove(userInformation);
             }
 
         });
@@ -205,8 +202,9 @@ public class profileFragment extends Fragment {
         careerhistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent in = new Intent(getActivity(), hist_career.class);
-                startActivity(in);
+                Bundle userInformation = new Bundle();
+                userInformation.putParcelableArrayList("userInfo",userInfo);
+                histCareer(userInformation);
             }
 
         });
@@ -218,6 +216,21 @@ public class profileFragment extends Fragment {
 
     public void settingsActivity(Bundle bundle) {
         Intent intent = new Intent(getActivity(), usersettings.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    public void histPersonality(Bundle bundle) {
+        Intent intent = new Intent(getActivity(), hist_personality.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    public void histLove(Bundle bundle) {
+        Intent intent = new Intent(getActivity(), hist_love.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    public void histCareer(Bundle bundle) {
+        Intent intent = new Intent(getActivity(), hist_career.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }
