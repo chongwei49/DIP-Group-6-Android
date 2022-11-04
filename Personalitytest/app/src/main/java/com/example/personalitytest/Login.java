@@ -106,7 +106,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onFailure(String error) {
                         dialog.cancel();
-                        Toast.makeText(getApplicationContext(), "Please try again!", Toast.LENGTH_SHORT);
+                        Toast.makeText(getApplicationContext(), "Please try again!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
