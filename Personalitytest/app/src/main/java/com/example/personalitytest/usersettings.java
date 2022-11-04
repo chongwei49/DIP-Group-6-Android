@@ -44,11 +44,7 @@ public class usersettings extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private Spinner spinner;
-<<<<<<< Updated upstream
     private TextView newEmail, newName, username, email, nameInput, emailInput;
-=======
-    private TextView newEmail, newName, username;
->>>>>>> Stashed changes
 
     private String USER_INFORMATION;
     private Integer userId;
@@ -151,19 +147,9 @@ public class usersettings extends AppCompatActivity {
                                         Log.d("Else Response", "Multiple User Object Detected");
                                     }
                                 }
-<<<<<<< Updated upstream
                             });*/
                 }
 
-=======
-                            }
-
-                            @Override
-                            public void onFailture(String error) {
-                                Log.d("Error", error);
-                            }
-                        });
->>>>>>> Stashed changes
             }
         });
         /* DPbtn = (ImageView) findViewById(R.id.changeDPbtn);

@@ -102,13 +102,6 @@ public class Login extends AppCompatActivity {
                             Log.d("Else Response", "Multiple User Object Detected");
                         }
                     }
-
-                    @Override
-                    public void onFailture(String error) {
-                        Log.d("Error", error);
-                        dialog.cancel();
-                        Toast.makeText(getApplicationContext(), "Please try again", Toast.LENGTH_SHORT).show();
-                    }
                 });
             }
         });
@@ -180,11 +173,6 @@ public class Login extends AppCompatActivity {
                                                Log.d("Else Response", "Multiple User Object Detected");
                                            }
                                        }
-
-                                       @Override
-                                       public void onFailture(String error) {
-                                           Log.d("Error", error);
-                                       }
                                    });
 
                                }
@@ -193,11 +181,6 @@ public class Login extends AppCompatActivity {
                             }else{
                                 Log.d("Else Response", "Multiple User Object Detected");
                             }
-                        }
-
-                        @Override
-                        public void onFailture(String error) {
-
                         }
                     });
 
