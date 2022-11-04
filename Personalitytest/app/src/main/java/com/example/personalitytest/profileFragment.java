@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
@@ -22,6 +23,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.User;
 
 import org.w3c.dom.Text;
@@ -32,7 +34,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,13 +56,16 @@ public class profileFragment extends Fragment {
     private String userGender;
     private String userDOB;
     private byte[] userProfilePic;
+    private Boolean personality_16 = false, personality_love = false, personality_job = false;
+    private CardView notdone_personalty, notdone_love, notdone_career;
 
     private ArrayList<User> userInfo = new ArrayList<User>();
+    private ArrayList<Personality> personalityList = new ArrayList<Personality>();
 
     private TextView usernameText, emailText, settingsbtn;
 
     private ImageView changeDPbtn;
-    private CircleImageView userProfilePicture;
+    private ImageView userProfilePicture;
 
     public profileFragment() {
         // Required empty public constructor
@@ -95,6 +99,27 @@ public class profileFragment extends Fragment {
             Bundle userInformation = this.getArguments();
 
             userInfo=userInformation.getParcelableArrayList("userInfo");
+            userId = userInfo.get(0).getUserId();
+            personalityList=userInformation.getParcelableArrayList("personality_information");
+
+            for(int i =0;i<personalityList.size();i++){
+                if(personalityList.get(i).getQnCategory().contains("16Personalities")){
+                    if (personalityList.get(i).getUserId() == userId) {
+                        personality_16 = true;
+                    }
+                }
+                else if(personalityList.get(i).getQnCategory().contains("Love")){
+                    if (personalityList.get(i).getUserId() == userId) {
+                        personality_love = true;
+                    }
+                }
+                else if(personalityList.get(i).getQnCategory().contains("Job")){
+                    if (personalityList.get(i).getUserId() == userId) {
+                        personality_job = true;
+                    }
+                }
+                Log.d("ConFragment Per_List:",personalityList.get(i).getUserId().toString());
+            }
 
 //            userId = userInformation.getInt("userId");
 //            userName = userInformation.getString("name");
@@ -115,6 +140,10 @@ public class profileFragment extends Fragment {
         settingsbtn = view.findViewById(R.id.settingsBtn);
         userProfilePicture = view.findViewById(R.id.userProfilePicture);
         changeDPbtn = view.findViewById(R.id.changeDPbtn);
+
+        notdone_personalty = view.findViewById(R.id.notdone_personality);
+        notdone_love = view.findViewById(R.id.notdone_love);
+        notdone_career = view.findViewById(R.id.notdone_career);
 
         changeDPbtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -182,6 +211,7 @@ public class profileFragment extends Fragment {
 
         });
 
+        setUpCardView();
 
         return view;
     }
@@ -219,5 +249,28 @@ public class profileFragment extends Fragment {
         bmp.recycle();
 
         return  byteArray;
+    }
+
+    public void setUpCardView(){
+        Log.d("16Personality check: ", personality_16.toString());
+        Log.d("LovePersonality check: ", personality_love.toString());
+        Log.d("JobPersonality check: ", personality_job.toString());
+        if (personality_16) {
+            notdone_personalty.setVisibility(View.GONE);
+        }else{
+            notdone_personalty.setVisibility(View.VISIBLE);
+        }
+        if (personality_love) {
+            notdone_love.setVisibility(View.GONE);
+        }else{
+            notdone_love.setVisibility(View.VISIBLE);
+        }
+        if (personality_job) {
+            notdone_career.setVisibility(View.GONE);
+        }else{
+            notdone_career.setVisibility(View.VISIBLE);
+        }
+
+
     }
 }

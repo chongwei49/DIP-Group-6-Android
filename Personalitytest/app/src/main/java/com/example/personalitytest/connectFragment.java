@@ -63,7 +63,7 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     private Button personalitynext, lovenext, worknext;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
     private CardView notdone_personalty, notdone_love, notdone_career;
-    private Boolean personality_16, personality_love, personality_job = false;
+    private Boolean personality_16 = false, personality_love = false, personality_job = false;
 
     private ArrayList<User> userInfo = new ArrayList<User>();
     private ArrayList<User> allUsers = new ArrayList<User>();
@@ -106,6 +106,7 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
 
             Bundle userInformation = this.getArguments();
             userInfo=userInformation.getParcelableArrayList("userInfo");
+            userId = userInfo.get(0).getUserId();
             personalityList=userInformation.getParcelableArrayList("personality_information");
             allUsers=userInformation.getParcelableArrayList("all_users");
             for(int i =0;i<personalityList.size();i++){
@@ -293,34 +294,18 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
 
 
     public void setUpCardView(){
-        /*Log.d("Personality 16 Size", Integer.toString(personalityList_16.size()));
-        Log.d("Personality Love Size", Integer.toString(personalityList_love.size()));
-        Log.d("Personality Career Size", Integer.toString(personalityList_job.size()));*/
-        /*if(personalityList_16.size()>=4){
-            notdone_personalty.setVisibility(View.GONE);
-        }else{
-            notdone_personalty.setVisibility(View.VISIBLE);
-        }
-
-        if(personalityList_love.size()>=4){
-            notdone_love.setVisibility(View.GONE);
-        }else{
-            notdone_love.setVisibility(View.VISIBLE);
-        }
-
-        if(personalityList_job.size()>=4){
-            notdone_career.setVisibility(View.GONE);
-        }else{
-            notdone_career.setVisibility(View.VISIBLE);
-        }*/
-
-        for (int i=0; i < personalityList.size(); i++) {
-            if(personalityList_16.get(i).getUserId() == userId){
+        for (int i=0; i < personalityList_16.size(); i++) {
+            Log.d("usercheck 16Personality", Integer.toString(personalityList_16.get(i).getUserId()));
+            if (personalityList_16.get(i).getUserId() == userId) {
                 personality_16 = true;
             }
-            if(personalityList_love.get(i).getUserId() == userId){
+        }
+        for (int i=0; i < personalityList_love.size(); i++) {
+            if (personalityList_love.get(i).getUserId() == userId) {
                 personality_love = true;
             }
+        }
+        for (int i=0; i < personalityList_job.size(); i++) {
             if(personalityList_job.get(i).getUserId() == userId){
                 personality_job = true;
             }
@@ -329,19 +314,19 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         Log.d("LovePersonality check: ", personality_love.toString());
         Log.d("JobPersonality check: ", personality_job.toString());
         if (personality_16) {
-            notdone_personalty.setVisibility(View.VISIBLE);
-        }else{
             notdone_personalty.setVisibility(View.GONE);
+        }else{
+            notdone_personalty.setVisibility(View.VISIBLE);
         }
         if (personality_love) {
-            notdone_love.setVisibility(View.VISIBLE);
-        }else{
             notdone_love.setVisibility(View.GONE);
+        }else{
+            notdone_love.setVisibility(View.VISIBLE);
         }
         if (personality_job) {
-            notdone_career.setVisibility(View.VISIBLE);
-        }else{
             notdone_career.setVisibility(View.GONE);
+        }else{
+            notdone_career.setVisibility(View.VISIBLE);
         }
 
 
