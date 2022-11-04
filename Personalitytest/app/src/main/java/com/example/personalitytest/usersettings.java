@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -95,7 +96,9 @@ public class usersettings extends AppCompatActivity {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        String gender = spinner.getSelectedItem().toString();
+        if (userGender.equals("Female")){
+            spinner.setSelection(adapter.getPosition("Female"));
+        }
 
         newEmail = findViewById(R.id.changeemailInput);
         newName = findViewById(R.id.changenameInput);
@@ -128,6 +131,7 @@ public class usersettings extends AppCompatActivity {
                     return;
                 }
                 if(!TextUtils.isEmpty(nameInput.getText().toString()) && !TextUtils.isEmpty(emailInput.getText().toString())){
+                    String gender = spinner.getSelectedItem().toString();
                     /*ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
                             "Loading. Please wait...", true);
 
