@@ -114,7 +114,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:text="kenneth@yahoo.com"/>
+            android:text="zh@gmail.com"/>
 
 
         <EditText
@@ -132,7 +132,7 @@
             android:fontFamily="@font/segeodisplay"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:text="kennethW"
+            android:text="zh"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textColorHint="#70000000"

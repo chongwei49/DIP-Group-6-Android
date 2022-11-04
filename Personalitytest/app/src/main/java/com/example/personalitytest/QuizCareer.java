@@ -144,10 +144,12 @@ public class QuizCareer extends AppCompatActivity{
         intent.putExtra("Result", calculateResult());
         intent.putParcelableArrayListExtra("userInfo",userInfo);
         startActivity(intent);
+        finish();
     }
     public void tohomeactivity() {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
+        finish();
     }
 
     public void toNextQuestion(){
