@@ -48,7 +48,6 @@ public class Signup extends AppCompatActivity {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        String gender = spinner.getSelectedItem().toString();
 
         emailText = findViewById(R.id.emailInput);
         passText = findViewById(R.id.passwordInput);
@@ -74,6 +73,7 @@ public class Signup extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
+                String gender = spinner.getSelectedItem().toString();
                 ProgressDialog dialog = ProgressDialog.show(Signup.this, "",
                         "Loading. Please wait...", true);
                 Services.signUp(nameText.getText().toString(), emailText.getText().toString(), passText.getText().toString(), dateButton.getText().toString(), gender,
