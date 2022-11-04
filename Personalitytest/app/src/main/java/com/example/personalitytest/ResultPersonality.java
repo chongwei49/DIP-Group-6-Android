@@ -97,7 +97,7 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
 
         ProgressDialog dialog = ProgressDialog.show(ResultPersonality.this, "",
                 "Loading. Please wait...", true);
-        Services.addNewPersonalities(userId, "16Personalitties", quiz_result, ResultPersonality.this, new Services.TraitCallback() {
+        Services.addNewPersonalities(userId, "16Personalities", quiz_result, ResultPersonality.this, new Services.TraitCallback() {
             @Override
             public void onSuccess(ArrayList<Trait> result) {
                 if(!result.isEmpty()){
