@@ -70,7 +70,7 @@ public class QuizLove extends AppCompatActivity {
             public void onClick(View view) {
                 {
                     for(int z=0; z<loveQuizVar.size(); z++){
-                        if(loveQuizVar.get(z).getQnId() == qCounter && loveQuizVar.get(z).getAnswer()){
+                        if(loveQuizVar.get(z).getQnId() == qCounter && !loveQuizVar.get(z).getAnswer()){
                             loveQuizAns.add(loveQuizVar.get(z));
                         }
                     }
@@ -177,7 +177,7 @@ public class QuizLove extends AppCompatActivity {
         HashMap<String, Integer> resultMap = new HashMap<>();
         for(int i=0; i<loveQuizAns.size(); i++){
             if(!resultMap.containsKey(loveQuizAns.get(i).getTraits())){
-                resultMap.put(loveQuizAns.get(i).getTraits(), 0);
+                resultMap.put(loveQuizAns.get(i).getTraits(), 1);
             }else{
                 resultMap.merge(loveQuizAns.get(i).getTraits(), 1, Integer::sum);
             }

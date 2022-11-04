@@ -79,6 +79,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailture(error.toString());
                     }
                 }
         ) {
@@ -134,6 +135,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailture(error.toString());
                     }
                 }
         );
@@ -215,6 +217,7 @@ public class Services {
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailture(error.toString());
                     }
                 }
         ) {
@@ -303,6 +306,7 @@ public class Services {
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailture(error.toString());
                     }
                 }
         ) {
@@ -534,7 +538,7 @@ public class Services {
                             callback.onSuccess(questionsList);
 
                         } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                            Log.e("Service Error:", "Error parsing JSON");
                         }
 
                     }
@@ -553,6 +557,7 @@ public class Services {
 
     public interface UserCallback{
         void onSuccess(ArrayList<User> result);
+        void onFailture(String error);
     }
 
     public interface QuestionCallback{
