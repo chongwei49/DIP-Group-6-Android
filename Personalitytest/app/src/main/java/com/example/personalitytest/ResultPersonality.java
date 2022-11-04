@@ -53,6 +53,7 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
     private String userGender;
     private String userDOB;
     private Bundle userInformation = new Bundle();
+    private ArrayList<Trait> traitInfo = new ArrayList<Trait>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,35 +92,27 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
         for(int x=0;x<preCalc.size();x++){
             Log.d("get array list: ",x+"QID: "+preCalc.get(x).getQnId()+" Ans:"+preCalc.get(x).getAnswer());
         }
+        Map<String, Integer> hm1 = calculateResult(preCalc);
+        quiz_result = formulatePType(hm1);
 
         ProgressDialog dialog = ProgressDialog.show(ResultPersonality.this, "",
                 "Loading. Please wait...", true);
-        Services.getAllTraits(ResultPersonality.this, new Services.TraitCallback() {
+        Services.addNewPersonalities(userId, "16Personalitties", quiz_result, ResultPersonality.this, new Services.TraitCallback() {
             @Override
             public void onSuccess(ArrayList<Trait> result) {
-                for(int i=0; i<result.size(); i++){
-                    Log.d("Trait Names", result.get(i).getTraitName());
+                if(!result.isEmpty()){
+                    Log.d("ResponsePersonalityType", String.valueOf(result.get(0).getPersonalityType()));
+                    traitInfo=result;
+                    //Log.d("Response result", String.valueOf(personalityInfo));
+                    Log.d("Personality Update","Successful");
+
+                    resultView.setText(quiz_result);
+                    descView.setText(result.get(0).getDescription());
+                    traitnameView.setText(result.get(0).getTraitName());
+                    dialog.cancel();
+                }else{
+                    Log.d("Else Response", "Multiple User Object Detected");
                 }
-
-                Map<String, Integer> hm1 = calculateResult(preCalc);
-                String persoanlity_Type = formulatePType(hm1);
-                String personality_TraitName = "";
-                String persoanlity_Desc = "";
-
-                for(int i=0; i<result.size();i++){
-                    Log.d("personType", persoanlity_Type);
-                    if(result.get(i).getPersonalityType().contains(persoanlity_Type)){
-                        persoanlity_Desc = result.get(i).getDescription();
-                        personality_TraitName = result.get(i).getTraitName();
-                    }
-                    Log.d("Trait_Checking", result.get(i).getPersonalityType());
-                    Log.d("Key_Check", "---------------------------------");
-                }
-
-                resultView.setText(persoanlity_Type);
-                descView.setText(persoanlity_Desc);
-                traitnameView.setText(personality_TraitName);
-                dialog.cancel();
             }
         });
     }
