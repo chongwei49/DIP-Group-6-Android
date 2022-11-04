@@ -37,7 +37,6 @@ public class Home extends AppCompatActivity {
     private String userGender;
     private String userDOB;
     private byte[] userProfilePic;
-    private Bundle userInformation = new Bundle();
     private Bundle bundle = new Bundle();
     private ArrayList<User> usersInf = new ArrayList<User>();
     private ArrayList<User> userInfo = new ArrayList<User>();
@@ -64,11 +63,11 @@ public class Home extends AppCompatActivity {
         if (getIntent().getExtras() != null) {
             Log.d("Bundle log", "Bundle not empty");
 
-            userInformation = getIntent().getExtras();
+            bundle = getIntent().getExtras();
             //userInformation.getParcelableArrayList("userInfo");
 
             ArrayList<User> userInformationArray = new ArrayList<User>();
-            userInformationArray = userInformation.getParcelableArrayList("userInfo");
+            userInformationArray = bundle.getParcelableArrayList("userInfo");
 
 
             userId = userInformationArray.get(0).getUserId();
@@ -81,9 +80,9 @@ public class Home extends AppCompatActivity {
 
             Log.d("userName log", userName);
 
-            homeFragment.setArguments(userInformation);
-            profileFragment.setArguments(userInformation);
-            connectFragment.setArguments(userInformation);
+            homeFragment.setArguments(bundle);
+            profileFragment.setArguments(bundle);
+            connectFragment.setArguments(bundle);
         } else {
             Log.d("Error", "Bundle empty");
 
@@ -95,7 +94,7 @@ public class Home extends AppCompatActivity {
             userGender = prefs.getString("gender", "default");
             userDOB = prefs.getString("DOB", "default");
 
-            Log.d("User name", "User Name, " + userName);
+            Log.d("User name", "User name, " + userName);
 
             userInfo.add(new User(userId, userName, userEmail, userPassword, userGender, userDOB, userProfilePic));
 //
@@ -105,11 +104,11 @@ public class Home extends AppCompatActivity {
 //            userInformation.putString("gender", userGender);
 //            userInformation.putString("dob", userDOB);
 
-            userInformation.putParcelableArrayList("userInfo", userInfo);
+            bundle.putParcelableArrayList("userInfo", userInfo);
 
-            profileFragment.setArguments(userInformation);
-            homeFragment.setArguments(userInformation);
-            connectFragment.setArguments(userInformation);
+            profileFragment.setArguments(bundle);
+            homeFragment.setArguments(bundle);
+            connectFragment.setArguments(bundle);
         }
 
             bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -134,43 +133,42 @@ public class Home extends AppCompatActivity {
 
         ProgressDialog dialog = ProgressDialog.show(Home.this, "",
                 "Loading. Please wait...", true);
-        Services.getAllUsers( Home.this, new Services.UserCallback() {
-            @Override
-            public void onSuccess(ArrayList<User> result) {
-                Log.d("Response result", String.valueOf(result.get(0).getName()));
-                if(!result.isEmpty()){
-                    usersInf=result;
-                    bundle.putParcelableArrayList("user_information",usersInf);
-                    //test
-                    for(int i=0;i<result.size();i++){
-                        Log.d("test getAllUsers",result.get(i).getName());
-                    }
-                }else{
-                    Log.d("Else Response", "Multiple User Object Detected");
-                }
-            }
 
-            @Override
-            public void onFailure(String error) {
-
-            }
-        });
 
         Services.getAllPersonalities(Home.this, new Services.PersonalityCallback(){
             @Override
             public void onSuccess(ArrayList<Personality> result) {
                 if(!result.isEmpty()){
                     bundle.putParcelableArrayList("personality_information",result);
-                    connectFragment.setArguments(bundle);
                     //test
                     for(int i=0;i<result.size();i++){
                         Log.d("test getAllPersonality", String.valueOf(result.get(i).getUserId()));
+                    }
+                }else{
+                    Log.d("Else Response", "Multiple User Object Detected");
+                }
+            }
+        });
+
+        Services.getAllUsers(Home.this, new Services.UserCallback() {
+            @Override
+            public void onSuccess(ArrayList<User> result) {
+                if(!result.isEmpty()){
+                    bundle.putParcelableArrayList("all_users",result);
+                    //test
+                    for(int i=0;i<result.size();i++){
+                        Log.d("test getAllUsers", String.valueOf(result.get(i).getUserId()));
                     }
                     dialog.cancel();
                 }else{
                     Log.d("Else Response", "Multiple User Object Detected");
                     dialog.cancel();
                 }
+            }
+
+            @Override
+            public void onFailure(String error) {
+
             }
         });
 

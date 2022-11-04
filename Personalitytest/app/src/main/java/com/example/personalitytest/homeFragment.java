@@ -73,14 +73,6 @@ public class homeFragment extends Fragment {
 
             userInfo=userInformation.getParcelableArrayList("userInfo");
 
-//            userId = userInformation.getInt("userId");
-//            userName = userInformation.getString("name");
-//            userEmail = userInformation.getString("email");
-//            userGender = userInformation.getString("gender");
-//            userDOB = userInformation.getString("DOB");
-
-
-
         }
     }
 
@@ -90,7 +82,7 @@ public class homeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Log.d("From fragment", "user Name: " + userName);
+        Log.d("From fragment", "Current User: " + userInfo.get(0).getName());
 
         nameText = view.findViewById(R.id.name);
         nameText.setText(userInfo.get(0).getName());
@@ -100,11 +92,6 @@ public class homeFragment extends Fragment {
             @Override
             public void onClick(View v){
                 Bundle userInformation = new Bundle();
-//                userInformation.putInt("userId", userId);
-//                userInformation.putString("name", userName);
-//                userInformation.putString("email", userEmail);
-//                userInformation.putString("gender", userGender);
-//                userInformation.putString("dob", userDOB);
                 userInformation.putParcelableArrayList("userInfo",userInfo);
                 testActivity(userInformation);
             }
