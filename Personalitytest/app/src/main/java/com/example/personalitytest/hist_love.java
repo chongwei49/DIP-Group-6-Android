@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.personalitytest.models.Personality;
+import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class hist_love extends AppCompatActivity {
 
     private ImageView backimage;
 
-    private TextView tvDate0,tvDate1,tvDate2,tvDate3,tvDate4,tvTrait0,tvTrait1,tvTrait2,tvTrait3,tvTrait4;
+    private TextView tvDate0,tvDate1,tvDate2,tvDate3,tvDate4,tvTrait0,tvTrait1,tvTrait2,tvTrait3,tvTrait4,tvDesc;
     private CardView cvTrait1,cvTrait2,cvTrait3,cvTrait4;
 
     private String USER_INFORMATION;
@@ -82,6 +83,8 @@ public class hist_love extends AppCompatActivity {
                 tvDate3 = (TextView) findViewById(R.id.tvDate3);
                 tvDate4 = (TextView) findViewById(R.id.tvDate4);
 
+                tvDesc = (TextView) findViewById(R.id.tvDesc) ;
+
                 tvTrait0 = (TextView) findViewById(R.id.tvTrait0);
                 tvTrait1 = (TextView) findViewById(R.id.tvTrait1);
                 tvTrait2 = (TextView) findViewById(R.id.tvTrait2);
@@ -100,7 +103,7 @@ public class hist_love extends AppCompatActivity {
 
                 //filtering based on UserId and Quiz Category
                 for(int i=0;i<personalityAL.size();i++){
-                    if(personalityAL.get(i).getQnCategory().equals("Job")&&personalityAL.get(i).getUserId()==userId) {
+                    if(personalityAL.get(i).getQnCategory().equals("Love")&&personalityAL.get(i).getUserId()==userId) {
                         dateTimeAL.add(personalityAL.get(i).getDateTime());
                         userIdAL.add(String.valueOf(personalityAL.get(i).getUserId()));
                         qnCatAL.add(personalityAL.get(i).getQnCategory());
@@ -190,6 +193,21 @@ public class hist_love extends AppCompatActivity {
             public void onClick(View view) {
                 getSupportFragmentManager().beginTransaction().
                         replace(R.id.loveHistoryPage,new profileFragment()).commit();
+                //
+                userInformation.putParcelableArrayList("userInfo", userInfo);
+                backtoProfile(userInformation);
+            }
+        });
+
+        Services.getAllTraits(hist_love.this, new Services.TraitCallback() {
+            @Override
+            public void onSuccess(ArrayList<Trait> result) {
+                for(int i =0;i<result.size();i++){
+                    if(tvTrait0.getText().equals(result.get(i).getPersonalityType())){
+                        Log.d("testgetDesc",result.get(i).getDescription());
+                        tvDesc.setText(result.get(i).getDescription());
+                    }
+                }
             }
         });
 
@@ -219,5 +237,11 @@ public class hist_love extends AppCompatActivity {
             userInformation.putString("dob", userDOB);
 
         }
+    }
+
+    public void backtoProfile(Bundle bundle) {
+        Intent intent = new Intent(hist_love.this,profileFragment.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

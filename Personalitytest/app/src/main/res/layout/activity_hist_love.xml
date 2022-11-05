@@ -278,6 +278,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tvDesc"
                     android:layout_width="224dp"
                     android:layout_height="60dp"
                     android:layout_alignParentStart="true"
@@ -288,7 +289,7 @@
                     android:layout_marginEnd="-23dp"
                     android:fontFamily="@font/segeodisplay"
                     android:gravity="left"
-                    android:text="You prefer spending time with your partner regardless \nof the activity. Making memories with your partner is \nyour priority."
+                    android:text=""
                     android:textColor="#4E4848"
                     android:textSize="15sp" />
 

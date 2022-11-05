@@ -24,7 +24,7 @@ public class hist_career extends AppCompatActivity {
 
     private ImageView backimage;
 
-    private TextView tvDate0,tvDate1,tvDate2,tvDate3,tvDate4,tvTrait0,tvTrait1,tvTrait2,tvTrait3,tvTrait4;
+    private TextView tvDate0,tvDate1,tvDate2,tvDate3,tvDate4,tvTrait0,tvTrait1,tvTrait2,tvTrait3,tvTrait4,tvDesc;
     private CardView cvTrait1,cvTrait2,cvTrait3,cvTrait4;
 
     private String USER_INFORMATION;
@@ -75,12 +75,14 @@ public class hist_career extends AppCompatActivity {
                 }
                 dialog.cancel();
 
+
                 //declare
                 tvDate0 = (TextView) findViewById(R.id.tvDate0);
                 tvDate1 = (TextView) findViewById(R.id.tvDate1);
                 tvDate2 = (TextView) findViewById(R.id.tvDate2);
                 tvDate3 = (TextView) findViewById(R.id.tvDate3);
                 tvDate4 = (TextView) findViewById(R.id.tvDate4);
+                tvDesc = (TextView) findViewById(R.id.tvDesc);
 
                 tvTrait0 = (TextView) findViewById(R.id.tvTrait0);
                 tvTrait1 = (TextView) findViewById(R.id.tvTrait1);
@@ -175,8 +177,24 @@ public class hist_career extends AppCompatActivity {
                     tvTrait4.setText(persTypeAL.get(persTypeAL.size()-5));
                 }
             }
+
+
+
         });
 
+
+
+        Services.getAllTraits(hist_career.this, new Services.TraitCallback() {
+            @Override
+            public void onSuccess(ArrayList<Trait> result) {
+                for(int i =0;i<result.size();i++){
+                    if(tvTrait0.getText().equals(result.get(i).getPersonalityType())){
+                        Log.d("testgetDesc",result.get(i).getDescription());
+                        tvDesc.setText(result.get(i).getDescription());
+                    }
+                }
+            }
+        });
 
 
 
