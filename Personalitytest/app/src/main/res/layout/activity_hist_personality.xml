@@ -285,7 +285,7 @@
                     android:layout_marginEnd="-25dp"
                     android:fontFamily="@font/segeodisplay"
                     android:gravity="left"
-                    android:text="You like having authority in all situations. Losing \nauthority might lead to losing confidence. "
+                    android:text="NULL"
                     android:textColor="#4E4848"
                     android:textSize="15sp" />
 
