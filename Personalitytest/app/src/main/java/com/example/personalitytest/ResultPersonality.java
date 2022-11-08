@@ -118,8 +118,6 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
     }
 
     public void tohomeactivity() {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
         finish();
     }
 

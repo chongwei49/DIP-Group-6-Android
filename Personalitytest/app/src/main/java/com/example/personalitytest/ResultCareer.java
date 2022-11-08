@@ -87,8 +87,6 @@ public class ResultCareer extends AppCompatActivity {
     }
 
     public void tohomeactivity() {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
         finish();
     }
 

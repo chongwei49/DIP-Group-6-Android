@@ -74,20 +74,22 @@ public class Tests extends AppCompatActivity{
         Intent intent = new Intent(this, QuizPersonality.class);
         intent.putExtras(bundle);
         startActivity(intent);
+        finish();
     }
     public void toquizloveactivity(Bundle bundle) {
         Intent intent = new Intent(this, QuizLove.class);
         intent.putExtras(bundle);
         startActivity(intent);
+        finish();
     }
     public void toquizcareeractivity(Bundle bundle) {
         Intent intent = new Intent(this, QuizCareer.class);
         intent.putExtras(bundle);
         startActivity(intent);
+        finish();
     }
     public void tohomeactivity() {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
+        finish();
     }
 
 

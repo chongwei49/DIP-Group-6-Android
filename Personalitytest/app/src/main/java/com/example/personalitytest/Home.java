@@ -160,10 +160,9 @@ public class Home extends AppCompatActivity {
                     for(int i=0;i<result.size();i++){
                         Log.d("test getAllUsers", String.valueOf(result.get(i).getUserId()));
                     }
-                    dialog.cancel();
                 }else{
                     Log.d("Else Response", "Multiple User Object Detected");
-                    dialog.cancel();
+
                 }
             }
 
@@ -178,11 +177,14 @@ public class Home extends AppCompatActivity {
             public void onSuccess(ArrayList<Trait> result) {
                 if(result.isEmpty()){
                     Log.d("getAllTraits empty","");
+                    dialog.cancel();
                 }else{
                     bundle.putParcelableArrayList("traits4prof",result);
+                    dialog.cancel();
                 }
             }
         });
+
 
 
 
