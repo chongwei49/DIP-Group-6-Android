@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Question;
+import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -169,6 +170,17 @@ public class Home extends AppCompatActivity {
             @Override
             public void onFailure(String error) {
 
+            }
+        });
+
+        Services.getAllTraits(Home.this, new Services.TraitCallback() {
+            @Override
+            public void onSuccess(ArrayList<Trait> result) {
+                if(result.isEmpty()){
+                    Log.d("getAllTraits empty","");
+                }else{
+                    bundle.putParcelableArrayList("traits4prof",result);
+                }
             }
         });
 

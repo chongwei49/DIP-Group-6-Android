@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.personalitytest.models.Personality;
+import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
 import org.w3c.dom.Text;
@@ -61,8 +62,12 @@ public class profileFragment extends Fragment {
 
     private ArrayList<User> userInfo = new ArrayList<User>();
     private ArrayList<Personality> personalityList = new ArrayList<Personality>();
+    private ArrayList<Trait> traitsList = new ArrayList<Trait>();
+    private ArrayList<String> personalityTraits = new ArrayList<String>();
+    private ArrayList<String> loveTraits = new ArrayList<String>();
+    private ArrayList<String> careerTraits = new ArrayList<String>();
 
-    private TextView usernameText, emailText, settingsbtn;
+    private TextView usernameText, emailText, settingsbtn, persTrait, loveTrait,careerTrait;
 
     private ImageView changeDPbtn;
     private ImageView userProfilePicture;
@@ -101,20 +106,25 @@ public class profileFragment extends Fragment {
             userInfo=userInformation.getParcelableArrayList("userInfo");
             userId = userInfo.get(0).getUserId();
             personalityList=userInformation.getParcelableArrayList("personality_information");
+            traitsList=userInformation.getParcelableArrayList("traits4prof");
 
             for(int i =0;i<personalityList.size();i++){
+                //Log.d("test", personalityList.get(i).getPersonalityType());
                 if(personalityList.get(i).getQnCategory().contains("16Personalities")){
                     if (personalityList.get(i).getUserId() == userId) {
+                        personalityTraits.add(personalityList.get(i).getPersonalityType());
                         personality_16 = true;
                     }
                 }
                 else if(personalityList.get(i).getQnCategory().contains("Love")){
                     if (personalityList.get(i).getUserId() == userId) {
+                        loveTraits.add(personalityList.get(i).getPersonalityType());
                         personality_love = true;
                     }
                 }
                 else if(personalityList.get(i).getQnCategory().contains("Job")){
                     if (personalityList.get(i).getUserId() == userId) {
+                        careerTraits.add(personalityList.get(i).getPersonalityType());
                         personality_job = true;
                     }
                 }
@@ -208,6 +218,28 @@ public class profileFragment extends Fragment {
             }
 
         });
+
+        //setting Traits for profileFragment
+
+        persTrait = view.findViewById(R.id.persTrait);
+        loveTrait = view.findViewById(R.id.loveTrait);
+        careerTrait = view.findViewById(R.id.careerTrait);
+        for(int i=0;i<personalityTraits.size();i++){
+            Log.d("persTrait",personalityTraits.get(i));
+        }
+        persTrait.setText(personalityTraits.get(personalityTraits.size()-1));
+
+        for(int i =0;i<traitsList.size();i++){
+            if(persTrait.getText().equals(traitsList.get(i).getPersonalityType())){
+                String temp = String.valueOf(persTrait.getText());
+                Log.d("testgetDesc",traitsList.get(i).getDescription());
+                persTrait.setText(traitsList.get(i).getTraitName()+" ("+temp+")");
+            }
+        }
+        loveTrait.setText(loveTraits.get(loveTraits.size()-1));
+        careerTrait.setText(careerTraits.get(careerTraits.size()-1));
+
+
 
         setUpCardView();
 

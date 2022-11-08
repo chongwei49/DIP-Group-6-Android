@@ -67,10 +67,10 @@ public class hist_personality extends AppCompatActivity {
                 if(!result.isEmpty()){
                     //test
                     personalityAL=result;
-                    for(int i=0;i<result.size();i++){
-                        Log.d("histP_getAllPers", personalityAL.get(i).getUserId() +","+personalityAL.get(i).getDateTime()+", " +
-                                personalityAL.get(i).getQnCategory() +" "+ personalityAL.get(i).getPersonalityType());
-                    }
+//                    for(int i=0;i<result.size();i++){
+//                        Log.d("histP_getAllPers", personalityAL.get(i).getUserId() +","+personalityAL.get(i).getDateTime()+", " +
+//                                personalityAL.get(i).getQnCategory() +" "+ personalityAL.get(i).getPersonalityType());
+//                    }
 
                 }else{
                     Log.d("Else Response", "Multiple User Object Detected");
@@ -184,6 +184,9 @@ public class hist_personality extends AppCompatActivity {
         Services.getAllTraits(hist_personality.this, new Services.TraitCallback() {
             @Override
             public void onSuccess(ArrayList<Trait> result) {
+                if(result.isEmpty()){
+                    Log.d("getAllTraits empty","");
+                }
                 for(int i =0;i<result.size();i++){
                     if(tvTrait0.getText().equals(result.get(i).getPersonalityType())){
                         String temp = String.valueOf(tvTrait0.getText());

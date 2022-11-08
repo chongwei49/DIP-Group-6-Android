@@ -1,6 +1,9 @@
 package com.example.personalitytest.models;
 
-public class Trait {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Trait implements Parcelable {
     public int priId;
     public String quizCategory;
     public String personalityType;
@@ -55,5 +58,27 @@ public class Trait {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(priId);
+        parcel.writeString(quizCategory);
+        parcel.writeString(personalityType);
+        parcel.writeString(traitName);
+        parcel.writeString(description);
+    }
+
+    protected Trait(Parcel in) {
+        priId = in.readInt();
+        quizCategory = in.readString();
+        personalityType = in.readString();
+        traitName = in.readString();
+        description = in.readString();
     }
 }

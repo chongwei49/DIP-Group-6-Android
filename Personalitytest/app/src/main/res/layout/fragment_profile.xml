@@ -156,6 +156,7 @@
                     app:srcCompat="@drawable/logo" />
 
                 <TextView
+                    android:id="@+id/persTrait"
                     android:layout_width="200dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
@@ -293,7 +294,7 @@
                     app:srcCompat="@drawable/lovetestlogo" />
 
                 <TextView
-                    android:id="@+id/loveResult"
+                    android:id="@+id/loveTrait"
                     android:layout_width="200dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
@@ -430,7 +431,7 @@
                     app:srcCompat="@drawable/joblogo" />
 
                 <TextView
-                    android:id="@+id/personalityResult"
+                    android:id="@+id/careerTrait"
                     android:layout_width="200dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
