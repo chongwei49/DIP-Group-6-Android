@@ -1,27 +1,17 @@
 package com.example.personalitytest;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.time.LocalDate;
+import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Random;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.app.Service;
 import android.content.Intent;
-import android.content.ReceiverCallNotAllowedException;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,11 +19,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.personalitytest.models.Personality;
-import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
@@ -50,20 +37,21 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private Boolean personality_16 = false, personality_love = false, personality_job = false;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private Integer userId;
     RecyclerView personalityRecyclerView, loveRecyclerView, workRecyclerView;
-    ArrayList<Profile> arrayList =  new ArrayList<>();
-    ArrayList<Profile> profileList =  new ArrayList<>();
-    ArrayList<String> dataSource;
+
 
     private Button personalitynext, lovenext, worknext;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
     private CardView notdone_personalty, notdone_love, notdone_career;
-    private Boolean personality_16 = false, personality_love = false, personality_job = false;
+
+    private ArrayList<User> user_connect_personality_List =  new ArrayList<>();
+    private ArrayList<User> user_connect_love_List =  new ArrayList<>();
+    private ArrayList<User> user_connect_career_List =  new ArrayList<>();
 
     private ArrayList<User> userInfo = new ArrayList<User>();
     private ArrayList<User> allUsers = new ArrayList<User>();
@@ -121,12 +109,14 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
                 }
                 Log.d("ConFragment Per_List:",personalityList.get(i).getUserId().toString());
             }
+
             for(int i =0;i<allUsers.size();i++){
                 Log.d("ConFragment Per_List:",allUsers.get(i).getName());
             }
 
-            setUpUserListCat();
 
+            setUpUserListCat();
+            setUpCatergoryUserList();
             //LocalDate.parse(indepdate, DateTimeFormatter.ofPattern("M/d/u")
         }
 
@@ -149,48 +139,35 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         loveRecyclerView = view.findViewById(R.id.loveRecyclerView);
         workRecyclerView = view.findViewById(R.id.workRecyclerView);
 
-        arrayList.add( new Profile(R.drawable.profile_pic_1, "Sam", "18"));
-        arrayList.add( new Profile(R.drawable.profile_pic_2, "Anthony", "17"));
-        arrayList.add( new Profile(R.drawable.profile_pic_1, "David", "21"));
-        arrayList.add( new Profile(R.drawable.profile_pic_2, "Max", "25"));
+//        arrayList.add( new Profile(R.drawable.profile_pic_1, "Sam", "18"));
+//        arrayList.add( new Profile(R.drawable.profile_pic_2, "Anthony", "17"));
+//        arrayList.add( new Profile(R.drawable.profile_pic_1, "David", "21"));
+//        arrayList.add( new Profile(R.drawable.profile_pic_2, "Max", "25"));
 //        arrayList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
 //        arrayList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
-
-        profileList.add( new Profile(R.drawable.profile_pic_1, "Sam", "18"));
-        profileList.add( new Profile(R.drawable.profile_pic_2, "Anthony", "17"));
-        profileList.add( new Profile(R.drawable.profile_pic_1, "David", "21"));
-        profileList.add( new Profile(R.drawable.profile_pic_2, "Max", "25"));
+//
+//        profileList.add( new Profile(R.drawable.profile_pic_1, "Sam", "18"));
+//        profileList.add( new Profile(R.drawable.profile_pic_2, "Anthony", "17"));
+//        profileList.add( new Profile(R.drawable.profile_pic_1, "David", "21"));
+//        profileList.add( new Profile(R.drawable.profile_pic_2, "Max", "25"));
 //        profileList.add( new Profile(R.drawable.profile_pic_1, "Love", "31"));
 //        profileList.add( new Profile(R.drawable.profile_pic_2, "Judy", "35"));
 
-        personalityadapter Personalityadapter = new personalityadapter(getContext(),arrayList, this);
+        personalityadapter Personalityadapter = new personalityadapter(getContext(), user_connect_personality_List, this);
         personalityRecyclerView.setAdapter(Personalityadapter);
         personalityRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        loveadapter Loveadapter = new loveadapter(getContext(), profileList,  this);
+        loveadapter Loveadapter = new loveadapter(getContext(), user_connect_love_List,  this);
         loveRecyclerView.setAdapter(Loveadapter);
         loveRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        workadapter Workadapter = new workadapter(getContext(), profileList,  this);
+        workadapter Workadapter = new workadapter(getContext(), user_connect_career_List,  this);
         workRecyclerView.setAdapter(Workadapter);
         workRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
-        //Setting the data source
-        //dataSource = new ArrayList<>();
-
-
-        /*dataSource.add("Sam");
-        dataSource.add("Anthony");
-        dataSource.add("Lucy");
-        dataSource.add("Max");
-        dataSource.add("Andy");*/
-
 
         notdone_personalty = view.findViewById(R.id.notdone_personality);
         notdone_love = view.findViewById(R.id.notdone_love);
         notdone_career = view.findViewById(R.id.notdone_career);
-
-
 
         notdone_personaltystart = (Button) view.findViewById(R.id.notdone_personaltystart);
         notdone_personaltystart.setClickable(true);
@@ -230,17 +207,18 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
 
 
         setUpCardView();
-
         return view;
     }
 
+    @Override
+    public void onItemClick(int position) { //Default Function, IGNORE
+
+    }
 
     @Override
-    public void onItemClick(int position) {
+    public void onItemClick(int position, ArrayList<User> arrayList) { //Overloaded function
         Intent intent = new Intent(getActivity(),connect_person.class);
-        intent.putExtra("Profile Pic", arrayList.get(position).getImage());
-        intent.putExtra("Name", arrayList.get(position).getName());
-        intent.putExtra("Age", arrayList.get(position).getAge());
+        intent.putExtra("UserInfo", arrayList.get(position));
         startActivity(intent);
     }
 
@@ -252,40 +230,49 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
                                 Collectors.collectingAndThen(
                                         Collectors.maxBy(Comparator.comparing(Personality::getPriId)),
                                         Optional::get)));
+        //Clear arraylist before storing filtered latest quiz result
+        personalityList_16.clear();
 
         for (Map.Entry<Integer, Personality> set :
                 personalityMap_16.entrySet()) {
-
+            //Store each personality into list
+            personalityList_16.add(set.getValue());
             // Printing all elements of a Map
             System.out.println(set.getKey() + " = "
                     + "ID: " + set.getValue().getUserId() + " Time: " + set.getValue().getDateTime()+ " Cat: " + set.getValue().getQnCategory());
         }
-
+        //----------------------------------------------------------------------------------------------------------------------------------------------//
         Map<Integer, Personality> personalityMap_love = personalityList_love.stream()
                 .collect(
                         Collectors.groupingBy(Personality::getUserId,
                                 Collectors.collectingAndThen(
                                         Collectors.maxBy(Comparator.comparing(Personality::getPriId)),
                                         Optional::get)));
+        //Clear arraylist before storing filtered latest quiz result
+        personalityList_love.clear();
 
         for (Map.Entry<Integer, Personality> set :
                 personalityMap_love.entrySet()) {
-
+            //Store each personality into list
+            personalityList_love.add(set.getValue());
             // Printing all elements of a Map
             System.out.println(set.getKey() + " = "
                     + "ID: " + set.getValue().getUserId() + " Time: " + set.getValue().getDateTime()+ " Cat: " + set.getValue().getQnCategory());
         }
-
+        //----------------------------------------------------------------------------------------------------------------------------------------------//
         Map<Integer, Personality> personalityMap_job = personalityList_job.stream()
                 .collect(
                         Collectors.groupingBy(Personality::getUserId,
                                 Collectors.collectingAndThen(
                                         Collectors.maxBy(Comparator.comparing(Personality::getPriId)),
                                         Optional::get)));
+        //Clear arraylist before storing filtered latest quiz result
+        personalityList_job.clear();
 
         for (Map.Entry<Integer, Personality> set :
                 personalityMap_job.entrySet()) {
-
+            //Store each personality into list
+            personalityList_job.add(set.getValue());
             // Printing all elements of a Map
             System.out.println(set.getKey() + " = "
                     + "ID: " + set.getValue().getUserId() + " Time: " + set.getValue().getDateTime()+ " Cat: " + set.getValue().getQnCategory());
@@ -296,17 +283,17 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     public void setUpCardView(){
         for (int i=0; i < personalityList_16.size(); i++) {
             Log.d("usercheck 16Personality", Integer.toString(personalityList_16.get(i).getUserId()));
-            if (personalityList_16.get(i).getUserId() == userId) {
+            if (personalityList_16.get(i).getUserId().equals(userId)) {
                 personality_16 = true;
             }
         }
         for (int i=0; i < personalityList_love.size(); i++) {
-            if (personalityList_love.get(i).getUserId() == userId) {
+            if (personalityList_love.get(i).getUserId().equals(userId)) {
                 personality_love = true;
             }
         }
         for (int i=0; i < personalityList_job.size(); i++) {
-            if(personalityList_job.get(i).getUserId() == userId){
+            if(personalityList_job.get(i).getUserId().equals(userId)){
                 personality_job = true;
             }
         }
@@ -328,7 +315,35 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
         }else{
             notdone_career.setVisibility(View.VISIBLE);
         }
+    }
 
+    public void setUpCatergoryUserList(){
+        for(int i=0;i<allUsers.size();i++){
+            if(!allUsers.get(i).getUserId().equals(userId)){
+                for(int j=0;j<personalityList_16.size();j++){
+                    if(personalityList_16.get(j).getUserId().equals(allUsers.get(i).getUserId())){
+                        user_connect_personality_List.add(allUsers.get(i));
+                    }
+                }
+
+                for(int j=0;j<personalityList_love.size();j++){
+                    if(personalityList_love.get(j).getUserId().equals(allUsers.get(i).getUserId())){
+                        user_connect_love_List.add(allUsers.get(i));
+                    }
+                }
+
+                for(int j=0;j<personalityList_job.size();j++){
+                    if(personalityList_job.get(j).getUserId().equals(allUsers.get(i).getUserId())){
+                        user_connect_career_List.add(allUsers.get(i));
+                    }
+                }
+            }
+        }
+
+        //Shuffle list for all 3 user list
+        Collections.shuffle(user_connect_personality_List);
+        Collections.shuffle(user_connect_love_List);
+        Collections.shuffle(user_connect_career_List);
 
     }
 

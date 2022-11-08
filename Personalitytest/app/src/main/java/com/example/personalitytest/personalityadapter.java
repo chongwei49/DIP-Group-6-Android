@@ -3,6 +3,8 @@ package com.example.personalitytest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +16,19 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.personalitytest.models.User;
+
 import java.util.ArrayList;
 
 public class personalityadapter extends RecyclerView.Adapter<personalityadapter.MyViewHolder>{
     private final personalityrecyclerinterface personalityRecyclerinterface;
     Context context;
-    ArrayList<Profile> arrayList = new ArrayList<>();
+    private static ArrayList<User> profileList = new ArrayList<User>();
 
 
-    public personalityadapter(Context context,ArrayList<Profile> arrayList, personalityrecyclerinterface personalityRecyclerinterface){
+    public personalityadapter(Context context,ArrayList<User> arrayList, personalityrecyclerinterface personalityRecyclerinterface){
         this.context = context;
-        this.arrayList = arrayList;
+        this.profileList = arrayList;
         this.personalityRecyclerinterface = personalityRecyclerinterface;
     }
     @NonNull
@@ -37,10 +41,11 @@ public class personalityadapter extends RecyclerView.Adapter<personalityadapter.
 
     @Override
     public void onBindViewHolder(@NonNull personalityadapter.MyViewHolder holder, int position) {
-
-        holder.profilepic.setImageResource(arrayList.get(position).getImage());
-        holder.name.setText(arrayList.get(position).getName());
-        holder.age.setText(arrayList.get(position).getAge());
+        if(profileList.get(position).getProfilePic()!=null){
+            holder.profilepic.setImageBitmap(receiveImage(profileList.get(position).getProfilePic()));
+        }
+        holder.name.setText(profileList.get(position).getName());
+        holder.email.setText(profileList.get(position).getGender());
 
 
     }
@@ -52,13 +57,13 @@ public class personalityadapter extends RecyclerView.Adapter<personalityadapter.
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView profilepic;
-        TextView name,  age;
+        TextView name,  email;
         public MyViewHolder(@NonNull View itemView, personalityrecyclerinterface personalityRecyclerinterface){
             super(itemView);
 
             profilepic = itemView.findViewById(R.id.profilepic);
             name = itemView.findViewById(R.id.name);
-            age = itemView.findViewById(R.id.age);
+            email = itemView.findViewById(R.id.age);
 
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -67,7 +72,7 @@ public class personalityadapter extends RecyclerView.Adapter<personalityadapter.
                     if (personalityRecyclerinterface != null) {
                         int pos = getAdapterPosition();
                         if (pos != RecyclerView.NO_POSITION){
-                            personalityRecyclerinterface.onItemClick(pos);
+                            personalityRecyclerinterface.onItemClick(pos, profileList);
 
                         }
                     }
@@ -76,5 +81,10 @@ public class personalityadapter extends RecyclerView.Adapter<personalityadapter.
 
         }
 
+    }
+
+    public Bitmap receiveImage(byte[] input_byte){
+        Bitmap bmp= BitmapFactory.decodeByteArray(input_byte,0,input_byte.length);
+        return bmp;
     }
 }

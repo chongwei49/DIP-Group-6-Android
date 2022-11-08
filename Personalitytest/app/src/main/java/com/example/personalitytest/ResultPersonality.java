@@ -120,6 +120,7 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
     public void tohomeactivity() {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
+        finish();
     }
 
     public String formulatePType(Map<String, Integer> input){

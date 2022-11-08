@@ -111,24 +111,24 @@ public class profileFragment extends Fragment {
             for(int i =0;i<personalityList.size();i++){
                 //Log.d("test", personalityList.get(i).getPersonalityType());
                 if(personalityList.get(i).getQnCategory().contains("16Personalities")){
-                    if (personalityList.get(i).getUserId() == userId) {
+                    if (personalityList.get(i).getUserId().equals(userId)) {
                         personalityTraits.add(personalityList.get(i).getPersonalityType());
                         personality_16 = true;
                     }
                 }
                 else if(personalityList.get(i).getQnCategory().contains("Love")){
-                    if (personalityList.get(i).getUserId() == userId) {
+                    if (personalityList.get(i).getUserId().equals(userId)) {
                         loveTraits.add(personalityList.get(i).getPersonalityType());
                         personality_love = true;
                     }
                 }
                 else if(personalityList.get(i).getQnCategory().contains("Job")){
-                    if (personalityList.get(i).getUserId() == userId) {
+                    if (personalityList.get(i).getUserId().equals(userId)) {
                         careerTraits.add(personalityList.get(i).getPersonalityType());
                         personality_job = true;
                     }
                 }
-                Log.d("ConFragment Per_List:",personalityList.get(i).getUserId().toString());
+                Log.d("ConFragment Per_List:",personalityList.get(i).getUserId().toString()+" cat:"+personalityList.get(i).getQnCategory());
             }
 
 //            userId = userInformation.getInt("userId");
@@ -227,21 +227,10 @@ public class profileFragment extends Fragment {
         for(int i=0;i<personalityTraits.size();i++){
             Log.d("persTrait",personalityTraits.get(i));
         }
-        persTrait.setText(personalityTraits.get(personalityTraits.size()-1));
 
-        for(int i =0;i<traitsList.size();i++){
-            if(persTrait.getText().equals(traitsList.get(i).getPersonalityType())){
-                String temp = String.valueOf(persTrait.getText());
-                Log.d("testgetDesc",traitsList.get(i).getDescription());
-                persTrait.setText(traitsList.get(i).getTraitName()+" ("+temp+")");
-            }
-        }
-        loveTrait.setText(loveTraits.get(loveTraits.size()-1));
-        careerTrait.setText(careerTraits.get(careerTraits.size()-1));
-
-
-
+        setUpTraitDescription();
         setUpCardView();
+
 
         return view;
     }
@@ -296,12 +285,35 @@ public class profileFragment extends Fragment {
         return  byteArray;
     }
 
+    public void setUpTraitDescription(){
+        if (personality_16) {
+            persTrait.setText(personalityTraits.get(personalityTraits.size()-1));
+            for(int i =0;i<traitsList.size();i++){
+                if(persTrait.getText().equals(traitsList.get(i).getPersonalityType())){
+                    String temp = String.valueOf(persTrait.getText());
+                    Log.d("testgetDesc",traitsList.get(i).getDescription());
+                    persTrait.setText(traitsList.get(i).getTraitName()+" ("+temp+")");
+                }
+            }
+        }
+
+        if (personality_love) {
+            loveTrait.setText(loveTraits.get(loveTraits.size()-1));
+        }
+
+        if (personality_job) {
+            careerTrait.setText(careerTraits.get(careerTraits.size()-1));
+        }
+
+    }
+
     public void setUpCardView(){
         Log.d("16Personality check: ", personality_16.toString());
         Log.d("LovePersonality check: ", personality_love.toString());
         Log.d("JobPersonality check: ", personality_job.toString());
         if (personality_16) {
             notdone_personalty.setVisibility(View.GONE);
+
         }else{
             notdone_personalty.setVisibility(View.VISIBLE);
         }

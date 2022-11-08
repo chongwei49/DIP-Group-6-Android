@@ -92,6 +92,7 @@ public class ResultLove extends AppCompatActivity {
     public void tohomeactivity() {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
+        finish();
     }
     public int getImageName(String result) {
 
