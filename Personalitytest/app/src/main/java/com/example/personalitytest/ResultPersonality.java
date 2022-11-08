@@ -3,6 +3,7 @@ package com.example.personalitytest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -95,26 +96,8 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
         Map<String, Integer> hm1 = calculateResult(preCalc);
         quiz_result = formulatePType(hm1);
 
-        ProgressDialog dialog = ProgressDialog.show(ResultPersonality.this, "",
-                "Loading. Please wait...", true);
-        Services.addNewPersonalities(userId, "16Personalities", quiz_result, ResultPersonality.this, new Services.TraitCallback() {
-            @Override
-            public void onSuccess(ArrayList<Trait> result) {
-                if(!result.isEmpty()){
-                    Log.d("ResponsePersonalityType", String.valueOf(result.get(0).getPersonalityType()));
-                    traitInfo=result;
-                    //Log.d("Response result", String.valueOf(personalityInfo));
-                    Log.d("Personality Update","Successful");
-
-                    resultView.setText(quiz_result);
-                    descView.setText(result.get(0).getDescription());
-                    traitnameView.setText(result.get(0).getTraitName());
-                    dialog.cancel();
-                }else{
-                    Log.d("Else Response", "Multiple User Object Detected");
-                }
-            }
-        });
+        AsyncTaskRunner serviceTask = new AsyncTaskRunner();
+        serviceTask.execute();
     }
 
     public void tohomeactivity() {
@@ -224,4 +207,57 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
     }
 
 
+    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
+
+        private String resp;
+        ProgressDialog progressDialog;
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                Services.addNewPersonalities(userId, "16Personalities", quiz_result, ResultPersonality.this, new Services.TraitCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<Trait> result) {
+                        if(!result.isEmpty()){
+                            Log.d("ResponsePersonalityType", String.valueOf(result.get(0).getPersonalityType()));
+                            traitInfo=result;
+                            //Log.d("Response result", String.valueOf(personalityInfo));
+                            Log.d("Personality Update","Successful");
+
+                            resultView.setText(quiz_result);
+                            descView.setText(result.get(0).getDescription());
+                            traitnameView.setText(result.get(0).getTraitName());
+                        }else{
+                            Log.d("Else Response", "Multiple User Object Detected");
+                        }
+                    }
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                resp = e.getMessage();
+            }
+            return resp;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            progressDialog.dismiss();
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(ResultPersonality.this, "",
+                    "Loading. Please wait...", true);
+        }
+
+
+        @Override
+        protected void onProgressUpdate(String... text) {
+
+        }
+    }
 }

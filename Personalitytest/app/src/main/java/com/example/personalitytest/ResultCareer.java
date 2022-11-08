@@ -3,6 +3,7 @@ package com.example.personalitytest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,27 +52,8 @@ public class ResultCareer extends AppCompatActivity {
         userDOB= userInfo.get(0).getDob();
         Log.d("User passing info test", String.valueOf(userId)+", "+userName);
 
-        ProgressDialog dialog = ProgressDialog.show(ResultCareer.this, "",
-                "Loading. Please wait...", true);
-
-        Services.addNewPersonalities(userId, "Job", quiz_result, ResultCareer.this, new Services.TraitCallback() {
-            @Override
-            public void onSuccess(ArrayList<Trait> result) {
-                if(!result.isEmpty()){
-                    Log.d("ResponsePersonalityType", String.valueOf(result.get(0).getPersonalityType()));
-                    traitInfo=result;
-                    //Log.d("Response result", String.valueOf(personalityInfo));
-                    Log.d("Personality Update","Successful");
-
-                    resultView.setText(quiz_result);
-                    descView.setText(result.get(0).getDescription());
-                    dialog.cancel();
-                }else{
-                    Log.d("Else Response", "Multiple User Object Detected");
-                }
-            }
-        });
-
+        AsyncTaskRunner serviceTask = new AsyncTaskRunner();
+        serviceTask.execute();
 
         resultView = findViewById(R.id.textView9);
         descView = findViewById(R.id.textView10);
@@ -124,4 +106,56 @@ public class ResultCareer extends AppCompatActivity {
         }
     }
 
+    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
+
+        private String resp;
+        ProgressDialog progressDialog;
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                Services.addNewPersonalities(userId, "Job", quiz_result, ResultCareer.this, new Services.TraitCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<Trait> result) {
+                        if(!result.isEmpty()){
+                            Log.d("ResponsePersonalityType", String.valueOf(result.get(0).getPersonalityType()));
+                            traitInfo=result;
+                            //Log.d("Response result", String.valueOf(personalityInfo));
+                            Log.d("Personality Update","Successful");
+
+                            resultView.setText(quiz_result);
+                            descView.setText(result.get(0).getDescription());
+                        }else{
+                            Log.d("Else Response", "Multiple User Object Detected");
+                        }
+                    }
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                resp = e.getMessage();
+            }
+            return resp;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            progressDialog.dismiss();
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(ResultCareer.this, "",
+                    "Loading. Please wait...", true);
+        }
+
+
+        @Override
+        protected void onProgressUpdate(String... text) {
+
+        }
+    }
 }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -22,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Home extends AppCompatActivity {
 
@@ -130,70 +132,22 @@ public class Home extends AppCompatActivity {
                 }
             });
 
-        //getAllUsers
-
-        ProgressDialog dialog = ProgressDialog.show(Home.this, "",
-                "Loading. Please wait...", true);
-
-
-        Services.getAllPersonalities(Home.this, new Services.PersonalityCallback(){
-            @Override
-            public void onSuccess(ArrayList<Personality> result) {
-                if(!result.isEmpty()){
-                    bundle.putParcelableArrayList("personality_information",result);
-                    //test
-                    for(int i=0;i<result.size();i++){
-                        Log.d("test getAllPersonality", String.valueOf(result.get(i).getUserId()));
-                    }
-                }else{
-                    Log.d("Else Response", "Multiple User Object Detected");
-                }
-            }
-        });
-
-        Services.getAllUsers(Home.this, new Services.UserCallback() {
-            @Override
-            public void onSuccess(ArrayList<User> result) {
-                if(!result.isEmpty()){
-                    bundle.putParcelableArrayList("all_users",result);
-                    //test
-                    for(int i=0;i<result.size();i++){
-                        Log.d("test getAllUsers", String.valueOf(result.get(i).getUserId()));
-                    }
-                }else{
-                    Log.d("Else Response", "Multiple User Object Detected");
-
-                }
-            }
-
-            @Override
-            public void onFailure(String error) {
-
-            }
-        });
-
-        Services.getAllTraits(Home.this, new Services.TraitCallback() {
-            @Override
-            public void onSuccess(ArrayList<Trait> result) {
-                if(result.isEmpty()){
-                    Log.d("getAllTraits empty","");
-                    dialog.cancel();
-                }else{
-                    bundle.putParcelableArrayList("traits4prof",result);
-                    dialog.cancel();
-                }
-            }
-        });
-
-
-
-
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    protected void onStart() {
+        super.onStart();
+        AsyncTaskRunner serviceTask = new AsyncTaskRunner();
+        serviceTask.execute();
+    }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        AsyncTaskRunner serviceTask = new AsyncTaskRunner();
+        serviceTask.execute();
     }
 
     @Override
@@ -233,7 +187,88 @@ public class Home extends AppCompatActivity {
         userGender = userInformation.getString("gender");
         userDOB = userInformation.getString("DOB");
 
-
     }
 
+    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
+
+        private String resp;
+        ProgressDialog progressDialog;
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                Services.getAllPersonalities(Home.this, new Services.PersonalityCallback(){
+                    @Override
+                    public void onSuccess(ArrayList<Personality> result) {
+                        if(!result.isEmpty()){
+                            bundle.putParcelableArrayList("personality_information",result);
+                            //test
+                            for(int i=0;i<result.size();i++){
+                                Log.d("test getAllPersonality", String.valueOf(result.get(i).getUserId()));
+                            }
+                        }else{
+                            Log.d("Else Response", "Multiple User Object Detected");
+                        }
+                    }
+                });
+
+                Services.getAllUsers(Home.this, new Services.UserCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<User> result) {
+                        if(!result.isEmpty()){
+                            bundle.putParcelableArrayList("all_users",result);
+                            //test
+                            for(int i=0;i<result.size();i++){
+                                Log.d("test getAllUsers", String.valueOf(result.get(i).getUserId()));
+                            }
+                        }else{
+                            Log.d("Else Response", "Multiple User Object Detected");
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+
+                    }
+                });
+
+                Services.getAllTraits(Home.this, new Services.TraitCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<Trait> result) {
+                        if(result.isEmpty()){
+                            Log.d("getAllTraits empty","");
+                        }else{
+                            bundle.putParcelableArrayList("traits4prof",result);
+                        }
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+                resp = e.getMessage();
+            }
+            return resp;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            progressDialog.dismiss();
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(Home.this, "",
+                    "Loading. Please wait...", true);
+        }
+
+
+        @Override
+        protected void onProgressUpdate(String... text) {
+
+        }
+    }
 }
+
