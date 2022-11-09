@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -86,7 +87,7 @@ public class usersettings extends AppCompatActivity {
 
         initDatePicker();
         dateButton=findViewById(R.id.settingsdatepicker);
-        if (userDOB != null){
+        if (!userDOB.equals(null)){
             dateButton.setText(getUserDOB(userDOB));
         }
         else{
@@ -147,7 +148,15 @@ public class usersettings extends AppCompatActivity {
                     ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
                             "Loading. Please wait...", true);
 
-                    Services.editUser(userId, userName, userEmail, null, dateButton.getText().toString(), gender, userPP,
+                    String dateString = dateButton.getText().toString();
+                    String[] dateSplit = dateString.split("/");
+                    String date = dateSplit[0]  + "-" + dateSplit[1] + "-" + dateSplit[2];
+
+                    userDOB = date;
+
+                    Log.d("dateString log", dateSplit[0]);
+
+                    Services.editUser(userId, userName, userEmail, null, date, gender, null,
                             usersettings.this, new Services.UserCallback() {
                                 @Override
                                 public void onSuccess(ArrayList<User> result) {
@@ -157,15 +166,21 @@ public class usersettings extends AppCompatActivity {
                                         Log.d("result check", "Success!");
 
                                         userInfo = result;
-                                        Bundle userInformation = new Bundle();
-                                        userInformation.putParcelableArrayList("userInfo",userInfo);
-                                        toresultssactivity(userInformation);
+                                        Log.d("test userInfo", userInfo.get(0).getName());
+//                                        Bundle userInformation = new Bundle();
+//                                        userInformation.putParcelableArrayList("userInfo",userInfo);
+//                                        toresultssactivity(userInformation);
 
                                         Context context = getApplicationContext();
                                         CharSequence text = "Edit Saved!";
                                         int duration = Toast.LENGTH_SHORT;
                                         Toast toast = Toast.makeText(context, text, duration);
                                         toast.show();
+
+                                        Bundle userInformation = new Bundle();
+                                        userInformation.putParcelableArrayList("userInfo",userInfo);
+                                        homeActivity(userInformation);
+
 
                                         Log.d("EditUser","Successful");
                                     }else{
@@ -218,6 +233,15 @@ public class usersettings extends AppCompatActivity {
 
     }
 
+
+    public void homeActivity(Bundle bundle) {
+        Intent intent = new Intent(this, Home.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        this.finish();
+    }
+
+
     //To set date default to user's previously saved DOB
     private String getUserDOB(String userDOB) {
         int year = Integer.valueOf(userDOB.substring(0,4));
@@ -258,6 +282,7 @@ public class usersettings extends AppCompatActivity {
     private void initDatePicker()
     {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
@@ -266,6 +291,7 @@ public class usersettings extends AppCompatActivity {
 
             }
         };
+
 
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
