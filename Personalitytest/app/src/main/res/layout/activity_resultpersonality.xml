@@ -69,9 +69,9 @@
             android:layout_height="123dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="111dp"
-            android:layout_marginEnd="39dp"
-            app:srcCompat="@drawable/champion" />
+            android:layout_marginTop="108dp"
+            android:layout_marginEnd="40dp"
+            app:srcCompat="@drawable/councillor" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="318dp"
