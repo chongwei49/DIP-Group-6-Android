@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class connect_person extends AppCompatActivity {
 
     private TextView connect, username, email;
-    private Integer userId;
+    private Integer recUserId;
     private String userName;
     private String userEmail;
     private String userGender;
@@ -44,7 +44,7 @@ public class connect_person extends AppCompatActivity {
     private ArrayList<String> personalityTraits = new ArrayList<String>();
     private ArrayList<String> loveTraits = new ArrayList<String>();
     private ArrayList<String> careerTraits = new ArrayList<String>();
-    private User user;
+    private User recUser;
 ;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -55,7 +55,7 @@ public class connect_person extends AppCompatActivity {
 
 //        String name = getIntent().getStringExtra("Name");
 //        String ages = getIntent().getStringExtra("Age");
-        user = getIntent().getParcelableExtra("UserInfo");
+        recUser = getIntent().getParcelableExtra("UserInfo");
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
         traitsList = bundle.getParcelableArrayList("traits4prof");
@@ -64,8 +64,8 @@ public class connect_person extends AppCompatActivity {
 //        }
 
         int image = getIntent().getIntExtra("Profile Pic",0);
-        userId=user.getUserId();
-        Log.d("userId",userId+": "+user.getName());
+        recUserId=recUser.getUserId();
+        Log.d("userId",recUserId+": "+recUser.getName());
         profilepic =  findViewById(R.id.profilepic);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email2);
@@ -74,8 +74,8 @@ public class connect_person extends AppCompatActivity {
         notdone_love = findViewById(R.id.notdone_love);
         notdone_career = findViewById(R.id.notdone_career);
 
-        username.setText(user.getName());
-        email.setText(user.getEmail());
+        username.setText(recUser.getName());
+        email.setText(recUser.getEmail());
         //profilepic.setImageResource(image);
         //set latest history results
         ProgressDialog dialog = ProgressDialog.show(connect_person.this, "",
@@ -103,7 +103,7 @@ public class connect_person extends AppCompatActivity {
                 for(int i =0;i<personalityList.size();i++){
                     //Log.d("test", personalityList.get(i).getPersonalityType());
                     if(personalityList.get(i).getQnCategory().contains("16Personalities")){
-                        if (personalityList.get(i).getUserId().equals(userId)) {
+                        if (personalityList.get(i).getUserId().equals(recUserId)) {
                             //Log.d("testPers", personalityList.get(i).getPersonalityType());
                             personalityTraits.add(personalityList.get(i).getPersonalityType());
                             personality_16 = true;
@@ -111,14 +111,14 @@ public class connect_person extends AppCompatActivity {
                         }
                     }
                     else if(personalityList.get(i).getQnCategory().contains("Love")){
-                        if (personalityList.get(i).getUserId().equals(userId)) {
+                        if (personalityList.get(i).getUserId().equals(recUserId)) {
                             //Log.d("testLove", personalityList.get(i).getPersonalityType());
                             loveTraits.add(personalityList.get(i).getPersonalityType());
                             personality_love = true;
                         }
                     }
                     else if(personalityList.get(i).getQnCategory().contains("Job")){
-                        if (personalityList.get(i).getUserId().equals(userId)) {
+                        if (personalityList.get(i).getUserId().equals(recUserId)) {
                             //Log.d("testCareer", personalityList.get(i).getPersonalityType());
                             careerTraits.add(personalityList.get(i).getPersonalityType());
                             personality_job = true;
