@@ -3,6 +3,7 @@ package com.example.personalitytest;
 import android.app.Activity;
 import android.os.Build;
 import android.util.Log;
+import android.util.Base64;
 
 import androidx.annotation.RequiresApi;
 
@@ -30,7 +31,6 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +40,7 @@ public class Services {
     //-------------------------------------------- Login Function -----------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void login(String email, String password, Activity activity, final UserCallback callback){
-        String code = "Basic " +Base64.getEncoder().encodeToString((email + ":" + password).getBytes());
+        String code = "Basic " +java.util.Base64.getEncoder().encodeToString((email + ":" + password).getBytes());
         Log.i("Code", code);
         RequestQueue queue = Volley.newRequestQueue(activity);
         String url = baseURL + "login";
@@ -64,7 +64,7 @@ public class Services {
                                     userObject.getString("password"),
                                     userObject.getString("dob"),
                                     userObject.getString("gender"),
-                                    (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                                    Base64.decode(userObject.getString("profilePic"), Base64.DEFAULT)));
 
                             callback.onSuccess(user_list);
                         } catch (Throwable tx) {
@@ -120,7 +120,7 @@ public class Services {
                                         userObject.getString("password"),
                                         userObject.getString("dob"),
                                         userObject.getString("gender"),
-                                        (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                                        Base64.decode(userObject.getString("profilePic"), Base64.DEFAULT)));
                             }
                             callback.onSuccess(userList);
 
@@ -179,7 +179,7 @@ public class Services {
                                         response.getString("password"),
                                         response.getString("dob"),
                                         response.getString("gender"),
-                                        (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                                        Base64.decode(response.getString("profilePic"), Base64.DEFAULT)));
 
                                         callback.onSuccess(user_list);
                             }catch (Throwable tx) {
@@ -273,7 +273,7 @@ public class Services {
                                         response.getString("password"),
                                         response.getString("dob"),
                                         response.getString("gender"),
-                                        (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                                        Base64.decode(response.getString("profilePic"), Base64.DEFAULT)));
                                 Log.d("LOG_userListName", user_list.get(0).getName());
                                 callback.onSuccess(user_list);
                             } catch (Throwable tx) {

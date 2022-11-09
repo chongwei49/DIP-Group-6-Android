@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,7 +67,6 @@ public class connect_person extends AppCompatActivity {
 //            Log.d("traitsList","empty");
 //        }
 
-        int image = getIntent().getIntExtra("Profile Pic",0);
         recUserId=recUser.getUserId();
         Log.d("userId",recUserId+": "+recUser.getName());
         profilepic =  findViewById(R.id.profilepic);
@@ -78,7 +79,7 @@ public class connect_person extends AppCompatActivity {
 
         username.setText(recUser.getName());
         email.setText(recUser.getEmail());
-        //profilepic.setImageResource(image);
+        profilepic.setImageBitmap(receiveImage(recUser.getProfilePic()));
         //set latest history results
         ProgressDialog dialog = ProgressDialog.show(connect_person.this, "",
                 "Loading. Please wait...", true);
@@ -336,4 +337,8 @@ public class connect_person extends AppCompatActivity {
         }
     }
 
+    public Bitmap receiveImage(byte[] input_byte){
+        Bitmap bmp= BitmapFactory.decodeByteArray(input_byte,0,input_byte.length);
+        return bmp;
+    }
 }
