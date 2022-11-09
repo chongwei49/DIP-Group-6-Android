@@ -144,6 +144,25 @@ public class connect_person extends AppCompatActivity {
                 setUpTraitDescription();
                 setUpCardView();
 
+                Services.getAllTraits(connect_person.this, new Services.TraitCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<Trait> result) {
+                        if(result.isEmpty()){
+                            Log.d("getAllTraits empty","");
+                        }
+                        for(int i =0;i<result.size();i++){
+                            if(persTrait.getText().equals(result.get(i).getPersonalityType())){
+                                String temp = String.valueOf(persTrait.getText());
+                                Log.d("testgetDesc",result.get(i).getDescription());
+
+                                persTrait.setText(result.get(i).getTraitName()+" ("+temp+")");
+                            }
+                        }
+                    }
+                });
+
+                //service call
+
             }
         });
 
