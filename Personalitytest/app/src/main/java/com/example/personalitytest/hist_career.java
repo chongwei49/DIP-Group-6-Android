@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Trait;
@@ -178,8 +180,15 @@ public class hist_career extends AppCompatActivity {
                 }
             }
 
+            @Override
+            public void onFailure(String error) {
+                Context context = getApplicationContext();
+                CharSequence text = error;
+                int duration = Toast.LENGTH_SHORT;
 
-
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         });
 
 
@@ -193,6 +202,16 @@ public class hist_career extends AppCompatActivity {
                         tvDesc.setText(result.get(i).getDescription());
                     }
                 }
+            }
+
+            @Override
+            public void onFailure(String error) {
+                Context context = getApplicationContext();
+                CharSequence text = error;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         });
 

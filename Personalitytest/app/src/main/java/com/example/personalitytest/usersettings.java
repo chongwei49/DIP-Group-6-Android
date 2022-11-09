@@ -132,14 +132,15 @@ public class usersettings extends AppCompatActivity {
                 }
                 if(!TextUtils.isEmpty(nameInput.getText().toString()) && !TextUtils.isEmpty(emailInput.getText().toString())){
                     String gender = spinner.getSelectedItem().toString();
-                    /*ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
+                    ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
                             "Loading. Please wait...", true);
 
-                    Services.editUser(userId, userName, userEmail, userPassword, dateButton.getText().toString(), gender, userPP,
+                    Services.editUser(userId, userName, userEmail, null, dateButton.getText().toString(), gender, userPP,
                             usersettings.this, new Services.UserCallback() {
                                 @Override
                                 public void onSuccess(ArrayList<User> result) {
                                     Log.d("Response result", String.valueOf(result.get(0).getName()));
+                                    Log.d("Response password", String.valueOf(result.get(0).getPassword()));
                                     dialog.cancel();
                                     if(!result.isEmpty()){
                                         userInfo = result;
@@ -152,7 +153,13 @@ public class usersettings extends AppCompatActivity {
                                         Log.d("Else Response", "Multiple User Object Detected");
                                     }
                                 }
-                            });*/
+
+                                @Override
+                                public void onFailure(String error) {
+                                    dialog.cancel();
+                                    Log.d("FailRes UserEdit", error);
+                                }
+                            });
                 }
 
             }

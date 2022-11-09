@@ -2,6 +2,7 @@ package com.example.personalitytest;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -110,6 +112,15 @@ public class connect_person extends AppCompatActivity {
 
 
             }
+            @Override
+            public void onFailure(String error) {
+                Context context = getApplicationContext();
+                CharSequence text = error;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         });
 
         persTrait = (TextView) findViewById(R.id.persTrait);
@@ -138,6 +149,16 @@ public class connect_person extends AppCompatActivity {
                         }
                     }
                 }
+            }
+
+            @Override
+            public void onFailure(String error) {
+                Context context = getApplicationContext();
+                CharSequence text = error;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         });
 

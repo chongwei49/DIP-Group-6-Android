@@ -372,6 +372,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -442,6 +443,7 @@ public class Services {
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         ) {
@@ -500,6 +502,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -548,6 +551,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -562,14 +566,17 @@ public class Services {
 
     public interface QuestionCallback{
         void onSuccess(ArrayList<Question> result);
+        void onFailure(String error);
     }
 
     public interface TraitCallback{
         void onSuccess(ArrayList<Trait> result);
+        void onFailure(String error);
     }
 
     public interface PersonalityCallback{
         void onSuccess(ArrayList<Personality> result);
+        void onFailure(String error);
     }
 }
 
