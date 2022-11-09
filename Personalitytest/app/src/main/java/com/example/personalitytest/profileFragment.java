@@ -107,6 +107,7 @@ public class profileFragment extends Fragment {
             userId = userInfo.get(0).getUserId();
             personalityList=userInformation.getParcelableArrayList("personality_information");
             traitsList=userInformation.getParcelableArrayList("traits4prof");
+            Log.d("userInfo", userInfo.toString());
 
             for(int i =0;i<personalityList.size();i++){
                 //Log.d("test", personalityList.get(i).getPersonalityType());

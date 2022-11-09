@@ -43,7 +43,6 @@ public class Home extends AppCompatActivity {
     private String userDOB;
     private byte[] userProfilePic;
     private Bundle bundle = new Bundle();
-    private ArrayList<User> usersInf = new ArrayList<User>();
     private ArrayList<User> userInfo = new ArrayList<User>();
 
     homeFragment homeFragment = new homeFragment();
@@ -242,7 +241,7 @@ public class Home extends AppCompatActivity {
 
                     @Override
                     public void onFailure(String error) {
-
+                        Log.d("FailRes GetUsers", error);
                     }
                 });
 

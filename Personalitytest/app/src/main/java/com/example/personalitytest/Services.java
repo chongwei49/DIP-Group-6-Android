@@ -264,8 +264,6 @@ public class Services {
                         if (response.toString().startsWith("{")) {
                             Log.d("LOG_EDITUSER", response.toString());
                             try {
-                                Log.d("LOG_EDITUSER", response.toString());
-
                                 ArrayList<User> user_list = new ArrayList<User>();
 
                                 user_list.add(new User(
@@ -276,7 +274,7 @@ public class Services {
                                         response.getString("dob"),
                                         response.getString("gender"),
                                         (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
-
+                                Log.d("LOG_userListName", user_list.get(0).getName());
                                 callback.onSuccess(user_list);
                             } catch (Throwable tx) {
                                 Log.e("Error:", "Error parsing JSON");
