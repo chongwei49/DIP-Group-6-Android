@@ -174,6 +174,7 @@ public class profileFragment extends Fragment {
         }else{
             userProfilePicture.setImageResource(R.drawable.user);
         }
+        Log.d("From fragment", "Current User Profile Pic: " + userProfilePic);
         usernameText.setText(userName);
         emailText.setText(userEmail);
         settingsbtn.setOnClickListener(new View.OnClickListener(){
