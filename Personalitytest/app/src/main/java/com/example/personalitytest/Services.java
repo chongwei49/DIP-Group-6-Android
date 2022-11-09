@@ -556,6 +556,54 @@ public class Services {
         queue.add(getRequest);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void getCompatibilities(String qnCategory, String traits, Activity activity, final UserCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "personalities/friends/" + qnCategory + "/" + traits;
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        try {
+                            // convert response to JSON object
+                            JSONArray array = new JSONArray(response);
+                            ArrayList<User> friendList = new ArrayList<>();
+
+                            for(int i=0; i < array.length(); i++){
+                                JSONObject userObject = array.getJSONObject(i);
+
+                                friendList.add(new User(
+                                        userObject.getInt("userId"),
+                                        userObject.getString("name"),
+                                        userObject.getString("email"),
+                                        userObject.getString("password"),
+                                        userObject.getString("dob"),
+                                        userObject.getString("gender"),
+                                        (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                            }
+
+                            Log.d("test friendList", friendList.get(0).getName());
+
+                            callback.onSuccess(friendList);
+
+                        } catch (Throwable tx) {
+                            Log.e("Error", response);
+                            Log.e("Error:", "Error parsing JSON");
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR", "error => " + error.toString());
+                    }
+                }
+        );
+        queue.add(getRequest);
+    }
 
     public interface UserCallback{
         void onSuccess(ArrayList<User> result);

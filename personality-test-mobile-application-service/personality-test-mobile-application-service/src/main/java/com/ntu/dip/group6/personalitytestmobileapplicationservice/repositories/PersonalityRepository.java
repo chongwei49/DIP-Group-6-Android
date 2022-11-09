@@ -8,4 +8,6 @@ import java.util.List;
 public interface PersonalityRepository extends CrudRepository<Personality, Integer> {
 
     public List<Personality> findByUserId(Integer userId);
+
+    public List<Personality> findByPersonalityType(String personalityType);
 }
