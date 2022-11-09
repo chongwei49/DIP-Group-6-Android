@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Trait;
@@ -179,6 +181,16 @@ public class hist_personality extends AppCompatActivity {
                     tvTrait4.setText(persTypeAL.get(persTypeAL.size()-5));
                 }
             }
+
+            @Override
+            public void onFailure(String error) {
+                Context context = getApplicationContext();
+                CharSequence text = error;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         });
 
         Services.getAllTraits(hist_personality.this, new Services.TraitCallback() {
@@ -195,6 +207,16 @@ public class hist_personality extends AppCompatActivity {
                         tvTrait0.setText(result.get(i).getTraitName()+" ("+temp+")");
                     }
                 }
+            }
+
+            @Override
+            public void onFailure(String error) {
+                Context context = getApplicationContext();
+                CharSequence text = error;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         });
 

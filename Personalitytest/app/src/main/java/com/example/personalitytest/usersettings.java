@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -33,11 +34,12 @@ import com.google.android.gms.tasks.Task;
 import java.util.ArrayList;
 import java.util.Calendar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class usersettings extends AppCompatActivity {
 
     private Button button;
-    private TextView button2, connect;
+    private TextView button2, connect, results;
     private ImageView DPbtn;
     private PopupWindow popupWindow;
     private LayoutInflater layoutInflater;
@@ -117,6 +119,16 @@ public class usersettings extends AppCompatActivity {
             }
         });
 
+        results = findViewById(R.id.resultsBtn);
+        results.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle userInformation = new Bundle();
+                userInformation.putParcelableArrayList("userInfo",userInfo);
+                toresultssactivity(userInformation);
+            }
+        });
+
         button2 = (TextView) findViewById(R.id.saveBtn);
         button2.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -132,27 +144,42 @@ public class usersettings extends AppCompatActivity {
                 }
                 if(!TextUtils.isEmpty(nameInput.getText().toString()) && !TextUtils.isEmpty(emailInput.getText().toString())){
                     String gender = spinner.getSelectedItem().toString();
-                    /*ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
+                    ProgressDialog dialog = ProgressDialog.show(usersettings.this, "",
                             "Loading. Please wait...", true);
 
-                    Services.editUser(userId, userName, userEmail, userPassword, dateButton.getText().toString(), gender, userPP,
+                    Services.editUser(userId, userName, userEmail, null, dateButton.getText().toString(), gender, userPP,
                             usersettings.this, new Services.UserCallback() {
                                 @Override
                                 public void onSuccess(ArrayList<User> result) {
-                                    Log.d("Response result", String.valueOf(result.get(0).getName()));
+                                    Log.d("Response password", String.valueOf(result.get(0).getPassword()));
                                     dialog.cancel();
                                     if(!result.isEmpty()){
-                                        userInfo = result;
+                                        Log.d("result check", "Success!");
 
+                                        userInfo = result;
                                         Bundle userInformation = new Bundle();
                                         userInformation.putParcelableArrayList("userInfo",userInfo);
                                         toresultssactivity(userInformation);
-                                        Log.d("userId Check", result.get(0).getUserId().toString());
+
+                                        Context context = getApplicationContext();
+                                        CharSequence text = "Edit Saved!";
+                                        int duration = Toast.LENGTH_SHORT;
+                                        Toast toast = Toast.makeText(context, text, duration);
+                                        toast.show();
+
+                                        Log.d("EditUser","Successful");
                                     }else{
                                         Log.d("Else Response", "Multiple User Object Detected");
                                     }
+
                                 }
-                            });*/
+
+                                @Override
+                                public void onFailure(String error) {
+                                    dialog.cancel();
+                                    Log.d("FailRes UserEdit", error);
+                                }
+                            });
                 }
 
             }
@@ -294,6 +321,7 @@ public class usersettings extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
     public void toresultssactivity(Bundle bundle) {
         Intent intent = new Intent(this, profileFragment.class);
         intent.putExtras(bundle);
