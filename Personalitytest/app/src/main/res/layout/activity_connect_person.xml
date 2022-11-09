@@ -109,6 +109,113 @@
 
         </RelativeLayout>
 
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/personality"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="232dp"
+            android:visibility="visible"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="140dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/personalityresult"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="224dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="Personality Test"
+                    android:textColor="#4E4848"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="60dp"
+                    android:layout_height="78dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="171dp"
+                    app:srcCompat="@drawable/logo" />
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="You"
+                    android:textColor="#757171"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/persTrait"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="DIRECTOR"
+                    android:textColor="#757171"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/userpersonalityname"
+                    android:layout_width="170dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="User"
+                    android:textColor="#757171"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/userpersonalitytrait"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="55dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#757171"
+                    android:textSize="22sp" />
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/notdone_personality"
             android:layout_width="400dp"
@@ -118,7 +225,7 @@
             android:layout_marginTop="170dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="232dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
@@ -167,17 +274,16 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
+
         <androidx.cardview.widget.CardView
-            android:id="@+id/personality"
+            android:id="@+id/love"
             android:layout_width="400dp"
             android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="320dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="232dp"
-            android:visibility="invisible"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
@@ -190,7 +296,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/personalityresult"
+                android:background="@drawable/loveresult"
                 android:orientation="vertical">
 
                 <TextView
@@ -202,48 +308,73 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="Personality Test"
+                    android:text="Love Test"
                     android:textColor="#4E4848"
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/imageView16"
                     android:layout_width="60dp"
                     android:layout_height="78dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="171dp"
-                    app:srcCompat="@drawable/logo" />
+                    android:layout_marginTop="46dp"
+                    android:layout_marginEnd="172dp"
+                    app:srcCompat="@drawable/lovetestlogo" />
 
                 <TextView
-                    android:id="@+id/persTrait"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="-6dp"
-                    android:layout_marginTop="59dp"
-                    android:fontFamily="@font/segeodisplaysemibold"
-                    android:gravity="center"
-                    android:text="DIRECTOR"
-                    android:textColor="#757171"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
+                    android:id="@+id/userlovename"
+                    android:layout_width="170dp"
+                    android:layout_height="20dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="220dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="45dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="DIRECTOR"
+                    android:text="User"
                     android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/userlovetrait"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="55dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#757171"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="You"
+                    android:textColor="#757171"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/loveTrait"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="-18dp"
+                    android:layout_marginTop="63dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#757171"
+                    android:textSize="22sp" />
 
 
             </RelativeLayout>
@@ -258,7 +389,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="320dp"
             android:layout_marginEnd="20dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
@@ -308,86 +439,6 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/love"
-            android:layout_width="400dp"
-            android:layout_height="130dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="320dp"
-            android:layout_marginEnd="20dp"
-            android:visibility="invisible"
-            app:cardCornerRadius="20dp">
-
-            <RelativeLayout
-                android:layout_width="400dp"
-                android:layout_height="140dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/loveresult"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="224dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="12dp"
-                    android:fontFamily="@font/segeodisplaysemibold"
-                    android:gravity="center"
-                    android:text="Love Test"
-                    android:textColor="#4E4848"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="78dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="46dp"
-                    android:layout_marginEnd="172dp"
-                    app:srcCompat="@drawable/lovetestlogo" />
-
-                <TextView
-                    android:id="@+id/loveTrait"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="209dp"
-                    android:layout_marginTop="65dp"
-                    android:fontFamily="@font/segeodisplaysemibold"
-                    android:gravity="center"
-                    android:text="GIVER"
-                    android:textColor="#757171"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:id="@+id/loveResult2"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="-18dp"
-                    android:layout_marginTop="63dp"
-                    android:fontFamily="@font/segeodisplaysemibold"
-                    android:gravity="center"
-                    android:text="GIVER"
-                    android:textColor="#757171"
-                    android:textSize="25sp" />
-
-
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
             android:id="@+id/career"
             android:layout_width="400dp"
             android:layout_height="130dp"
@@ -396,7 +447,6 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="470dp"
             android:layout_marginEnd="20dp"
-            android:visibility="visible"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
@@ -436,32 +486,58 @@
                     app:srcCompat="@drawable/joblogo" />
 
                 <TextView
-                    android:id="@+id/personalityResult"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
+                    android:id="@+id/usercareername"
+                    android:layout_width="170dp"
+                    android:layout_height="20dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="213dp"
-                    android:layout_marginTop="67dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="45dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="LEADER"
+                    android:text="User"
                     android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/usercareertrait"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="55dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#757171"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/segeodisplaysemibold"
+                    android:gravity="center"
+                    android:text="You"
+                    android:textColor="#757171"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/careerTrait"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="-9dp"
-                    android:layout_marginTop="66dp"
+                    android:layout_marginStart="-18dp"
+                    android:layout_marginTop="63dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
-                    android:text="LEADER"
+                    android:text=""
                     android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:textSize="22sp" />
 
 
             </RelativeLayout>
@@ -475,7 +551,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="470dp"
             android:layout_marginEnd="20dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
