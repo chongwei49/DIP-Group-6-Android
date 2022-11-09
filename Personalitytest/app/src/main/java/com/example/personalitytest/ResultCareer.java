@@ -24,6 +24,7 @@ public class ResultCareer extends AppCompatActivity {
     private ImageView homebutton;
     private TextView resultView, descView;
     private String quiz_result, description="";
+    private ImageView careerAvatar;
 
     private String USER_INFORMATION;
     private Integer userId;
@@ -57,6 +58,7 @@ public class ResultCareer extends AppCompatActivity {
 
         resultView = findViewById(R.id.textView9);
         descView = findViewById(R.id.textView10);
+        careerAvatar = findViewById(R.id.careeravatar);
 
 
         homebutton = (ImageView) findViewById(R.id.homebutton);
@@ -70,6 +72,21 @@ public class ResultCareer extends AppCompatActivity {
 
     public void tohomeactivity() {
         finish();
+    }
+    public int getImageName(String result) {
+
+        switch(result) {
+            case "Asocial":
+                return R.drawable.asocial;
+            case "Outgoing":
+                return R.drawable.outgoing;
+            case "Realistic":
+                return R.drawable.realistic;
+            case "Idealistic":
+                return R.drawable.idealistic;
+            default:
+                return 0;
+        }
     }
 
     public void getUserInfo(){
@@ -126,6 +143,7 @@ public class ResultCareer extends AppCompatActivity {
 
                             resultView.setText(quiz_result);
                             descView.setText(result.get(0).getDescription());
+                            careerAvatar.setImageResource(getImageName(quiz_result));
                         }else{
                             Log.d("Else Response", "Multiple User Object Detected");
                         }
