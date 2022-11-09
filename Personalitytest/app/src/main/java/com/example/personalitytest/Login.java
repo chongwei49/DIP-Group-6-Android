@@ -98,6 +98,7 @@ public class Login extends AppCompatActivity {
                             userInformation.putParcelableArrayList("userInfo",userInfo);
                             homeActivity(userInformation);
                             Log.d("Login","Successful");
+                            Log.d("User_picture", String.valueOf(userInfo.get(0).getProfilePic()));
                         }else{
                             Log.d("Else Response", "Multiple User Object Detected");
                         }

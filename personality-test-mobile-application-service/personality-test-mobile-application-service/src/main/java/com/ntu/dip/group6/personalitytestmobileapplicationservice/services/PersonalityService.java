@@ -2,15 +2,14 @@ package com.ntu.dip.group6.personalitytestmobileapplicationservice.services;
 
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.models.Personality;
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.models.Traits;
+import com.ntu.dip.group6.personalitytestmobileapplicationservice.models.User;
 import com.ntu.dip.group6.personalitytestmobileapplicationservice.repositories.PersonalityRepository;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 @Service
 public class PersonalityService {
@@ -20,6 +19,9 @@ public class PersonalityService {
 
     @Autowired
     TraitsService traitsService;
+
+    @Autowired
+    UserService userService;
 
     public Iterable<Personality> getAllPersonalities() {
         return personalityRepository.findAll();
@@ -32,6 +34,39 @@ public class PersonalityService {
     public List<Personality> getPersonalityByUserId(Integer userId) {
         return personalityRepository.findByUserId(userId);
     }
+
+    public Personality getPersonalityByUserIdLatest(String qnCategory, Integer userId) {
+        List<Personality> list = personalityRepository.findByUserId(userId);
+        List<Personality> filteredByCategory = new ArrayList<>();
+
+        for (int i=0; i<list.size(); i++) {
+            if (list.get(i).getQnCategory().toLowerCase().equals(qnCategory.toLowerCase())) {
+                filteredByCategory.add(list.get(i));
+            }
+        }
+
+        return filteredByCategory.get(filteredByCategory.size()-1);
+    }
+
+    public List<Personality> getPersonalityListLatest(String qnCategory) {
+
+        Iterable<Personality> personalities = personalityRepository.findAll();
+        List<Integer> userIdList = new ArrayList<>();
+        List<Personality> filteredLatest = new ArrayList<>();
+
+        for (Personality personality : personalities) {
+            if (personality.getQnCategory().toLowerCase().equals(qnCategory.toLowerCase()) && !userIdList.contains(personality.getUserId())) {
+                userIdList.add(personality.getUserId());
+            }
+        }
+
+        for (Integer userId : userIdList) {
+            filteredLatest.add(getPersonalityByUserIdLatest(qnCategory, userId));
+        }
+
+        return filteredLatest;
+    }
+
 
     public Map<String, Boolean> checkTestDone(Integer userId) {
         List<Personality> list = personalityRepository.findByUserId(userId);
@@ -87,4 +122,27 @@ public class PersonalityService {
     public void deletePersonality(Integer priId) {
         personalityRepository.deleteById(priId);
     }
+
+    public List<User> getCompatibility(String qnCategory, String type) {
+
+        List<User> output = new ArrayList<>();
+
+        for (Personality latestPersonality : getPersonalityListLatest(qnCategory)) {
+            Integer count = 0;
+            for (int i=0; i<type.length(); i++) {
+                char ch = type.charAt(i);
+                if (latestPersonality.getPersonalityType().contains(String.valueOf(ch))) {
+                    count+=1;
+                }
+            }
+
+            if (count >= 2 && !output.contains(userService.getUserById(latestPersonality.getUserId()))) {
+                output.add(userService.getUserById(latestPersonality.getUserId()));
+            }
+        }
+
+        return output;
+    }
+
 }
+

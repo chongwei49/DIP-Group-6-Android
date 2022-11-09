@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.personalitytest.models.Personality;
+import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
@@ -59,6 +60,7 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     private ArrayList<Personality> personalityList_16 = new ArrayList<Personality>();
     private ArrayList<Personality> personalityList_job = new ArrayList<Personality>();
     private ArrayList<Personality> personalityList_love = new ArrayList<Personality>();
+    private ArrayList<Trait> traitsList = new ArrayList<Trait>();
 
 
     public connectFragment() {
@@ -97,6 +99,7 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
             userId = userInfo.get(0).getUserId();
             personalityList=userInformation.getParcelableArrayList("personality_information");
             allUsers=userInformation.getParcelableArrayList("all_users");
+            traitsList=userInformation.getParcelableArrayList("traits4prof");
             for(int i =0;i<personalityList.size();i++){
                 if(personalityList.get(i).getQnCategory().contains("16Personalities")){
                     personalityList_16.add(personalityList.get(i));
@@ -219,6 +222,10 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     public void onItemClick(int position, ArrayList<User> arrayList) { //Overloaded function
         Intent intent = new Intent(getActivity(),connect_person.class);
         intent.putExtra("UserInfo", arrayList.get(position));
+//        Bundle bundle = new Bundle();
+//        bundle.put
+//        bundle.putParcelableArrayList("traits4prof",traitsList);
+//        intent.putExtras(bundle);
         startActivity(intent);
     }
 
@@ -318,6 +325,10 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     }
 
     public void setUpCatergoryUserList(){
+        user_connect_personality_List.clear();
+        user_connect_love_List.clear();
+        user_connect_career_List.clear();
+
         for(int i=0;i<allUsers.size();i++){
             if(!allUsers.get(i).getUserId().equals(userId)){
                 for(int j=0;j<personalityList_16.size();j++){

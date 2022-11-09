@@ -5,15 +5,18 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Question;
@@ -41,7 +44,6 @@ public class Home extends AppCompatActivity {
     private String userDOB;
     private byte[] userProfilePic;
     private Bundle bundle = new Bundle();
-    private ArrayList<User> usersInf = new ArrayList<User>();
     private ArrayList<User> userInfo = new ArrayList<User>();
 
     homeFragment homeFragment = new homeFragment();
@@ -82,6 +84,7 @@ public class Home extends AppCompatActivity {
             userProfilePic = userInformationArray.get(0).getProfilePic();
 
             Log.d("userName log", userName);
+            Log.d("UserPicture log", String.valueOf(userProfilePic));
 
             homeFragment.setArguments(bundle);
             profileFragment.setArguments(bundle);
@@ -96,8 +99,10 @@ public class Home extends AppCompatActivity {
             userPassword = prefs.getString("password", "default");
             userGender = prefs.getString("gender", "default");
             userDOB = prefs.getString("DOB", "default");
+            userProfilePic = Base64.decode(prefs.getString("profilePic", "default"), Base64.DEFAULT);
 
-            Log.d("User name", "User name, " + userName);
+            Log.d("User_name", "User name, " + userName);
+            Log.d("User_picture", "User picture, " + userProfilePic);
 
             userInfo.add(new User(userId, userName, userEmail, userPassword, userGender, userDOB, userProfilePic));
 //
@@ -160,6 +165,8 @@ public class Home extends AppCompatActivity {
         editor.putString("email", userEmail);
         editor.putString("gender", userGender);
         editor.putString("dob", userDOB);
+        String profilePicString = Base64.encodeToString(userProfilePic, Base64.DEFAULT);
+        editor.putString("profilePic", profilePicString);
         editor.apply();
     }
 
@@ -175,7 +182,7 @@ public class Home extends AppCompatActivity {
         userInformation.putString("email", userEmail);
         userInformation.putString("gender", userGender);
         userInformation.putString("dob", userDOB);
-
+        userInformation.putByteArray("profilePic", userProfilePic);
     }
 
     @Override
@@ -205,11 +212,21 @@ public class Home extends AppCompatActivity {
                             bundle.putParcelableArrayList("personality_information",result);
                             //test
                             for(int i=0;i<result.size();i++){
-                                Log.d("test getAllPersonality", String.valueOf(result.get(i).getUserId()));
+                                //Log.d("test getAllPersonality", String.valueOf(result.get(i).getUserId()));
                             }
                         }else{
                             Log.d("Else Response", "Multiple User Object Detected");
                         }
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+                        Context context = getApplicationContext();
+                        CharSequence text = error;
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 });
 
@@ -220,7 +237,7 @@ public class Home extends AppCompatActivity {
                             bundle.putParcelableArrayList("all_users",result);
                             //test
                             for(int i=0;i<result.size();i++){
-                                Log.d("test getAllUsers", String.valueOf(result.get(i).getUserId()));
+                                //Log.d("test getAllUsers", String.valueOf(result.get(i).getUserId()));
                             }
                         }else{
                             Log.d("Else Response", "Multiple User Object Detected");
@@ -230,7 +247,7 @@ public class Home extends AppCompatActivity {
 
                     @Override
                     public void onFailure(String error) {
-
+                        Log.d("FailRes GetUsers", error);
                     }
                 });
 
@@ -238,10 +255,20 @@ public class Home extends AppCompatActivity {
                     @Override
                     public void onSuccess(ArrayList<Trait> result) {
                         if(result.isEmpty()){
-                            Log.d("getAllTraits empty","");
+                            //Log.d("getAllTraits empty","");
                         }else{
                             bundle.putParcelableArrayList("traits4prof",result);
                         }
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+                        Context context = getApplicationContext();
+                        CharSequence text = error;
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 });
             } catch (Exception e) {
@@ -252,9 +279,16 @@ public class Home extends AppCompatActivity {
         }
 
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         protected void onPostExecute(String result) {
-            progressDialog.dismiss();
+            try {
+                Thread.sleep(300);
+                progressDialog.dismiss();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
 
 

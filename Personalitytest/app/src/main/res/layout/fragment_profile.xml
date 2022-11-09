@@ -157,17 +157,17 @@
 
                 <TextView
                     android:id="@+id/persTrait"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
+                    android:layout_width="239dp"
+                    android:layout_height="38dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="95dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="93dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
                     android:text="DIRECTOR"
                     android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/personalityHistory"
@@ -175,12 +175,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="25dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="12dp"
                     android:fontFamily="@font/segeodisplay"
                     android:text="@string/view_history"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="10sp" />
 
 
             </RelativeLayout>
@@ -295,17 +295,17 @@
 
                 <TextView
                     android:id="@+id/loveTrait"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
+                    android:layout_width="244dp"
+                    android:layout_height="45dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="76dp"
                     android:layout_marginTop="95dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
                     android:text="GIVER"
                     android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/loveHistory"
@@ -313,12 +313,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="25dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginEnd="26dp"
+                    android:layout_marginBottom="11dp"
                     android:fontFamily="@font/segeodisplay"
                     android:text="@string/view_history"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="10sp" />
 
 
             </RelativeLayout>
@@ -432,17 +432,17 @@
 
                 <TextView
                     android:id="@+id/careerTrait"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
+                    android:layout_width="244dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="78dp"
                     android:layout_marginTop="95dp"
                     android:fontFamily="@font/segeodisplaysemibold"
                     android:gravity="center"
                     android:text="LEADER"
                     android:textColor="#757171"
-                    android:textSize="25sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/careerHistory"
@@ -450,12 +450,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="25dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginEnd="26dp"
+                    android:layout_marginBottom="14dp"
                     android:fontFamily="@font/segeodisplay"
                     android:text="@string/view_history"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="10sp" />
 
 
             </RelativeLayout>

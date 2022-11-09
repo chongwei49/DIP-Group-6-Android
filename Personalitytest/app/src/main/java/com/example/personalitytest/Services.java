@@ -68,7 +68,7 @@ public class Services {
 
                             callback.onSuccess(user_list);
                         } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                            Log.e("Error:", "Error parsing JSON - Login");
                         }
 
                     }
@@ -125,7 +125,7 @@ public class Services {
                             callback.onSuccess(userList);
 
                         } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                            Log.e("Error:", "Error parsing JSON - Get All Users");
                         }
 
                     }
@@ -264,8 +264,6 @@ public class Services {
                         if (response.toString().startsWith("{")) {
                             Log.d("LOG_EDITUSER", response.toString());
                             try {
-                                Log.d("LOG_EDITUSER", response.toString());
-
                                 ArrayList<User> user_list = new ArrayList<User>();
 
                                 user_list.add(new User(
@@ -276,10 +274,10 @@ public class Services {
                                         response.getString("dob"),
                                         response.getString("gender"),
                                         (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
-
+                                Log.d("LOG_userListName", user_list.get(0).getName());
                                 callback.onSuccess(user_list);
                             } catch (Throwable tx) {
-                                Log.e("Error:", "Error parsing JSON");
+                                Log.e("Error:", "Error parsing JSON - Edit User");
                             }
                         }
                         else{
@@ -356,7 +354,7 @@ public class Services {
                                 callback.onSuccess(personalityList);
 
                             } catch (Throwable tx) {
-                                Log.e("Error:", "Error parsing JSON");
+                                Log.e("Error:", "Error parsing JSON - Get All Personalities");
                             }
                         }
                         else {
@@ -372,6 +370,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -415,7 +414,7 @@ public class Services {
 
                                 callback.onSuccess(personalities_list);
                             }catch (Throwable tx) {
-                                Log.e("Error:", "Error parsing JSON");
+                                Log.e("Error:", "Error parsing JSON - Add New Personalities");
                             }
                         }
                         else {
@@ -442,6 +441,7 @@ public class Services {
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         ) {
@@ -490,7 +490,7 @@ public class Services {
                             callback.onSuccess(traitsList);
 
                         } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                            Log.e("Error:", "Error parsing JSON - Get All Traits");
                         }
 
                     }
@@ -500,6 +500,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -538,6 +539,56 @@ public class Services {
                             callback.onSuccess(questionsList);
 
                         } catch (Throwable tx) {
+                            Log.e("Error:", "Error parsing JSON - Get All Questions");
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
+                    }
+                }
+        );
+        queue.add(getRequest);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void getCompatibilities(String qnCategory, String traits, Activity activity, final UserCallback callback) {
+        RequestQueue queue = Volley.newRequestQueue(activity);
+        String url = baseURL + "personalities/friends/" + qnCategory + "/" + traits;
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        try {
+                            // convert response to JSON object
+                            JSONArray array = new JSONArray(response);
+                            ArrayList<User> friendList = new ArrayList<>();
+
+                            for(int i=0; i < array.length(); i++){
+                                JSONObject userObject = array.getJSONObject(i);
+
+                                friendList.add(new User(
+                                        userObject.getInt("userId"),
+                                        userObject.getString("name"),
+                                        userObject.getString("email"),
+                                        userObject.getString("password"),
+                                        userObject.getString("dob"),
+                                        userObject.getString("gender"),
+                                        (userObject.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
+                            }
+
+                            Log.d("test friendList", friendList.get(0).getName());
+
+                            callback.onSuccess(friendList);
+
+                        } catch (Throwable tx) {
+                            Log.e("Error", response);
                             Log.e("Error:", "Error parsing JSON");
                         }
 
@@ -554,7 +605,6 @@ public class Services {
         queue.add(getRequest);
     }
 
-
     public interface UserCallback{
         void onSuccess(ArrayList<User> result);
         void onFailure(String error);
@@ -562,14 +612,17 @@ public class Services {
 
     public interface QuestionCallback{
         void onSuccess(ArrayList<Question> result);
+        void onFailure(String error);
     }
 
     public interface TraitCallback{
         void onSuccess(ArrayList<Trait> result);
+        void onFailure(String error);
     }
 
     public interface PersonalityCallback{
         void onSuccess(ArrayList<Personality> result);
+        void onFailure(String error);
     }
 }
 

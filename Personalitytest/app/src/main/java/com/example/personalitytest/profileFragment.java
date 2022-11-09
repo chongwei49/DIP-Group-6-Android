@@ -107,6 +107,7 @@ public class profileFragment extends Fragment {
             userId = userInfo.get(0).getUserId();
             personalityList=userInformation.getParcelableArrayList("personality_information");
             traitsList=userInformation.getParcelableArrayList("traits4prof");
+            Log.d("userInfo", userInfo.toString());
 
             for(int i =0;i<personalityList.size();i++){
                 //Log.d("test", personalityList.get(i).getPersonalityType());
@@ -154,7 +155,7 @@ public class profileFragment extends Fragment {
         notdone_personalty = view.findViewById(R.id.notdone_personality);
         notdone_love = view.findViewById(R.id.notdone_love);
         notdone_career = view.findViewById(R.id.notdone_career);
-
+        changeDPbtn.setVisibility(View.GONE);
         changeDPbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -169,13 +170,17 @@ public class profileFragment extends Fragment {
         userEmail=userInfo.get(0).getEmail();
         userProfilePic=userInfo.get(0).getProfilePic();
 
-        if(userProfilePic!=null){
+        /*if(userProfilePic!=null){
             userProfilePicture.setImageBitmap(receiveImage(userProfilePic));
         }else{
             userProfilePicture.setImageResource(R.drawable.user);
-        }
+        }*/
+
+        userProfilePicture.setImageResource(R.drawable.user);
+
         usernameText.setText(userName);
         emailText.setText(userEmail);
+
         settingsbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

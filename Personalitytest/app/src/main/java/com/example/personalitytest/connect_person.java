@@ -2,6 +2,7 @@ package com.example.personalitytest;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +26,8 @@ import java.util.ArrayList;
 
 public class connect_person extends AppCompatActivity {
 
-    private TextView connect, username, age;
-    private Integer userId;
+    private TextView connect, username, email;
+    private Integer recUserId;
     private String userName;
     private String userEmail;
     private String userGender;
@@ -44,24 +46,39 @@ public class connect_person extends AppCompatActivity {
     private ArrayList<String> personalityTraits = new ArrayList<String>();
     private ArrayList<String> loveTraits = new ArrayList<String>();
     private ArrayList<String> careerTraits = new ArrayList<String>();
-
+    private User recUser;
+;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_person);
+        Log.d("connect_person:","start");
 
-        String name = getIntent().getStringExtra("Name");
-        String ages = getIntent().getStringExtra("Age");
+//        String name = getIntent().getStringExtra("Name");
+//        String ages = getIntent().getStringExtra("Age");
+        recUser = getIntent().getParcelableExtra("UserInfo");
+        Bundle bundle = new Bundle();
+        bundle = getIntent().getExtras();
+        traitsList = bundle.getParcelableArrayList("traits4prof");
+//        if(traitsList.isEmpty()){
+//            Log.d("traitsList","empty");
+//        }
+
         int image = getIntent().getIntExtra("Profile Pic",0);
-
+        recUserId=recUser.getUserId();
+        Log.d("userId",recUserId+": "+recUser.getName());
         profilepic =  findViewById(R.id.profilepic);
         username = findViewById(R.id.username);
-        age = findViewById(R.id.age);
+        email = findViewById(R.id.email2);
 
-        username.setText(name);
-        age.setText(ages);
-        profilepic.setImageResource(image);
+        notdone_personalty = findViewById(R.id.notdone_personality);
+        notdone_love = findViewById(R.id.notdone_love);
+        notdone_career = findViewById(R.id.notdone_career);
+
+        username.setText(recUser.getName());
+        email.setText(recUser.getEmail());
+        //profilepic.setImageResource(image);
         //set latest history results
         ProgressDialog dialog = ProgressDialog.show(connect_person.this, "",
                 "Loading. Please wait...", true);
@@ -69,12 +86,13 @@ public class connect_person extends AppCompatActivity {
             @Override
             public void onSuccess(ArrayList<Personality> result) {
                 if(!result.isEmpty()){
+                    Log.d("result:","not empty");
                     //test
                     personalityList=result;
-                    for(int i=0;i<result.size();i++){
-                        Log.d("histC_getAllPers", personalityList.get(i).getUserId() +","+personalityList.get(i).getDateTime()+", " +
-                                personalityList.get(i).getQnCategory());
-                    }
+//                    for(int i=0;i<result.size();i++){
+//                        //Log.d("histC_getAllPers", personalityList.get(i).getUserId() +","+personalityList.get(i).getDateTime()+", " +
+//                        //        personalityList.get(i).getQnCategory());
+//                    }
 
                 }else{
                     Log.d("Else Response", "Multiple User Object Detected");
@@ -87,59 +105,97 @@ public class connect_person extends AppCompatActivity {
                 for(int i =0;i<personalityList.size();i++){
                     //Log.d("test", personalityList.get(i).getPersonalityType());
                     if(personalityList.get(i).getQnCategory().contains("16Personalities")){
-                        if (personalityList.get(i).getUserId() == userId) {
+                        if (personalityList.get(i).getUserId().equals(recUserId)) {
+                            //Log.d("testPers", personalityList.get(i).getPersonalityType());
                             personalityTraits.add(personalityList.get(i).getPersonalityType());
                             personality_16 = true;
+
                         }
                     }
                     else if(personalityList.get(i).getQnCategory().contains("Love")){
-                        if (personalityList.get(i).getUserId() == userId) {
+                        if (personalityList.get(i).getUserId().equals(recUserId)) {
+                            //Log.d("testLove", personalityList.get(i).getPersonalityType());
                             loveTraits.add(personalityList.get(i).getPersonalityType());
                             personality_love = true;
                         }
                     }
                     else if(personalityList.get(i).getQnCategory().contains("Job")){
-                        if (personalityList.get(i).getUserId() == userId) {
+                        if (personalityList.get(i).getUserId().equals(recUserId)) {
+                            //Log.d("testCareer", personalityList.get(i).getPersonalityType());
                             careerTraits.add(personalityList.get(i).getPersonalityType());
                             personality_job = true;
                         }
                     }
-                    Log.d("ConFragment Per_List:",personalityList.get(i).getUserId().toString());
+                    //Log.d("ConFragment Per_List:",personalityList.get(i).getUserId().toString());
                 }
 
 
+                for(int i=0;i<personalityTraits.size();i++){
+                    Log.d("persTrait",personalityTraits.get(i));
+                }
+                for(int i=0;i<loveTraits.size();i++){
+                    Log.d("loveTrait",loveTraits.get(i));
+                }
+                for(int i=0;i<careerTraits.size();i++){
+                    Log.d("careerTrait",careerTraits.get(i));
+                }
+                persTrait = (TextView) findViewById(R.id.persTrait);
+                loveTrait = (TextView) findViewById(R.id.loveTrait);
+                careerTrait = (TextView) findViewById(R.id.careerTrait);
+                Log.d("setUpTraitDescription: ", "running");
+                setUpTraitDescription();
+                setUpCardView();
 
-            }
-        });
+                Services.getAllTraits(connect_person.this, new Services.TraitCallback() {
+                    @Override
+                    public void onSuccess(ArrayList<Trait> result) {
+                        if(result.isEmpty()){
+                            Log.d("getAllTraits empty","");
+                        }
+                        for(int i =0;i<result.size();i++){
+                            if(persTrait.getText().equals(result.get(i).getPersonalityType())){
+                                String temp = String.valueOf(persTrait.getText());
+                                Log.d("testgetDesc",result.get(i).getDescription());
 
-        persTrait = (TextView) findViewById(R.id.persTrait);
-        loveTrait = (TextView) findViewById(R.id.loveTrait);
-        careerTrait = (TextView) findViewById(R.id.careerTrait);
-        for(int i=0;i<personalityTraits.size();i++){
-            Log.d("persTrait",personalityTraits.get(i));
-        }
-        persTrait.setText(personalityTraits.get(personalityTraits.size()-1));
-        loveTrait.setText(loveTraits.get(loveTraits.size()-1));
-        careerTrait.setText(careerTraits.get(careerTraits.size()-1));
-
-        //edit text to include trait
-        Services.getAllTraits(connect_person.this, new Services.TraitCallback() {
-            @Override
-            public void onSuccess(ArrayList<Trait> result) {
-                traitsList=result;
-                if(result.isEmpty()){
-                    Log.d("getAllTraits empty","");
-                }else{
-                    for(int i =0;i<traitsList.size();i++){
-                        if(persTrait.getText().equals(traitsList.get(i).getPersonalityType())){
-                            String temp = String.valueOf(persTrait.getText());
-                            Log.d("testgetDesc",traitsList.get(i).getDescription());
-                            persTrait.setText(traitsList.get(i).getTraitName()+" ("+temp+")");
+                                persTrait.setText(result.get(i).getTraitName()+" ("+temp+")");
+                            }
                         }
                     }
-                }
+                    @Override
+                    public void onFailure(String error) {
+                        Context context = getApplicationContext();
+                        CharSequence text = error;
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+                });
+
+                //service call
+
+            }
+
+            @Override
+            public void onFailure(String error) {
+                Context context = getApplicationContext();
+                CharSequence text = error;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         });
+
+
+
+
+//        persTrait.setText(personalityTraits.get(personalityTraits.size()-1));
+//        loveTrait.setText(loveTraits.get(loveTraits.size()-1));
+//        careerTrait.setText(careerTraits.get(careerTraits.size()-1));
+
+        //edit text to include trait
+
 
 
 
@@ -159,32 +215,52 @@ public class connect_person extends AppCompatActivity {
             }
         });
 
-        notdone_personaltystart = (Button) findViewById(R.id.notdone_personaltystart);
-        notdone_personaltystart.setClickable(true);
-        notdone_personaltystart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                personalityactivity();
-            }
-        });
-        notdone_lovestart = (Button) findViewById(R.id.notdone_lovestart);
-        notdone_lovestart.setClickable(true);
-        notdone_lovestart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              loveactivity();
-            }
-        });
+//        notdone_personaltystart = (Button) findViewById(R.id.notdone_personaltystart);
+//        notdone_personaltystart.setClickable(true);
+//        notdone_personaltystart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                personalityactivity();
+//            }
+//        });
+//        notdone_lovestart = (Button) findViewById(R.id.notdone_lovestart);
+//        notdone_lovestart.setClickable(true);
+//        notdone_lovestart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//              loveactivity();
+//            }
+//        });
+//
+//        notdone_careerstart = (Button) findViewById(R.id.notdone_careerstart);
+//        notdone_careerstart.setClickable(true);
+//        notdone_careerstart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                careeractivity();
+//            }
+//        });
 
-        notdone_careerstart = (Button) findViewById(R.id.notdone_careerstart);
-        notdone_careerstart.setClickable(true);
-        notdone_careerstart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                careeractivity();
-            }
-        });
-        setUpCardView();
+
+//        Services.getAllTraits(connect_person.this, new Services.TraitCallback() {
+//            @Override
+//            public void onSuccess(ArrayList<Trait> result) {
+//                traitsList=result;
+//                if(result.isEmpty()){
+//                    Log.d("getAllTraits empty","");
+//                }else{
+//                    for(int i =0;i<traitsList.size();i++){
+//                        if(persTrait.getText().equals(traitsList.get(i).getPersonalityType())){
+//                            String temp = String.valueOf(persTrait.getText());
+//                            Log.d("testgetDesc",traitsList.get(i).getDescription());
+//                            persTrait.setText(traitsList.get(i).getTraitName()+" ("+temp+")");
+//                        }
+//                    }
+//                }
+//            }
+//        });
+
+
 
     }
 
@@ -215,13 +291,37 @@ public class connect_person extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void setUpCardView(){
-        Log.d("16Personality check: ", personality_16.toString());
-        Log.d("LovePersonality check: ", personality_love.toString());
-        Log.d("JobPersonality check: ", personality_job.toString());
+    public void setUpTraitDescription(){
         if (personality_16) {
+            persTrait.setText(personalityTraits.get(personalityTraits.size()-1));
+//            for(int i =0;i<traitsList.size();i++){
+//                if(persTrait.getText().equals(traitsList.get(i).getPersonalityType())){
+//                    String temp = String.valueOf(persTrait.getText());
+//                    Log.d("testgetDesc",traitsList.get(i).getDescription());
+//                    persTrait.setText(traitsList.get(i).getTraitName()+" ("+temp+")");
+//                }
+//            }
+        }
+
+        if (personality_love) {
+            loveTrait.setText(loveTraits.get(loveTraits.size()-1));
+        }
+
+        if (personality_job) {
+            careerTrait.setText(careerTraits.get(careerTraits.size()-1));
+        }
+
+    }
+
+    public void setUpCardView(){
+        Log.d("16Pers check: ", personality_16.toString());
+        Log.d("LovePers check: ", personality_love.toString());
+        Log.d("JobPers  check: ", personality_job.toString());
+        if (personality_16) {
+            Log.d("test","1");
             notdone_personalty.setVisibility(View.GONE);
         }else{
+            Log.d("test","2");
             notdone_personalty.setVisibility(View.VISIBLE);
         }
         if (personality_love) {
