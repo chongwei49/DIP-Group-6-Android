@@ -68,7 +68,7 @@ public class Services {
 
                             callback.onSuccess(user_list);
                         } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                            Log.e("Error:", "Error parsing JSON - Login");
                         }
 
                     }
@@ -125,7 +125,7 @@ public class Services {
                             callback.onSuccess(userList);
 
                         } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                            Log.e("Error:", "Error parsing JSON - Get All Users");
                         }
 
                     }
@@ -277,7 +277,7 @@ public class Services {
                                 Log.d("LOG_userListName", user_list.get(0).getName());
                                 callback.onSuccess(user_list);
                             } catch (Throwable tx) {
-                                Log.e("Error:", "Error parsing JSON");
+                                Log.e("Error:", "Error parsing JSON - Edit User");
                             }
                         }
                         else{
@@ -354,7 +354,7 @@ public class Services {
                                 callback.onSuccess(personalityList);
 
                             } catch (Throwable tx) {
-                                Log.e("Error:", "Error parsing JSON");
+                                Log.e("Error:", "Error parsing JSON - Get All Personalities");
                             }
                         }
                         else {
@@ -414,7 +414,7 @@ public class Services {
 
                                 callback.onSuccess(personalities_list);
                             }catch (Throwable tx) {
-                                Log.e("Error:", "Error parsing JSON");
+                                Log.e("Error:", "Error parsing JSON - Add New Personalities");
                             }
                         }
                         else {
@@ -490,7 +490,7 @@ public class Services {
                             callback.onSuccess(traitsList);
 
                         } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                            Log.e("Error:", "Error parsing JSON - Get All Traits");
                         }
 
                     }
@@ -539,7 +539,7 @@ public class Services {
                             callback.onSuccess(questionsList);
 
                         } catch (Throwable tx) {
-                            Log.e("Error:", "Error parsing JSON");
+                            Log.e("Error:", "Error parsing JSON - Get All Questions");
                         }
 
                     }
