@@ -113,9 +113,9 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
                 Log.d("ConFragment Per_List:",personalityList.get(i).getUserId().toString());
             }
 
-            for(int i =0;i<allUsers.size();i++){
+            /*for(int i =0;i<allUsers.size();i++){
                 Log.d("ConFragment Per_List:",allUsers.get(i).getName());
-            }
+            }*/
 
 
             setUpUserListCat();

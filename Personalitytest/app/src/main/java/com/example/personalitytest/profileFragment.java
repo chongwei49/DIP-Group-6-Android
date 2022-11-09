@@ -231,9 +231,9 @@ public class profileFragment extends Fragment {
         persTrait = view.findViewById(R.id.persTrait);
         loveTrait = view.findViewById(R.id.loveTrait);
         careerTrait = view.findViewById(R.id.careerTrait);
-        for(int i=0;i<personalityTraits.size();i++){
+        /*for(int i=0;i<personalityTraits.size();i++){
             Log.d("persTrait",personalityTraits.get(i));
-        }
+        }*/
 
         setUpTraitDescription();
         setUpCardView();
@@ -263,34 +263,13 @@ public class profileFragment extends Fragment {
         startActivity(intent);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK && data != null){
-            Uri selectedImage = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), selectedImage);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            userProfilePicture.setImageURI(selectedImage);
-        }
-    }
+
 
     public Bitmap receiveImage(byte[] input_byte){
         Bitmap bmp= BitmapFactory.decodeByteArray(input_byte,0,input_byte.length);
         return bmp;
     }
 
-    public byte[] sentImage(Bitmap input_bmp){
-        Bitmap bmp = input_bmp;
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        bmp.recycle();
-
-        return  byteArray;
-    }
 
     public void setUpTraitDescription(){
         if (personality_16) {

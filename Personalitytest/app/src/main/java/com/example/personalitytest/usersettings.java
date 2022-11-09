@@ -10,6 +10,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -33,6 +35,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import android.widget.Spinner;
@@ -42,15 +46,11 @@ public class usersettings extends AppCompatActivity {
 
     private Button button;
     private TextView button2, connect, results;
-    private ImageView DPbtn;
-    private PopupWindow popupWindow;
-    private LayoutInflater layoutInflater;
-    private RelativeLayout relativeLayout;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private Spinner spinner;
     private TextView newEmail, newName, username, email, nameInput, emailInput;
-    private ImageView changeDPbtn;
+    private ImageView changeDPbtn, userprofilePic;
     
 
     private String USER_INFORMATION;
@@ -85,6 +85,8 @@ public class usersettings extends AppCompatActivity {
         email.setText(userEmail);
         nameInput.setText(userName);
         emailInput.setText(userEmail);
+
+        userprofilePic = findViewById(R.id.userProfilePic);
 
         changeDPbtn = findViewById(R.id.changeDPbtn);
         changeDPbtn.setOnClickListener(new View.OnClickListener(){
@@ -414,5 +416,30 @@ public class usersettings extends AppCompatActivity {
             userInformation.putString("dob", userDOB);
 
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && data != null){
+            Uri selectedImage = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                userPP = sentImage(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            userprofilePic.setImageURI(selectedImage);
+        }
+    }
+
+    public byte[] sentImage(Bitmap input_bmp){
+        Bitmap bmp = input_bmp;
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        bmp.recycle();
+
+        return  byteArray;
     }
 }
