@@ -170,11 +170,14 @@ public class profileFragment extends Fragment {
         userEmail=userInfo.get(0).getEmail();
         userProfilePic=userInfo.get(0).getProfilePic();
 
-        if(userProfilePic!=null){
+        /*if(userProfilePic!=null){
             userProfilePicture.setImageBitmap(receiveImage(userProfilePic));
         }else{
             userProfilePicture.setImageResource(R.drawable.user);
-        }
+        }*/
+
+        userProfilePicture.setImageResource(R.drawable.user);
+
         usernameText.setText(userName);
         emailText.setText(userEmail);
 

@@ -325,6 +325,10 @@ public class connectFragment extends Fragment implements personalityrecyclerinte
     }
 
     public void setUpCatergoryUserList(){
+        user_connect_personality_List.clear();
+        user_connect_love_List.clear();
+        user_connect_career_List.clear();
+
         for(int i=0;i<allUsers.size();i++){
             if(!allUsers.get(i).getUserId().equals(userId)){
                 for(int j=0;j<personalityList_16.size();j++){
