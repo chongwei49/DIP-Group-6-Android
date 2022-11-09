@@ -51,13 +51,13 @@
 
         <ImageView
             android:id="@+id/careeravatar"
-            android:layout_width="231dp"
-            android:layout_height="140dp"
+            android:layout_width="218dp"
+            android:layout_height="131dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="109dp"
-            android:layout_marginEnd="78dp"
-            app:srcCompat="@drawable/idealistic" />
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="92dp"
+            app:srcCompat="@drawable/asocial" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="318dp"

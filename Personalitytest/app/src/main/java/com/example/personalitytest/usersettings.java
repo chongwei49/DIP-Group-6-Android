@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,6 +50,7 @@ public class usersettings extends AppCompatActivity {
     private Button dateButton;
     private Spinner spinner;
     private TextView newEmail, newName, username, email, nameInput, emailInput;
+    private ImageView changeDPbtn;
     
 
     private String USER_INFORMATION;
@@ -83,6 +85,15 @@ public class usersettings extends AppCompatActivity {
         email.setText(userEmail);
         nameInput.setText(userName);
         emailInput.setText(userEmail);
+
+        changeDPbtn = findViewById(R.id.changeDPbtn);
+        changeDPbtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent, 3);
+            }
+        });
 
 
         initDatePicker();

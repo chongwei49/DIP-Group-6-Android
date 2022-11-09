@@ -155,7 +155,7 @@ public class profileFragment extends Fragment {
         notdone_personalty = view.findViewById(R.id.notdone_personality);
         notdone_love = view.findViewById(R.id.notdone_love);
         notdone_career = view.findViewById(R.id.notdone_career);
-
+        changeDPbtn.setVisibility(View.GONE);
         changeDPbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -180,6 +180,7 @@ public class profileFragment extends Fragment {
 
         usernameText.setText(userName);
         emailText.setText(userEmail);
+
         settingsbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

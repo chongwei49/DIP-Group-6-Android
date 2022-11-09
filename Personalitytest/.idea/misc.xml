@@ -13,6 +13,8 @@
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_change_dp.xml" value="0.21784420289855072" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_connect_main.xml" value="0.21784420289855072" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_connect_person.xml" value="0.21784420289855072" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friendcareerdesc.xml" value="0.16394927536231885" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friendpersonalitydesc.xml" value="0.264" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_chart.xml" value="0.24864130434782608" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_compatibility.xml" value="0.24864130434782608" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_friends_page.xml" value="0.24864130434782608" />
@@ -24,21 +26,24 @@
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_login.xml" value="0.24864130434782608" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_quiz.xml" value="0.264" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_quizcareer.xml" value="0.136" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_quizcareer.xml" value="0.16799999999999998" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_quizlove.xml" value="0.2" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_quizpersonality.xml" value="0.264" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultJob.xml" value="0.1" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultcareer.xml" value="0.136" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultcareer.xml" value="0.2" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultlove.xml" value="0.2" />
-        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultpersonality.xml" value="0.16799999999999998" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_resultpersonality.xml" value="0.2" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_signup.xml" value="0.21784420289855072" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_test.xml" value="0.2105978260869565" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_tests.xml" value="0.176" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usercharts.xml" value="0.24864130434782608" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_usersettings.xml" value="0.24864130434782608" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/activity_userupdates.xml" value="0.24864130434782608" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_connect.xml" value="0.16394927536231885" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_home.xml" value="0.21784420289855072" />
         <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/fragment_profile.xml" value="0.21784420289855072" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/personalityprofile.xml" value="0.12158054711246201" />
+        <entry key="..\:/JocelynNTUfile/DIP/DIP-Group-6-Android/Personalitytest/app/src/main/res/layout/workprofile.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/back.xml" value="0.112" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/custom_input.xml" value="0.164" />
         <entry key="..\:/Users/Lenovo/Documents/GitHub/DIP-Group-6-Android/Personalitytest/app/src/main/res/drawable/friendsicon.xml" value="0.112" />
