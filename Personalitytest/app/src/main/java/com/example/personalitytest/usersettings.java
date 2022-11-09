@@ -282,10 +282,12 @@ public class usersettings extends AppCompatActivity {
                 public void onComplete(Task<Void> task) {
                     finish();
                     mainactivity();
+                    finish();
                 }
             });
         } else {
             mainactivity();
+            finish();
         }
 
     }
@@ -305,9 +307,11 @@ public class usersettings extends AppCompatActivity {
 
 
         Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
+        String[] dateSplit = userDOB.split("-");
+
+        int year = Integer.valueOf(dateSplit[0]);
+        int month = Integer.valueOf(dateSplit[1])-1;
+        int day = Integer.valueOf(dateSplit[2]);
 
         int style = AlertDialog.THEME_HOLO_LIGHT;
 

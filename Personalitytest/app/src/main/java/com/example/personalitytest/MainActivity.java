@@ -63,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Exit the app when back button is pressed
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
     public void signupactivity() {
         Intent intent = new Intent(this, Signup.class);
         startActivity(intent);
@@ -80,5 +89,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         this.finish();
     }
+
+
 
 }

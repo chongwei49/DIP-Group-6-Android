@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -194,6 +195,15 @@ public class Home extends AppCompatActivity {
         userGender = userInformation.getString("gender");
         userDOB = userInformation.getString("DOB");
 
+    }
+
+    // Exit the app when back button is pressed
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
