@@ -252,9 +252,16 @@ public class Home extends AppCompatActivity {
         }
 
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         protected void onPostExecute(String result) {
-            progressDialog.dismiss();
+            try {
+                Thread.sleep(1000);
+                progressDialog.dismiss();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
 
 
