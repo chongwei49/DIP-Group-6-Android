@@ -107,7 +107,10 @@ public class User implements Parcelable {
         parcel.writeString(password);
         parcel.writeString(dob);
         parcel.writeString(gender);
+        parcel.writeInt(profilePic.length);
         parcel.writeByteArray(profilePic);
+
+
     }
 
     protected User (Parcel in) {
@@ -117,6 +120,9 @@ public class User implements Parcelable {
         password = in.readString();
         dob = in.readString();
         gender = in.readString();
-        profilePic = in.createByteArray();
+        profilePic = new byte[in.readInt()];
+        in.readByteArray(profilePic);
+
+
     }
 }

@@ -47,8 +47,9 @@ public class workadapter extends RecyclerView.Adapter<workadapter.MyViewHolder>{
         holder.name.setText(profileList.get(x).getName());
         holder.profilepic.setImageResource(profileList.get(x).getImage());
         holder.age.setText(profileList.get(x).getAge());*/
-        if(profileList.get(position).getProfilePic()!=null){
-            //holder.profilepic.setImageBitmap(receiveImage(profileList.get(position).getProfilePic()));
+        if(!profileList.get(position).getProfilePic().equals(null)){
+            holder.profilepic.setImageBitmap(receiveImage(profileList.get(position).getProfilePic()));
+        }else{
             holder.profilepic.setImageResource(R.drawable.user);
         }
         holder.name.setText(profileList.get(position).getName());

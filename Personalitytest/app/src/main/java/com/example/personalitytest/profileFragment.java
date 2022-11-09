@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 
@@ -170,13 +172,13 @@ public class profileFragment extends Fragment {
         userEmail=userInfo.get(0).getEmail();
         userProfilePic=userInfo.get(0).getProfilePic();
 
-        /*if(userProfilePic!=null){
+        if(userProfilePic!=null){
             userProfilePicture.setImageBitmap(receiveImage(userProfilePic));
         }else{
             userProfilePicture.setImageResource(R.drawable.user);
-        }*/
+        }
 
-        userProfilePicture.setImageResource(R.drawable.user);
+        //userProfilePicture.setImageResource(R.drawable.user);
 
         usernameText.setText(userName);
         emailText.setText(userEmail);

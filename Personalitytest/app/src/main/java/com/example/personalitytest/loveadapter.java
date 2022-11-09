@@ -41,8 +41,9 @@ public class loveadapter extends RecyclerView.Adapter<loveadapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull loveadapter.MyViewHolder holder, int position) {
-        if(profileList.get(position).getProfilePic()!=null){
-            //holder.profilepic.setImageBitmap(receiveImage(profileList.get(position).getProfilePic()));
+        if(!profileList.get(position).getProfilePic().equals(null)){
+            holder.profilepic.setImageBitmap(receiveImage(profileList.get(position).getProfilePic()));
+        }else{
             holder.profilepic.setImageResource(R.drawable.user);
         }
         holder.name.setText(profileList.get(position).getName());
