@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.personalitytest.models.Personality;
 import com.example.personalitytest.models.Question;
@@ -41,7 +43,6 @@ public class Home extends AppCompatActivity {
     private String userDOB;
     private byte[] userProfilePic;
     private Bundle bundle = new Bundle();
-    private ArrayList<User> usersInf = new ArrayList<User>();
     private ArrayList<User> userInfo = new ArrayList<User>();
 
     homeFragment homeFragment = new homeFragment();
@@ -211,6 +212,16 @@ public class Home extends AppCompatActivity {
                             Log.d("Else Response", "Multiple User Object Detected");
                         }
                     }
+
+                    @Override
+                    public void onFailure(String error) {
+                        Context context = getApplicationContext();
+                        CharSequence text = error;
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
                 });
 
                 Services.getAllUsers(Home.this, new Services.UserCallback() {
@@ -230,7 +241,7 @@ public class Home extends AppCompatActivity {
 
                     @Override
                     public void onFailure(String error) {
-
+                        Log.d("FailRes GetUsers", error);
                     }
                 });
 
@@ -242,6 +253,16 @@ public class Home extends AppCompatActivity {
                         }else{
                             bundle.putParcelableArrayList("traits4prof",result);
                         }
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+                        Context context = getApplicationContext();
+                        CharSequence text = error;
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 });
             } catch (Exception e) {

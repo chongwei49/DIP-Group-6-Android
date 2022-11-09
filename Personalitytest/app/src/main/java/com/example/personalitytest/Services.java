@@ -264,8 +264,6 @@ public class Services {
                         if (response.toString().startsWith("{")) {
                             Log.d("LOG_EDITUSER", response.toString());
                             try {
-                                Log.d("LOG_EDITUSER", response.toString());
-
                                 ArrayList<User> user_list = new ArrayList<User>();
 
                                 user_list.add(new User(
@@ -276,7 +274,7 @@ public class Services {
                                         response.getString("dob"),
                                         response.getString("gender"),
                                         (response.getString("profilePic")).getBytes(StandardCharsets.UTF_8)));
-
+                                Log.d("LOG_userListName", user_list.get(0).getName());
                                 callback.onSuccess(user_list);
                             } catch (Throwable tx) {
                                 Log.e("Error:", "Error parsing JSON");
@@ -372,6 +370,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -442,6 +441,7 @@ public class Services {
                         }
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         ) {
@@ -500,6 +500,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -548,6 +549,7 @@ public class Services {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR", "error => " + error.toString());
+                        callback.onFailure(error.toString());
                     }
                 }
         );
@@ -610,14 +612,17 @@ public class Services {
 
     public interface QuestionCallback{
         void onSuccess(ArrayList<Question> result);
+        void onFailure(String error);
     }
 
     public interface TraitCallback{
         void onSuccess(ArrayList<Trait> result);
+        void onFailure(String error);
     }
 
     public interface PersonalityCallback{
         void onSuccess(ArrayList<Personality> result);
+        void onFailure(String error);
     }
 }
 
