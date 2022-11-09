@@ -256,7 +256,7 @@ public class Home extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(300);
                 progressDialog.dismiss();
             } catch (InterruptedException e) {
                 e.printStackTrace();
