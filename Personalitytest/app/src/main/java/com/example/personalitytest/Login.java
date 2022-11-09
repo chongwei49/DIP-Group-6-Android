@@ -224,7 +224,6 @@ public class Login extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
         this.finish();
-
     }
     
 //    @RequiresApi(api = Build.VERSION_CODES.O)

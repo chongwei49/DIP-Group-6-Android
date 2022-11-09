@@ -83,6 +83,7 @@ public class UserService {
 
     public Object loginValidator(String authHeader) {
             // Authorization: Basic base64credentials
+        //
             String base64Credentials = authHeader.substring("Basic".length()).trim();
             byte[] credDecoded = Base64.getDecoder().decode(base64Credentials);
             String credentials = new String(credDecoded, StandardCharsets.UTF_8);
