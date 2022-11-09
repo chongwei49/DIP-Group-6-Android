@@ -42,7 +42,8 @@ public class personalityadapter extends RecyclerView.Adapter<personalityadapter.
     @Override
     public void onBindViewHolder(@NonNull personalityadapter.MyViewHolder holder, int position) {
         if(profileList.get(position).getProfilePic()!=null){
-            holder.profilepic.setImageBitmap(receiveImage(profileList.get(position).getProfilePic()));
+            //holder.profilepic.setImageBitmap(receiveImage(profileList.get(position).getProfilePic()));
+            holder.profilepic.setImageResource(R.drawable.user);
         }
         holder.name.setText(profileList.get(position).getName());
         holder.email.setText(profileList.get(position).getGender());
