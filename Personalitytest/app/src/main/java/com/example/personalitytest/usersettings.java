@@ -339,7 +339,7 @@ public class usersettings extends AppCompatActivity {
         Intent intent = new Intent(this, connectFragment.class);
         startActivity(intent);
     }
-    
+
     public void getUserInfo(){
         if (getIntent().getExtras() != null) {
             Log.d("Bundle log", "Bundle not empty");

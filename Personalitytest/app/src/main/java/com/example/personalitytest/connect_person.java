@@ -161,6 +161,15 @@ public class connect_person extends AppCompatActivity {
                             }
                         }
                     }
+                    @Override
+                    public void onFailure(String error) {
+                        Context context = getApplicationContext();
+                        CharSequence text = error;
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
                 });
 
                 //service call
