@@ -47,7 +47,7 @@
             android:layout_marginStart="102dp"
             android:layout_marginTop="3dp"
             android:fontFamily="@font/segeodisplay"
-            android:text="Gender"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="17dp" />
 
@@ -60,7 +60,7 @@
             android:layout_marginStart="43dp"
             android:layout_marginTop="3dp"
             android:fontFamily="@font/segeodisplay"
-            android:text="Age"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="17dp" />
 
@@ -74,6 +74,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="319dp"
             android:layout_toEndOf="@+id/age"
+            android:visibility="invisible"
             app:srcCompat="@drawable/rectangle_34" />
 
         <TextView
@@ -121,6 +122,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="232dp"
             android:visibility="visible"
+            android:clickable="true"
             app:cardCornerRadius="20dp">
 
             <RelativeLayout
