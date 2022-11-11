@@ -170,20 +170,8 @@ public class connect_person extends AppCompatActivity {
                             if(persTrait.getText().equals(result.get(i).getPersonalityType())){
                                 String temp = String.valueOf(persTrait.getText());
                                 Log.d("testgetDesc",result.get(i).getDescription());
-
-//                                descP=result.get(i).getDescription();
-//                                traitP=result.get(i).getTraitName();
                                 persTrait.setText(result.get(i).getTraitName()+" ("+temp+")");
                             }
-//                            else if(loveTrait.getText().equals(result.get(i).getPersonalityType())) {
-////                                descL = result.get(i).getDescription();
-////                                traitL = result.get(i).getTraitName();
-//                            }
-//                            else if(careerTrait.getText().equals(result.get(i).getPersonalityType())){
-////                                descC = result.get(i).getDescription();
-////                                traitC = result.get(i).getTraitName();
-//                            }
-
                         }
                     }
                     @Override

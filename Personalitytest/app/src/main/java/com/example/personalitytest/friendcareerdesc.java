@@ -15,6 +15,7 @@ import com.example.personalitytest.models.Trait;
 import com.example.personalitytest.models.User;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class friendcareerdesc extends AppCompatActivity {
 
@@ -44,6 +45,7 @@ public class friendcareerdesc extends AppCompatActivity {
             email=findViewById(R.id.email2);
             personality=findViewById(R.id.friends_careerresult);
             personalitydesc=findViewById(R.id.description);
+            avatar=findViewById(R.id.career_avatar);
 
             //setTexts
             username.setText(recUser.getName());
@@ -63,6 +65,15 @@ public class friendcareerdesc extends AppCompatActivity {
                             personalitydesc.setText(result.get(i).getDescription());
                         }
                     }
+                    String temp = String.valueOf(personality.getText());
+                    temp=temp.replaceAll("\\s","");
+                    temp=temp.toLowerCase(Locale.ROOT);
+                    Log.d("manipulated",temp);
+                    int id = getResources().getIdentifier(temp, "drawable", getPackageName());
+                    Log.d("test",String.valueOf(id));
+                    if(id!=0){
+                        avatar.setImageResource(id);
+                    }
                 }
                 @Override
                 public void onFailure(String error) {
@@ -77,7 +88,7 @@ public class friendcareerdesc extends AppCompatActivity {
 
 
             //setImage
-            avatar=findViewById(R.id.career_avatar);
+
 
         }else{
             Log.d("intent","empty");
