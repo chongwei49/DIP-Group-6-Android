@@ -144,9 +144,9 @@ public class connect_person extends AppCompatActivity {
                 for(int i=0;i<careerTraits.size();i++){
                     Log.d("careerTrait",careerTraits.get(i));
                 }
-                persTrait = (TextView) findViewById(R.id.persTrait);
-                loveTrait = (TextView) findViewById(R.id.loveTrait);
-                careerTrait = (TextView) findViewById(R.id.careerTrait);
+                persTrait = (TextView) findViewById(R.id.friends_personalitytrait);
+                loveTrait = (TextView) findViewById(R.id.friends_lovetrait);
+                careerTrait = (TextView) findViewById(R.id.friends_careertrait);
                 Log.d("setUpTraitDescription: ", "running");
                 setUpTraitDescription();
                 setUpCardView();
