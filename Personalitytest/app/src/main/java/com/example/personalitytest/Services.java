@@ -251,6 +251,7 @@ public class Services {
             js.put("dob", dob);
             js.put("gender", gender);
             js.put("profilePic", profilePic);
+            //js.put("profilePic", Base64.encode(profilePic, Base64.DEFAULT).toString()); //
             Log.d("js inputs", js.toString());
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());

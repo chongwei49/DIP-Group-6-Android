@@ -20,5 +20,38 @@
         <item> Male </item>
         <item> Female </item>
     </string-array>
+    
+    <string name="pdpa_text"><b><big>We collect, process and store personal data (including IP addresses) only as permitted by law or if you have given your consent, for example when registering for an event or a service.</big></b>
 
+        \n\nWhat personal data do we collect?
+        \n1. The personal data we collect are limited to information regarding our relationship with you. This includes contact information, such as name, telephone number, address or email address, as well as information relating to projects and events or to your use of our website. Information that cannot be linked to your identity (e.g. statistical information, such as the number of users of our online services) is not considered to be personal data.
+        \n2. How do we collect personal data?
+        \n3. In general, we collect personal data in the following cases: when you visit our website; when you communicate with us directly; when you register an account for our services; when you participate in a survey; when you provide personal data for other purposes; or when you apply for a job with us. In all cases, we process your data only for a specific purpose, and that purpose is known to you.
+        \n4. Do we pass your data on to third parties?
+        \n5. As a matter of principle, we pass your personal data on to third parties only if we are authorized by law to do so or if you have given your consent. This is the case, for example, when we conduct external project evaluations in agreement with you. Further information on this topic can be found in the relevant grant agreement. When data are transmitted abroad, we comply with the relevant legal provisions (guaranteeing appropriate protection).
+        \n6. External service providers that process data on our behalf are contractually obliged to comply fully with the Federal Act on Data Protection. We make sure that such external service providers are capable of safeguarding data. Our prior consent is required before they are permitted to transfer responsibility for processing personal data to a third party.
+        \n7. How long do we retain your personal data?
+        \n8. We retain your data as long as necessary for our business relationship with you, or as long as we have a legitimate interest in continuing to store the information. We delete your personal data in all other cases, except when continued storage is required under the law (for example, we are legally obligated to retain documents such as contracts and invoices for a period of 10 years).
+        \n9. What data are processed when you use our website?
+        \n10. In general, you may visit our website without providing personal information. When you visit the site, our servers make a temporary record of each access in a log file.
+        \n11. The following technical data are collected and stored until they are automatically deleted after no more than seven months:
+        \n12. The IP address of the computer used to access the site
+        \n13. The date and time of access
+        \n14. The website from which access was obtained, as well as the search term used, as applicable
+        \n15. The name and URL of the accessed file
+        \n16. The search queries used
+        \n17. Your computer’s operating system (shown by the user agent)
+        \n18. The browser you are using (shown by the user agent)
+        \n19. The type of device, if access is obtained through a mobile telephone
+        \n20. The transmission protocol used
+
+        \n\nBy collecting and processing these data, we promote system security and stability, allow for error and performance analysis, and serve internal statistical needs.
+        \nThis also enables us to optimize our online services. In addition, IP addresses are used to preset the website language.
+        \nFinally, we insert cookies and use cookie-based applications and tools when users access our website.
+
+        \n\nWhat rights do you have concerning your personal data?
+        \nYou have the following rights:
+        \nYou are entitled to request information about your stored data.
+        \nYou may request that your personal data be corrected, supplemented, blocked or deleted.
+        \nIf you have consented to the processing of your data, you may revoke that consent at any time, effective going forward.</string>
 </resources>

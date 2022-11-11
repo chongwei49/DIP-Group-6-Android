@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -46,6 +48,7 @@ public class Home extends AppCompatActivity {
     private byte[] userProfilePic;
     private Bundle bundle = new Bundle();
     private ArrayList<User> userInfo = new ArrayList<User>();
+    private boolean firstStartup = true;
 
     homeFragment homeFragment = new homeFragment();
     connectFragment connectFragment = new connectFragment();
@@ -197,14 +200,27 @@ public class Home extends AppCompatActivity {
 
     }
 
-//    // Exit the app when back button is pressed
-//    @Override
-//    public void onBackPressed() {
-//        Intent intent = new Intent(Intent.ACTION_MAIN);
-//        intent.addCategory(Intent.CATEGORY_HOME);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(intent);
-//    }
+    private void pdpaNotice(){
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        //Yes button clicked
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        finish();
+                        System.exit(0);
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.pdpa_text)).setPositiveButton("Agree", dialogClickListener)
+                .setNegativeButton("Disagree", dialogClickListener).setTitle("Data Privacy Disclaimer").show();
+    }
 
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
 
@@ -293,8 +309,12 @@ public class Home extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             try {
-                Thread.sleep(300);
+                Thread.sleep(500);
                 progressDialog.dismiss();
+                if(firstStartup){
+                    pdpaNotice();
+                    firstStartup = false;
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
