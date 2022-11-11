@@ -79,7 +79,11 @@ public class connect_person extends AppCompatActivity {
 
         username.setText(recUser.getName());
         email.setText(recUser.getEmail());
-        profilepic.setImageBitmap(receiveImage(recUser.getProfilePic()));
+        if (!recUser.getProfilePic().equals(null)) {
+            profilepic.setImageBitmap(receiveImage(recUser.getProfilePic()));
+        } else {
+            profilepic.setImageResource(R.drawable.user);
+        }
         //set latest history results
         ProgressDialog dialog = ProgressDialog.show(connect_person.this, "",
                 "Loading. Please wait...", true);

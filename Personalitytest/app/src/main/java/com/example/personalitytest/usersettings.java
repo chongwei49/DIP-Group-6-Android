@@ -10,6 +10,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -50,7 +52,7 @@ public class usersettings extends AppCompatActivity {
     private Button dateButton;
     private Spinner spinner;
     private TextView newEmail, newName, username, email, nameInput, emailInput;
-    private ImageView changeDPbtn;
+    private ImageView changeDPbtn, userPPView;
     
 
     private String USER_INFORMATION;
@@ -85,6 +87,13 @@ public class usersettings extends AppCompatActivity {
         email.setText(userEmail);
         nameInput.setText(userName);
         emailInput.setText(userEmail);
+
+        userPPView = findViewById(R.id.userSettingsPP);
+        if(userPP!=null){
+            userPPView.setImageBitmap(receiveImage(userPP));
+        }else{
+            userPPView.setImageResource(R.drawable.user);
+        }
 
         changeDPbtn = findViewById(R.id.changeDPbtn);
         changeDPbtn.setOnClickListener(new View.OnClickListener(){
@@ -415,4 +424,10 @@ public class usersettings extends AppCompatActivity {
 
         }
     }
+
+    public Bitmap receiveImage(byte[] input_byte){
+        Bitmap bmp= BitmapFactory.decodeByteArray(input_byte,0,input_byte.length);
+        return bmp;
+    }
+
 }
