@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,12 +34,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.util.Base64Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -60,6 +64,7 @@ public class usersettings extends AppCompatActivity {
     private byte[] userPP;
     private Bundle userInformation = new Bundle();
     private ArrayList<User> userInfo = new ArrayList<User>();
+    private String encImage;
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
@@ -88,6 +93,11 @@ public class usersettings extends AppCompatActivity {
         emailInput.setText(userEmail);
 
         userprofilePic = findViewById(R.id.userProfilePic);
+        if (!userPP.equals(null)) {
+            userprofilePic.setImageBitmap(receiveImage(userPP));
+        } else {
+            userprofilePic.setImageResource(R.drawable.user);
+        }
 
         changeDPbtn = findViewById(R.id.changeDPbtn);
         changeDPbtn.setOnClickListener(new View.OnClickListener(){
@@ -170,7 +180,7 @@ public class usersettings extends AppCompatActivity {
 
                     Log.d("dateString log", dateSplit[0]);
 
-                    Services.editUser(userId, userName, userEmail, null, date, gender, null,
+                    Services.editUser(userId, userName, userEmail, null, date, gender, encImage,
                             usersettings.this, new Services.UserCallback() {
                                 @Override
                                 public void onSuccess(ArrayList<User> result) {
@@ -427,6 +437,8 @@ public class usersettings extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
                 userPP = sentImage(bitmap);
+                Log.d("log userPP", Arrays.toString(userPP));
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -434,13 +446,35 @@ public class usersettings extends AppCompatActivity {
         }
     }
 
+    private String encodeImage(Bitmap bm)
+    {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        byte[] b = baos.toByteArray();
+        String encImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+        return encImage;
+    }
+
+
+    public Bitmap receiveImage(byte[] input_byte){
+        Bitmap bmp= BitmapFactory.decodeByteArray(input_byte,0,input_byte.length);
+        return bmp;
+    }
+
     public byte[] sentImage(Bitmap input_bmp){
         Bitmap bmp = input_bmp;
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
+
+        encImage = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
         bmp.recycle();
+
+        Log.d("log base64", encImage);
 
         return  byteArray;
     }
+
 }
