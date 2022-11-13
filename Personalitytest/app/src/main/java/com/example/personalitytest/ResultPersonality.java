@@ -33,6 +33,7 @@ import java.util.Map;
 public class ResultPersonality extends AppCompatActivity implements Serializable {
     private ImageView homebutton;
     private TextView resultView, descView, traitnameView;
+    private ImageView personalityAvatar;
     private String quiz_result, description="";
     private ArrayList<Question> preCalc = new ArrayList<Question>();
     String[][] orderList = {
@@ -66,7 +67,7 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
         resultView = findViewById(R.id.textView8);
         descView = findViewById(R.id.textView10);
         traitnameView = findViewById(R.id.textView9);
-
+        personalityAvatar = findViewById(R.id.personalityavatar);
         homebutton = (ImageView) findViewById(R.id.homebutton);
         homebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +105,45 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
 
     public void tohomeactivity() {
         finish();
+    }
+    public int getImageName(String result) {
+
+        switch(result) {
+            case "ENTJ":
+                return R.drawable.entertainer;
+            case "EOTJ":
+                return R.drawable.leader;
+            case "ENFJ":
+                return R.drawable.diva;
+            case "EOFJ":
+                return R.drawable.councillor;
+            case "ENTP":
+                return R.drawable.hustler;
+            case "EOTP":
+                return R.drawable.maincharacter;
+            case "ENFP":
+                return R.drawable.crusader;
+            case "EOFP":
+                return R.drawable.perfectionist;
+            case "IOTJ":
+                return R.drawable.scholar;
+            case "IOFJ":
+                return R.drawable.artist;
+            case "INTP":
+                return R.drawable.boss;
+            case "INFP":
+                return R.drawable.champion;
+            case "IOTP":
+                return R.drawable.boss;
+            case "INFJ":
+                return R.drawable.boss;
+            case "IOFP":
+                return R.drawable.boss;
+            case "INTJ":
+                return R.drawable.boss;
+            default:
+                return 0;
+        }
     }
 
     public String formulatePType(Map<String, Integer> input){
@@ -230,6 +270,7 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
                             resultView.setText(quiz_result);
                             descView.setText(result.get(0).getDescription());
                             traitnameView.setText(result.get(0).getTraitName());
+                            personalityAvatar.setImageResource(getImageName(quiz_result));
                         }else{
                             Log.d("Else Response", "Multiple User Object Detected");
                         }
