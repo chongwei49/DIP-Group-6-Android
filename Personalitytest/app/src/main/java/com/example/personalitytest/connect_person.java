@@ -34,12 +34,16 @@ public class connect_person extends AppCompatActivity {
     private String userEmail;
     private String userGender;
     private String userDOB;
+    private String descP,descL,descC;
+    private String traitP,traitL,traitC;
     private byte[] userProfilePic;
     private ImageView backimage,profilepic;
     private Button notdone_personaltystart, notdone_lovestart, notdone_careerstart;
     private Boolean personality_16 = false, personality_love = false, personality_job = false;
-    private CardView notdone_personalty, notdone_love, notdone_career;
+    private CardView notdone_personalty, notdone_love, notdone_career, persCV, loveCV, careerCV;
     private TextView persTrait, loveTrait,careerTrait;
+
+    private Bundle bundle = new Bundle();
 
 
     private ArrayList<User> userInfo = new ArrayList<User>();
@@ -60,9 +64,9 @@ public class connect_person extends AppCompatActivity {
 //        String name = getIntent().getStringExtra("Name");
 //        String ages = getIntent().getStringExtra("Age");
         recUser = getIntent().getParcelableExtra("UserInfo");
-        Bundle bundle = new Bundle();
-        bundle = getIntent().getExtras();
-        traitsList = bundle.getParcelableArrayList("traits4prof");
+//        Bundle bundle = new Bundle();
+//        bundle = getIntent().getExtras();
+//        traitsList = bundle.getParcelableArrayList("traits4prof");
 //        if(traitsList.isEmpty()){
 //            Log.d("traitsList","empty");
 //        }
@@ -73,13 +77,21 @@ public class connect_person extends AppCompatActivity {
         username = findViewById(R.id.username);
         email = findViewById(R.id.email2);
 
+        persCV=findViewById(R.id.personality);
+        loveCV=findViewById(R.id.love);
+        careerCV=findViewById(R.id.career);
+
         notdone_personalty = findViewById(R.id.notdone_personality);
         notdone_love = findViewById(R.id.notdone_love);
         notdone_career = findViewById(R.id.notdone_career);
 
         username.setText(recUser.getName());
         email.setText(recUser.getEmail());
-        profilepic.setImageBitmap(receiveImage(recUser.getProfilePic()));
+        if (!recUser.getProfilePic().equals(null)) {
+            profilepic.setImageBitmap(receiveImage(recUser.getProfilePic()));
+        } else {
+            profilepic.setImageResource(R.drawable.user);
+        }
         //set latest history results
         ProgressDialog dialog = ProgressDialog.show(connect_person.this, "",
                 "Loading. Please wait...", true);
@@ -140,9 +152,9 @@ public class connect_person extends AppCompatActivity {
                 for(int i=0;i<careerTraits.size();i++){
                     Log.d("careerTrait",careerTraits.get(i));
                 }
-                persTrait = (TextView) findViewById(R.id.persTrait);
-                loveTrait = (TextView) findViewById(R.id.loveTrait);
-                careerTrait = (TextView) findViewById(R.id.careerTrait);
+                persTrait = (TextView) findViewById(R.id.friends_personalitytrait);
+                loveTrait = (TextView) findViewById(R.id.friends_lovetrait);
+                careerTrait = (TextView) findViewById(R.id.friends_careertrait);
                 Log.d("setUpTraitDescription: ", "running");
                 setUpTraitDescription();
                 setUpCardView();
@@ -153,11 +165,11 @@ public class connect_person extends AppCompatActivity {
                         if(result.isEmpty()){
                             Log.d("getAllTraits empty","");
                         }
+                        //bundle.putParcelableArrayList("traitsList",result);
                         for(int i =0;i<result.size();i++){
                             if(persTrait.getText().equals(result.get(i).getPersonalityType())){
                                 String temp = String.valueOf(persTrait.getText());
                                 Log.d("testgetDesc",result.get(i).getDescription());
-
                                 persTrait.setText(result.get(i).getTraitName()+" ("+temp+")");
                             }
                         }
@@ -205,61 +217,66 @@ public class connect_person extends AppCompatActivity {
 
         //
 
-        backimage = (ImageView) findViewById(R.id.backtoconnectfrag);
-        backimage.setClickable(true);
-        backimage.setOnClickListener(new View.OnClickListener() {
+//        backimage = (ImageView) findViewById(R.id.backtoconnectfrag);
+//        backimage.setClickable(true);
+//        backimage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getSupportFragmentManager().beginTransaction().
+//                        replace(R.id.connectperson,new connectFragment()).commit();
+//
+//            }
+//        });
+
+        notdone_personaltystart = (Button) findViewById(R.id.notdone_personaltystart);
+        notdone_personaltystart.setClickable(true);
+        notdone_personaltystart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSupportFragmentManager().beginTransaction().
-                        replace(R.id.connectperson,new connectFragment()).commit();
-
+                personalityactivity();
+            }
+        });
+        notdone_lovestart = (Button) findViewById(R.id.notdone_lovestart);
+        notdone_lovestart.setClickable(true);
+        notdone_lovestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              loveactivity();
             }
         });
 
-//        notdone_personaltystart = (Button) findViewById(R.id.notdone_personaltystart);
-//        notdone_personaltystart.setClickable(true);
-//        notdone_personaltystart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                personalityactivity();
-//            }
-//        });
-//        notdone_lovestart = (Button) findViewById(R.id.notdone_lovestart);
-//        notdone_lovestart.setClickable(true);
-//        notdone_lovestart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//              loveactivity();
-//            }
-//        });
-//
-//        notdone_careerstart = (Button) findViewById(R.id.notdone_careerstart);
-//        notdone_careerstart.setClickable(true);
-//        notdone_careerstart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                careeractivity();
-//            }
-//        });
+        notdone_careerstart = (Button) findViewById(R.id.notdone_careerstart);
+        notdone_careerstart.setClickable(true);
+        notdone_careerstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                careeractivity();
+            }
+        });
+
+        persCV.setClickable(true);
+        persCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                friendpersdesc();
+            }
+        });
+        loveCV.setClickable(true);
+        loveCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                friendlovedesc();
+            }
+        });
+        careerCV.setClickable(true);
+        careerCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                friendcareerdesc();
+            }
+        });
 
 
-//        Services.getAllTraits(connect_person.this, new Services.TraitCallback() {
-//            @Override
-//            public void onSuccess(ArrayList<Trait> result) {
-//                traitsList=result;
-//                if(result.isEmpty()){
-//                    Log.d("getAllTraits empty","");
-//                }else{
-//                    for(int i =0;i<traitsList.size();i++){
-//                        if(persTrait.getText().equals(traitsList.get(i).getPersonalityType())){
-//                            String temp = String.valueOf(persTrait.getText());
-//                            Log.d("testgetDesc",traitsList.get(i).getDescription());
-//                            persTrait.setText(traitsList.get(i).getTraitName()+" ("+temp+")");
-//                        }
-//                    }
-//                }
-//            }
-//        });
 
 
 
@@ -278,17 +295,38 @@ public class connect_person extends AppCompatActivity {
     }
 
     public void personalityactivity() {
-        Intent intent = new Intent(this, QuizPersonality.class);
+        Intent intent = new Intent(this, Tests.class);
         startActivity(intent);
     }
 
     public void loveactivity() {
-        Intent intent = new Intent(this, QuizLove.class);
+        Intent intent = new Intent(this, Tests.class);
         startActivity(intent);
     }
 
     public void careeractivity() {
-        Intent intent = new Intent(this, QuizCareer.class);
+        Intent intent = new Intent(this, Tests.class);
+        startActivity(intent);
+    }
+    public void friendpersdesc(){
+        Intent intent = new Intent(this, friendpersonalitydesc.class);
+        bundle.putParcelable("recUser",recUser);
+        bundle.putStringArrayList("personalityTraits",personalityTraits);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    public void friendlovedesc(){
+        Intent intent = new Intent(this, friendlovedesc.class);
+        bundle.putParcelable("recUser",recUser);
+        bundle.putStringArrayList("loveTraits",loveTraits);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    public void friendcareerdesc(){
+        Intent intent = new Intent(this, friendcareerdesc.class);
+        bundle.putParcelable("recUser",recUser);
+        bundle.putStringArrayList("careerTraits",careerTraits);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 

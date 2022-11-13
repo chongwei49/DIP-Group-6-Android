@@ -40,8 +40,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="5dp"
-                app:srcCompat="@drawable/user"
-                app:civ_border_width="2dp"/>
+                app:civ_border_width="2dp"
+                app:srcCompat="@drawable/user" />
 
             <ImageView
                 android:id="@+id/changeDPbtn"

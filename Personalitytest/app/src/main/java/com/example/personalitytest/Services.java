@@ -239,7 +239,7 @@ public class Services {
 
     //-----------------------------------------EditUser Function---------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void editUser(Integer userId, String name, String email, String password, String dob, String gender, byte[] profilePic, Activity activity, final UserCallback callback) {
+    public static void editUser(Integer userId, String name, String email, String password, String dob, String gender, String profilePic, Activity activity, final UserCallback callback) {
         RequestQueue queue = Volley.newRequestQueue(activity);
         String url = baseURL + "users/" + userId;
         JSONObject js = new JSONObject();
