@@ -199,12 +199,12 @@ public class usersettings extends AppCompatActivity {
                                         Toast toast = Toast.makeText(context, text, duration);
                                         toast.show();
 
-                                        Bundle userInformation = new Bundle();
-                                        userInformation.putParcelableArrayList("userInfo",userInfo);
-                                        toresultssactivity(userInformation);
                                         /*Bundle userInformation = new Bundle();
                                         userInformation.putParcelableArrayList("userInfo",userInfo);
-                                        homeActivity(userInformation);*/
+                                        toresultssactivity(userInformation);*/
+                                        Bundle userInformation = new Bundle();
+                                        userInformation.putParcelableArrayList("userInfo",userInfo);
+                                        homeActivity(userInformation);
 
 
                                         Log.d("EditUser","Successful");
