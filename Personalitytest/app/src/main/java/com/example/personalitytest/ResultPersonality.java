@@ -134,7 +134,7 @@ public class ResultPersonality extends AppCompatActivity implements Serializable
             case "INFP":
                 return R.drawable.champion;
             case "IOTP":
-                return R.drawable.administrator_;
+                return R.drawable.administrator;
             case "INFJ":
                 return R.drawable.maestro;
             case "IOFP":
