@@ -148,6 +148,7 @@ public class usersettings extends AppCompatActivity {
         results.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("userInfo Check", userInfo.toString());
                 Bundle userInformation = new Bundle();
                 userInformation.putParcelableArrayList("userInfo",userInfo);
                 toresultssactivity(userInformation);
@@ -190,10 +191,7 @@ public class usersettings extends AppCompatActivity {
                                         Log.d("result check", "Success!");
 
                                         userInfo = result;
-                                        Log.d("test userInfo", userInfo.get(0).getName());
-                                        /*Bundle userInformation = new Bundle();
-                                        userInformation.putParcelableArrayList("userInfo",userInfo);
-                                        toresultssactivity(userInformation);*/
+                                        Log.d("test userInfo", userInfo.get(0).getDob());
 
                                         Context context = getApplicationContext();
                                         CharSequence text = "Edit Saved!";
@@ -201,6 +199,9 @@ public class usersettings extends AppCompatActivity {
                                         Toast toast = Toast.makeText(context, text, duration);
                                         toast.show();
 
+                                        Bundle userInformation = new Bundle();
+                                        userInformation.putParcelableArrayList("userInfo",userInfo);
+                                        toresultssactivity(userInformation);
                                         /*Bundle userInformation = new Bundle();
                                         userInformation.putParcelableArrayList("userInfo",userInfo);
                                         homeActivity(userInformation);*/

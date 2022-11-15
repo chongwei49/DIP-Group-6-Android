@@ -20,6 +20,18 @@ public class Trait implements Parcelable {
         this.description = description;
     }
 
+    public static final Creator<Trait> CREATOR = new Creator<Trait>() {
+        @Override
+        public Trait createFromParcel(Parcel in) {
+            return new Trait(in);
+        }
+
+        @Override
+        public Trait[] newArray(int size) {
+            return new Trait[size];
+        }
+    };
+
     public Integer getPriId() {
         return this.priId;
     }
